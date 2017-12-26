@@ -1,0 +1,220 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClassLibrary", "ClassLibrary", "{DD81CDD7-BC86-4F10-B160-8ADC792EE97D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{095E1B72-02B9-446C-8C3D-C66608AA66FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WS", "WS", "{96CCA8EC-1F97-4E1C-9216-295952F99722}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuirPlusCL", "SuirPlusCL\SuirPlusCL.csproj", "{04C4EC76-7445-4DCB-AD72-8077922BB7D8}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebServicesTSS", "WebServicesTSS\", "{5643C8A6-755C-4979-A61A-2F147EE3FAA4}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{04C4EC76-7445-4DCB-AD72-8077922BB7D8}|SuirPlusCL.dll;{7fd1d3a8-f249-475a-bad3-d7ad6e78d660}|SuirPlusEF.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/WebServicesTSS"
+		Debug.AspNetCompiler.PhysicalPath = "WebServicesTSS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebServicesTSS\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebServicesTSS"
+		Release.AspNetCompiler.PhysicalPath = "WebServicesTSS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebServicesTSS\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "42545"
+		SlnRelativePath = "WebServicesTSS\"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SuirPlusWebSite", "http://localhost:30991", "{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{04c4ec76-7445-4dcb-ad72-8077922bb7d8}|SuirPlusCL.dll;{7fd1d3a8-f249-475a-bad3-d7ad6e78d660}|SuirPlusEF.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/SuirPlusWebSite"
+		Debug.AspNetCompiler.PhysicalPath = "SuirPlusWebSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SuirPlusWebSite\"
+		Debug.AspNetCompiler.Updateable = "false"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SuirPlusWebSite"
+		Release.AspNetCompiler.PhysicalPath = "SuirPlusWebSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SuirPlusWebSite\"
+		Release.AspNetCompiler.Updateable = "false"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "SuirPlusWebSite\"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{204888A3-3649-4E16-B02C-7E59E82F6F46}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF", "EF", "{AA4EBA26-A626-4CCD-9694-2FD9193F9C20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuirPlusEF", "SuirPlusEF\SuirPlusEF.csproj", "{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{F2CD80AA-26E1-4C13-A2F0-6A391DAD342F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseMigrations", "DatabaseMigrations\DatabaseMigrations.csproj", "{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LanzadorProcesos", "LanzadorProcesos", "{EF3DCDEA-38BF-40EA-8415-29BCEF2BD1D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanzadorProcesos", "LanzadorProcesos\LanzadorProcesos.csproj", "{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SuirPlusTests", "SuirPlusTests", "{8B6722C4-BF8E-4167-ADC9-1C30EFEEE6CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuirPlusUnitTests", "SuirPlusUnitTests\SuirPlusUnitTests.csproj", "{7EA856A7-91B4-45A1-A83E-EE941321D8CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TFSNotifier", "TFSNotifier", "{E6F8BE56-3DB8-47FB-9C30-27A2146BAFE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suir.TFS.Notifier", "Suir.TFS.Notifier\Suir.TFS.Notifier.csproj", "{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SuirPlusAPI", "SuirPlusAPI", "{48A9E054-BEEE-468E-8E68-E7C631F9738F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suir.API", "Suir.API\Suir.API.csproj", "{D5196672-1877-4676-855C-A14455746AE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8}.Release|x86.ActiveCfg = Release|Any CPU
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4}.Release|x86.ActiveCfg = Debug|Any CPU
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9}.Release|x86.ActiveCfg = Debug|Any CPU
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660}.Release|x86.ActiveCfg = Release|Any CPU
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}.Release|x86.ActiveCfg = Release|Any CPU
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB}.Release|x86.ActiveCfg = Release|Any CPU
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Debug|x86.Build.0 = Debug|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Release|x86.ActiveCfg = Release|Any CPU
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14}.Release|x86.Build.0 = Release|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Debug|x86.Build.0 = Debug|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Release|x86.ActiveCfg = Release|Any CPU
+		{D5196672-1877-4676-855C-A14455746AE8}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{04C4EC76-7445-4DCB-AD72-8077922BB7D8} = {DD81CDD7-BC86-4F10-B160-8ADC792EE97D}
+		{5643C8A6-755C-4979-A61A-2F147EE3FAA4} = {96CCA8EC-1F97-4E1C-9216-295952F99722}
+		{214C4318-57C9-4037-BBEA-0EC40CDDFCC9} = {095E1B72-02B9-446C-8C3D-C66608AA66FB}
+		{7FD1D3A8-F249-475A-BAD3-D7AD6E78D660} = {AA4EBA26-A626-4CCD-9694-2FD9193F9C20}
+		{7FE5EB49-C085-4EBA-9026-0F4D95C5999E} = {F2CD80AA-26E1-4C13-A2F0-6A391DAD342F}
+		{6E0DB5CE-C88E-4346-BB28-EEE4225A89AB} = {EF3DCDEA-38BF-40EA-8415-29BCEF2BD1D5}
+		{7EA856A7-91B4-45A1-A83E-EE941321D8CA} = {8B6722C4-BF8E-4167-ADC9-1C30EFEEE6CD}
+		{2B70DE5A-3CF7-4C70-B5EF-DB4FB1419F14} = {E6F8BE56-3DB8-47FB-9C30-27A2146BAFE8}
+		{48A9E054-BEEE-468E-8E68-E7C631F9738F} = {8B6722C4-BF8E-4167-ADC9-1C30EFEEE6CD}
+		{D5196672-1877-4676-855C-A14455746AE8} = {48A9E054-BEEE-468E-8E68-E7C631F9738F}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = SuirPlus2010.vsmdi
+	EndGlobalSection
+EndGlobal

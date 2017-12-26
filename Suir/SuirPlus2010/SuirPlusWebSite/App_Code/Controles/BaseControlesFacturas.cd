@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="BaseCtrlFactura">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>App_Code\Controles\ClasesDeControlesDeFactura.vb</FileName>
+      <HashCode>ABAAEAQAAEAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseCtrlFacturaEncabezado">
+    <Position X="5.75" Y="4.75" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>App_Code\Controles\ClasesDeControlesDeFactura.vb</FileName>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAAAAAggA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseCtrlFacturaDetalle">
+    <Position X="0.5" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>App_Code\Controles\ClasesDeControlesDeFactura.vb</FileName>
+      <HashCode>AAAAgAAAAAAAAAAAAAABAAAABBIAAIAAAAQAAAIAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

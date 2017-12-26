@@ -1,0 +1,98 @@
+﻿<script type="text/javascript">
+
+    $(function () {
+
+
+       
+        if ($("#nrosolicitudEnf").val() != null) {
+            $("#nrosolimagen").val($("#nrosolicitudEnf").val());
+       
+        }
+        else if ($("#nrosolicitud").val() != "0") {
+            $("#nrosolimagen").val($("#nrosolicitud").val());
+       
+        } else {
+            $("#nrosolimagen").val($("#nrosolicitud2").val());
+       
+        }
+
+
+        $("#msgimg").html("");
+
+        $('.upload').fileUploadUI({
+            uploadTable: $('.upload_files'),
+            downloadTable: $('.download_files'),
+            buildUploadRow: function (files, index) {
+
+                var file = files[index];
+                return $('<tr><td>' + file.name + '<\/td>' +
+                '<td class="file_upload_progress"><div><\/div><\/td>' +
+                '<td class="file_upload_cancel">' +
+                '<div class="ui-state-default ui-corner-all ui-state-hover" title="Cancel">' +
+                '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
+                '<\/div><\/td><\/tr>');
+
+            },
+
+            buildDownloadRow: function (file) {
+
+                return $(
+                        '<tr><td>' + file.name + '<\/td><\/tr>'
+                );
+
+            },
+            onComplete: function (event, files, index, xhr, handler) {
+
+                var msg = handler.response.d;
+
+                if (msg != "Exito") {
+
+                    $("#msgimg").html(handler.response.d);
+                    HabilitarOpciones();
+                } else {
+
+                    $("#msgimg").html("Carga realizada!");
+                    HabilitarOpciones();
+                }
+            },
+            onAbort: function (event, files, index, xhr, handler) {
+                handler.removeNode(handler.uploadRow);
+            }
+        });
+    });
+
+
+    function HabilitarOpciones() {
+
+        var valor = $("#msgimg").html();
+        if (valor == "Carga realizada!") {
+            $('.trCargarMat').hide();
+            $('.trVerMat').show();
+            $('.trCargarEnf').hide();
+            $('.trVerEnf').show();
+        }
+        else {
+            $('.trCargarMat').show();
+            $('.trVerMat').hide();
+            $('.trCargarEnf').show();
+            $('.trVerEnf').hide();
+        }
+
+    }
+
+
+</script>
+
+<form class="upload" action="../Services/CargarImagenFormulario.ashx" method="post"
+    enctype="multipart/form-data">
+    <input type="hidden" name="nrosolimagen" id="nrosolimagen" />
+    <input type="file" name="file" />
+    <button id="btnupload">Upload</button>
+    <div style="cursor: pointer">
+        Cargar Imagen
+    </div>
+</form>
+<table class="upload_files" />
+<table class="download_files" style="visibility: hidden;" />
+<span id="msgimg" class="error"></span>
+

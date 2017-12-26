@@ -1,0 +1,850 @@
+﻿<script language="javascript" type="text/javascript">
+
+    var flagMedico;
+    var flagPSS;
+
+    $(function myfunction() {
+
+        flagMedico = true;
+        flagPSS = true;
+
+        $(".button").button();
+        $(".fecha").datepicker($.datepicker.regional['es']);
+        $(".fecha").live('change', Util.EvitarPaste);
+        $("#direccionmedico").val("");
+        $("#direccionpss").val("");
+        $("#cantidadlactante").change(CantidadLactantes);
+
+        $("#cancelarPN").click(CancelarLicencia);
+        $("#registrarPN").click(RegistrarLicenciaPostNatal)
+
+        CantidadLactantes();
+
+        $(".telefono").mask("(999)-999-9999");
+        $("#nroformulariopostnatal").val($("#nroformularioprincipal").val());
+        $("#nrosolicitudpostnatal").val($("#nrosolicitud").val());
+        $(".nssMadre").val($("#nss").html());
+
+        $("#registropatronalpostnatal").val($("#registropatronalregistro").val());
+        $("#usuariolicenciapostnatal").val($("#usuarioregistro").val());
+
+        //Obtener el listado de las PSS'S // 
+        getPssList();
+
+    });
+
+
+    //Registro--------------------------------------------------
+    function RegistrarLicenciaPostNatal() {
+        $("#registrarPN").attr('disabled', true);
+
+        $("#mensajePostNatal").html("");
+        $("#mensajeerrorpss").html("");
+
+        var fechalicencia = $("#fechalicencia").datepicker("getDate");
+        var fechanacimiento = $("#fechanacimiento").datepicker("getDate");
+        var hoy = new Date();
+
+        if ($("#telefonomedico").val() == "") {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("El teléfono del médico es obligatorio...");
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if ($("#direccionmedico").val() == "") {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("La dirección del consultorio es obligatoria...");
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if ($("#numeropss").val() == "") {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("El número de la PSS es obligatorio...");
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if ($("#direccionpss").val() == "") {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("La dirección de la PSS es obligatoria...");
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if ($("#telefonopss").val() == "") {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("El teléfono de la PSS es obligatorio...");
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if (flagPSS) {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("Debe ejecutar la búsqueda de la PSS");
+            $("#buscarpss").val("");
+            $("#buscarpss").focus();
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if ($("#cedulamedico").val() == "") {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("Debe digitar una cédula para buscar el médico");
+            flagMedico = true;
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if (flagMedico) {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("Debe ejecutar la búsqueda del médico");
+            $("#cedulamedico").val("");
+            $("#cedulamedico").focus();
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if ($("#fechalicencia").val() == "") {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("La fecha de licencia es obligatoria.");
+            $("#fechalicencia").focus();
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if ($("#fechadiagnostico").val() == "") {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("La fecha de diagnóstico es obligatoria.");
+            $("#fechadiagnostico").focus();
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if ($("#fechanacimiento").val() == "") {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("La fecha de nacimiento es obligatoria.");
+            $("#fechanacimiento").focus();
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if (DatosObligatoriosVacios()) {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("Debe completar los datos obligatorios de los lactantes (Nombre, Primer Apellido)");
+            $("#registrarPN").attr('disabled', false);
+        }
+        else if (fechanacimiento > hoy) {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html("La fecha de nacimiento no puede ser futura.");
+            $("#fechanacimiento").focus();
+            $("#registrarPN").attr('disabled', false);
+        }
+        else {
+            try {
+                var Url = loc + "/RegistrarLicenciaPostNatal";
+                var data = $('#formpostnatal').serialize();
+
+                $.get(Url, data, resultadoLicenciaPost);
+            }
+            catch (e) {
+                $("#mensajePostNatal").addClass("error");
+                $("#mensajePostNatal").html(e);
+                $("#registrarPN").attr('disabled', false);
+            }
+        }
+
+    }
+    function resultadoLicenciaPost(xmlinfo) {
+
+        var mixml = $(xmlinfo);
+        try {
+            var result = mixml.find('string').text();
+
+            if (result != 'OK') {
+                $("#mensajePostNatal").addClass("error");
+                $("#mensajePostNatal").html(result);
+                $("#registrarPN").attr('disabled', false);
+            }
+            else {
+                if ($("#fechanacimiento").val() == "") {
+                    Exito("El reporte retroactivo se ejecutó exitosamente");
+                } else {
+                    $("#formpostnatal").html("");
+                    buscarFormulario('CargarImagenFormulario.htm');
+                    
+                    //Limpiando el Menu
+                    $("#ToDoList").html("");
+                }
+            }
+        }
+        catch (e) {
+            $("#mensajePostNatal").addClass("error");
+            $("#mensajePostNatal").html(e);
+            $("#registrarPN").attr('disabled', false);
+        }
+    }
+    function CancelarLicencia() {
+        getFormulario('InicioReporteLicencia.htm');
+    }
+    function getFormulario(form) {
+        $.get(form, getFormularioLicencia);
+    }
+    function getFormularioLicencia(data) {
+        $("#Formulario").html(data);
+    }
+    //EO-Registro-----------------------------------------------
+
+
+    //Medico---------------------------------------------------
+    function BuscarMedico() {
+
+        $("#mensajeerrormedico").html("");
+        try {
+            if ($.trim($("#cedulamedico").val()) == "") {
+                $("#mensajeerrormedico").addClass("error");
+                $("#mensajeerrormedico").html("Debe de digitar la cédula que desea buscar...");
+                $("#cedulamedico").val("");
+                $("#cedulamedico").focus();
+
+                flagMedico = true;
+            }
+            else if (!$("#cedulamedico").val().length == 11) {
+                $("#mensajeerrormedico").addClass("error");
+                $("#mensajeerrormedico").html("Cédula incorrecta");
+                $("#cedulamedico").val("");
+                $("#cedulamedico").focus();
+            }
+            else {
+                var Url = loc + "/getDetalleMedico";
+                var data = '{ cedulamedico: "' + $("#cedulamedico").val() + '" }';
+
+                Util.llamarWS(Url, data, recibirResultadoMedico, ajaxFailed);
+            }
+        } catch (e) {
+            $("#mensajeerrormedico").html(e);
+            $("#mensajeerrormedico").addClass('error');
+            $("#cedulamedico").val("");
+            $("#cedulamedico").focus();
+
+            flagMedico = true;
+        }
+    }
+    function recibirResultadoMedico(infomedico) {
+        try {
+            if (typeof infomedico.d == "string") {
+                $("#mensajeerrormedico").addClass("error");
+                $("#mensajeerrormedico").html(infomedico.d);
+                $("#cedulamedico").val("");
+                $("#cedulamedico").focus();
+
+                $(".textmedico").val("");
+                flagMedico = true;
+            }
+            else {
+                $("#mensajeerrormedico").html("");
+                flagMedico = false;
+
+                $("#medicoexequatur").val(infomedico.d.nromedico);
+                $("#mediconombre").val(infomedico.d.mediconombre);
+                $("#direccionmedico").val(infomedico.d.direcciomedico);
+                if (!isNaN(infomedico.d.telefonomedico)) {
+                    $("#telefonomedico").val(infomedico.d.telefonomedico);
+                }
+                if (!isNaN(infomedico.d.celularmedico)) {
+                    $("#celularmedico").val(infomedico.d.celularmedico);
+                }
+            }
+        } catch (e) {
+            $("#mensajeerrormedico").addClass("error");
+            $("#mensajeerrormedico").html(e);
+        }
+    }
+    //EO-Medico-------------------------------------------------
+
+
+    //PSS-----------------------------------------------------
+    function getPssList() {
+        try {
+            $("#buscarpss").autocomplete({
+                source: function (request, response) {
+                    $.debounce(250,
+                $.ajax({
+                    type: "POST",
+                    url: loc + "/getPssList",
+                    cache: false,
+                    contentType: "application/json; charset=utf-8",
+                    data: '{ pssNombre: "' + request.term + '" }',
+                    dataType: "json",
+                    success: function (data) {
+                        response($.map(data.d, function (item) {
+                            return {
+                                value: item
+                            }
+                        }))
+                    },
+                    error: function () {
+                        $("#mensajeerrorpss").html("Ha ocurrido un error en la busqueda de la PSS, favor revisar el nombre e intentar de nuevo");
+                    },
+                    minLength: 5
+                }));
+            },
+                minLength: 3
+            });
+        } catch (e) {
+            $("#mensajeerrorpss").html("Ha ocurrido un error en la busqueda de la PSS, favor revisar el nombre e intentar de nuevo");
+            console.log(e);
+        }
+
+    }
+    function BuscarPss() {
+        try {
+            if (!$.trim($("#buscarpss").val()) == "") {
+                var Url = loc + "/getDetallePss";
+                var data = '{ PssNombre: "' + $("#buscarpss").val() + '" }';
+
+                Util.llamarWS(Url, data, recibirResultadoPss, ajaxFailed);
+                $("#mensajeerrorpss").html("");
+                $("#mensajePostNatal").html("");
+
+                flagPSS = false;
+            }
+            else {
+                $("#mensajeerrorpss").html("Debe de digitar la PSS que desea buscar...");
+                $("#mensajeerrorpss").addClass("error");
+                $("#buscarpss").val("");
+                $("#buscarpss").focus();
+
+                flagPSS = true;
+                LimpiarDatosPss();
+            }
+        }
+        catch (e) {
+            $("#mensajeerrorpss").html("Ha ocurrido un error en la busqueda de la PSS, favor revisar el nombre e intentar de nuevo");
+            console.log(e);
+        }
+    }
+    function recibirResultadoPss(infoPss) {
+        var rncpss;
+        try {
+            if (typeof infoPss.d == "string") {
+                $("#mensajeerrorpss").addClass("error");
+                $("#mensajeerrorpss").html(infoPss.d);
+                $("#buscarpss").val("");
+                $("#buscarpss").focus();
+
+                flagPSS = true;
+            }
+            else {
+
+                flagPSS = false;
+
+                $("#mensajeerrorpss").html("");
+                $("#nombrepss").val(infoPss.d.nombrepss);
+                $("#direccionpss").val(infoPss.d.direccionpss);
+                if (!isNaN(infoPss.d.telefonopss)) {
+                    $("#telefonopss").val(infoPss.d.telefonopss);
+                }
+                $("#rncpss").val(infoPss.d.rncpss);
+                $("#numeropss").val(infoPss.d.numeropss);
+            }
+        }
+        catch (e) {
+            alert(e);
+        }
+    }
+    function ValidarNum(v) {
+        try {
+            v.value = v.value.replace(/([^0-9].*)/g, "");
+            return true;
+        } catch (e) {
+            alert(e);
+        }
+    }
+    function LimpiarDatosPss() {
+        $(".textpss").val("");
+        $("#mensajeerrorpss").html("");
+    }
+    //EO-PSS--------------------------------------------------
+
+
+    //Lactantes-----------------------------------------------
+    function nuiDuplicado(lactante, id) {
+        if (lactante.value) {
+            for (var i = 1; i <= $("#cantidadlactante").val(); i++) {
+                if (lactante.value != "") {
+                    if ((lactante.value == $("#nui" + i).val()) && id != i) {
+                        LimpiarFila(id);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    function nssDuplicado(lactante, id) {
+        if (lactante.value) {
+            for (var i = 1; i <= $("#cantidadlactante").val(); i++) {
+                if (lactante.value != "") {
+
+                    if ((lactante.value == $("#nsslactante" + i).val()) && id != i) {
+                        $("##nsslactante" + id).val("");
+                        LimpiarFila(id);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    function BuscarLactante(lactante, id) {
+
+        if (lactante.value) {
+
+            if (nssDuplicado(lactante, id)) {
+                return;
+            }
+
+            var Url = loc + "/getLactante";
+            var data = '{ nsslactante: "' + lactante.value + '", idTextBox: "' + id + '" }';
+
+            Util.llamarWS(Url, data, function (info) {
+
+                try {
+
+                    if (typeof info.d == "string") {
+                        LimpiarFila(id);
+                        $("#texto").addClass("error");
+                        $("#texto").html("");
+                        $("#texto").html(info.d);
+                    }
+                    else {
+                        $("#texto").html("");
+                        $("#nombreslactante" + id).val(info.d.nombres);
+                        $("#papellidolactante" + id).val(info.d.primerapellido);
+                        $("#sapellidolactante" + id).val(info.d.segundoapellido);
+                        $("#sexolactante" + id).val(info.d.sexo);
+                        $("#nuilactante" + id).val(info.d.nodocumento);
+                        $("#nombreslactante" + id).attr("disabled", true);
+                        $("#papellidolactante" + id).attr("disabled", true);
+                        $("#sapellidolactante" + id).attr("disabled", true);
+                        $("#sexolactante" + id).attr("disabled", true);
+                        $("#nuilactante" + id).attr("disabled", true);
+                    }
+
+                }
+                catch (e) {
+
+                    alert(e);
+                }
+                //Verificar si ya se llenaron todos los datos para habilitar el boton de insertar
+                DatosObligatoriosVacios();
+            },
+            ajaxFailed);
+        }
+        else {
+            LimpiarFila(id);
+        }
+    }
+    function LimpiarFila(i) {
+        $("#nombres" + i).val("");
+        $("#papellido" + i).val("");
+        $("#texto").html("")
+        $("#nombres" + i).val("");
+        $("#papellido" + i).val("");
+        $("#sapellido" + i).val("");
+        $("#sexo" + i).val("");
+        $("#nui" + i).val("");
+        $("#nombres" + i).attr("disabled", false);
+        $("#papellido" + i).attr("disabled", false);
+        $("#sapellido" + i).attr("disabled", false);
+        $("#sexo" + i).attr("disabled", false);
+        $("#nui" + i).attr("disabled", false);
+    }
+    function CantidadLactantes() {
+        // Limpiar
+        $(".fila").remove();
+        try {
+            for (var i = 0; i < $("#cantidadlactante").val(); i++) {
+
+                // Agregar
+                agregarFila(i + 1);
+            }
+        } catch (e) {
+            alert(e);
+        }
+    }
+    function Apellidos(id) {
+
+        var i = id.id.toString().replace("papellido", "").replace("sapellido", "");
+
+        if (id.id == "papellido" + i) {
+            $("input[id ^= 'papellido']").val($("#papellido" + i).val());
+        }
+        if (id.id == "sapellido" + i) {
+            $("input[id ^= 'sapellido']").val($("#sapellido" + i).val());
+        }
+
+        //Verificar si ya se llenaron todos los datos para habilitar el boton de insertar
+        DatosObligatoriosVacios();
+
+    }
+    function agregarFila(i) {
+
+        // Config //
+
+        var sb = "";
+
+        sb += "<tr class=\"fila\" >"
+        sb += "<td>"
+        sb += "<input type=\"text\" maxlength=\"9\" onkeypress=\"return numbersonly(this,event);\" onchange=\"BuscarLactante(this," + i + ");\"name=\"nsslactante" + i + "\"id=\"nsslactante" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"DatosObligatoriosVacios();\" name=\"nombreslactante" + i + "\" id=\"nombres" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"Apellidos(this);\" name=\"papellidolactante" + i + "\" id=\"papellido" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"Apellidos(this);\" name=\"sapellidolactante" + i + "\" id=\"sapellido" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"nuiDuplicado(this," + i + ");\" name=\"nuilactante" + i + "\" id=\"nui" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<select name=\"sexolactante" + i + "\" id=\"sexo" + i + "\"><option value=\"F\" >Femenino</option><option  value=\"M\" >Masculino</option></select>"
+        sb += "</td>"
+        sb += "</tr>"
+
+        // Agregar//
+        $("#lactantes").append(sb);
+
+    }
+    function DatosObligatoriosVacios() {
+
+        for (var i = 1; i <= $("#cantidadlactante").val(); i++) {
+
+            if (($("#nombres" + i).val() == "") || ($("#papellido" + i).val() == "")) {
+                return true;
+            }
+        }
+        return false;
+    }
+    //EO-Lactantes--------------------------------------------
+
+</script>
+<style>
+    .Columna
+    {
+        width: 100px;
+    }
+    .Titulo
+    {
+        font-size: 14px;
+        font-weight: bold;
+        color: #016BA5;
+        font-family: Arial;
+        margin-right: 60px;
+    }
+    .Titulo2
+    {
+        font-size: 14px;
+        font-weight: bold;
+        color: #016BA5;
+        font-family: Arial;
+        margin-left: 60px;
+    }
+    .searchBox
+    {
+        width: 80%;
+        border: 2px solid #E4EDF9;
+        background-image: url('../images/zoom.png');
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-left: 20px;
+        font-size: 12pt;
+        font-weight: bold;
+        display: inline;
+    }
+</style>
+<form id="formpostnatal">
+<fieldset style="width: 700px; height: auto">
+    <input type="hidden" name="usuariolicenciapostnatal" id="usuariolicenciapostnatal"
+        value="" />
+    <input type="hidden" name="nroformulariopostnatal" id="nroformulariopostnatal" />
+    <input type="hidden" name="nrosolicitudpostnatal" id="nrosolicitudpostnatal" />
+    <input type="hidden" name="registropatronalpostnatal" id="registropatronalpostnatal"
+        value="" />
+    <input type="hidden" name="modo" id="modo" class="modo" value="n" />
+    <input type="hidden" name="nssmadre" id="nssLicencia" class="nssMadre" />
+    <legend class="header" style="font-size: 14px; font-weight: normal;">Registro de Licencia
+        post Natal</legend>
+    <br />
+    <span class="Titulo">Datos del Médico</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="Titulo2">Datos De La PSS (Clínica, Hospital)</span><br />
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0" style="width: 752px">
+        <tr>
+            <td align="left" valign="top">
+                <span>Cédula Del Médico: (*)</span>
+                <input type="text" name="cedulamedico" id="cedulamedico" maxlength="11" value=""
+                    onkeypress="return numbersonly(this,event);" />&nbsp; <a href="#" onclick="BuscarMedico();">
+                        <img src="../images/zoom.png" alt="Buscar" />
+                    </a>
+                <br />
+                <span id="mensajeerrormedico"></span>
+                <br />
+            </td>
+            <td style="width: 50px;">
+            </td>
+            <td align="left" valign="top">
+                <span>Nombre de la PSS (Clínica, Hospital): (*)</span>
+                <input type="text" name="buscarpss" id="buscarpss" />&nbsp; <a href="#" onclick="BuscarPss();">
+                    <img src="../images/zoom.png" alt="Buscar" />
+                </a>
+                <br />
+                <span id="mensajeerrorpss"></span>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <table class="td-content" style="width: 315px;">
+                    <tr>
+                        <td>
+                            <br />
+                            <span>Exequatur:</span>
+                        </td>
+                        <td class="Columna">
+                            <br />
+                            <input type="text" name="medicoexequatur" id="medicoexequatur" class="textmedico"
+                                value="" style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Nombre:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="mediconombre" id="mediconombre" class="textmedico" value=""
+                                style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Dirección Consultorio:</span> (*)
+                        </td>
+                        <td>
+                            <textarea id="direccionmedico" name="direccionmedico" rows="2" cols="15" class="input textmedico"
+                                style="width: 135px">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Teléfono Consultorio:</span> (*)
+                        </td>
+                        <td>
+                            <input type="text" name="telefonomedico" id="telefonomedico" value="" class="telefono textmedico"
+                                style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Celular:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="celularmedico" id="celularmedico" value="" class="telefono textmedico"
+                                style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Correo Electrónico:</span>
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <input type="text" name="correomedico" id="correomedico" class="textmedico" value=""
+                                style="width: 135px" />
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 40px;">
+            </td>
+            <td valign="top">
+                <table class="td-content" style="width: 330px; vertical-align: top;">
+                    <tr>
+                        <td>
+                            <br />
+                            Número PSS: (*)
+                        </td>
+                        <td>
+                            <br />
+                            <input type="text" name="numeropss" class="textpss" id="numeropss" style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Nombre:
+                        </td>
+                        <td>
+                            <input type="text" name="nombrepss" class="textpss" id="nombrepss" style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            RNC:
+                        </td>
+                        <td>
+                            <input type="text" name="rncpss" class="textpss" value="" id="rncpss" style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Dirección: (*)
+                        </td>
+                        <td>
+                            <textarea id="direccionpss" name="direccionpss" rows="2" cols="15" class="input textpss"
+                                style="width: 135px">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Teléfono: (*)
+                        </td>
+                        <td>
+                            <input type="text" name="telefonopss" value=" " id="telefonopss" class="telefono textpss"
+                                style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Fax:
+                        </td>
+                        <td>
+                            <input type="text" name="faxpss" value=" " id="faxpss" class="telefono textboxpss"
+                                style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Correo Electrónico:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="correopss" class="textpss" id="correopss" style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <br />
+                <span class="Titulo">Datos de la Licencia</span>
+                <br />
+                <br />
+                <table class="td-content" style="width: 408px;">
+                    <tr>
+                        <td>
+                            <br />
+                            <span>Fecha de licencia:</span> (*)
+                        </td>
+                        <td>
+                            <br />
+                            <input type="text" class="fecha" name="fechalicencia" id="fechalicencia" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Fecha de&nbsp; Diagnóstico:</span> (*)
+                        </td>
+                        <td>
+                            <input type="text" class="fecha" name="fechadiagnostico" id="fechadiagnostico" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Diagnóstico:</span> (*)
+                        </td>
+                        <td>
+                            <textarea id="diagnostico" name="diagnostico" rows="4" class="input" style="width: 204px;
+                                height: 54px;"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Síntomas:</span>
+                        </td>
+                        <td>
+                            <textarea id="sintomas" name="sintomas" rows="4" class="input" style="width: 204px;
+                                height: 54px;" cols="20"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Procedimientos:</span>
+                        </td>
+                        <td>
+                            <textarea id="procedimientos" name="procedimientos" rows="4" class="input" style="width: 204px;
+                                height: 54px;" cols="20"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br />
+</fieldset>
+<br />
+<fieldset style="width: 700px; height: auto">
+    <legend class="header" style="font-size: 14px; font-weight: normal;">Reporte de Nacimiento</legend>
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <span>Fecha de Nacimiento (*)</span><br />
+                <input type="text" class="fecha" name="fechanacimiento" id="fechanacimiento" value="" />
+            </td>
+            <td>
+                <span>Cantidada de Lactantes</span>
+                <br />
+                <select id="cantidadlactante" name="cantidadlactante">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0" id="lactantes">
+        <tr>
+            <td>
+                NSS (opcional)
+            </td>
+            <td>
+                Nombre(s) (*)
+            </td>
+            <td>
+                Primer apellido (*)
+            </td>
+            <td>
+                Segundo Apellido (*)
+            </td>
+            <td>
+                NUI (opcional)
+            </td>
+            <td>
+                Sexo
+            </td>
+        </tr>
+    </table>
+    <br />
+</fieldset>
+<br />
+<input type="button" name="registrar" class="button" id="registrarPN" value="Registrar"
+    style="font-size: 11px;" />
+<input type="button" name="cancelar" id="cancelarPN" class="button" value="Cancelar"
+    style="font-size: 11px;" />
+<br />
+<br />
+<span id="mensajePostNatal"></span>
+</form>

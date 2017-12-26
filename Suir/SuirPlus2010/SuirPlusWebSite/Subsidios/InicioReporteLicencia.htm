@@ -1,0 +1,142 @@
+﻿<script language="javascript" type="text/javascript">
+    var hash;
+
+    $(function Inicio() {
+        $("#PreNatal").button();
+        $("#PostNatal").button();
+
+        //NumeroFormulario();
+
+        var SpaceForm = $("#Formulario");
+        $("#PostNatal").click(function () {
+            $.get('LicenciaPostNatal.htm', function (form) {
+                SpaceForm.html(form);
+            });
+        });
+        $("#PreNatal").click(function () {
+            $.get('ReporteLicencia.htm', function (form) {
+                SpaceForm.html(form);
+            });
+        });
+
+        $("#btnimprimir").click(NumeroFormulario);
+    });
+
+    function NumeroFormulario() {
+        var Url = loc + "/ObtenerNumeroFormulario";
+        var data = '{ nss: "' + $("#nss").html() + '", registropatronal: "' + $("#registropatronalregistro").val() + '", cedula: "' + $("#nodocumento").html() + '" }';
+
+        Util.llamarWS(Url, data, function (nro) {
+            $("#nroformularioprincipal").val(nro.d.nroformulario);
+            $("#hash").val(nro.d.hash);
+
+            var page = 'FormularioLicencia.aspx?nss=' + $("#nss").html() + '&cedula=' + $("#nodocumento").html()
+                   + '&nombre=' + $("#nombre").html() + '&hash=' + $("#hash").val();
+
+            window.open(page, "", "width=840px,height=5000px").print();
+        }, ajaxFailed);
+    }
+   
+</script>
+<style type="text/css">
+    .Titulo
+    {
+        font-size: 14px;
+        font-weight: bold;
+        color: #016BA5;
+        font-family: Arial;
+        margin-right: 60px;
+    }
+    .style2
+    {
+        width: 173px;
+        height: 122px;
+    }
+    .style3
+    {
+        width: 173px;
+        height: 122px;
+    }
+</style>
+<input type="hidden" id="nroformulario" name="nroformulario" />
+<input type="hidden" id="hash" name="hash" />
+<fieldset style="width: 600px; height:auto">
+    <legend class="header" style="font-size: 14px; font-weight: normal;">Registro de Licencia</legend>
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="3" align="right">
+                 <b><a href="#" id = "btnimprimir">Imprimir Formulario Maternidad</a></b>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <br />
+                <table class="td-content" style="width: 253px;">
+                    <tr>
+                        <td>
+                            <br />
+                            <span class="Titulo">Licencia Pre-Natal</span><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img class="style2" src="../images/prenatal.jpg" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <br />
+                            <span style="margin-left: 10px; font-size: 10px" class="header">Crear una solicitud
+                                de licencia pre y post natal antes del nacimiento del/los lactante/s</span><br />
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <input type="button" name="Insertar" id="PreNatal" class="button" value="Pre-Natal" /><br />
+                            <br />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 40px;">
+            </td>
+            <td valign="top">
+                <br />
+                <table class="td-content" style="width: 253px;">
+                    <tr>
+                        <td>
+                            <br />
+                            <span class="Titulo">Licencia Post-Natal</span><br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img class="style3" src="../images/postnatal.jpg" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <br />
+                            <span style="margin-left: 10px; font-size: 10px" class="header">Crear una solicitud
+                                de licencia pre y post natal despues del nacimiento del/los lactante/s </span>
+                            <br />
+                            <br />
+                        </td>
+                        <tr>
+                            <td align="center">
+                                <input type="button" name="Insertar1" id="PostNatal" class="button" value="Post-Natal" /><br />
+                                <br />
+                            </td>
+                        </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <span id="mensaje"></span>
+</fieldset>
+<div id = "form">
+</div>

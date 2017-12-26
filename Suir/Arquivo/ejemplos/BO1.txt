@@ -1,0 +1,109 @@
+EBO  401517078032014
+DC04800916084              JINETTE                                           CRUZ                                    BRITO                                     F180719850000000000816.77
+DC04800729834              MARLENY                                           RODRIQUEZ                               GARCIA                               F011219790000000001281.12
+DC04801001340              FRANCIA DEL CARMEN                                LOPEZ                                   HENRIQUEZ                               F241219860000000002664.73
+DC04801064918              FRANCISCO JAVIER                                  ADAMES                                                                          M190919840000000003074.69
+DC04800344881              NICOLAS                                           MORONTA                                 ABAD                                    M311219720000000003192.84
+DC04801087307              RAFAEL                                            RAMIREZ                                 MARTE                                   M071219920000000003638.38
+DC04800735740              MARIA                                             CORREA                                  FERNANDEZ                                   F201019800000000004407.06
+DC04801023377              RAMON                                             BATISTA                                 ANGELES                                 M030419890000000004458.30
+DC04800232060              MARTINA                                           REYES                                   BATISTA                                 F030919730000000004612.04
+DC04801052392              JANIBEL ALEXANDRA                                 PIMENTEL                                CISNERO                                 F110519910000000004868.26
+DC04800848980              ENMANUEL                                          FERREIRA                                SANCHEZ                                 M220619820000000006456.85
+DC04800658405              JOSE LUIS                                         FERNANDEZ                               COLLADO                                 M180619780000000006610.58
+DC04800251722              GERMAN                                            GONZALEZ                                DE JESUS                           M280519430000000006713.07
+DC40220511642              WANDA ARACELIS                                    LOPEZ                                   DIAZ                                    F190919900000000007071.79
+DC04801025513              FELIX ANTONIO                                     CRUZ                                    SANCHEZ                                 M300919890000000007276.77
+DC04801085905              YOHANNA                                           MEJIA                                   VASQUEZ                                 F201119910000000007430.50
+DC04801012537              ROSA ESMERIDA                                     SANCHEZ                                 SUAREZ                                  F290919890000000008506.64
+DC04800846299              ROSANNA MARIA                                     TAVERAS                                 FLEURY                                  F150219840000000009275.31
+DC04800593503              CRISTIAN                                          FERNANDEZ                               CRUZ                                    M090919760000000009531.54
+DC04801082738              ANA CAROLINA                                      GONZALEZ                                BELTRE                                  F090119910000000010095.23
+DC04800591861              RAFAEL                                            PEÑA                                    TAVAREZ                                 M100719700000000011175.05
+DC22300342049              DALICIA                                           BAUTISTA                                ZAPATA                                  F101019860000000014451.04
+DC00116252214              BASILIA                                           GARCIA                                  MOREL                                   F020119830000000015322.21
+DC04800701296              LEIDY ANA                                         ROSARIO                                 MORETA                                  F310719800000000016295.86
+DC40220485888              RAMONA IVIDERCA                                   REYES                                   JIMENEZ                                 F310819900000000016962.04
+DC04800733984              HERMINIA                                          MORONTA                                 MARTINEZ                                F171019780000000017423.24
+DC04800902514              RAMON                                             REYES                                                                           M310819830000000018067.98
+DC04800102669              RUBEN                                             SUBERBI                                 SOSA                                    M250119750000000018067.98
+DC04800902852              VICENTE GREGORIO                                  CONTRERAS                                                                       M271019850000000018067.98
+DC04801053143              JOSE ALBERTO                                      HICIANO                                 GUTIERREZ                               M250719870000000018550.63
+DC04800953517              JESUCITA  JOSEFINA                                HERNANDEZ                               ROSARIO                                 F060619860000000018704.36
+DC40221382308              MARY DALIA                                        GONZALEZ                                OVALLE                                  F100919910000000018704.36
+DC04800508246              MODESTO                                           ALCANTARA                               BENITEZ                                 M120119700000000018704.36
+DC04801062243              MARICELA ALTAGRACIA                               MENENDEZ                                DURAN                                   F010619890000000018704.36
+DC04800929103              SONIA                                             PLASENCIA                               FRIAS                                   F170919850000000018704.36
+DC00119125631              WELLINTONG                                        LOPEZ                                   ORTIZ                                   M191219920000000018704.36
+DC04801067465              VICKY ANTONIA                                     NUÑEZ                                   ARIAS                                   F180919890000000018704.36
+DC40220023283              IVAN FLORENTINO                                   GALICIA                                 CRUZ                                    M070819910000000018704.36
+DC40220801191              FRANCISCA MARIA                                   MONTE DE OCA                            AQUINO                                  F221219900000000018704.36
+DC04800988372              ROSMERY ELIZABETH                                 MERCEDES                                MEJIA                                   F120319870000000018704.36
+DC40222016723              NELPHY LUIS                                       PEÑA                                    MARTINEZ                                M270519930000000018704.36
+DC04800807630              JOSE LUIS                                         ESPINAL                                 DE JESUS                                M310719810000000018704.36
+DC00800278368              OSIRIS LEOCADIO                                   DE LA CRUZ                                                                      M060719830000000018704.36
+DC04800968010              ARILEYDA                                          ABREU                                   LEBRON                                  F170819860000000018704.36
+DC04801008410              MARIDALIA                                         PADILLA                                 CASTILLO                                F110119880000000018704.36
+DC04801042906              CECILIA RACIEL                                    DIAZ                                    FERNANDEZ                               F160319890000000018704.36
+DC04800245005              JULIA                                             ARIAS                                                                           F200519630000000018704.36
+DC04800258552              RAMONA                                            DE LA CRUZ                              CEPEÑA                                  F110319680000000018704.36
+DC04801064157              CARLOS MANUEL                                     ALBERTO                                 SUAREZ                                  M150119890000000019639.11
+DC04800779417              JOSE MIGUEL                                       ROJAS                                   ANGELES                                 M271019800000000019639.11
+DC04800848790              RAFAEL                                            LORA                                    ACOSTA                                  M180719810000000019639.11
+DC04801059587              RAMON                                             PEÑALTA                                 HERNANDEZ                               M030219870000000019639.11
+DC04801092489              CARLOS MANUEL                                     BATISTA                                 BATISTA                                 M150119880000000019639.11
+DC04801000938              MIGUEL ANGEL                                      RAMIREZ                                 MARTE                                   M060919880000000019827.95
+DC04801001357              RAFIANY ESTHER                                    GRULLON                                 JIMENEZ                                 F261219870000000020638.46
+DC04800171078              JUAN JOSE                                         ASTACIO                                 HERNANDEZ                               M051219700000000021004.95
+DC04800390728              MERCEDES JOSEFINA                                 ROSARIO                                 MEDINA                                  F270819650000000021716.32
+DC04800546436              DOMINGO ANTONIO                                   REINOSO                                 ALMANZAR                                M190819620000000024699.26
+DC04800971469              LEIRYS                                            LORA                                    NUÑEZ                                   F290619850000000024939.15
+DC04801025679              SHAMIRLA MASSIEL                                  LACHAPEL                                RODRIGUEZ                               F220319890000000024939.15
+DC04800971600              FELIX                                             MORILLO                                 DE LA ROSA                              M201119840000000024939.15
+DC04800801864              MAYELIN                                           NUÑEZ                                   HERNANDEZ                               F310319830000000024939.15
+DC04801006117              ROSA                                              FERREIRA                                SOSA                                    F021119880000000024939.15
+DC04800218929              JOSE RAMON                                        CONCEPCION                              ARIAS                                   M151219680000000024939.15
+DC04800895817              MARILYN                                           CEBALLO                                                                         F030319850000000024939.15
+DC04800898464              BELKYS                                            TEJADA                                  PLASENCIA                               F100419840000000024939.15
+DC04800688873              ALTAGRACIA IVELISSE                               TEJEDA                                  MACEA                                   F251019670000000024939.15
+DC04801050438              JOSEFINA                                          ALBERTO                                                                         F190319590000000024939.15
+DC04800757090              JUAN JESUS                                        HORACIO                                 GOMEZ                                   M040719770000000024939.15
+DC04800775035              SANDY RAFAEL                                      GOMEZ                                   SALCEDO                                 M180819760000000024939.15
+DC04801054745              YANNY MARIA                                       CONCEPCION                              GEREZ                                   F070419900000000024939.15
+DC05800166125              DAYSI MARIA                                       MORONTA                                                                         F120619670000000024939.15
+DC04800781009              GERALDO LEONY                                     DIAZ                                    GARCIA                                  M260419810000000025699.26
+DC04800551394              RAFAEL                                            TOLENTINO                                                                       M241219560000000025928.87
+DC04800666275              JUAN BAUTISTA                                     MARTE                                   POLANCO                                 M290819790000000026185.48
+DC04800808604              MANUEL                                            ESPINO                                                                          M021219810000000026185.48
+DC04800466759              FRANCISCO                                         MONTOLI                                 FERNANDEZ                               M121219470000000026437.26
+DC04800821946              DEYANIRA                                          CONCEPCION                              TEJADA                                  F070919810000000026928.87
+DC04800055529              LUCIANO RAFAEL                                    NUÑEZ                                   JIMENEZ                                 M020319710000000026928.87
+DC04800619282              JOSE MIGUEL                                       BETANCE                                 VALLEJO                                 M290119770000000027284.97
+DC04800898001              MARIA MARGARITA                                   BATISTA                                 ROSARIO                                 F280119850000000027311.65
+DC04800371538              HECTOR MANUEL                                     FAJARDO                                 VALENTIN                                M011119660000000027696.18
+DC12300116378              JOSE                                              DE JESUS                                DE JESUS                                M150519820000000027696.18
+DC04800095210              PEDRO PASCUAL                                     LOPEZ                                   COLLADO                                 M231019700000000028284.97
+DC04801013329              JOSE MIGUEL                                       LOPEZ                                   SOSA                                    M051219830000000028955.10
+DC04800721625              LEONARDO                                          ACOSTA                                  ALMONTE                                 M180119800000000028955.10
+DC04800221204              MARIA LUISA                                       PEÑA                                    BATISTA                                 F081119740000000029883.45
+DC04800460711              KERINA ROSALIA                                    FELIZ                                   RODRIGUEZ                               F170519720000000030214.02
+DC04800525141              PEDRO LUIS                                        MORILLO                                                                         M100519750000000030214.02
+DC04801042583              YANEL ILUMINADA                                   HERNANDEZ                               PATIÑO                                  F190519900000000030668.86
+DC04800225007              TERESA DE JESUS                                   FELIX                                   ALBERTO                                 F151019590000000030928.87
+DC04800300172              JOSEFINA DOLORES                                  RODRIGUEZ                               GONZALEZ                                F170419640000000030928.87
+DC04800802169              YANERYS                                           JOAQUIN                                 DURAN                                   F041219800000000030928.87
+DC04800233613              RAFAEL CONCEPCION                                 VALDEZ                                  CONTRERAS                               M081219680000000033487.20
+DC04800599112              PEDRO YOVANNY                                     RODRIGUEZ                               BAUTISTA                                M211219760000000036883.45
+DC04801020951              LISBETH                                           FERREIRA                                CHAVEZ                                  F081219900000000037481.91
+DC04801005549              NICOLAS                                           DIAZ                                    DIAZ                                    M061219870000000040529.76
+DC04800233340              SILVIA                                            TEJADA                                  ALMONTE                                 F200619650000000062182.68
+DC04800221196              DIONICIO                                          PEÑA                                    BATISTA                                 M091019730000000072781.16
+DC04800166029              ZENOVIA                                           CABA                                    DE PEÑA                                 F310119550000000072781.16
+DC04800077853              LUIS BERTRAN                                      PEÑALTA                                                                         M111019550000000073020.54
+DC04800240261              GERMAN                                            BAUTISTA                                FAJARDO                                 M120519590000000073020.54
+DC04800314918              ORLANDO                                           OVALLE                                  ALBERTO                                 M040619690000000076671.82
+DC04800309801              NICOLAS                                           PEÑA                                    GONZALEZ                                M030219630000000092332.29
+DC04800876692              CESAR DOMINGO                                     NUÑEZ                                   VARGAS                                  M040819410000000121744.27
+DC04800118657              FELIX ANTONIO                                     NUÑEZ                                   VARGAS                                  M210219340000000195543.54
+DP16723246                 CARLOS JOSE                                       CORDERO                                 HERNANDEZ                               M110719830000000022660.51
+S000109

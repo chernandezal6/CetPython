@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="SuirPlus.Empresas.Facturacion.Factura">
+    <Position X="5.75" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Empresas\Facturacion\abstractFactura.cs</FileName>
+      <HashCode>WJigQLUgCMBQlCkAkDBAIhEzVgGQQlI0UgIgCgHo8Gw=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="SuirPlus.Empresas.Facturacion.Factura.eInstitucion" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Empresas\Facturacion\abstractFactura.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="SuirPlus.Empresas.Facturacion.Factura.eConcepto" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Empresas\Facturacion\abstractFactura.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+  </Class>
+  <Class Name="SuirPlus.Empresas.Facturacion.FacturaSS">
+    <Position X="9" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Empresas\Facturacion\FacturaSS.cs</FileName>
+      <HashCode>gAAQABAAQEAAQEogAAAAIcARgSEBAGAAgAgAQAAEEcQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SuirPlus.Empresas.Facturacion.LiquidacionIR17">
+    <Position X="9" Y="9.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Empresas\Facturacion\LiquidacionIR17.cs</FileName>
+      <HashCode>EAgAAAJAAiAAQgiAAAYAIkAEABAAAEIBgQwgAAYAgGA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SuirPlus.Empresas.Facturacion.LiquidacionISR">
+    <Position X="2.25" Y="1.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Empresas\Facturacion\LiquidacionISR.cs</FileName>
+      <HashCode>BAAQQAATgAAJGgBAAgBAIAAAEABBEAgAYgIACgAAMHQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SuirPlus.Empresas.Facturacion.LiquidacionInfotep">
+    <Position X="2.25" Y="10" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>Empresas\Facturacion\LiquidacionInfotep.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAwAQAAAAIAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

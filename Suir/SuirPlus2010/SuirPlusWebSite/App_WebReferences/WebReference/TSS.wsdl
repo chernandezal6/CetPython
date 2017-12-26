@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.tss2.gov.do/wsTSS/TSS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.tss2.gov.do/wsTSS/TSS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.tss2.gov.do/wsTSS/TSS">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:element name="AutorizarReferencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NroReferencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AutorizarReferenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AutorizarReferenciaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelarAutorizacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NroReferencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelarAutorizacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelarAutorizacionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaPorReferencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NroReferencia" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaPorReferenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaPorReferenciaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaPorRNC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RNC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaPorRNCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaPorRNCResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaPorRNCNomina">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RNC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoNomina" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaPorRNCNominaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaPorRNCNominaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaAutorizadoNoPagado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaAutorizadoNoPagadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaAutorizadoNoPagadoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HabilParaPagar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HabilParaPagarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HabilParaPagarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AutorizarReferenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:AutorizarReferencia" />
+  </wsdl:message>
+  <wsdl:message name="AutorizarReferenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:AutorizarReferenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelarAutorizacionSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelarAutorizacion" />
+  </wsdl:message>
+  <wsdl:message name="CancelarAutorizacionSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelarAutorizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorReferenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaPorReferencia" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorReferenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaPorReferenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaPorRNC" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaPorRNCResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCNominaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaPorRNCNomina" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCNominaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaPorRNCNominaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAutorizadoNoPagadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaAutorizadoNoPagado" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAutorizadoNoPagadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaAutorizadoNoPagadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="HabilParaPagarSoapIn">
+    <wsdl:part name="parameters" element="tns:HabilParaPagar" />
+  </wsdl:message>
+  <wsdl:message name="HabilParaPagarSoapOut">
+    <wsdl:part name="parameters" element="tns:HabilParaPagarResponse" />
+  </wsdl:message>
+  <wsdl:message name="AutorizarReferenciaHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="NroReferencia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutorizarReferenciaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelarAutorizacionHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="NroReferencia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelarAutorizacionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorReferenciaHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="NroReferencia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorReferenciaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="RNC" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCNominaHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="RNC" type="s:string" />
+    <wsdl:part name="CodigoNomina" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCNominaHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAutorizadoNoPagadoHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAutorizadoNoPagadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HabilParaPagarHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HabilParaPagarHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AutorizarReferenciaHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="NroReferencia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AutorizarReferenciaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelarAutorizacionHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="NroReferencia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelarAutorizacionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorReferenciaHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="NroReferencia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorReferenciaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="RNC" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCNominaHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="RNC" type="s:string" />
+    <wsdl:part name="CodigoNomina" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaPorRNCNominaHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAutorizadoNoPagadoHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAutorizadoNoPagadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HabilParaPagarHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HabilParaPagarHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="TSSSoap">
+    <wsdl:operation name="AutorizarReferencia">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo para autorizar una referencia de pago de la TSS. &lt;br&gt;&lt;br&gt;Esta función devuelve un String con el Numero de Autorización, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;13&lt;/b&gt;|Esta Referencia no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;14&lt;/b&gt;|Esta Referencia ya fue autorizada o pagada &lt;br&gt;</documentation>
+      <wsdl:input message="tns:AutorizarReferenciaSoapIn" />
+      <wsdl:output message="tns:AutorizarReferenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarAutorizacion">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo para cancelar la autorización de una referencia de pago de la TSS. &lt;br&gt;&lt;br&gt;Esta función devuelve un 0 en caso de que la referencia haya sido cancelada satisfactoriamente, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;13&lt;/b&gt;|Esta Referencia no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;15&lt;/b&gt;|Esta Referencia ya fue reportada como pagada &lt;br&gt;d) &lt;b&gt;16&lt;/b&gt;|Debe cancelarla el usuario que la autorizó &lt;br&gt;</documentation>
+      <wsdl:input message="tns:CancelarAutorizacionSoapIn" />
+      <wsdl:output message="tns:CancelarAutorizacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorReferencia">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de notificaciones pendiente de pago por numero de referencia.&lt;br&gt;&lt;br&gt;Esta función devuelve un dataset con el numero de referencia consultado, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;13&lt;/b&gt;|Esta Referencia no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;14&lt;/b&gt;|Esta Referencia ya fue autorizada o pagada &lt;br&gt;</documentation>
+      <wsdl:input message="tns:ConsultaPorReferenciaSoapIn" />
+      <wsdl:output message="tns:ConsultaPorReferenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de las notificaciones pendiente de pagos por RNCEsta función devuelve un dataset con los numero de referencia que tiene pendiente este RNC, en caso de que haya un error se devuelve el codigo mas la descripción. &lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;11&lt;/b&gt;|Este RNC no se encuentra en nuestras bases de datos &lt;br&gt;c) En caso de que no tenga referencias pendiente de pago el datatable estara vacio. &lt;br&gt;</documentation>
+      <wsdl:input message="tns:ConsultaPorRNCSoapIn" />
+      <wsdl:output message="tns:ConsultaPorRNCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de las notificaciones pendiente de pagos por RNC y Código de NóminaEsta función devuelve un dataset con los numero de referencia que tiene pendiente este RNC, en caso de que haya un error se devuelve el codigo mas la descripción. &lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;11&lt;/b&gt;|Este RNC no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;19&lt;/b&gt;|Código de Nómina Inválido &lt;br&gt;d) En caso de que no tenga referencias pendiente de pago el datatable estara vacio. &lt;br&gt;</documentation>
+      <wsdl:input name="ConsultaPorRNCNomina" message="tns:ConsultaPorRNCNominaSoapIn" />
+      <wsdl:output name="ConsultaPorRNCNomina" message="tns:ConsultaPorRNCNominaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAutorizadoNoPagado">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de todas las autorizaciones de pago no canceladas. &lt;br&gt;&lt;br&gt;Esta función devuelve un dataset con los numero de referencia que estan autorizados y no han sido reportados como pagados, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;En caso de que no hayan referencias pendientes autorizadas y no reportadas como pagadas, el datatable estara vacio. </documentation>
+      <wsdl:input message="tns:ConsultaAutorizadoNoPagadoSoapIn" />
+      <wsdl:output message="tns:ConsultaAutorizadoNoPagadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HabilParaPagar">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo para verificar si dicha Referencia esta habil para pagar. &lt;br&gt;&lt;br&gt;Esta función devuelve un Si, en el caso de que este Habil Para pagar y No de lo contrario.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;21&lt;/b&gt;|No &lt;br&gt;</documentation>
+      <wsdl:input message="tns:HabilParaPagarSoapIn" />
+      <wsdl:output message="tns:HabilParaPagarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TSSHttpGet">
+    <wsdl:operation name="AutorizarReferencia">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo para autorizar una referencia de pago de la TSS. &lt;br&gt;&lt;br&gt;Esta función devuelve un String con el Numero de Autorización, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;13&lt;/b&gt;|Esta Referencia no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;14&lt;/b&gt;|Esta Referencia ya fue autorizada o pagada &lt;br&gt;</documentation>
+      <wsdl:input message="tns:AutorizarReferenciaHttpGetIn" />
+      <wsdl:output message="tns:AutorizarReferenciaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarAutorizacion">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo para cancelar la autorización de una referencia de pago de la TSS. &lt;br&gt;&lt;br&gt;Esta función devuelve un 0 en caso de que la referencia haya sido cancelada satisfactoriamente, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;13&lt;/b&gt;|Esta Referencia no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;15&lt;/b&gt;|Esta Referencia ya fue reportada como pagada &lt;br&gt;d) &lt;b&gt;16&lt;/b&gt;|Debe cancelarla el usuario que la autorizó &lt;br&gt;</documentation>
+      <wsdl:input message="tns:CancelarAutorizacionHttpGetIn" />
+      <wsdl:output message="tns:CancelarAutorizacionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorReferencia">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de notificaciones pendiente de pago por numero de referencia.&lt;br&gt;&lt;br&gt;Esta función devuelve un dataset con el numero de referencia consultado, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;13&lt;/b&gt;|Esta Referencia no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;14&lt;/b&gt;|Esta Referencia ya fue autorizada o pagada &lt;br&gt;</documentation>
+      <wsdl:input message="tns:ConsultaPorReferenciaHttpGetIn" />
+      <wsdl:output message="tns:ConsultaPorReferenciaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de las notificaciones pendiente de pagos por RNCEsta función devuelve un dataset con los numero de referencia que tiene pendiente este RNC, en caso de que haya un error se devuelve el codigo mas la descripción. &lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;11&lt;/b&gt;|Este RNC no se encuentra en nuestras bases de datos &lt;br&gt;c) En caso de que no tenga referencias pendiente de pago el datatable estara vacio. &lt;br&gt;</documentation>
+      <wsdl:input message="tns:ConsultaPorRNCHttpGetIn" />
+      <wsdl:output message="tns:ConsultaPorRNCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de las notificaciones pendiente de pagos por RNC y Código de NóminaEsta función devuelve un dataset con los numero de referencia que tiene pendiente este RNC, en caso de que haya un error se devuelve el codigo mas la descripción. &lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;11&lt;/b&gt;|Este RNC no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;19&lt;/b&gt;|Código de Nómina Inválido &lt;br&gt;d) En caso de que no tenga referencias pendiente de pago el datatable estara vacio. &lt;br&gt;</documentation>
+      <wsdl:input name="ConsultaPorRNCNomina" message="tns:ConsultaPorRNCNominaHttpGetIn" />
+      <wsdl:output name="ConsultaPorRNCNomina" message="tns:ConsultaPorRNCNominaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAutorizadoNoPagado">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de todas las autorizaciones de pago no canceladas. &lt;br&gt;&lt;br&gt;Esta función devuelve un dataset con los numero de referencia que estan autorizados y no han sido reportados como pagados, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;En caso de que no hayan referencias pendientes autorizadas y no reportadas como pagadas, el datatable estara vacio. </documentation>
+      <wsdl:input message="tns:ConsultaAutorizadoNoPagadoHttpGetIn" />
+      <wsdl:output message="tns:ConsultaAutorizadoNoPagadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HabilParaPagar">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo para verificar si dicha Referencia esta habil para pagar. &lt;br&gt;&lt;br&gt;Esta función devuelve un Si, en el caso de que este Habil Para pagar y No de lo contrario.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;21&lt;/b&gt;|No &lt;br&gt;</documentation>
+      <wsdl:input message="tns:HabilParaPagarHttpGetIn" />
+      <wsdl:output message="tns:HabilParaPagarHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TSSHttpPost">
+    <wsdl:operation name="AutorizarReferencia">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo para autorizar una referencia de pago de la TSS. &lt;br&gt;&lt;br&gt;Esta función devuelve un String con el Numero de Autorización, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;13&lt;/b&gt;|Esta Referencia no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;14&lt;/b&gt;|Esta Referencia ya fue autorizada o pagada &lt;br&gt;</documentation>
+      <wsdl:input message="tns:AutorizarReferenciaHttpPostIn" />
+      <wsdl:output message="tns:AutorizarReferenciaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarAutorizacion">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo para cancelar la autorización de una referencia de pago de la TSS. &lt;br&gt;&lt;br&gt;Esta función devuelve un 0 en caso de que la referencia haya sido cancelada satisfactoriamente, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;13&lt;/b&gt;|Esta Referencia no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;15&lt;/b&gt;|Esta Referencia ya fue reportada como pagada &lt;br&gt;d) &lt;b&gt;16&lt;/b&gt;|Debe cancelarla el usuario que la autorizó &lt;br&gt;</documentation>
+      <wsdl:input message="tns:CancelarAutorizacionHttpPostIn" />
+      <wsdl:output message="tns:CancelarAutorizacionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorReferencia">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de notificaciones pendiente de pago por numero de referencia.&lt;br&gt;&lt;br&gt;Esta función devuelve un dataset con el numero de referencia consultado, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;13&lt;/b&gt;|Esta Referencia no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;14&lt;/b&gt;|Esta Referencia ya fue autorizada o pagada &lt;br&gt;</documentation>
+      <wsdl:input message="tns:ConsultaPorReferenciaHttpPostIn" />
+      <wsdl:output message="tns:ConsultaPorReferenciaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de las notificaciones pendiente de pagos por RNCEsta función devuelve un dataset con los numero de referencia que tiene pendiente este RNC, en caso de que haya un error se devuelve el codigo mas la descripción. &lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;11&lt;/b&gt;|Este RNC no se encuentra en nuestras bases de datos &lt;br&gt;c) En caso de que no tenga referencias pendiente de pago el datatable estara vacio. &lt;br&gt;</documentation>
+      <wsdl:input message="tns:ConsultaPorRNCHttpPostIn" />
+      <wsdl:output message="tns:ConsultaPorRNCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de las notificaciones pendiente de pagos por RNC y Código de NóminaEsta función devuelve un dataset con los numero de referencia que tiene pendiente este RNC, en caso de que haya un error se devuelve el codigo mas la descripción. &lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;b) &lt;b&gt;11&lt;/b&gt;|Este RNC no se encuentra en nuestras bases de datos &lt;br&gt;c) &lt;b&gt;19&lt;/b&gt;|Código de Nómina Inválido &lt;br&gt;d) En caso de que no tenga referencias pendiente de pago el datatable estara vacio. &lt;br&gt;</documentation>
+      <wsdl:input name="ConsultaPorRNCNomina" message="tns:ConsultaPorRNCNominaHttpPostIn" />
+      <wsdl:output name="ConsultaPorRNCNomina" message="tns:ConsultaPorRNCNominaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAutorizadoNoPagado">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Consulta de todas las autorizaciones de pago no canceladas. &lt;br&gt;&lt;br&gt;Esta función devuelve un dataset con los numero de referencia que estan autorizados y no han sido reportados como pagados, en caso de que haya un error se devuelve el codigo mas la descripción.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;10&lt;/b&gt;|Error en el Usuario o Password &lt;br&gt;En caso de que no hayan referencias pendientes autorizadas y no reportadas como pagadas, el datatable estara vacio. </documentation>
+      <wsdl:input message="tns:ConsultaAutorizadoNoPagadoHttpPostIn" />
+      <wsdl:output message="tns:ConsultaAutorizadoNoPagadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HabilParaPagar">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Metodo para verificar si dicha Referencia esta habil para pagar. &lt;br&gt;&lt;br&gt;Esta función devuelve un Si, en el caso de que este Habil Para pagar y No de lo contrario.&lt;br&gt;&lt;br&gt; Los Errores que devuelve son: &lt;br&gt; a) &lt;b&gt;21&lt;/b&gt;|No &lt;br&gt;</documentation>
+      <wsdl:input message="tns:HabilParaPagarHttpPostIn" />
+      <wsdl:output message="tns:HabilParaPagarHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TSSSoap" type="tns:TSSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AutorizarReferencia">
+      <soap:operation soapAction="http://www.tss2.gov.do/wsTSS/TSS/AutorizarReferencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarAutorizacion">
+      <soap:operation soapAction="http://www.tss2.gov.do/wsTSS/TSS/CancelarAutorizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorReferencia">
+      <soap:operation soapAction="http://www.tss2.gov.do/wsTSS/TSS/ConsultaPorReferencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <soap:operation soapAction="http://www.tss2.gov.do/wsTSS/TSS/ConsultaPorRNC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <soap:operation soapAction="http://www.tss2.gov.do/wsTSS/TSS/ConsultaPorRNCNomina" style="document" />
+      <wsdl:input name="ConsultaPorRNCNomina">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultaPorRNCNomina">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAutorizadoNoPagado">
+      <soap:operation soapAction="http://www.tss2.gov.do/wsTSS/TSS/ConsultaAutorizadoNoPagado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HabilParaPagar">
+      <soap:operation soapAction="http://www.tss2.gov.do/wsTSS/TSS/HabilParaPagar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TSSHttpGet" type="tns:TSSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AutorizarReferencia">
+      <http:operation location="/AutorizarReferencia" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarAutorizacion">
+      <http:operation location="/CancelarAutorizacion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorReferencia">
+      <http:operation location="/ConsultaPorReferencia" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <http:operation location="/ConsultaPorRNC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <http:operation location="/ConsultaPorRNCNomina" />
+      <wsdl:input name="ConsultaPorRNCNomina">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="ConsultaPorRNCNomina">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAutorizadoNoPagado">
+      <http:operation location="/ConsultaAutorizadoNoPagado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HabilParaPagar">
+      <http:operation location="/HabilParaPagar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TSSHttpPost" type="tns:TSSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AutorizarReferencia">
+      <http:operation location="/AutorizarReferencia" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarAutorizacion">
+      <http:operation location="/CancelarAutorizacion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorReferencia">
+      <http:operation location="/ConsultaPorReferencia" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <http:operation location="/ConsultaPorRNC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaPorRNC">
+      <http:operation location="/ConsultaPorRNCNomina" />
+      <wsdl:input name="ConsultaPorRNCNomina">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="ConsultaPorRNCNomina">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaAutorizadoNoPagado">
+      <http:operation location="/ConsultaAutorizadoNoPagado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HabilParaPagar">
+      <http:operation location="/HabilParaPagar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TSS">
+    <wsdl:port name="TSSSoap" binding="tns:TSSSoap">
+      <soap:address location="http://66.98.62.22/TSS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TSSHttpGet" binding="tns:TSSHttpGet">
+      <http:address location="http://66.98.62.22/TSS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TSSHttpPost" binding="tns:TSSHttpPost">
+      <http:address location="http://66.98.62.22/TSS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

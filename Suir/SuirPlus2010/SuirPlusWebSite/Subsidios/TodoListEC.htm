@@ -1,0 +1,102 @@
+﻿<script type="text/javascript">
+
+    $(function () {
+        ///Limpiar variable tiposol (renovacion, nueva)
+        msgTituloEC = "";
+
+        BuscarNovedades();
+    });
+
+    function BuscarNovedades() {
+
+        try {
+            var Url = loc + "/ObtenerOpcionesEnfermedadComun";
+            var data = '{ nss: "' + $("#nss").html() + '", registropatronal: "' + $("#registropatronal").val() + '" }';
+
+            Util.llamarWS(Url, data, function (info) {
+                try {
+                    var lista = "<ul class='ul'>";
+                    for (var i = 0; i < info.d.length; i++) {
+                        if (info.d[i].Completado == "S") {
+                            lista += "<li class='lipast' ><img class='lipast' src='../images/check.png' />";
+                        } else {
+                            lista += "<li class='liaction' onclick=\"buscarFormulario('" + info.d[i].Url + "', '" + info.d[i].NroSolicitud + "');\"><img src='../images/arrow_right.png'/>";
+                        }
+                        lista += info.d[i].Descripcion + "</li>";
+                    }
+                    lista += "</ul>";
+                    
+                    $("#nrosolicitud").val(info.d[0].NroSolicitud);
+                    $("#listaNovedades").html(lista);
+                }
+                catch (e) {
+                    $("#msgPrincipal").addClass("error");
+                    $("#msgPrincipal").html(e);
+                }
+            }, ajaxFailed);
+            $("#msgPrincipal").html("");
+        }
+        catch (e) {
+            $("#msgPrincipal").addClass("error");
+            $("#msgPrincipal").html(e.Message);
+
+            $("#buscartutor").attr("disabled", false);
+            $("#cedulatutor").attr("disabled", false);
+        }
+    }
+    function buscarFormulario(form, NroSolicitud, llamada) {
+        
+        if (form == "RenovarPadecimiento.htm") {
+            
+            $("#tiposolicitudprincipal").val("Renovacion");
+
+            console.log("entre");
+            console.log($("#tiposolicitudprincipal").val());
+
+        } else if (form == "NuevoPadecimiento.htm") {
+            
+            if (window.DontDoThisAtHomeRenovar) {
+                $("#tiposolicitudprincipal").val("Renovacion");
+            }
+            else {
+                $("#tiposolicitudprincipal").val("Nueva");
+            }
+
+        }
+
+        console.log($("#tiposolicitudprincipal").val());
+        console.log("Renovar:" + window.DontDoThisAtHomeRenovar);
+
+        $("#msgPrincipal").html("");
+
+        if (NroSolicitud) {
+            $("#nrosolicitud").val(NroSolicitud);
+            $("#nrosolicitud2").val(NroSolicitud);
+        } 
+
+        $.get(form, function (data) {
+            $("#Formulario").html(data);
+
+            if (llamada) {
+                llamada();
+            }
+
+        });
+    }
+</script>
+<style type="text/css">
+    .liaction
+    {
+        cursor: pointer;
+    }
+    .lipast
+    {
+        cursor: text;
+    }
+    .ul
+    {
+        list-style-type: none;
+    }
+</style>
+<span class="Titulo" style="margin: 40px;">Novedades</span>
+<div id="listaNovedades" />

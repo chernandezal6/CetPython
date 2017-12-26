@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://66.98.62.22/TSS.asmx?wsdl" docRef="http://66.98.62.22/TSS.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://66.98.62.22/TSS.asmx" xmlns:q1="http://www.tss2.gov.do/wsTSS/TSS" binding="q1:TSSSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

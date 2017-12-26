@@ -1,0 +1,186 @@
+﻿<script type="text/javascript">
+    $(function () {
+
+        $(".fecha").datepicker($.datepicker.regional['es']);
+        $(".button").button();
+
+        $("#divdetconvalidacion").hide();
+        $("#registrarconvalidacion").click(ReportarConvalidacion);
+
+        var Params = {
+            nss: $("#nss").html(),
+            registropatronal: $("#registropatronal").val()
+        };
+        
+        Util.LlenarDropDown('Subsidios.asmx', 'ObtenerNominaDiscapacitados', Params, 'ddlNomina', 'idnomina', 'nomina');
+
+        Util.LlamarServicio('Subsidios.asmx', 'PadecimientosAConvalidar', Params, function (data) {
+            var sb = '';
+            var tblPad = $("#tablaPad");
+
+            for (var i = 0; i < data.d.length; i++) {
+                sb += '<tr class="filas"> <td align="center" style="width:130px;">' + data.d[i].NroFormulario + '</td><td align="center" style="width:110px;">' + Util.formatJSONDate(data.d[i].FechaRegistro) + '</td><td style="width:200px; white-space: wrap;">' + data.d[i].Diagnostico + '</td><td align="center"> <span class="linkPaginacion" style="cursor:pointer; width:170px;" onclick="MostrarDatosConvalidacion(' + data.d[i].NroSolicitud + ');">Reportar Convalidacion</span> </td></tr>';
+            }
+
+            $("#filas").remove();
+            tblPad.append(sb);
+        });
+    });
+    function MostrarDatosConvalidacion(id) {
+
+        /// Asignar el Nro. Solicitud y esconder el listado
+        $("#nrosolicitud").val(id)
+        $("#divconvalidacion").html("");
+
+        /// Presentar el formulario para registrar la convalidacion
+        $("#divdetconvalidacion").show();
+
+        ///Cargar detalle del padecimiento, reusanso el metodo de reintegro
+        try {
+            var ParamsDet = {
+                nrosolicitud: id
+            };
+            Util.LlamarServicio('Subsidios.asmx', 'MostrarDatosReintegro', ParamsDet, function (info) {
+                $("#numeroformulario").html(info.d.NroFormulario);
+                $("#fechainicio").html(Util.formatJSONDate(info.d.FechaInicioLicencia));
+                $("#fechafin").html(Util.formatJSONDate(info.d.FechaFinLicencia));
+                $("#diascalendario").html(info.d.DiasCalendario);
+            });
+        } catch (e) {
+            $("#mensajeConvalidacion").addClass("error");
+            $("#mensajeConvalidacion").html(e);
+        }
+    }
+    function ReportarConvalidacion() {
+        var ParamsReporte = {
+            nrosolicitud: $("#nrosolicitud").val(),
+            usuario: $("#usuarioprincipal").val(),
+            registropatronal: $("#registropatronal").val(),
+            idnomina: $("#ddlNomina").val()
+        };
+
+        Util.LlamarServicio('Subsidios.asmx', 'ConvalidarPadecimiento', ParamsReporte, function (result) {
+            try {
+                if (result.d != 'OK') {
+
+                    $("#mensajeConvalidacion").addClass("error");
+                    $("#mensajeConvalidacion").html(result.d);
+                }
+                else {
+                    Exito("El reporte de convalidación se hizo sastifactoriamente...");
+                }
+            }
+            catch (e) {
+                $("#mensajeConvalidacion").addClass("error");
+                $("#mensajeConvalidacion").html(e);
+            }
+        });
+    }
+    function CancelarConvalidacion() {
+        $("#ToDoList").html("");
+        $("#divconvalidacion").html("");
+    }
+</script>
+<div id="divconvalidacion">
+    <span class="header legendStyle">Reportar Convalidación</span>
+    <br />
+    <br />
+    <table style="border: 0.5px solid #808080; background-color: #F8FBFC; border: 1px solid #DBEAF3;"
+        width="610px">
+        <tr>
+            <td>
+                <br />
+                <span style="font-size: 14px; font-weight: bold; color: #016BA5; font-family: Arial">
+                    Padecimientos</span>
+                <br />
+                <br />
+                <table rules="all" cellspacing="0" border="1" style="border-collapse: collapse;"
+                    id="tablaPad" class="gridBorder">
+                    <tr class="listheadermultiline">
+                        <td>
+                            Nro. Formulario
+                        </td>
+                        <td>
+                            Fecha Registro
+                        </td>
+                        <td>
+                            Diagnóstico
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr class="filas">
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="divdetconvalidacion">
+    <form id="infoconvalidacion">
+    <input type="hidden" name="nss" id="nsstrabajador" />
+    <input type="hidden" name="tiposolicitud" id="tiposolicitud" value="Renovacion" />
+    <input type="hidden" name="numerosolicitud" id="numerosolicitud" />
+    <input type="hidden" name="usuario" id="usuario" />
+    <fieldset style="width: 510px">
+        <legend style="font-size: 14px; font-weight: bold; color: #016BA5; font-family: Arial">
+            Detalle Convalidación Padecimiento</legend>
+        <br />
+        <table class="td-content" style="width: 330px; vertical-align: top;">
+            <tr>
+                <td>
+                    <br />
+                   &nbsp;Nro Formulario:
+                </td>
+                <td>
+                    <br />
+                    <span  style="margin-left: 5px" class="labelData" id="numeroformulario"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;Fecha Inicio Licencia:
+                </td>
+                <td>
+                    <span  style="margin-left: 5px" class="labelData" id="fechainicio"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   &nbsp;Fecha Fin Licencia:
+                </td>
+                <td>
+                    <span  style="margin-left: 5px" class="labelData" id="fechafin"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;Días Calendario:
+                </td>
+                <td>
+                    <span  style="margin-left: 5px" class="labelData" id="diascalendario"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                       &nbsp;Nómina del Empleado:
+                        </td>
+                <td>
+                            <select id="ddlNomina" name="nomina" />
+                        </select>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <input id="registrarconvalidacion" type="button" class="button" value="Confirmar" />
+        <input type="button" class="button" value="Cancelar" id="cancelarconvalidacion" class="button" />
+    </fieldset>
+    </form>
+    <br />
+    <span id="mensajeConvalidacion"></span>
+</div>

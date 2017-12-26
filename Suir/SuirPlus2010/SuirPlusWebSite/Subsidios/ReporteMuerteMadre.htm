@@ -1,0 +1,109 @@
+﻿<script language="javascript" type="text/javascript">
+    $(function () {
+
+        $(".fecha").datepicker($.datepicker.regional['es']);
+        $(".fecha").live('change', Util.EvitarPaste);
+        $(".button").button();
+
+        $("#cancelarMuerteMadre").click(LimpiarMuerteMadre);
+        $("#registrarMuerteMadre").click(RegistrarMuerteMadre);
+    });
+
+    function LimpiarMuerteMadre() {
+        $("#txtfedefuncion").val("");
+        $("#mensajePerdida").html("");
+    }
+    function RegistrarMuerteMadre() 
+    {
+        $("#mensajeMuerteMadre").html("");
+
+        var fechadefuncion = $("#txtfedefuncion").datepicker("getDate");
+        var hoy = new Date();
+
+        if ($("#txtfedefuncion").val() == "") {
+            $("#mensajeMuerteMadre").addClass("error");
+            $("#mensajeMuerteMadre").html("La fecha de defunción es requerida...");
+            $("#mensajeMuerteMadre").val("");
+            $("#mensajeMuerteMadre").focus();
+        }
+        else if (fechadefuncion > hoy) {
+            $("#mensajeMuerteMadre").addClass("error");
+            $("#mensajeMuerteMadre").html("La fecha de defunción introducida no debe ser futura...");
+        }
+        else 
+        {
+            try 
+            {
+                var Url = loc + "/ReporteMuerteMadre";
+                var data = '{ nss: "' + $("#nss").html()
+                        + '", registropatronal: "' + $("#registropatronalregistro").val()
+                        + '", fechamuerte : "' + $("#txtfedefuncion").val()
+                        + '", usuariomuerte: "' + $("#usuarioregistro").val()
+                        + '" }';
+
+                $("#registrarMuerteMadre").attr('disabled', true);
+                Util.llamarWS(Url, data, resultadoMuerteMadre, ajaxFailed);
+            }
+            catch (e) {
+                $("#mensajeMuerteMadre").addClass("error");
+                $("#mensajeMuerteMadre").html(e);
+                $("#registrarMuerteMadre").attr('disabled', false);
+            }
+        }
+    }
+    function resultadoMuerteMadre(infoMuerteMadre) {
+        try {
+            if (infoMuerteMadre.d != 'OK') {
+
+                $("#mensajeMuerteMadre").addClass("error");
+                $("#mensajeMuerteMadre").html(infoMuerteMadre.d);
+                $("#registrarMuerteMadre").attr('disabled', false);
+            }
+            else {
+                Exito("El reporte de defunción de la madre se hizo sastifactoriamente...");
+            }
+        }
+        catch (e) {
+            $("#mensajeMuerteMadre").addClass("error");
+            $("#mensajeMuerteMadre").html(e);
+            $("#registrarMuerteMadre").attr('disabled', false);
+        }
+    }
+
+</script>
+
+<form id="formulariomm">
+    <fieldset style="width: 380px; height: 173px;">
+        <legend class="header legendStyle">Registro Muerte de Madre</legend>
+        <br />
+        <br />
+        <table class="td-content" style="width: 300px;">
+            <tr>
+                <td style="width: 99px;">
+                    <span>Fecha de defunción:</span><br />
+                </td>
+                <td>
+                    <input type="text" id="txtfedefuncion" class="fecha" onkeypress="return false;" />
+                    <br />
+                    <br />
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <input type="button" name="registrarmuerte" value="Registrar" id="registrarMuerteMadre"
+            class="button" />
+        <input type="button" name="cancelarmuerte" value="Cancelar" id="cancelarMuerteMadre"
+            class="button" />
+        <br />
+        <br />
+        <label id="mensajeMuerteMadre">
+        </label>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </fieldset>
+</form>

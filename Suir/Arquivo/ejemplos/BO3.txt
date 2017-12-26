@@ -1,0 +1,154 @@
+EBO  101019077082012
+DC00101539237              JUAN                                              FERNANDEZ                               ROSARIO                                 M300519600000000020854.50
+DC00104059555              ANDRES                                            ZABALA                                  L                                       M100119620000000023292.00
+DC00100181551              MARINO                                            FELICIANO                                                                       M210119700000000031488.00
+DC00109692756              MANUEL                                            PANIAGUA                                RUIZ                                    M220619680000000018956.50
+DC00100024488              JOSE FCO.                                         CONTRERAS                               N                                       M241119540000000059921.09
+DC00102544863              YRIS ANTONIA                                      PARADAS                                 RODRIGUEZ                               F140219700000000025557.30
+DC00100110402              MANUEL A.                                         JONES                                   H                                       M231119600000000051616.00
+DC00100515899              GUILLERMO F.                                      REYES                                   R                                       M020119660000000032806.80
+DC00105040919              MICHEL HUMBERTO                                   CRUZ                                    V                                       M171219690000000010656.60
+DC00102791308              SORIS MARGARITA                                   MATEO                                   G                                       F070719670000000026016.90
+DC00102963865              JUAN ARISMENDIS                                   ESPAILLAT                               G                                       M280419680000000013865.00
+DC00100760719              PABLO R.                                          PAULINO                                 P                                       M071119560000000010656.60
+DC00102231388              TOMAS RAFAEL                                      OLIVO                                   HERNANDEZ                               M180619630000000022666.20
+DC00103569026              JULIO                                             MORA                                    R                                       M020719690000000020483.70
+DC00109406249              NERYS                                             VALLEJO                                 MORA                                    M201019680000000007992.45
+DC00103205548              BERNARDO                                          BELEN                                   FRIAS                                   M260819700000000007992.00
+DC00102277779              GILBERTO                                          OLIVO                                   HERNANDEZ                               M040319620000000025602.90
+DC00107345845              DAVID M.                                          ANTIGUA                                                                         M290919710000000011455.20
+DC00112827076              ROSEMARY                                          AGUASANTA                               G                                       F021219780000000032403.00
+DC00115789539              JUAN                                              OGANDO                                  ALCANTARA                               M030519800000000010656.60
+DC00117213975              DEYANARA S.                                       MATOS                                   SANCHEZ                                 F190519850000000010656.60
+DC00116893520              MAXIMO                                            DE LA CRUZ                                                                      M180419830000000016992.30
+DC03102139221              ALEXANDRO                                         DIAZ                                    TAVAREZ                                 M080919700000000034188.60
+DC03101456220              ADALGISA                                          RODRIGUEZ                                                                       F020219610000000010656.60
+DC03100441850              ZACARIAS                                          FERNANDEZ                                                                       M150519710000000022373.70
+DC03101010613              JOSE MIGUEL                                       BATISTA                                                                         M301219720000000034509.80
+DC03100845027              DIOGENES                                          TAVERAS                                 ESPINAL                                 M040519730000000007992.55
+DC03103489849              DARLIN DE JS.                                     HERNANDEZ                               C                                       M150119800000000010656.60
+DC04700789342              BENITO                                            DE LA CRUZ                                                                      M010419590000000013218.60
+DC00111195681              FABIO                                             PLACIDO                                 C                                       M200119670000000028300.20
+DC02300011877              ALFREDO                                           FRIAS                                                                           M010319680000000007992.45
+DC02600497982              FELIX SERBIO                                      HERRERA                                 S                                       M270919670000000010656.60
+DC02800527836              SANTO BENITO                                      MORLA                                                                           M040119780000000010656.60
+DC00105593156              RAFAEL                                            MARTINEZ                                I                                       M200819680000000024266.10
+DC00104252861              CELESTE MARIA                                     CADENA                                  VASQUEZ,                                F110819770000000011081.70
+DC00115596355              RUTH ESTHER                                       VELEZ                                   CRUZ,                                   F220819810000000010656.60
+DC01200722724              DESIDERIO                                         OGANDO                                  DE LOS SANTOS,                          M090219770000000010656.60
+DC02601281393              TOMAS LEANDRO                                     BORQUEZ                                 DE AZA,                                 M190519880000000010656.60
+DC02700268986              CARLOS MANUEL                                     ENCARNACION,                                                                    M160419770000000010656.60
+DC00116767716              HILTON ANTONIO                                    CHAPMAN                                 GUZMAN,                                 M111219830000000010656.60
+DC04701921555              CARLOS MANUEL                                     CONTRERAS                               S                                       M240719840000000005015.26
+DC00115097156              IRKIS JACKSON                                     DIAZ                                    DE LOS SANTOS,                          F110719800000000010656.60
+DC00112789540              GILBERTO                                          VALENZUELA                              DE LOS SANTOS,                          M301219780000000010656.60
+DC00115749384              CAMILO                                            RAMIREZ                                 FELIZ,                                  M181119780000000021244.28
+DC00117038430              JUAN RAFAEL                                       GATON                                   TORIBIO                                 M180819840000000056651.40
+DC00116700576              WILMAN ANTONIO                                    SANCHEZ                                 RAMIREZ,                                M240219840000000010656.60
+DC00104948013              ANGEL DARIO                                       FELIZ,                                                                          M110319630000000010656.60
+DC00114344302              MARIA ANTONIA                                     LINARES                                 PEREZ                                   F130719790000000007992.45
+DC03105058436              ANNY YOLDANIA                                     NOVA                                    ARIAS                                   F170719870000000010656.60
+DC03105253474              YADELYN                                           COLLADO                                 ESPINAL                                 F240919880000000010656.60
+DC00107794075              FERNANDO                                          JONES                                   H                                       M150419650000000021627.60
+DC00200462927              CRISTINA                                          PERDOMO                                                                         F271219600000000010656.60
+DC00102499654              IGNOLIS A.                                        ARIAS                                   M                                       F270719630000000010656.60
+DC00100148402              JORGE                                             OLIVO                                   MOREL                                   M230319540000000040110.30
+DC00105074645              CLEVER                                            RAMIREZ                                                                         M250819720000000010656.60
+DC02300547607              CESAR JULIO                                       MERCEDES                                                                        M130819670000000028752.60
+DC00100895705              OTTO MANUEL                                       CEPEDA                                                                          M210619320000000012819.30
+DC00101524593              RAMON                                             JONES                                                                           M060319370000000012819.30
+DC00108444555              FLORENTINO                                        MONTERO                                 R                                       M200619550000000025495.20
+DC00101766376              WILFRIDO                                          MARTINEZ                                                                        M211019340000000053082.50
+DC00106940430              TOMAS                                             HIRALDO                                                                         M291219430000000024939.00
+DC00100267566              CARLOS                                            HIDALGO                                 ENCARNACION                             M141119630000000012589.20
+DC00104884598              PABLO                                             BRETON                                  VALERIO                                 M300919720000000007992.52
+DC00107048605              JUAN                                              TORRES                                  OVALLE                                  M300419730000000025602.90
+DC00113672315              EUDY                                              VALENZUELA                              DE LOS SANTOS                           M050819760000000005507.69
+DC03200250763              MIGUEL A.                                         RAMIREZ                                 A                                       M150219720000000010656.60
+DC03700008752              ISAIAS                                            MARTINEZ                                I                                       M100419750000000014715.74
+DC01200414280              MARTINES                                          OGANDO                                  PINEDA                                  M151219740000000030843.00
+DC02100018411              ELVIS                                             CUEVAS                                  PEREZ                                   M100219660000000007992.10
+DC00111440186              JOSE A.                                           CIRIACO                                 DE LEON                                 M020919770000000007992.45
+DC00113382238              CESAR                                             SOLANO                                  D' OLEO                                 M200419780000000013158.90
+DC00112113642              JAIROL                                            EUSEBIO                                                                         M191119760000000007992.45
+DC00109168625              MARCIAL                                           DE LA ROSA                                                                      M130619700000000010656.60
+DC00112845029              YEISON                                            ESTEPAN                                 G                                       M040119790000000020171.40
+DC01000463701              VICTOR                                            LUCIANO                                 R                                       M011119680000000010656.60
+DC00107840753              MIGUELINA                                         ROSARIO                                 ALMONTE                                 F210119740000000010656.60
+DC00101601383              PLINIO A.                                         REYNOSO                                 B                                       M070919770000000010656.60
+DC00107877060              RAMON                                             ALMONTE                                                                         M120319610000000007992.45
+DC05200105723              WILIS WILSON                                      ALMONTE                                 LORA                                    M081219800000000010656.60
+DC00112731906              LUIS ANEURY                                       GARCIA                                  FELIZ                                   M041019780000000016321.50
+DC00103378691              NELSON                                            JIMENEZ                                 J                                       M180219630000000010656.60
+DC03100965270              AMAURY                                            SUED                                    MARMOL                                  M100919740000000038571.30
+DC03102296542              CANDIDO                                           RODRIGUEZ                                                                       M031019470000000017278.64
+DC03101649964              JHONNY                                            RAMOS                                                                           M071119660000000010656.60
+DC03100750581              JOSE ULISES                                       PEREZ                                   CHECO                                   M290519490000000029857.80
+DC03102768151              FERNANDO                                          DIAZ                                                                            M230419740000000010656.60
+DC03100375629              JOSE AGUSTIN                                      BATISTA                                                                         M290419410000000029995.80
+DC03103094425              LUIS MANUEL                                       NU¥EZ                                   P                                       M190919770000000020808.90
+DC03103974303              JOSE NICOLAS                                      BATISTA                                 M                                       M100119640000000010656.60
+DC03100291149              SEGUNDO DE JS                                     FRANCO CAPELLAN                                                                 M010119500000000007992.45
+DC00104243738              DILSON A.                                         MESA                                                                            M220719740000000010656.60
+DC05600495534              RAMON FCO.                                        TEJADA                                                                          M041219610000000010656.60
+DC04700261102              LUIS                                              LORA                                    MARTINEZ                                M250819650000000033912.10
+DC05600190572              HECTOR B.                                         MINAYA                                                                          M200219620000000007992.45
+DC02300326309              RAMON E.                                          IRIZARRI                                P                                       M291119710000000010656.60
+DC02300143126              NANDO                                             DE LOS SANTOS                                                                   M300519530000000018204.00
+DC02600332916              MARIA                                             FERRERAS                                D                                       F210719620000000010656.60
+DC02800644078              EDDY                                              GUERRERO                                G                                       M110719960000000017352.00
+DC00102256831              ROSENDO                                           OLIVO                                   H                                       M100319590000000037138.20
+DC00102376936              IRVIN ANTONIO                                     VENTURA                                                                         M300719740000000010656.60
+DC02301428955              SANTO AREYMI                                      RIVERA                                                                          M161120070000000007992.45
+DC22300612367              YARIDIS ISABEL                                    MATEO                                                                           M050619870000000010656.60
+DC02800755841              MAIRA                                             RODRIGUEZ                                                                       F100419830000000011783.40
+DC03700689494              WENDOLINE                                         PONS RODRIGUEZ                                                                  F030519720000000050356.80
+DC22300203696              KERMMYS                                           MARTINEZ                                LIZARDO                                 M180919850000000031293.30
+DC07500091652              ROMELIO                                           MONTERO                                 SANCHEZ                                 M081019810000000009524.48
+DC00114112832              SEGUNDO ANTONIO                                   JIMENEZ                                 JEREZ                                   M180720080000000007992.55
+DC22400584110              DOUGLAS MIGUEL                                    PLACIDO TAVAREZ                                                                 M230919900000000007992.45
+DC00111633038              RAMON ALEXANDER                                   RODRIGUEZ                                                                       M171219770000000007992.45
+DC03103741306              DULCE MARIA                                       DEL CARMEN                              PEÑA                                    F090519810000000007992.45
+DC00118819762              ERICKSON                                          SEPULVEDA                               DELGADO                                 M051019890000000009302.63
+DC22500417518              MIGUEL                                            GALVEZ                                                                          M200919870000000007992.10
+DC22500033000              JACKSON                                           MOREL                                   SANTANA                                 M250119840000000004948.00
+DC08700046900              JUAN                                              GARCIA                                  ADAMES                                  M170919750000000007992.10
+DC00116983891              JUAN                                              GARCIA                                  ZABALA                                  M280319840000000005994.34
+DC00119039188              RAYMO                                             ESTEVEZ                                 FELIX                                   M300419910000000003683.19
+DC00116662420              JAJAIDY                                           ESCAÑO                                  REYES                                   F010119500000000006726.98
+DC00111336350              CARLOS                                            GARCIA                                  FELIZ                                   M080819760000000007992.55
+DC03900070594              MARCIALITO                                        PLACENCIA                               ARIAS                                   M230620100000000007992.00
+DC03101069205              BICENTE                                           ALMONTE                                                                         M271219690000000007992.55
+DC40220014522              ANGELA                                            MONTES                                  DE OCA                                  F031219890000000007992.50
+DC22500284702              ALBA                                              JORGE                                   URVAN                                   M040319850000000007992.50
+DC40221218114              ANGEL                                             MONTES DE OCA                           MONTAS                                  M121119910000000007992.50
+DC00300827615              PASCUAL                                           SOTO                                    VILLALONA                               M250119790000000007992.00
+DC02301141939              ANEURY ANYELINA                                   LORENZO                                 RIVERA,                                 F290619810000000010656.60
+DC04700527916              MARIA                                             HERNANDEZ                               D                                       F091219830000000010656.60
+DC02600874826              WANDA MARLENNY                                    SANTANA                                 H                                       F080219800000000010656.60
+DC03104188465              MAXIMO                                            ESPINAL                                 RIDRIGUEZ                               M080519840000000007992.45
+DC02300186877              IVAN JULIO                                        RIVERA                                  POLANCO                                 M190319760000000022765.50
+DC22400157818              RAMON                                             RODRIGUEZ                               Q                                       M281119840000000005774.55
+DC06900077311              CRISTIAN ALBERT                                   ALCANTARA,                                                                      M270319840000000016790.10
+DC04701421564              ALEXIS                                            GRULLON                                 MARTE                                   M311219790000000010656.60
+DC03103830240              MARCOS JOSE                                       TEJERA                                  N,                                      M250419790000000010656.60
+DC07500004150              ROBERT                                            VICENTE                                 AMADOR                                  M211019750000000010656.60
+DC08700175667              ANA FELICIA                                       RODRIGUEZ,                                                                      F201219810000000010656.60
+DC00104101761              DULCE MARIA                                       GUZMAN                                  GOMEZ,                                  F150919610000000008365.50
+DC02601104645              FERNANDO ARTURO                                   FLAQUER                                 SEIJAS                                  M270219850000000012788.53
+DC22500134600              MILTON                                            PEREZ                                   ENCARNACION                             M070219850000000007992.50
+DC00116465410              PATRICIA                                          BLANCO                                  MORALES                                 F180519830000000039945.15
+DC02301344053              YAHAIRA                                           MEDINA                                                                          F060419840000000015107.10
+DC06900004893              SIXTO MANUEL                                      FERNANDEZ                               CASTILLO                                M200219720000000007992.10
+DC00103154548              GLADYS JULIA                                      FORTUNA PEREZ                                                                   F070519680000000007992.45
+DC00108093592              WILSON                                            REYES REYES                                                                     M200719720000000007992.45
+DC00117688887              JOSE                                              ROMERO                                  FLORIAN                                 M231219850000000007992.10
+DC01000921245              ANDERSON                                          RAMIREZ                                 AGRAMONTE                               M221119830000000007992.45
+DC05800272022              JUAN                                              TAVERAS                                 MARTINEZ                                M031219800000000007992.45
+DC22300420357              CARMEN                                            GARCIA                                  ROSARIO                                 F060619840000000011330.26
+DC00117927665              JUANA                                             DIAZ                                                                            F290519850000000007992.45
+DC40220572321              CARLOS                                            SERRATA                                 VALERIO                                 M121219900000000008499.00
+DC01300526967              JORGE                                             ORTIZ                                   CUSTODIO                                M011019910000000007992.50
+DC03700926540              ROMNY                                             RODRIGUEZ                               FRANCO                                  M040319820000000007992.55
+DC22300951492              PAMEL                                             BAUTISTA                                VILLALONA                               M201019890000000005478.10
+S000154

@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BCRDFileServices", "BCRDFileServices\BCRDFileServices.vbproj", "{C766ABFD-54B0-46E1-95C0-6AB30F665355}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CLBCRDFILE", "CLBCRDFILE\CLBCRDFILE.vbproj", "{36F4FCF6-CAB6-4D8C-A003-89E72E2BC193}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BCRDFileTest", "BCRDFileTest\BCRDFileTest.vbproj", "{AFEAC835-218C-4929-B6C8-9A710BB28581}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://isuzu:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BCRDFileServices\\BCRDFileServices.vbproj
+		SccProjectName1 = BCRDFileServices
+		SccLocalPath1 = BCRDFileServices
+		SccProjectUniqueName2 = BCRDFileTest\\BCRDFileTest.vbproj
+		SccProjectName2 = BCRDFileTest
+		SccLocalPath2 = BCRDFileTest
+		SccProjectUniqueName3 = CLBCRDFILE\\CLBCRDFILE.vbproj
+		SccProjectName3 = CLBCRDFILE
+		SccLocalPath3 = CLBCRDFILE
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C766ABFD-54B0-46E1-95C0-6AB30F665355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C766ABFD-54B0-46E1-95C0-6AB30F665355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C766ABFD-54B0-46E1-95C0-6AB30F665355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C766ABFD-54B0-46E1-95C0-6AB30F665355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F4FCF6-CAB6-4D8C-A003-89E72E2BC193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F4FCF6-CAB6-4D8C-A003-89E72E2BC193}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F4FCF6-CAB6-4D8C-A003-89E72E2BC193}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F4FCF6-CAB6-4D8C-A003-89E72E2BC193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFEAC835-218C-4929-B6C8-9A710BB28581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFEAC835-218C-4929-B6C8-9A710BB28581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFEAC835-218C-4929-B6C8-9A710BB28581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFEAC835-218C-4929-B6C8-9A710BB28581}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

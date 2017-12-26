@@ -1,0 +1,294 @@
+﻿html > /**/ body .Cabeza {
+    background-color: #3385AD;
+    color: white;
+    font-size: 12px;
+    font-family: Tahoma, Verdana, Arial;
+    height: 15px;
+    width: 122px;
+    border: 1px solid #CFCFCF;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    float: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+}
+
+html > /**/ body .CabezaLeyenda {
+    background-color: #3385AD;
+    color: white;
+    height: 7px;
+    width: 235px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    float: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+    font: bold 12px Tahoma, Verdana, Arial;
+}
+
+.Headers {
+    width: 970px;
+}
+
+.HeadTabla {
+}
+
+.Cuerpo {
+    font-size: 12px;
+    font-family: Tahoma, Verdana, Arial;
+    height: 40px;
+    width: 122px;
+    border: 1px solid #CFCFCF;
+    padding-top: 15px;
+    float: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+}
+
+html > /**/ body .CuerpoTabla2 {
+    font-size: 12px;
+    font-family: Tahoma, Verdana, Arial;
+    height: 20px;
+    width: 290px;
+    border: 1px solid #CFCFCF;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    float: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;
+    float: right;
+    position: relative;
+}
+
+html > /**/ body .CuerpoTabla {
+    font-size: 12px;
+    font-family: Tahoma, Verdana, Arial;
+    height: 20px;
+    width: 176px;
+    border: 1px solid #CFCFCF;
+    padding-top: 2px;
+    float: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: center;    
+}
+
+.TablaSol {
+    width: 925px;
+    margin-top: 30px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #E0E0E0;
+    overflow: scroll;
+}
+
+.TablaLeyendas {
+    width: 470px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #E0E0E0;
+}
+
+.SubGeneral {
+    float: left;
+    margin-left: 10px;
+}
+
+.MarcoSolicitud {
+    width: 300px;
+    height: 400px;
+    margin: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    border: 2px solid #c8c5c5;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    overflow: scroll;
+}
+
+.MarcoDelMensaje {
+    width: 400px;
+    height: 80px;
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid #c8c5c5;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #006699;
+}
+
+.NoSolicitudes:hover {
+    background: #3385AD;
+    border: 1px solid #E0E0E0;
+}
+
+.NoSolicitudes {
+    display: block;
+    margin: 15px 3px 0 3px;
+    padding: 5px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    text-align: center;
+    font: normal 16px Verdana, Arial, Helvetica, sans-serif;
+    width: 230px;
+    color: white;
+    outline-style: none;
+    background-color: #63AD22;
+    border: 1px solid #63AD22;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+
+}
+
+
+
+.btnContinuar {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    text-align: center;
+    font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+    width: 90px;
+    color: white;
+    vertical-align: middle;
+    outline-style: none;
+    background-color: #63AD22;
+    border: 1px solid #63AD22;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: 12px;
+    cursor:pointer;
+}
+
+.Evaluando {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    text-align: center;
+    font: normal 12px Verdana, Arial, Helvetica, sans-serif;
+    width: 90px;
+    color: rgb(90, 86, 85);
+    vertical-align: middle;
+    outline-style: none;
+    background-color: #F8F8F8;
+    border: 1px solid #3385AD;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    margin-left: 12px;
+    cursor:pointer;
+}
+
+.btnContinuar:hover {
+    background: #3385AD;
+    border: 1px solid #E0E0E0;
+}
+
+.ClaseEmpresa {
+    font-family: Tahoma, Verdana, Arial;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.DivSelect {
+    background-color: #8CC63F;
+    border: 1px solid #CCC;
+}
+
+table {
+    font-size: 12px;
+}
+
+.TituloContenido {
+    font-family: Verdana, Tahoma, Arial;
+    font-size: 15px;
+    color: #006699;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.css_button {
+    border: 1px solid #CCCCCC;
+    -webkit-box-shadow: #FEFFFF 0px 1px 1px;
+    -moz-box-shadow: #FEFFFF 0px 1px 1px;
+    box-shadow: #FEFFFF 0px 1px 1px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: arial, helvetica, sans-serif;
+    padding: 5px 10px 5px 10px;
+    text-shadow: 0px 1px 0 rgba(255,255,255,1);
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    color: #4A4A4A;
+    background-color: #F7F5F6;
+    background-image: linear-gradient(to bottom, #F7F5F6, #DDDDDD);
+}
+
+    .css_button:hover {
+        border: 1px solid #ADADAD;
+        background-color: #E0E0E0;
+        background-image: linear-gradient(to bottom, #E0E0E0, #BDBBBC);
+    }
+
+.botonSalir {
+    background: #3385AD;
+    border: 1px solid #E0E0E0;
+}
+
+/*Para la tabla del edición del archivos*/
+html > /**/ body .ETable {
+      border-color: rgb(197, 235, 197);
+  border-style: solid;
+  border-width: 1px;
+  right: 5px;
+  width: 951px;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-family: Tahoma, Verdana, Arial;
+}
+
+html > /**/ body .ETitle {
+    display: table-caption;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+html > /**/ body .EHeading {
+    background-color: #63AD22;
+    font-size: .99em;
+    color: #ffffff;
+    font-weight: bold;
+    font-family: verdana;
+    text-decoration: none;
+    border-color: rgb(99, 173, 34);
+    border-style: solid;
+    border-width: 1px;
+}
+
+html > /**/ body .ERow {
+      display: table-row;
+  border: solid 1px #63AD22;
+}
+
+html > /**/ body .ECell {
+        display: table-cell;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding: 1px;
+  width: 120px;
+}

@@ -1,0 +1,60 @@
+﻿<script type="text/javascript">
+
+    $(function () {
+
+        $(".button").button();
+
+        CargarLactantes();
+
+    });
+
+
+    function CargarLactantes() {
+        //Ir a la db y traer lactantes
+    }
+    function MostrarLactantes(lactantes) {
+
+        //Cargar una tabla html con los datos obtenidos
+        var tablaLactantes = "<table><tr><td>Secuencia</td> <td>NSS</td> <td>Nombre</td> <td>Fecha Nacimiento</td> <td>Fecha de Defunción</td> <td>Falleció?</td></tr>";
+
+        //Iterar sobre lactantes y agregar fila
+    }
+    function agregarFila(i) {
+
+        tablaLactantes += "<tr class=\"fila\" >"
+        tablaLactantes += "<td>"
+        tablaLactantes += "<span \"id=\"Secuencia" + i + "\" />"
+        tablaLactantes += "</td>"
+        tablaLactantes += "<td>"
+        tablaLactantes += "<input type=\"text\" onchange=\"DatosObligatoriosVacios();\" name=\"nombres" + i + "\" id=\"nombres" + i + "\" />"
+        tablaLactantes += "</td>"
+        tablaLactantes += "<td>"
+        tablaLactantes += "<input type=\"text\" onchange=\"Apellidos(this);\" name=\"papellido" + i + "\" id=\"papellido" + i + "\" />"
+        tablaLactantes += "</td>"
+        tablaLactantes += "<td>"
+        tablaLactantes += "<input type=\"text\" onchange=\"Apellidos(this);\" name=\"sapellido" + i + "\" id=\"sapellido" + i + "\" />"
+        tablaLactantes += "</td>"
+        tablaLactantes += "<td>"
+        tablaLactantes += "<input type=\"text\" onchange=\"nuiDuplicado(this," + i + ");\" name=\"nui" + i + "\" id=\"nui" + i + "\" />"
+        tablaLactantes += "</td>"
+        tablaLactantes += "<td>"
+        tablaLactantes += "<select name=\"sexo" + i + "\" id=\"sexo" + i + "\"><option value=\"F\" >Femenino</option><option  value=\"M\" >Masculino</option></select>"
+        tablaLactantes += "</td>"
+        tablaLactantes += "</tr>"
+    }
+
+</script>
+<fieldset style="width: 280px;">
+    <legend class="header" style="font-size: 14px; font-weight: normal;">Reporte Muerte
+        Lactante</legend>
+    <br />
+    <legend style="font-size: 11px; color: #016BA5">Seleccione de la lista el o los lactantes
+        que fallecieron</legend>
+    <br />
+    <div id="lactantes"/>
+
+    <br />
+    <br />
+    <input type="button" id="RegistrarML" value="Registrar" />
+    <input type="button" id="CancelarML" value="Cancelar" />
+</fieldset>

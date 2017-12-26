@@ -1,0 +1,2 @@
+<%@ Control Language="VB" AutoEventWireup="false" CodeFile="ucExportarExcel.ascx.vb" Inherits="Controles_ucExportarExcel" %>
+<asp:LinkButton id="LinkButton1" runat="server"><IMG src="../images/excel.jpg" border="0"> exportar a excel</asp:LinkButton>

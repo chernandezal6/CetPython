@@ -1,0 +1,177 @@
+﻿<script type="text/javascript">
+
+    $(function () {
+        BuscarNovedades();
+    });
+
+    function buscarFormulario(form) {
+
+        $("#msgPrincipal").html("");
+        $("#formularioNovedad").val(form);
+
+        switch (form) {
+            case "RegistroEmbarazo.htm":
+                ValidarEmbarazo();
+                break;
+            case "ReportePerdida.htm":
+                ValidarPerdida();
+                break;
+            case "ReporteMuerteMadre.htm":
+                ValidarMuerteMadre();
+                break;
+            default:
+                $.get(form, function(data) {
+                    recibirFormulario(data);
+                });
+                break;
+        }
+
+    }
+
+    function ValidarEmbarazo() {
+        try {
+            // Verificar que solo se valide "subsidio inconcluso" cuando no se trate de una reconsideracion
+            if ($("#modo2").val() == "n") {
+                var Url = loc + "/tieneSubsidioMaternidadInconcluso";
+                var data = '{ nss: "' + $("#nss").html() + '" }';
+
+                Util.llamarWS(Url, data, function (info) {
+                    try {
+                        if (info.d == "S") {
+                            $("#msgPrincipal").html("La afiliada posee un registro de embarazo Inconcluso");
+                        }
+                        else if (info.d == "N") {
+                            $.get($("#formularioNovedad").val(), recibirFormulario);
+                        }
+                        else {
+                            $("#msgPrincipal").html("Ha ocurrido un error, por favor intente nuevamente");
+                        }
+                    }
+                    catch (e) {
+                        $("#msgPrincipal").html("Ha ocurrido un error, por favor intente nuevamente");
+                    }
+                }, ajaxFailed);
+            } else {
+                $.get($("#formularioNovedad").val(), recibirFormulario);
+            }
+        }
+        catch (e) {
+            $("#msgPrincipal").html("Ha ocurrido un error, por favor intente nuevamente");
+        }
+    }
+    function ValidarPerdida() {
+        try {
+            var Url = loc + "/PreValidacionesPerdidaEmbarazo";
+            var data = '{ nss: "' + $("#nss").html() + '", registropatronal: "' + $("#registropatronalregistro").val() + '" }';
+
+            Util.llamarWS(Url, data, function (info) {
+                try {
+                    if (info.d == "OK") {
+                        $.get($("#formularioNovedad").val(), recibirFormulario);
+                    }
+                    else {
+                        $("#msgPrincipal").html(info.d);
+                    }
+                }
+                catch (e) {
+                    alert(e);
+                }
+            }, ajaxFailed);
+        }
+        catch (e) {
+            alert(e);
+        }
+    }
+    function ValidarMuerteMadre() {
+        try {
+            var Url = loc + "/PreValidacionesMuerteMadre";
+            var data = '{ nss: "' + $("#nss").html() + '", registropatronal: "' + $("#registropatronalregistro").val() + '" }';
+
+            Util.llamarWS(Url, data, function (info) {
+                try {
+                    if (info.d == "OK") {
+                        $.get($("#formularioNovedad").val(), recibirFormulario);
+                    }
+                    else {
+                        $("#msgPrincipal").html(info.d);
+                    }
+                }
+                catch (e) {
+                    alert(e);
+                }
+            }, ajaxFailed);
+        }
+        catch (e) {
+            alert(e);
+        }
+    }
+
+    function recibirFormulario(data) {
+        $("#Formulario").html(data);
+    }
+
+    function BuscarNovedades() {
+
+        try {
+            if ($("#cedula").val() != "") {
+                var Url = loc + "/ObtenerNovedadesToDoList";
+                var data = '{ nss: "' + $("#nss").html() + '", registropatronal: "' + $("#registropatronalregistro").val() + '" }';
+
+                Util.llamarWS(Url, data, function (info) {
+                    try {
+                        var lista = "<ul class='ul'>";
+                        for (var i = 0; i < info.d.length; i++) {
+                            if (info.d[i].Completado == "S") {
+                                lista += "<li class='lipast' ><img class='lipast' src='../images/check.png' />";
+                            }
+                            else {
+                                lista += "<li class='liaction' onclick=buscarFormulario('" + info.d[i].Url + "');><img src='../images/arrow_right.png'/>";
+                            }
+                            lista += info.d[i].TipoNovedad + "</li>";
+                        }
+                        lista += "</ul>";
+                        $("#nrosolicitud").val(info.d[0].NroSolicitud);
+                        $("#nrosolicitud2").val(info.d[0].NroSolicitud);
+                        $("#listaNovedades").html(lista);
+                    }
+                    catch (e) {
+                        $("#mensaje").addClass("error");
+                        $("#mensaje").html("Ocurrió un error por favor intente nuevamente...");
+                    }
+                }, ajaxFailed);
+                $("#mensaje").html("");
+            }
+            else {
+                alert('Cédula incompleta favor de completar...');
+                $("#cedulatutor").val("");
+                $("#cedulatutor").focus();
+            }
+        }
+        catch (e) {
+            $("#mensaje").addClass("error");
+            $("#mensaje").html(e.Message);
+
+            $("#buscartutor").attr("disabled", false);
+            $("#cedulatutor").attr("disabled", false);
+        }
+    }
+
+</script>
+<style type="text/css">
+    .liaction
+    {
+        cursor: pointer;
+    }
+    .lipast
+    {
+        cursor: text;
+    }
+    .ul
+    {
+        list-style-type: none;
+    }
+</style>
+<input type="hidden" name="formularioNovedad" id="formularioNovedad" />
+<span class="Titulo" style="margin: 40px;">Novedades</span>
+<div id="listaNovedades">
+</div>

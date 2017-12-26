@@ -1,0 +1,191 @@
+﻿<script type="text/javascript">
+    $(function () {
+
+        $(".fecha").datepicker($.datepicker.regional['es']);
+        $(".button").button();
+
+        $("#divdetreintegro").hide();
+        $("#registrarreintegro").click(ReportarReintegro);
+        $("#cancelarreintegro").click(CancelarReintegro);
+
+        var Params = {
+            nss: $("#nss").html(),
+            registropatronal: $("#registropatronal").val()
+        };
+
+        Util.LlamarServicio('Subsidios.asmx', 'ObtenerPadecimientosCompletados', Params, function (data) {
+            var sb = '';
+            var tblPad = $("#tablaPad");
+
+            for (var i = 0; i < data.d.length; i++) {
+                sb += '<tr class="filas"> <td align="center" style="width:130px;">' + data.d[i].NroFormulario + '</td><td align="center" style="width:110px;">' + Util.formatJSONDate(data.d[i].FechaRegistro) + '</td><td style="width:200px; white-space: wrap;">' + data.d[i].Diagnostico + '</td><td align="center"> <span class="linkPaginacion" style="cursor:pointer; width:70px;" onclick="MostrarDatosReintegro(' + data.d[i].NroSolicitud + ');">Reportar Reintegro</span> </td></tr>';
+            }
+
+            $("#filas").remove();
+            tblPad.append(sb);
+        });
+    });
+    function MostrarDatosReintegro(id) {
+
+        /// Asignar el Nro. Solicitud  y esconder el listado
+        $("#nrosolicitud").val(id)
+        $("#divreintegro").html("");
+
+        /// Presentar el formulario para insertar fecha reintegro
+        $("#divdetreintegro").show();
+
+        ///Cargar detalle del padecimiento
+        try {
+            var ParamsDet = {
+                nrosolicitud: id
+            };
+            Util.LlamarServicio('Subsidios.asmx', 'MostrarDatosReintegro', ParamsDet, function (info) {
+                $("#numeroformulario").html(info.d.NroFormulario);
+                $("#fechainicio").html(Util.formatJSONDate(info.d.FechaInicioLicencia));
+                $("#fechafin").html(Util.formatJSONDate(info.d.FechaFinLicencia));
+                $("#diascalendario").html(info.d.DiasCalendario);
+            });
+        } catch (e) {
+            $("#mensajeReintegro").addClass("error");
+            $("#mensajeReintegro").html(e);
+        }
+    }
+    function ReportarReintegro() {
+        $("#registrarreintegro").attr("disabled", true);
+
+        if ($("#fechareintegro").val() == "") {
+            $("#mensajeReintegro").addClass("error");
+            $("#mensajeReintegro").html("La fecha de reintegro es obligatoria");
+            $("#registrarreintegro").attr("disabled", false);
+            return;
+        }
+
+        var ParamsReporte = {
+            nrosolicitud: $("#nrosolicitud").val(),
+            fechareintegro: $("#fechareintegro").val(),
+            usuario: $("#usuarioprincipal").val(),
+            registropatronal: $("#registropatronal").val()
+        };
+
+        Util.LlamarServicio('Subsidios.asmx', 'RecibirDatosReintegro', ParamsReporte, function (result) {
+            try {
+                if (result.d != 'OK') {
+
+                    $("#mensajeReintegro").addClass("error");
+                    $("#mensajeReintegro").html(result.d);
+                    $("#registrarreintegro").attr("disabled", false);
+                }
+                else {
+                    Exito("El reporte de reintegro se hizo sastifactoriamente...");
+                }
+            }
+            catch (e) {
+                $("#registrarreintegro").attr("disabled", false);
+                $("#mensajeReintegro").addClass("error");
+                $("#mensajeReintegro").html(e);
+            }
+        });
+    }
+    function CancelarReintegro() {
+        $("#ToDoList").html("");
+        $("#divreintegro").html("");
+        $("#registrarreintegro").attr("disabled", false);
+    }
+</script>
+<div id="divreintegro">
+    <span class="header legendStyle">Reportar Reintegro </span>&nbsp;<br />
+    <br />
+    <table style="border: 0.5px solid #808080; background-color: #F8FBFC; border: 1px solid #DBEAF3;"
+        width="600px">
+        <tr>
+            <td>
+                <br />
+                <span style="font-size: 14px; font-weight: bold; color: #016BA5; font-family: Arial">
+                    Padecimientos</span>
+                <br />
+                <br />
+                <table rules="all" cellspacing="0" border="1" style="border-collapse: collapse;"
+                    width="600px" id="tablaPad" class="gridBorder">
+                    <tr class="listheadermultiline">
+                        <td>
+                            Nro. Formulario
+                        </td>
+                        <td>
+                            Fecha Registro
+                        </td>
+                        <td>
+                            Diagnóstico
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="divdetreintegro">
+    <form id="inforeintegro">
+    <input type="hidden" name="nss" id="nsstrabajador" />
+    <input type="hidden" name="tiposolicitud" id="tiposolicitud" value="Renovacion" />
+    <input type="hidden" name="numerosolicitud" id="numerosolicitud" />
+    <input type="hidden" name="usuario" id="usuario" />
+    <fieldset style="width: 510px">
+        <legend style="font-size: 14px; font-weight: bold; color: #016BA5; font-family: Arial">
+            Confirmar Reintegro Anticipado</legend>
+        <br />
+        <table class="td-content" style="width: 330px; vertical-align: top;">
+            <tr>
+                <td>
+                    <br />
+                    Nro Formulario:
+                </td>
+                <td>
+                    <br />
+                    <span class="labelData" id="numeroformulario"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fecha Inicio Licencia:
+                </td>
+                <td>
+                    <span class="labelData" id="fechainicio"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fecha Fin Licencia:
+                </td>
+                <td>
+                    <span class="labelData" id="fechafin"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Días Calendario:
+                </td>
+                <td>
+                    <span class="labelData" id="diascalendario"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fecha Reintegro:
+                </td>
+                <td>
+                    <input type="text" name="fechareintegro" id="fechareintegro" class="fecha" />
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <input id="registrarreintegro" type="button" class="button" value="Confirmar" />
+        <input type="button" class="button" value="Cancelar" id="cancelarreintegro" class="button" />
+    </fieldset>
+    </form>
+    <br />
+    <span id="mensajeReintegro"></span>
+</div>

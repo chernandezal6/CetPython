@@ -1,0 +1,76 @@
+﻿<head>    
+    <script type="text/javascript">
+        VerificarCarga();
+        function VerificarCarga() {
+            //Como saber si está logeado o no?
+            if (document.getElementById("hdCargarArchivos").getAttribute("value") != "Paso4") {
+                Redireccionar("LoginPage.aspx");
+            }            
+        }
+
+        var Ruta = "http://" + location.host + "/Reg/";
+
+        //Gestionar Links
+        function Redireccionar(extension) {
+            window.location.href = Ruta + "/" + extension;
+        }
+    </script>
+    <style type="text/css">
+        .auto-style1 {
+            height: 40px;
+        }
+
+        .auto-style2 {
+            height: 45px;
+        }
+
+        .auto-style3 {
+            height: 19px;
+        }
+
+        .imagen {
+            height: 135px;
+            width: 278px;
+            margin-left: 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+      input[Type=file] {
+            margin-top: 5px;
+            margin-left: 10px;
+            margin-bottom: 5px;
+            height: 22px;
+            width: 275px;
+        }
+    </style>
+</head>
+
+<form id="CargaArchivo">
+    <div id="Cuerpo">
+        <div>
+            <img class="imagen" alt="" src="../images/formulario.jpg" />
+        </div>
+        <div class="file">
+            <input id="archivo1" type="file" name="archivo1"  />
+            <br />
+            <input id="archivo2" type="file" name="archivo2" />
+            <br />
+            <input id="archivo3" type="file" name="archivo3" />
+            <br />
+            <input id="archivo4" type="file" name="archivo4" />
+            <br />
+            <input id="archivo5" type="file" name="archivo5" />
+            <br />
+            <input id="archivo6" type="file" name="archivo6" />
+            <br />
+            <input id="archivo7" type="file" name="archivo7" />
+            <br />
+            <input id="archivo8" type="file" name="archivo8" />
+        </div>
+        <div>
+            <br />
+            <!--<input id="btnEnviar" name="btnEnviar" type="button" value="Enviar" onclick="Enviar()" />-->
+        </div>
+    </div>
+</form>

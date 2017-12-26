@@ -1,0 +1,186 @@
+﻿<form id="nuevopadecimiento">
+<input type="hidden" name="nsstrabajador" id="nsstrabajador" />
+<input type="hidden" name="tiposolicitud" id="tiposolicitud"/>
+<input type="hidden" name="numerosolicitud" id="numerosolicitud" value="" />
+<input type="hidden" name="usuario" id="usuario" value="" />
+<fieldset style="width: 480px; height: 270px;">
+    <br />
+    <legend class="header legendStyle" id="tituloEC">Nuevo Padecimiento</legend><span
+        style="font-size: 14px; font-weight: bold; color: #016BA5; font-family: Arial">Datos
+        Generales del Empleado(a)</span>
+    <table class="td-content" style="width: 450px;">
+        <tr>
+            <td colspan="2" width="100%">
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td width="30%">
+                <span style="margin-left: 5px">Dirección(*):</span>&nbsp;&nbsp;&nbsp;<br />
+            </td>
+            <td width="70%">
+                <textarea name="direcciontrabajador" id="direcciontrabajador" cols="25" rows="2"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span style="margin-left: 5px">Teléfono(*):</span>&nbsp;&nbsp;&nbsp;<br />
+            </td>
+            <td>
+                <input id="telefonotrabajador" name="telefonotrabajador" class="telefono" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span style="margin-left: 5px">Celular:</span>&nbsp;&nbsp;&nbsp;<br />
+            </td>
+            <td align="left">
+                <input id="celulartrabajador" name="celulartrabajador" class="telefono" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span style="margin-left: 5px">Correo Electrónico:</span>&nbsp;&nbsp;&nbsp;<br />
+            </td>
+            <td>
+                <input id="correotrabajador" name="correotrabajador" type="text" />
+                <br />
+                <br />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <input id="registrardatosiniciales" type="button" class="button" value="Registrar" />
+    <input type="button" name="cancelardatosiniciales" class="button" value="Cancelar"
+        id="cancelardatosiniciales" class="button" />
+    <br />
+    <br />
+</fieldset>
+<br />
+<br />
+<label id="mensajeDatosIniciales" />
+<br />
+<br />
+<br />
+<br />
+</form>
+<div id="DatosIniRegistrados" align="center" style="width: 450px;">
+    <span id="Span1" style="margin-left: 17px" class="label-Blue">Formulario generado exitosamente,
+        ahora debe imprimirlo y entregarlo al trabajador(a) afectado por licencia médica
+        para que su médico tratante lo complete. Una vez completado vuelva a esta pantalla
+        para digitar los datos llenados por el médico. Para reimprimir el formulario puede
+        entregarle el siguiente PIN al trabajador(a) </span><span id="lblPin" class="label-Blue" />
+    <br />
+    <br />
+    <input id="verformulario" type="button" class="button" value="Imprimir Formulario" />
+</div>
+<script type="text/javascript" language="javascript">
+
+    var hash;
+    var tipo;
+
+    $(function () {
+
+        $("#DatosIniRegistrados").hide();
+
+        $("#nsstrabajador").val($("#nss").html());
+        $("#usuario").val($("#usuarioprincipal").val());
+
+        $(".telefono").mask("(999)-999-9999");
+        $(".button").button();
+
+        $("#registrardatosiniciales").click(ElRegistrarDatosIniciales);
+        $("#cancelardatosiniciales").click(CancelarRegistroInicial);
+        $("#verformulario").click(NumeroFormulario);
+
+        if (!msgTituloEC == "") {
+            $("#tituloEC").html(msgTituloEC);
+            $("#tiposolicitud").val("RENOVACION");
+            $("#numerosolicitud").val($("#nrosolicitud").val());
+        } else {
+            $("#tituloEC").html("Nuevo Padecimiento");
+            $("#tiposolicitud").val("NUEVA");
+        }
+    });
+
+    function ElRegistrarDatosIniciales() {
+        var btnregistrar = $("#registrardatosiniciales");
+        btnregistrar.attr('disabled', true);
+
+        var msg = $("#mensajeDatosIniciales");
+        msg.addClass("error");
+        msg.html("");
+
+        if (!Util.IsValidEmail($("#correotrabajador").val())) {
+            msg.html("El correo del afiliado/a es inválido");
+            btnregistrar.attr('disabled', false);
+            return;
+        }
+
+        try {
+            var Url = loc + "/RegistrarDatosInciales";
+            var data = $.toJSON($('#nuevopadecimiento').serializeObject());
+
+            Util.llamarWS(Url, data, function (info) {
+                try {
+                    var result = info.d;
+                    if (result.length > 3) {
+                        if (result.split("|")[0] == "OK") {
+                            $("#lblPin").html(result.split("|")[1]);
+                            hash = result.split("|")[2];
+
+                            $("#nuevopadecimiento").html("");
+                            $("#ToDoList").html("");
+                            $("#DatosIniRegistrados").show();
+                        }
+                        else {
+                            msg.addClass("error");
+                            msg.html(result.split("|")[0]);
+                            btnregistrar.attr('disabled', false);
+                        }
+                    }
+                    else {
+                        msg.addClass("error");
+                        msg.html(result);
+                        btnregistrar.attr('disabled', false);
+                    }
+                }
+                catch (e) {
+                    msg.addClass("error");
+                    msg.html(e);
+                    btnregistrar.attr('disabled', false);
+                }
+            }, ajaxFailed);
+
+        } catch (er) {
+            msg.adClass("error");
+            msg.html(e);
+        }
+    }
+
+    function CancelarRegistroInicial() {
+        $("#nuevopadecimiento").html("");
+    }
+
+    function NumeroFormulario() {
+
+        var tipo;
+
+        console.log($("#tiposolicitudprincipal").val());
+        
+        if ($("#tiposolicitudprincipal").val() == "Renovacion") {
+            tipo = "Renovacion";
+        } else if ($("#tiposolicitudprincipal").val() == "Nueva") {
+            tipo = "Nueva";
+        }
+        console.log(tipo);
+
+        var page = 'FormularioEnfermedadComun.aspx?nss=' + $("#nss").html() + '&cedula=' + $("#nodocumento").html()
+                   + '&nombre=' + $("#nombre").html() + '&hash=' + hash + '&sexo=' + $("#sexo").html() + '&tipoSolicitud=' + tipo;
+
+        window.open(page, "", "width=840px;height=5000px").print();
+
+        window.DontDoThisAtHomeRenovar = false;
+    }
+</script>

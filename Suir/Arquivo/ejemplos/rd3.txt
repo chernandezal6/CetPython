@@ -1,0 +1,6 @@
+ERD  130703051
+D001C04701266852SDC04700546361Andrea Antonia                                    Santos                                  Monegro                                
+D001C04701266852SDC04700545868Juan Antonio                                      Polanco                                 Molina                                 
+D001C04700375191SDC04700372388Hilario                                           Perez                                   Veras                                  
+D001C04700375191SDC04700373105Jocoba Mercedes                                   Suazo                                   Peña                                   
+S000006

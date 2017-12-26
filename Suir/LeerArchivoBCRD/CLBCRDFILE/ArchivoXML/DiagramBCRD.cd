@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CLBCRDFILE.BLArchivoXML">
+    <Position X="3.25" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="CLBCRDFILE.BLArchivoXML.TipoArchivo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ArchivoXML\BLArchivoXML.vb</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gIogARDEDMCIIZACEAURAihIEDBAAAHQgPoICQAQgBA=</HashCode>
+      <FileName>ArchivoXML\BLArchivoXML.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLBCRDFILE.DetalleArchivo">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAJAQAAAAAAAIAYEAAAACAAQgAAEgASAFAAIQACAAIA=</HashCode>
+      <FileName>Liquidacion\DetalleArchivo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLBCRDFILE.EncabezadoArchivo">
+    <Position X="6" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BCQoJAAEoQAAIhwEAAAEACAAiARDAAAABAAJQAAAABQ=</HashCode>
+      <FileName>Liquidacion\EncabezadoArchivo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLBCRDFILE.OracleHelper">
+    <Position X="8.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>DataAccess\OracleHelper.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLBCRDFILE.SumarioException">
+    <Position X="8.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Excepciones\SumarioException.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLBCRDFILE.DetalleException">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Excepciones\SumarioException.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLBCRDFILE.EncabezadoException">
+    <Position X="10.75" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Excepciones\SumarioException.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLBCRDFILE.Encabezado">
+    <Position X="8.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AgAAAQAIAAAAIEQAAAAAIAAIAAAAAAgEAAAAQAAAAAA=</HashCode>
+      <FileName>Concentracion\Encabezado.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLBCRDFILE.Detalle">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAABAAgAAICEQAAIQUAAAAAIAAAAAIAAAQAAAAkA=</HashCode>
+      <FileName>Concentracion\Detalle.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CLBCRDFILE.Sumario">
+    <Position X="8.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAIBAAAAAAAAgAAAAAAAEABAAABQYAAAAAAA=</HashCode>
+      <FileName>Concentracion\Sumario.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

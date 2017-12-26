@@ -1,0 +1,24 @@
+EBO  101789362012014  
+DP911708321                RAFAEL  @@@                                                                               GONZALEZ                                M120819480000000027888.80
+DN20308295                 ALEJANDRINA                                       LACHAPEL                                SOTO                                    F040519680000000024726.17
+DC00300937653              CARLOS MANUEL                                     SALDANA                                 DIAZ                                    M181019760000000004909.78
+DC00300711371              DARIEN ALEXANDRA                                  AYBAR                                   LARA                                    F150319780000000007414.36
+DC00300283793              CRISTOBAL                                         AYBAR                                   CARVAJAL                                M241119670000000019811.96
+DC00300353588              DIEGO                                             DE LA ROSA                              ARIAS                                   M051019580000000000954.10
+DC00300642402              JUANA CESARIA                                     GONZALEZ                                GUZMAN                                  F210319760000000004229.95
+DC00300796141              SANTA EUFEMIA                                     BAEZ                                    RODRIGUEZ                               F200319800000000018087.34
+DC00300911609              LUISA ARIANNA                                     DE LA CRUZ                              LARA                                    F290619820000000017968.88
+DC00300919164              XIOMARA ARACELIS                                  GONZALEZ                                GUZMAN                                  F120219830000000015106.63
+DC00300879558              @@@@                                              CRUZ                                    SANCHEZ                                 F260619800000000004444.32
+DC00301036588              MARCIA                                            FRANCO                                  ACOSTA                                  F130919860000000004497.32
+DC00301068805              JUAN DE LA CRUZ                                   GONZALEZ                                RODRIGUEZ                               M140919880000000017123.33
+DC00300232105              JULIA @@@@                                        UBRI                                    TEJADA                                  F190319680000000004222.49
+DC00301090833              ADAME                                             ARAUJO                                  GUERRERO                                M310119880000000017621.59
+DC00301164687              ELIZABETH                                         LUCIANO                                 SANCHEZ                                 F030419900000000000566.51
+DC00300922432              IRVIN MANUEL                                      PIMENTEL                                BAEZ                                    M061019840000000003045.01
+DC00300325149              NIURKA RAMONA                                     REYNOSO                                 GUZMAN                                  F150919740000000001974.83
+DC00301187720              SERGIO RICARCHET                                  ARIAS                                   SANCHEZ                                 M171219880000000011510.67
+DC00301064085              DANIEL ALEXANDER                                  MEJIA                                   CABRERA                                 M100619860000000011474.89
+DC00300829108              WANDER ANEURY                                     HERRERA                                 ARIAS                                   M030219810000000011510.67
+DC40221359538              JOSUA EMIL                                        SANTANA                                 ARIAS                                   M190319910000000005027.28  
+S000024  

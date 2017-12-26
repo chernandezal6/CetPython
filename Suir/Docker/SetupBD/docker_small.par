@@ -1,0 +1,169 @@
+#TSS = 473122, SISALRIL = 476120, G4S SECURE SOLUTIONS = 468527 (473122, 476120, 468527)
+#mkdir /u01/app/oracle/product/11.2.0/xe/docker
+#chmod 777 /u01/app/oracle/product/11.2.0/xe/docker
+#CREATE DIRECTORY DOCKER AS '/u01/app/oracle/product/11.2.0/xe/docker';
+#time expdp system/oracle  PARFILE=docker.par
+#time impdp suirplus/sp1010 dumpfile=docker_small.dmp directory=docker content=data_only
+
+DIRECTORY=DOCKER
+DUMPFILE='docker_small.dmp'
+JOB_NAME='docker_export_small'
+
+#PARTITION_OPTIONS=merge
+#Tablas de configuracion
+TABLES=suirplus.seg_error_t,
+suirplus.seg_error_actas_t,
+suirplus.sre_tipo_ingreso_t,
+suirplus.sre_tipo_novedad_t,
+suirplus.seg_permiso_t, 
+suirplus.seg_roles_t, 
+suirplus.seg_usuario_permisos_t,
+suirplus.seg_rel_permiso_roles_t,
+suirplus.seg_seccion_t, 
+suirplus.seg_tipo_usuario_t,
+suirplus.sfc_parametros_t,
+suirplus.sfc_det_parametro_t,
+suirplus.srp_config_t,
+suirplus.sfc_procesos_t,
+suirplus.sfc_tipo_facturas_t,
+suirplus.sfc_tipo_nominas_t,
+suirplus.sfc_tipo_ajustes_t,
+suirplus.sfc_renglones_t,
+suirplus.sfc_renglon_nomina_t,
+suirplus.sfc_entidad_recaudadora_t,
+suirplus.ars_catalogo_t,
+suirplus.ars_actualizacion_vistas_t,
+suirplus.ars_actualizacion_actas_t,
+suirplus.ars_carga_t,
+suirplus.ars_cartera_errores_t,
+suirplus.sre_nominas_t,
+suirplus.sre_inhabilidad_jce_t,
+suirplus.sre_provincias_t,
+suirplus.sre_nacionalidad_t,
+suirplus.sre_tipo_sangre_t,
+suirplus.sre_municipio_t,
+suirplus.sre_oficialias_t,
+suirplus.sre_categoria_riesgo_t,
+suirplus.ofc_acciones_t,
+suirplus.ofc_motivos_t,
+suirplus.sfc_aplicaciones_t,
+suirplus.sre_tipo_movimiento_t,
+suirplus.sre_categoria_riesgo_t,
+suirplus.seh_motivo_baja_t,
+suirplus.seg_tipo_log_t,
+suirplus.versioninfo,
+suirplus.cer_roles_certificaciones_t,
+suirplus.cer_tipos_certificaciones_t,
+suirplus.cer_certificaciones_t,
+suirplus.cer_catalogo_firmas_t,
+suirplus.cer_his_certificaciones_t,
+suirplus.cer_sol_certificaciones_t,
+suirplus.cer_status_certificaciones_t,
+suirplus.dva_status_t,
+suirplus.sre_tipo_archivos_t,
+suirplus.seh_motivo_baja_t,
+suirplus.sub_errores_sisalril_t,
+suirplus.sub_errores_sisalril_ok_t,
+suirplus.sub_estatus_t,
+suirplus.sub_motivos_rechazos_t,
+suirplus.nss_estatus_t,
+suirplus.nss_entidades_t,
+suirplus.nss_tipo_solicitudes_t,
+suirplus.nss_accion_evaluacion_visual_t,
+suirplus.sre_tipo_documentos_t,
+suirplus.sel_tipos_solicitudes_t,
+suirplus.sel_status_t,
+suirplus.sel_oficinas_t
+
+TABLES=suirplus.seg_usuario_t
+QUERY=suirplus.seg_usuario_t:"where ( (id_tipo_usuario = 1  and status = 'A') or (id_tipo_usuario = 2 and id_registro_patronal in(473122, 476120, 468527) ) )"
+
+TABLES=suirplus.ars_cartera_con_errores_t
+QUERY=suirplus.ars_cartera_con_errores_t:"where 1=2"
+
+TABLES=suirplus.ars_cartera_senasa_con_error_t
+QUERY=suirplus.ars_cartera_senasa_con_error_t:"where 1=2"
+
+TABLES=suirplus.sfc_facturas_t
+QUERY=suirplus.sfc_facturas_t:"where id_registro_patronal in(473122, 476120, 468527) and periodo_factura >= 201601"
+
+TABLES=suirplus.sfc_det_facturas_t
+QUERY=suirplus.sfc_det_facturas_t:"where id_referencia in (Select id_referencia from suirplus.sfc_facturas_t where id_registro_patronal in(473122, 476120, 468527) and periodo_factura >= 201601)"
+
+TABLES=suirplus.sre_nominas_t
+QUERY=suirplus.sre_nominas_t:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=suirplus.sre_trabajadores_t
+QUERY=suirplus.sre_trabajadores_t:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=suirplus.sre_acceso_nomina
+QUERY=suirplus.sre_acceso_nomina:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=suirplus.sre_dependiente_t
+QUERY=suirplus.sre_dependiente_t:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=suirplus.sfc_bitacora_t
+QUERY=suirplus.sfc_bitacora_t:"where 1=2"
+
+TABLES=suirplus.sfc_det_bitacora_t
+QUERY=suirplus.sfc_det_bitacora_t:"where 1=2"
+
+TABLES=suirplus.sre_empleadores_t
+QUERY=suirplus.sre_empleadores_t:"where id_registro_patronal in(473122, 476120, 468527)"
+remap_data=suirplus.sre_empleadores_t.DOCUMENTOS_REGISTRO:suirplus.remap.null_lob
+
+TABLES=suirplus.sre_representantes_t
+QUERY=suirplus.sre_representantes_t:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=suirplus.sre_ciudadanos_t
+QUERY=suirplus.sre_ciudadanos_t:"where id_nss in (Select id_nss from suirplus.sfc_det_facturas_t where id_referencia in (Select id_referencia from suirplus.sfc_facturas_t where id_registro_patronal in(473122, 476120, 468527) and periodo_factura >= 201601))"
+remap_data=suirplus.sre_ciudadanos_t.IMAGEN_ACTA:suirplus.remap.null_lob
+
+TABLES=suirplus.ofc_oficios_t
+QUERY=suirplus.ofc_oficios_t:"where id_registro_patronal in(473122, 476120, 468527) and trunc(fecha_solicita) >= '01-jan-2016'"
+
+TABLES=suirplus.ofc_det_oficios_t
+QUERY=suirplus.ofc_det_oficios_t:"where id_oficio in (Select id_oficio from suirplus.ofc_oficios_t where id_registro_patronal in(473122, 476120, 468527) and trunc(fecha_solicita) >= '01-jan-2016')"
+
+TABLES=suirplus.ofc_documentacion_t
+QUERY=suirplus.ofc_documentacion_t:"where id_oficio in (Select id_oficio from suirplus.ofc_oficios_t where id_registro_patronal in(473122, 476120, 468527) and trunc(fecha_solicita) >= '01-jan-2016')"
+
+TABLES=suirplus.sre_movimiento_t
+QUERY=suirplus.sre_movimiento_t:"where id_registro_patronal in(473122, 476120, 468527) and periodo_factura >= 201601"
+
+TABLES=suirplus.SEH_PENSIONADOS_T
+remap_data=suirplus.SEH_PENSIONADOS_T.documentacion:suirplus.remap.null_lob
+
+TABLES=suirplus.cer_certificaciones_t
+QUERY=suirplus.cer_certificaciones_t:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=suirplus.cer_his_certificaciones_t
+QUERY=suirplus.cer_his_certificaciones_t:"where id_certificacion in (select id_certificacion from suirplus.cer_certificaciones_t where id_registro_patronal in(473122, 476120, 468527))"
+
+TABLES=suirplus.dva_registros_t
+QUERY=suirplus.dva_registros_t:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=suirplus.sub_solicitud_t
+QUERY=suirplus.sub_solicitud_t:"where trunc(fecha_registro) >= '01-jan-2016'"
+remap_data=suirplus.sub_solicitud_t.IMAGEN:suirplus.remap.null_lob
+
+TABLES=sisalril_suir.sfs_elegibles_can_t
+QUERY=sisalril_suir.sfs_elegibles_can_t:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=sisalril_suir.sfs_elegibles_t
+QUERY=sisalril_suir.sfs_elegibles_t:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=sisalril_suir.sfs_elegibles_todos_tmp_t
+QUERY=sisalril_suir.sfs_elegibles_todos_tmp_t:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=sisalril_suir.sfs_lactantes_t
+QUERY=sisalril_suir.sfs_lactantes_t:"where nro_solicitud in(select a.nro_solicitud from sisalril_suir.sfs_elegibles_t a where a.id_registro_patronal in(473122, 476120, 468527))"
+
+TABLES=sisalril_suir.sfs_subs_enf_t
+QUERY=sisalril_suir.sfs_subs_enf_t:"where id_registro_patronal in(473122, 476120, 468527)"
+
+TABLES=sisalril_suir.sfs_subs_lactancia_t
+QUERY=sisalril_suir.sfs_subs_lactancia_t:"where nro_solicitud in(select a.nro_solicitud from sisalril_suir.sfs_elegibles_t a where a.id_registro_patronal in(473122, 476120, 468527))"
+
+TABLES=sisalril_suir.sfs_subs_maternidad_t
+QUERY=sisalril_suir.sfs_subs_maternidad_t:"where nro_solicitud in(select a.nro_solicitud from sisalril_suir.sfs_elegibles_t a where a.id_registro_patronal in(473122, 476120, 468527))"

@@ -1,0 +1,118 @@
+﻿.auto-style2 {
+    height: 45px;
+}
+
+.auto-style4 {
+    width: 384px;
+}
+
+.botones {
+    height: 25px;
+    width: 80px;
+    border-radius: 2px;
+    font-family: arial, helvetica, sans-serif;
+    padding: 5px 10px 5px 10px;
+    text-shadow: 0px 1px 0;
+    display: inline-block;
+    color: #4A4A4A;
+    border: 1px solid #CCCCCC;
+    background-color: #F7F5F6;
+    background-image: linear-gradient(to bottom, #F7F5F6, #DDDDDD);
+}
+
+.CodigoSol {
+    font-family: Verdana, Tahoma, Arial;
+    font-size: 25px;
+    color: #EA8511;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.tabla-plus {
+    font-family: Tahoma, Verdana, Arial;
+    font-size: 12px;
+    color: #444444;
+    background-color: #F4FBF4;
+    border: 1px solid #C5EBC5;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 450px;
+    margin: 10px;
+}
+
+.Header2 {
+    margin-left: 0px;
+    font-weight: bold;
+    color: #006699;
+}
+
+.letra {
+    font-weight: normal;
+    font-size: 11px;
+    color: black;
+    background-color: #F4FBF4;
+    border: none;
+    text-align: justify;
+    margin-top: 0px;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    width: 400px;
+}
+
+.textA {
+    height: 50px;
+    width: 340px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+html > /**/ body .Encabezados {
+    padding-left: 5px;
+    padding-top: 7px;
+    padding-bottom: 3px;
+    margin-bottom: 13px;
+    width: 445px;
+    background-color: #63AD22;
+    color: white;
+    vertical-align: central;
+    font: 17px;
+}
+
+.MarcoFinal {
+    height: auto;
+    width: 450px;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: rgb(30, 0, 255);
+}
+
+.MensajeFinal {
+    display:block;
+}
+
+.MsjRepresentante1 {
+    padding-left: 5px;
+    padding-top: 7px;
+    padding-bottom: 3px;
+    margin-bottom: 13px;
+    width: auto;
+    vertical-align: central;
+    font: bold 16px Tahoma, Verdana, Arial;
+    color: blue;
+}
+
+.MsjRepresentante2 {
+    padding-left: 5px;
+    padding-top: 7px;
+    padding-bottom: 3px;
+    margin-bottom: 13px;
+    width: auto;
+    vertical-align: central;
+    font: bold 16px Tahoma, Verdana, Arial;
+    color: red;
+}

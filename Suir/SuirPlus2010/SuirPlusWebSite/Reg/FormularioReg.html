@@ -1,0 +1,425 @@
+﻿<head>
+    <script type="text/javascript">
+        debugger;
+        VerificarForm();
+        function VerificarForm() {
+            //Como saber si está logeado o no?
+            if (document.getElementById('hdSolVerificada').getAttribute("value") == "paso3") {
+            }
+            else if (document.getElementById('hdEditar').getAttribute("value") == "paso6") {
+            }
+            else {
+                Redireccionar("LoginPage.aspx");
+            }
+        }
+
+        var Ruta = "http://" + location.host + "/Reg/";
+
+        //Gestionar Links
+        function Redireccionar(extension) {
+            window.location.href = Ruta + "/" + extension;
+        }
+    </script>
+    <style type="text/css">
+        .auto-style2 {
+            height: 45px;
+        }
+
+        .auto-style4 {
+            width: 384px;
+        }
+
+        .letra {
+            font-size: 12px;
+        }
+
+        .campo {
+            height: 16px;
+            width: 335px;
+        }
+
+        .campos {
+            height: 16px;
+            width: 150px;
+        }
+
+        .botones {
+            height: 25px;
+            width: 80px;
+            border-radius: 2px;
+            font-family: arial, helvetica, sans-serif;
+            padding: 5px 10px 5px 10px;
+            text-shadow: 0px 1px 0;
+            display: inline-block;
+            color: #4A4A4A;
+            border: 1px solid #CCCCCC;
+            background-color: #F7F5F6;
+            background-image: linear-gradient(to bottom, #F7F5F6, #DDDDDD);
+        }
+
+        .CodigoSol {
+            font-family: Verdana, Tahoma, Arial;
+            font-size: 25px;
+            color: #EA8511;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        tabla-plus {
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+            font-size: xx-small;
+            color: #444444;
+            background-color: #F4FBF4;
+            border: 1px solid #C5EBC5;
+            text-align: left;
+            vertical-align: middle;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .Asteriscos {
+            font: bold 20px arial;
+            color: red;
+            margin-left: 5px;
+        }
+
+        .EncabezadosP {
+            background-color: #63AD22;
+            font-size: 11px;
+            color: #ffffff;
+            font-weight: bold;
+            font-family: verdana;
+            border-color: #63AD22;
+            border-style: solid;
+        }
+    </style>
+
+    <!--<script type="text/javascript">
+        function MoveAst(id) {
+            switch (id) {
+            }
+        }
+    </script>-->
+
+</head>
+
+<form id="DatoEmpresas">
+    <div style="display: none">
+        <span class="TituloContenido" id="MensajeCodSol" />
+        <span class="CodigoSol" id="CodSol" />
+    </div>
+    <table>
+        <tr>
+            <td>
+                <!--<div id="divMensaje">
+                    <span id="lblMensaje" class="error"></span>
+                </div>-->
+                <br />
+                <div id="contenido">
+                    <span class="error" id="lblMsgContenido"></span>
+                    <table border="0" cellpadding="0" cellspacing="0" width="750" class="td-note">
+                        <tr>
+                            <td class="EncabezadosP">Información General
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="height: 5px;">
+                                    &nbsp;
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="cedula">
+                            <td class="letra">RNC/Cédula<br />
+                                <input type="text" id="txtRNC_O_Cedula" name="txtRNC_O_Cedula" maxlength="11" class="campos" />
+                                <input type="button" id="btnBuscar" value="Buscar" onclick="Buscar()" />
+                                <input type="button" id="btnCancelarBu" value="Cancelar" onclick="CancelarBu()" />
+                            </td>
+                        </tr>
+                        <tr id="trMensaje" hidden="hidden">
+                            <td>
+                                <p class="error" id="lbMensaje" style="margin-bottom: auto; border-style: none; border-width: 0px; font-size: 14px; padding-left: 5px; padding-top: 5px;">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Razón Social<br />
+                                <input type="text" id="txtRazonSocial" name="txtRazonSocial" readonly="true" width="449px" size="50" class="campo" />&nbsp;&nbsp;&nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Nombre Comercial<br />
+                                <input type="text" id="txtNombreComercial" name="txtNombreComercial" size="50" class="campo" /><span id="AstNombreC" class="Asteriscos">*</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Sector Salarial<br />
+
+                                <select id="ddlSectorSalarial" name="ddlSectorSalarial" class="dropDowns" style="height: 16px">
+                                    <option value="0">Selecione</option>
+                                </select>
+                                <span id="AstSectorS" class="Asteriscos">*</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Sector Económico<br />
+                                <select id="ddlSectorEconomico" name="ddlSectorEconomico" class="dropDowns" style="height: 16px">
+                                    <option value="0">Selecione</option>
+                                </select>
+                                <span id="AstSectorE" class="Asteriscos">*</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Actividad<br />
+                                <select id="ddlActividad" name="ddlActividad" class="dropDowns" style="height: 16px">
+                                    <option value="0">Selecione</option>
+                                </select>
+                                <span id="AstActividad" class="Asteriscos">*</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Es Zona Franca<br />
+                                <!--<td class="auto-style1">Es Zona Franca<br />-->
+                                <input type="checkbox" id="ChkEsZonaFranca" />
+                                <input type="hidden" id="EsZonaFranca" name="EsZonaFranca" value="N" />
+                            </td>
+                        </tr>
+                        <tr id="TrZona" hidden="hidden">
+                            <td class="auto-style2">Tipo<br />
+                                <select id="ddlTipoZonaFranca" name="ddlTipoZonaFranca" class="dropDowns" style="height: 16px">
+                                    <option value="0" selected="selected">Selecione</option>
+                                    <option value="1">Comercial</option>
+                                    <option value="2">Normal</option>
+                                </select>
+                                <br />
+                                Parque<br />
+                                <select id="ddlParque" name="ddlParque" class="dropDowns" style="height: 16px">
+                                    <option value="0">Selecione</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <div style="height: 3px;">
+                        &nbsp;
+                    </div>
+                    <table id="InfRepresentante" runat="server" border="0" cellpadding="0" cellspacing="0" class="td-note" style="width: 750px; padding-bottom: 10px;">
+                        <tr>
+                            <td class="EncabezadosP" colspan="4">Representante Principal
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div style="height: 5px;">
+                                    &nbsp;
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 15%" class="letra">Representante
+                            </td>
+                            <td class="auto-style4">
+                                <select id="ddlRepresentante" class="dropDowns">
+                                    <option value="C" selected="selected">Cedula</option>
+                                    <option value="P">Pasaporte</option>
+                                </select>
+                                <input type="text" id="txtRepresentante" name="txtRepresentante" style="width: 177px;" class="campo" /><span class="Asteriscos">*</span>
+                                <input type="button" id="btnBuscarRep" value="Buscar" onclick="BuscarRep()" />
+                                <br />
+
+
+                            </td>
+                        </tr>
+                        <tr id="TrMensajeRep" style="height: 35px">
+                            <td colspan="2">
+                                <span id="lblNombreRepresentante" style="font-size: 9pt; color: blue; font-weight: bold; margin-left: 25%;"></span>
+
+
+                            </td>
+                        </tr>
+                        <tr id="TrMensajeRepError">
+                            <td colspan="2">
+                                <span id="lblErrorRepresentante" class="error" style="font-size: 9pt; font-weight: bold; margin-left: 22%;"></span>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Teléfono 1
+                            </td>
+                            <td class="auto-style4">
+
+                                <input type="text" id="txtRepTel1" maxlength="10" name="txtRepTel1" style="width: 250px;" class="campo" /><span class="Asteriscos">*</span>
+                            </td>
+                            <td class="letra">Ext 1
+                            </td>
+                            <td>
+
+                                <input type="text" id="txtRepExt1" maxlength="4" name="txtRepExt1" class="campos" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Teléfono 2
+                            </td>
+                            <td class="auto-style4">
+
+                                <input type="text" id="txtRepTel2" maxlength="10" name="txtRepTel2" style="width: 250px;" class="campo" />
+                            </td>
+                            <td class="letra">Ext 2
+                            </td>
+                            <td>
+
+                                <input type="text" id="txtRepExt2" maxlength="4" name="txtRepExt2" class="campos" />
+                            </td>
+                        </tr>
+
+                        <!--<tr>
+                            <td style="width: 15%" class="letra">Email
+                            </td>
+                            <td class="auto-style4">
+                                <input type="text" id="txtRepEmail" name="txtRepEmail" maxlength="50" placeholder="Ej: Usuario@dominio.com" style="width: 250px;" class="campo" />
+
+                                <input type="checkbox" id="chkboxNotificacionMail" />
+                                <input type="hidden" id="RepresentanteNotificacion" name="RepresentanteNotificacion" value="N" />
+                            </td>
+                        </tr>-->
+                        <!-- <tr>
+                            <td style="width: 15%">Confirmar Email
+                            </td>
+                            <td>
+                                <input type="checkbox" id="txtConfirmarEmail" name="txtConfirmarEmail" width="206px" />
+
+                            </td>
+                        </tr>-->
+                    </table>
+
+                    <table id="TABLE1" border="0" cellpadding="0" cellspacing="0" class="td-note" width="750">
+                        <tr>
+                            <td class="EncabezadosP" colspan="4">Dirección
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div style="height: 5px;">
+                                    &nbsp;
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 10%" class="letra">Calle
+                            </td>
+                            <td>
+
+                                <input type="text" id="txtCalle" maxlength="30" name="txtCalle" class="campos" /><span id="Span2" class="Asteriscos">*</span>
+
+                            </td>
+                            <td style="width: 10%" class="letra">Número
+                            </td>
+                            <td>
+                                <input type="text" id="txtNumero" maxlength="4" name="txtNumero" class="campos" /><span id="Span1" class="Asteriscos">*</span>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Edificio
+                            </td>
+                            <td>
+                                <input type="text" id="txtEdificio" maxlength="30" name="txtEdificio" class="campos" />
+
+                            </td>
+                            <td class="letra">Piso
+                            </td>
+                            <td>
+                                <input type="text" id="txtPiso" maxlength="10" name="txtPiso" class="campos" />
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Apartamento
+                            </td>
+                            <td>
+                                <input type="text" id="txtApartamento" maxlength="10" name="txtApartamento" class="campos" />
+
+                            </td>
+                            <td class="letra">Sector
+                            </td>
+                            <td>
+                                <input type="text" id="txtSector" maxlength="30" name="txtSector" class="campos" />
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Provincia
+                            </td>
+                            <td>
+                                <select id="ddlProvincia" name="ddlProvincia" class="dropDowns" style="height: 16px;">
+                                    <option value="0">Selecione</option>
+                                </select>
+                                <span id="AstProvincia" class="Asteriscos">*</span>
+                            </td>
+                            <td class="letra">Municipio
+                            </td>
+                            <td>
+                                <select id="ddlMunicipio" name="ddlMunicipio" class="dropDowns" style="height: 16px;">
+                                    <option value="0" selected="selected">Selecione</option>
+                                </select>
+                                <span class="Asteriscos">*</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Teléfono 1
+                            </td>
+                            <td>
+                                <input type="text" id="txtTel1" maxlength="10" name="txtTel1" class="campos" /><span class="Asteriscos">*</span>
+                            </td>
+                            <td class="letra">Ext:</td>
+                            <td>
+                                <input type="text" id="txtExt1" maxlength="4" name="txtExt1" class="campos" /></td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Teléfono 2
+                            </td>
+                            <td>
+
+                                <input type="text" id="txtTel2" maxlength="10" name="txtTel2" class="campos" />
+                            </td>
+                            <td class="letra">Ext:</td>
+                            <td>
+                                <input type="text" id="txtExt2" maxlength="4" name="txtExt2" class="campos" /></td>
+                        </tr>
+                        <tr>
+                            <td class="letra">Fax
+                            </td>
+                            <td>
+
+                                <input type="text" id="Fax" maxlength="10" name="Fax" class="campos" />
+                            </td>
+                            <td class="letra">Email
+                            </td>
+                            <td>
+                                <input type="text" id="txtEmail" name="txtEmail" placeholder="Ej: Usuario@Dominio.com" maxlength="50" class="campos" /><span class="Asteriscos">*</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;
+                            </td>
+                            <td>&nbsp;
+                            </td>
+                            <td>&nbsp;
+                            </td>
+                            <td>&nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                    <!--<div style="height: auto; margin: auto;">
+                        <span id="Revisar" style="font-size: 12pt; color: red; font-weight: bold;"></span>
+                        <br />
+                        <span id="lblMensaje" class="error"></span>
+                    </div>-->
+                </div>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" id="txtIdCodSol" name="txtIdCodSol" />
+    <br />
+    <span id="mensajeCompletarDatos"></span>
+</form>

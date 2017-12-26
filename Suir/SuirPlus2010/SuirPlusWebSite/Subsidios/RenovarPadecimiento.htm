@@ -1,0 +1,76 @@
+﻿<script type="text/javascript">
+    $(function () {
+        //asignandi el tipo de solicitud
+        $("#tiposolicitudprincipal").val("Renovacion");
+
+        var Params = {
+            nss: $("#nss").html(),
+            registropatronal: $("#registropatronal").val()
+        };
+
+        Util.LlamarServicio('Subsidios.asmx', 'ObtenerPadecimientosCompletados', Params, function (data) {
+            var sb = '';
+            var tblPad = $("#tablaPad");
+
+            for (var i = 0; i < data.d.length; i++) {
+                sb += '<tr class="filas"> <td align="center" style="width:130px;">' + data.d[i].NroFormulario + '</td><td align="center" style="width:110px;">' + Util.formatJSONDate(data.d[i].FechaRegistro) + '</td><td style="width:200px; white-space: wrap;">' + data.d[i].Diagnostico + '</td><td align="center"> <span class="linkPaginacion" style="cursor:pointer; width:70px;" onclick="Renovar(' + data.d[i].NroSolicitud + ');">Renovar</span> </td></tr>';
+            }
+
+            $("#filas").remove();
+            tblPad.append(sb);
+         
+        });
+    });
+    function Renovar(id) {
+
+        /// Asignar el Nro. Solicitud  y esconder el listado
+        $("#nrosolicitud").val(id);
+        $("#dvrenovar").html("");
+        msgTituloEC = "Renovar Padecimiento";
+
+        window.DontDoThisAtHomeRenovar = true;
+
+        /// Presentar el formulario para completar datos iniciales
+        buscarFormulario('NuevoPadecimiento.htm');
+    }
+</script>
+<div id="dvrenovar">
+    <input type="hidden" name="nss" id="nsstrabajador" />
+    <input type="hidden" name="tiposolicitud" id="tiposolicitud" value="Renovacion" />
+    <input type="hidden" name="numerosolicitud" id="numerosolicitud" />
+    <input type="hidden" name="usuario" id="usuario" />
+    <span class="header legendStyle">Renovar Padecimiento</span>
+    <br /><br />
+    <table style="border: 0.5px solid #808080; background-color: #F8FBFC; border: 1px solid #DBEAF3;" width="510px"; >
+        <tr>
+            <td>
+            <br />
+                <span style="font-size: 14px; font-weight: bold; color: #016BA5; font-family: Arial">
+                    Padecimientos</span>
+                <br />
+                <br />
+                <table rules="all" cellspacing="0" border="1" style="border-collapse: collapse;" id="tablaPad" class="gridBorder">
+                    <tr class="listheadermultiline">
+                        <td>
+                            Nro. Formulario
+                        </td>
+                        <td>
+                            Fecha Registro
+                        </td>
+                        <td>
+                            Diagnóstico
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr class="filas">
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+            </td>
+        </tr>
+    </table>
+</div>

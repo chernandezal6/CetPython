@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <title></title>
+</head>
+<body>
+    <div class='container-fluid' style="width: 80%;">
+        <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
+            <ul class='nav navbar-nav'>
+                <li class='dropdown' id='ddInicio'>
+                    <a href='#' onclick='redireccionar(this)'
+                       class='dropdown-toggle' data-toggle='dropdown'
+                       role='button' aria-haspopup='true'
+                       aria-expanded='false' style='color:white;font-size: 14px;'>
+                        Inicio
+                    </a>
+                </li>
+                <li class='dropdown' id='ddInfoEmpleo'>
+                    <a href='#' class='dropdown-toggle'
+                       data-toggle='dropdown' id='ddprueba'
+                       role='button' aria-haspopup='true'
+                       aria-expanded='false' style='color:white;font-size: 14px;'>
+                        Información de Empleo
+                    </a>
+                    <ul class='dropdown-menu' id='ddMenu1'>
+                        <li><a href='#' onclick='redireccionar(this)'>Empleadores Reportados</a></li>
+                        <li role='separator' class='divider'></li>
+                        <li><a href='#' onclick='redireccionar(this)'>Certificación de Aportes</a></li>
+                        <li role='separator' class='divider'></li>
+                        <li><a href='#' onclick='redireccionar(this)'>Generar Certificación de Aportes</a></li>
+                    </ul>
+                </li>
+                <li class='dropdown' id='ddSFS'>
+                    <a href='#' class='dropdown-toggle'
+                       data-toggle='dropdown' role='button'
+                       aria-haspopup='true' aria-expanded='false'
+                       style='color:white;font-size: 14px;'>
+                        Consultas del Seguro Familiar de Salud
+                    </a><ul class='dropdown-menu' id='ddMenu2'>
+                        <li><a href='#' onclick='redireccionar(this)'>Afiliación a ARS</a></li>
+                        <li role='separator' class='divider'></li>
+                        <!---<li><a href='#' onclick='redireccionar(this)'>Composición Núcleo Familiar</a></li>
+                        <li role='separator' class='divider'></li>-->
+                        <li><a href='#' onclick='redireccionar(this)'>Dispersión ARS</a></li>
+                    </ul>
+                </li>
+                <li class='dropdown' id='ddSPension'>
+                    <a href='#' class='dropdown-toggle'
+                       data-toggle='dropdown' role='button'
+                       aria-haspopup='true' aria-expanded='false'
+                       style='color:white;font-size: 14px;'>
+                        Consultas de Seguro de Pensión
+                    </a><ul class='dropdown-menu' id='ddMenu3'>
+                        <li><a href='#' onclick='redireccionar(this)'>Afiliación AFP</a></li>
+                    </ul>
+                </li>
+                <!--<li class='dropdown' id='ddPerfilUsuario'>
+                    <a href='#' class='dropdown-toggle'
+                       data-toggle='dropdown' role='button'
+                       aria-haspopup='true' aria-expanded='false' style='color:white;font-size: 14px;'>
+                        Perfil de Usuario
+                    </a><ul class='dropdown-menu' id='ddMenu4'>
+                        <li><a href='#' onclick='redireccionar(this)'>Cambiar Contraseña</a></li>
+                        <li role='separator' class='divider'></li>
+                        <li><a href='#' onclick='redireccionar(this)'>Actualizar Email</a></li>
+                    </ul>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</body>

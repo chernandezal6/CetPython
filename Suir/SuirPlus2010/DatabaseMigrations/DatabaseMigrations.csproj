@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7FE5EB49-C085-4EBA-9026-0F4D95C5999E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DatabaseMigrations</RootNamespace>
+    <AssemblyName>DatabaseMigrations</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.0\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.0\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentMigrator, Version=1.6.1.0, Culture=neutral, PublicKeyToken=aacfc7de5acabf05, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentMigrator.1.6.1\lib\40\FluentMigrator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.9\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.1.2400\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\201706200927_create_table_rpn_dispersion_resumen_t.cs" />
+    <Compile Include="Migrations\201706200930_create_table_rpn_entidad_regimen_t.cs" />
+    <Compile Include="Migrations\201710041451_create_function_sre_ciudadano_inactivo_f.cs" />
+    <Compile Include="Migrations\201710041452_create_package_sre_novedades_fallecidos_pkg.cs" />
+    <Compile Include="Migrations\201710041457_nss_actualizar_ciudadano.cs" />
+    <Compile Include="Migrations\201710041459_nss_insertar_ciudadano.cs" />
+    <Compile Include="Migrations\201710041636_create_package_ars_validaciones_pkg.cs" />
+    <Compile Include="Migrations\201710041637_create_package_seh_pensionados_pkg.cs" />
+    <Compile Include="Migrations\201710041638_create_package_ars_cartera_senasa_pkg.cs" />
+    <Compile Include="Migrations\201710041639_create_package_est_infantiles_pkg.cs" />
+    <Compile Include="Migrations\201710231611_create_package_sub_sfs_novedades_pkg.cs" />
+    <Compile Include="Migrations\201710171607_insert_into_seg_permiso_t.cs" />
+    <Compile Include="Migrations\201707261120_insert_seg_error_t.cs" />
+    <Compile Include="Migrations\201707201207_create_or_replace_package_seg_permiso_pkg.cs" />
+    <Compile Include="Migrations\201707191149_create_table_seg_cuota_t.cs" />
+    <Compile Include="Migrations\201707191122_alter_table_seg_permiso_t.cs" />
+    <Compile Include="Migrations\201708241125_create_or_replace_package_sub_sfs_dispersion_pkg.cs" />
+    <Compile Include="Migrations\201710191434_create_package_sub_sfs_novedades_pkg.cs" />
+    <Compile Include="Migrations\201710051441_create_package_sub_sfs_novedades_pkg.cs" />
+    <Compile Include="Migrations\201710040957_create_sfs_procedure_solicitudes_exceden_tiempo_vigencia.cs" />
+    <Compile Include="Migrations\201710171042_create_package_sub_sfs_dispersion_pkg.cs" />
+    <Compile Include="Migrations\201710091425_create_package_sub_sfs_dispersion_pkg.cs" />
+    <Compile Include="Migrations\201708311500_update_ars_catalogo_t.cs" />
+    <Compile Include="Migrations\201706211330_insert_into_sfc_entidad_recaudadora_t.cs" />
+    <Compile Include="Migrations\201706200932_add_id_entidad_recaudadora_to_ars_catalogo_t.cs" />
+    <Compile Include="Migrations\201706200933_alter_tables_regimen_pensionado.cs" />
+    <Compile Include="Migrations\201706261700_insert_into_sfc_det_parametro_t.cs" />
+    <Compile Include="Migrations\201703241201_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201703241530_insert_into_sfc_parametros_t.cs" />
+    <Compile Include="Migrations\201703241535_insert_into_sfc_det_parametro_t.cs" />
+    <Compile Include="Migrations\201704251146_seg_usuarios_pkg.cs" />
+    <Compile Include="Migrations\201703271630_create_materialized_view_ars_dep_adicionales_mv.cs" />
+    <Compile Include="Migrations\201703271631_create_table_ars_dep_adicionales_t.cs" />
+    <Compile Include="Migrations\201703291647_create_procedure_ars_baja_dep_adicionales.cs" />
+    <Compile Include="Migrations\201703291649_create_procedure_ars_actualiza_dep_adicionales.cs" />
+    <Compile Include="Migrations\201706061210_sre_novedades_pkg.cs" />
+    <Compile Include="Migrations\201706061211_sre_procesar_rd_pkg.cs" />
+    <Compile Include="Migrations\201706061213_insert_into_ars_actualizacion_vista_t.cs" />
+    <Compile Include="Migrations\201707270951_wss_servicios_pkg.cs" />
+    <Compile Include="Migrations\201707281104_sre_empleadores_pkg.cs" />
+    <Compile Include="Migrations\201709131608_create_package_sub_sfs_dispersion_pkg.cs" />
+    <Compile Include="Migrations\201705041638_insert_into_error_t.cs" />
+    <Compile Include="Migrations\201705101511_delete_from_seg_permiso_t.cs" />
+    <Compile Include="Migrations\201710040935_alter_table_sub_enfermedad_comun_t.cs" />
+    <Compile Include="Migrations\201710101033_update_seg_error_t.cs" />
+    <Compile Include="Migrations\201709251532_insert_into_sub_errores_sisalril_t.cs" />
+    <Compile Include="Migrations\201708310947_add_nro_solicitud_sisalril_to_sub_elegibles.cs" />
+    <Compile Include="Migrations\201709201157_create_or_replace_package_sub_sfs_novedades_pkg.cs" />
+    <Compile Include="Migrations\201709011430_create_or_replace_package_sub_sfs_dispersion_pkg.cs" />
+    <Compile Include="Migrations\201708310945_add_nro_solicitud_sisalril_to_sfs_elegibles_t.cs" />
+    <Compile Include="Migrations\201708221046_add_unique_index_sfs_subs_enf_t.cs" />
+    <Compile Include="Migrations\201708221045_add_unique_index_sfs_subs_maternidad_t.cs" />
+    <Compile Include="Migrations\201708211646_create_or_replace_package_sub_sfs_dispersion_pkg.cs" />
+    <Compile Include="Migrations\201706191217_update_seg_error_t.cs" />
+    <Compile Include="Migrations\201706191225_create_package_sre_load_movimiento_pkg.cs" />
+    <Compile Include="Migrations\201706221619_alter_table_sisalril_suir_sfs_subs_maternidad_t.cs" />
+    <Compile Include="Migrations\201705181343_create_or_replace_trigger_sisalril_suir_sfs_elegibles.cs" />
+    <Compile Include="Migrations\201705100953_create_or_replace_package_sub_sfs_dispersion_pkg.cs" />
+    <Compile Include="Migrations\201703151122_create_or_replace_package_sfs_subsidios_pkg.cs" />
+    <Compile Include="Migrations\201703060956_nss_validar_sol_menores_ext.cs" />
+    <Compile Include="Migrations\201703061013_nss_actualizar_ciudadano.cs" />
+    <Compile Include="Migrations\201703061029_nss_insertar_ciudadano.cs" />
+    <Compile Include="Migrations\201704051450_insert_into_seg_permiso_t.cs" />
+    <Compile Include="Migrations\201704181137_create_or_replace_unipago_sfc_det_dependiente_facturas_mv.cs" />
+    <Compile Include="Migrations\201704181117_create_or_replace_unipago_sfc_det_facturas_mv.cs" />
+    <Compile Include="Migrations\201704181111_create_or_replace_unipago_sfc_det_ajustes_mv.cs" />
+    <Compile Include="Migrations\201704181109_borrar_vistas_materializadas_unipago.cs" />
+    <Compile Include="Migrations\201704071147_create_package_sre_empleadores_pkg.cs" />
+    <Compile Include="Migrations\201703200444_create_package_sfc_infotep_pkg.cs" />
+    <Compile Include="Migrations\201703201150_insert_into_seg_error_t.cs" />
+    <Compile Include="Migrations\201704040932_seg_usuarios_pkg.cs" />
+    <Compile Include="Migrations\201704041029_alter_column_table_sfc_trans_ajustes_t.cs" />
+    <Compile Include="Migrations\201703080303_update_seg_usuario_t.cs" />
+    <Compile Include="Migrations\201610120956_add_id_suir_r_sol_asig_cedula_mv.cs" />
+    <Compile Include="Migrations\201610120957_add_id_to_nss_det_solicitudes_t.cs" />
+    <Compile Include="Migrations\201610120958_nss_cargar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201610121000_nss_cargar_solicitudes_nui.cs" />
+    <Compile Include="Migrations\201610121044_nss_ponerencola.cs" />
+    <Compile Include="Migrations\201610121048_nss_ponerencola_cedulados.cs" />
+    <Compile Include="Migrations\201610121151_nss_webservice_jce_nui.cs" />
+    <Compile Include="Migrations\201610121154_nss_webservice_jce_ced.cs" />
+    <Compile Include="Migrations\201610140509_nss_actualizar_solicitud.cs" />
+    <Compile Include="Migrations\201610171002_update_srp_config_t.cs" />
+    <Compile Include="Migrations\201610171155_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201610180435_nss_validar_sol_extranjeros.cs" />
+    <Compile Include="Migrations\201610180436_nss_validar_sol_menores_ext.cs" />
+    <Compile Include="Migrations\201702140413_add_numero_evento_to_sre_ciudadanos_t.cs" />
+    <Compile Include="Migrations\201702140424_add_numero_evento_to_nss_det_solicitudes_t.cs" />
+    <Compile Include="Migrations\201702150914_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201702150918_nss_actualizar_ciudadano.cs" />
+    <Compile Include="Migrations\201702150922_nss_insertar_ciudadano.cs" />
+    <Compile Include="Migrations\201702150924_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201703230457_sre_novedades_pkg.cs" />
+    <Compile Include="Migrations\201703231103_create_package_cer_certificaciones_pkg.cs" />
+    <Compile Include="Migrations\201703030926_seg_usuarios_pkg.cs" />
+    <Compile Include="Migrations\201703021242_create_package_srp_pkg.cs" />
+    <Compile Include="Migrations\201703011016_create_package_sre_nominas_pkg.cs" />
+    <Compile Include="Migrations\201701051124_create_package_sre_load_movimiento_pkg.cs" />
+    <Compile Include="Migrations\201701261154_create_package_sre_load_movimiento_pkg.cs" />
+    <Compile Include="Migrations\201701160408_create_procedure_nss_get_evaluacion_detalle.cs" />
+    <Compile Include="Migrations\201610310143_create_package_sre_load_movimiento_pkg.cs" />
+    <Compile Include="Migrations\201611230252_create_package_cer_certificaciones_pkg.cs" />
+    <Compile Include="Migrations\2011611220257_sre_actualizar_dgi_maestro_p.cs" />
+    <Compile Include="Migrations\201602120209_add_uso_unipago_to_seg_error_t.cs" />
+    <Compile Include="Migrations\201610061223_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201610050204_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201610050208_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201602120211_alter_table_seg_error_t.cs" />
+    <Compile Include="Migrations\201603030241_create_table_nss_accion_evaluacion_visual_t.cs" />
+    <Compile Include="Migrations\201603071141_insert_into_nss_accion_evaluacion_visual_t.cs" />
+    <Compile Include="Migrations\201603030233_add_registros_to_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201603030242_create_table_nss_estatus_t.cs" />
+    <Compile Include="Migrations\201603030243_create_table_sfc_det_bitacora_t.cs" />
+    <Compile Include="Migrations\201603040201_detalle_bitacora.cs" />
+    <Compile Include="Migrations\201603071140_insert_into_nss_estatus_t.cs" />
+    <Compile Include="Migrations\201603140221_insert_into_nss_tipo_solicitudes_t.cs" />
+    <Compile Include="Migrations\201603140220_create_table_nss_tipo_solicitudes_t.cs" />
+    <Compile Include="Framework\Configuration.cs" />
+    <Compile Include="Migrations\201609061002_add_unique_index_sub_cuotas_t.cs" />
+    <Compile Include="Migrations\201601270936_add_status_to_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201601270937_add_status_to_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201602120212_insert_into_seg_error_t.cs" />
+    <Compile Include="Migrations\201602120456_reenvio_movimientos.cs" />
+    <Compile Include="Migrations\201602120208_bitacora.cs" />
+    <Compile Include="Migrations\201602101000_create_table_seg_msg_t.cs" />
+    <Compile Include="Migrations\201602120210_registrar_mensaje.cs" />
+    <Compile Include="Migrations\201603030244_create_table_nss_entidades_t.cs" />
+    <Compile Include="Migrations\201603030245_create_table_sre_tipo_documentos_t.cs" />
+    <Compile Include="Migrations\201603030246_create_table_sre_tipo_nss_t.cs" />
+    <Compile Include="Migrations\201603030247_create_table_sre_his_documentos_t.cs" />
+    <Compile Include="Migrations\201603030440_insert_into_nss_entidades_t.cs" />
+    <Compile Include="Migrations\201603071148_add_fecha_fallecimiento_and_tipo_nss_to_sre_ciudadanos_t.cs" />
+    <Compile Include="Migrations\201603071145_insert_into_sre_tipo_nss_t.cs" />
+    <Compile Include="Migrations\201603071146_insert_into_sre_tipo_documentos_t.cs" />
+    <Compile Include="Migrations\201603071147_insert_into_sre_his_documentos_t.cs" />
+    <Compile Include="Migrations\201603140225_create_table_nss_solicitudes_t.cs" />
+    <Compile Include="Migrations\201603180320_create_table_nss_det_evaluacion_visual_t.cs" />
+    <Compile Include="Migrations\201603180312_create_table_nss_evaluacion_visual_t.cs" />
+    <Compile Include="Migrations\201603221220_insert_into_srp_config_t.cs" />
+    <Compile Include="Migrations\201603280530_next_sequence.cs" />
+    <Compile Include="Migrations\201606241130_create_package_sre_empleadores_pkg.cs" />
+    <Compile Include="Migrations\201609051042_create_package_sub_sfs_dispersion_pkg.cs" />
+    <Compile Include="Migrations\201609151129_create_package_cer_certificaciones_pkg.cs" />
+    <Compile Include="Migrations\201606220412_create_table_sre_carnet_dgm_t.cs" />
+    <Compile Include="Migrations\201606220415_insert_into_sre_carnet_dgm_t.cs" />
+    <Compile Include="Migrations\201603140226_create_table_nss_det_solicitudes_t.cs" />
+    <Compile Include="Migrations\201603071150_create_table_nss_maestro_extranjeros_t.cs" />
+    <Compile Include="Migrations\201606284000_next_sequence.cs" />
+    <Compile Include="Migrations\201602120213_insert_into_seg_error_t.cs" />
+    <Compile Include="Migrations\201607210350_update_seg_error_t.cs" />
+    <Compile Include="Migrations\201607210421_refrescar_vista.cs" />
+    <Compile Include="Migrations\201607210429_registrar_mensaje.cs" />
+    <Compile Include="Migrations\201607221125_update_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201608040300_nss_cargar_solicitudes_menores.cs" />
+    <Compile Include="Migrations\201607221124_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201608040301_nss_parsear_nui.cs" />
+    <Compile Include="Migrations\201608040302_nss_webservice_jce_nui.cs" />
+    <Compile Include="Migrations\201603071149_create_fk_ciudadanos_t.cs" />
+    <Compile Include="Migrations\20160804030401_nss_cargar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201608040304_nss_cargar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201608040305_nss_parsear_ced.cs" />
+    <Compile Include="Migrations\201608040306_nss_webservice_jce_ced.cs" />
+    <Compile Include="Migrations\201608040307_nss_actualizar_solicitud.cs" />
+    <Compile Include="Migrations\201608040311_nss_actualizar_ciudadano.cs" />
+    <Compile Include="Migrations\201608040321_nss_validar_solicitud.cs" />
+    <Compile Include="Migrations\201608100351_insertar_mensaje_inbox.cs" />
+    <Compile Include="Migrations\201608100407_create_fk_mensajes_t.cs" />
+    <Compile Include="Migrations\201608040308_nss_insertar_ciudadano.cs" />
+    <Compile Include="Migrations\201608040309_nss_insertar_evaluacion_visual.cs" />
+    <Compile Include="Migrations\201608040310_nss_consultar_afiliacion_sfs.cs" />
+    <Compile Include="Migrations\201608040318_nss_validar_sol_menores_ext.cs" />
+    <Compile Include="Migrations\201608040303_nss_validaciones_pkg.cs" />
+    <Compile Include="Migrations\201608040316_nss_validar_sol_extranjeros.cs" />
+    <Compile Include="Migrations\201608040317_nss_validar_sol_menores_nac.cs" />
+    <Compile Include="Migrations\201608040319_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201608040320_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201609010230_create_package_cer_certificaciones_pkg.cs" />
+    <Compile Include="Migrations\201608310200_add_automatica_to_cer_tipos_certificaciones_t.cs" />
+    <Compile Include="Migrations\201609170418_nss_get_evaluacion_visual.cs" />
+    <Compile Include="Migrations\201609050501_set_value_firma_tesorero_to_module_certificac_in_srp_config_t.cs" />
+    <Compile Include="Migrations\201608290421_nss_ponerencola.cs" />
+    <Compile Include="Migrations\201608040900_set_value_to_module_certificac_in_srp_config_t.cs" />
+    <Compile Include="Migrations\201609081024_create_package_srp_procesos_pkg.cs" />
+    <Compile Include="Migrations\201609080118_create_package_ars_cartera_senasa_pkg.cs" />
+    <Compile Include="Migrations\201608310300_insert_into_cer_tipos_certificaciones_t.cs" />
+    <Compile Include="Migrations\201609120503_nss_get_solicitud.cs" />
+    <Compile Include="Migrations\201609160210_create_procedure_nss_motivo_rechazo.cs" />
+    <Compile Include="Migrations\201609270521_nss_get_solicitud_rnc.cs" />
+    <Compile Include="Migrations\201608040250_create_materialized_view_suir_r_sol_asig_nss_menores_mv.cs" />
+    <Compile Include="Migrations\201610030346_add_visible_empleador_to_sre_tipo_documentos_t.cs" />
+    <Compile Include="Migrations\201610030501_nss_get_ciudadano.cs" />
+    <Compile Include="Migrations\201610030942_add_id_ars_id_parentesco_nss_titular_suir_r_sol_asig_cedula_mv.cs" />
+    <Compile Include="Migrations\201610041034_nss_cargar_solicitudes_menores.cs" />
+    <Compile Include="Migrations\201610041040_nss_cargar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201610041120_nss_ponerencola.cs" />
+    <Compile Include="Migrations\201610050211_nss_ponerencola.cs" />
+    <Compile Include="Migrations\201610050304_create_procedure_nss_motivo_rechazo_updated.cs" />
+    <Compile Include="Migrations\201610050315_insert_into_srp_config_t_updated.cs" />
+    <Compile Include="Migrations\201610050609_nss_cargar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201610050610_nss_cargar_solicitudes_menores.cs" />
+    <Compile Include="Migrations\201610050613_nss_webservice_jce_nui.cs" />
+    <Compile Include="Migrations\201610061216_nss_webservice_jce_nui.cs" />
+    <Compile Include="Migrations\201611080943_create_package_ars_cartera_senasa_pkg.cs" />
+    <Compile Include="Migrations\201610101135_nss_webservice_jce_nui.cs" />
+    <Compile Include="Migrations\201610101138_nss_webservice_jce_ced.cs" />
+    <Compile Include="Migrations\201610101140_nss_validar_sol_menores_nac.cs" />
+    <Compile Include="Migrations\201610110958_nss_cargar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201610110959_nss_cargar_solicitudes_nui.cs" />
+    <Compile Include="Migrations\201610111031_nss_ponerencola.cs" />
+    <Compile Include="Migrations\201610190308_nss_get_ciudadano.cs" />
+    <Compile Include="Migrations\201610190325_nss_actualizar_solicitud.cs" />
+    <Compile Include="Migrations\201610190327_update_id_nss_det_solicitudes_t.cs" />
+    <Compile Include="Migrations\201610211126_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201610211128_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201610240521_nss_ponerencola.cs" />
+    <Compile Include="Migrations\201610240522_nss_ponerencola_cedulados.cs" />
+    <Compile Include="Migrations\201610240525_update_nss_estatus_t.cs" />
+    <Compile Include="Migrations\201610240540_nss_validaciones_pkg.cs" />
+    <Compile Include="Migrations\201610250410_nss_actualizar_ciudadano.cs" />
+    <Compile Include="Migrations\201610250412_nss_actualizar_solicitud.cs" />
+    <Compile Include="Migrations\201610250414_nss_cargar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201610270816_nss_validar_solicitud_nui_2.cs" />
+    <Compile Include="Migrations\201610281027_alter_table_nss_solicitudes_t.cs" />
+    <Compile Include="Migrations\201610281028_alter_table_nss_det_solicitudes_t.cs" />
+    <Compile Include="Migrations\201610281038_nss_cargar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201610281041_nss_validar_solicitud_nui_2.cs" />
+    <Compile Include="Migrations\201611240350_sel_solicitudes_pkg.cs" />
+    <Compile Include="Migrations\201611030218_alter_table_sre_empleadores_t.cs" />
+    <Compile Include="Migrations\201611030552_call_sre_procesar_cedula_rechazadas.cs" />
+    <Compile Include="Migrations\201611171030_update_srp_procesos_pkg.cs" />
+    <Compile Include="Migrations\201611171037_update_sfc_rec_int_ord_liq_isr_p.cs" />
+    <Compile Include="Migrations\201611210300_nss_insert_det_solicitudes.cs" />
+    <Compile Include="Migrations\201611210316_nss_insert_solicitudes.cs" />
+    <Compile Include="Migrations\201611010348_nss_validar_solicitud_nui_2.cs" />
+    <Compile Include="Migrations\201611021126_nss_parsear_nui.cs" />
+    <Compile Include="Migrations\201611021135_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201611021208_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201611030527_nss_insert_solicitudes.cs" />
+    <Compile Include="Migrations\201611030529_nss_insert_det_solicitudes.cs" />
+    <Compile Include="Migrations\201611030534_nss_ponerencola.cs" />
+    <Compile Include="Migrations\201611030535_nss_ponerencola_cedulados.cs" />
+    <Compile Include="Migrations\201611070950_nss_get_solicitud_rnc_updated.cs" />
+    <Compile Include="Migrations\201611080921_nss_validar_sol_extranjeros.cs" />
+    <Compile Include="Migrations\201611080922_nss_validar_sol_menores_ext.cs" />
+    <Compile Include="Migrations\201611080923_nss_validar_sol_menores_nac.cs" />
+    <Compile Include="Migrations\201612010423_alter_trigger_tr_nomina_t.cs" />
+    <Compile Include="Migrations\201611310131_resumen_solicitudes_diarias_asignacion_nss.cs" />
+    <Compile Include="Migrations\201611310306_resumen_general_solicitudes_pendientes_eval_visual.cs" />
+    <Compile Include="Migrations\201611301134_seg_usuarios_pkg.cs" />
+    <Compile Include="Migrations\201611290400_nss_validar_sol_menores_nac.cs" />
+    <Compile Include="Migrations\201612130305_insert_into_srp_config_t.cs" />
+    <Compile Include="Migrations\201612200335_create_table_seg_det_captcha_t.cs" />
+    <Compile Include="Migrations\201612200322_create_table_seg_captcha_t.cs" />
+    <Compile Include="Migrations\201612210937_insert_into_seg_captcha_t.cs" />
+    <Compile Include="Migrations\201612211005_insert_into_seg_det_captcha_t.cs" />
+    <Compile Include="Migrations\201612211135_dva_manejo_pkg.cs" />
+    <Compile Include="Migrations\201612200906_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201612201018_create_package_srp_procesos_pkg.cs" />
+    <Compile Include="Migrations\201612201014_create_sfc_rec_int_liq_inf_p.cs" />
+    <Compile Include="Migrations\201612290954_update_status_to_seg_usuario_t.cs" />
+    <Compile Include="Migrations\201701120219_create_function_sfc_genera_fac_liq_ordinaria_f.cs" />
+    <Compile Include="Migrations\201701060929_sre_actualizar_dgi_maestro_p.cs" />
+    <Compile Include="Migrations\201701050308_create_asignar_nss_trg.cs" />
+    <Compile Include="Migrations\201706200922_create_table_rpn_cartera_pensionados.cs" />
+    <Compile Include="Migrations\201706200931_create_table_rpn_cartera_rechazos_t.cs" />
+    <Compile Include="Migrations\201706200920_create_table_rpn_entidades_t.cs" />
+    <Compile Include="Migrations\201706200923_create_table_rpn_nominas_t.cs" />
+    <Compile Include="Migrations\201706200924_create_table_rpn_dep_adicionales_t.cs" />
+    <Compile Include="Migrations\201706200925_create_table_rpn_archivos_t.cs" />
+    <Compile Include="Migrations\201706200926_create_table_rpn_tmp_nominas_t.cs" />
+    <Compile Include="Migrations\201706211339_insert_into_rpn_entidades_t.cs" />
+    <Compile Include="Migrations\201706211346_insert_into_ars_cartera_errores_t.cs" />
+    <Content Include="Objects\ars_actualiza_dep_adicionales.sql" />
+    <Content Include="Objects\ars_baja_dep_adicionales.sql" />
+    <Content Include="Objects\ars_dep_adicionales_mv.sql" />
+    <Content Include="Objects\bc_manejoarchivoxml_spec_pkg.sql" />
+    <Compile Include="Migrations\201706070942_create_view_sre_trabajadores_v.cs" />
+    <Compile Include="Migrations\201706121450_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201706121656_ars_cartera_senasa_pkg.cs" />
+    <Compile Include="Migrations\201707251422_create_drop_triggers_on_tables.cs" />
+    <Compile Include="Migrations\201706200921_create_table_rpn_regimen_t.cs" />
+    <Compile Include="Migrations\201706261705_insert_into_rpn_regimen_t.cs" />
+    <Compile Include="Migrations\201706261626_insert_into_sfc_parametros_t.cs" />
+    <Compile Include="Migrations\201708011704_nss_validar_sol_extranjeros.cs" />
+    <Compile Include="Migrations\201707111517_insert_into_seg_error_t.cs" />
+    <Compile Include="Migrations\201707111532_create_package_seg_usuarios_pkg.cs" />
+    <Compile Include="Migrations\201707121522_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201708071047_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201708221608_create_procedure_sfc_historico_deudores_p.cs" />
+    <Compile Include="Migrations\201708221036_create_table_sfc_historico_deudores_t.cs" />
+    <Compile Include="Migrations\201708221059_insert_into_srp_config_t.cs" />
+    <Compile Include="Migrations\201708241130_alter_view_sfc_facturas_v.cs" />
+    <Compile Include="Migrations\201708241602_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201708241615_create_procedure_sfc_rep_empleadores_deudores_p.cs" />
+    <Compile Include="Migrations\201709051446_create_package_sfc_factura_pkg.cs" />
+    <Compile Include="Migrations\201709111022_create_or_replace_package_sfc_c_ss_pkg.cs" />
+    <Compile Include="Migrations\201710051548_create_procedure_reporte_facturas_monto_cero.cs" />
+    <Compile Include="Migrations\201710061425_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201709151606_create_or_replace_package_sfc_c_ss_pkg.cs" />
+    <Compile Include="Migrations\201709260926_create_view_sfs_elegibles_v.cs" />
+    <Compile Include="Migrations\201710131412_create_procedure_ars_baja_dep_adicionales.cs" />
+    <Compile Include="Migrations\201710191503_insert_into_seg_error_t.cs" />
+    <Compile Include="Migrations\201710161402_update_seg_error_t.cs" />
+    <Compile Include="Migrations\201710201612_alter_table_sisalril_suir_sfs_subs_enf_t.cs" />
+    <Compile Include="Migrations\201711011103_create_package_sub_sfs_novedades_pkg.cs" />
+    <Compile Include="Migrations\201711011104_create_package_sub_sfs_dispersion_pkg.cs" />
+    <Compile Include="Migrations\201711011105_create_package_sub_sfs_subsidios_pkg.cs" />
+    <Compile Include="Migrations\201711161056_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201711161145_create_procedure_sre_baja_trabajadores_p.cs" />
+    <Compile Include="Migrations\201711281149_insert_into_seg_error_t.cs" />
+    <Compile Include="Migrations\201712061018_create_package_sre_load_movimiento_pkg.cs" />
+    <Compile Include="Migrations\201712110922_create_package_ars_validaciones_pkg.cs" />
+    <Compile Include="Migrations\201722091038_insert_into_seg_error_t.cs" />
+    <Compile Include="VersionInfo.cs" />
+    <Content Include="Objects\ars_cartera_senasa_pkg.sql" />
+    <Content Include="Objects\ars_cobertura_fono_senasa_p.sql" />
+    <Content Include="Objects\ars_validaciones_body_pkg.sql" />
+    <Content Include="Objects\borrar_vistas_materializadas.sql" />
+    <Content Include="Objects\create_triggers_on_tables.sql" />
+    <Content Include="Objects\drop_triggers_on_tables.sql" />
+    <Content Include="Objects\est_infantiles_body_pkg.sql" />
+    <Content Include="Objects\est_infantiles_spec_pkg.sql" />
+    <Content Include="Objects\generate_script_create_drop_triggers_on_tables.sql" />
+    <Content Include="Objects\create_view_sre_trabajadores_v.sql" />
+    <Content Include="Objects\create_sre_historico_documentos_mv.sql" />
+    <Content Include="Objects\drop_nss_validar_solicitud_nui_2.sql" />
+    <Content Include="Objects\nss_call_actualizar_ciudadano.sql" />
+    <Content Include="Objects\sre_ciudadano_inactivo_f.sql" />
+    <Content Include="Objects\rpn_proc_cartera_pensionados.sql" />
+    <Content Include="Objects\sfc_rep_empleadores_deudores_p.sql" />
+    <Content Include="Objects\seg_permiso_body_pkg.sql" />
+    <Content Include="Objects\seg_permiso_spec_pkg.sql" />
+    <Content Include="Objects\reporte_facturas_monto_cero.sql" />
+    <Content Include="Objects\seg_roles_body_pkg.sql" />
+    <Content Include="Objects\seg_roles_spec_pkg.sql" />
+    <Content Include="Objects\nss_cambiar_estatus_solicitud.sql" />
+    <Content Include="Objects\seh_pensionados_body_pkg.sql" />
+    <Content Include="Objects\seh_pensionados_spec_pkg.sql" />
+    <Content Include="Objects\Sfc_C_Ss_body_pkg.sql" />
+    <Content Include="Objects\Sfc_C_Ss_spec_pkg.sql" />
+    <Content Include="Objects\sfc_detalle_pagos_aclaraciones.sql" />
+    <Content Include="Objects\sfc_facturas_v.sql" />
+    <Content Include="Objects\sfc_historico_deudores_p.sql" />
+    <Content Include="Objects\sfc_factura_body_pkg.sql" />
+    <Content Include="Objects\sfc_factura_spec_pkg.sql" />
+    <Content Include="Objects\sfc_infotep_body_pkg.sql" />
+    <Content Include="Objects\sfc_infotep_spec_pkg.sql" />
+    <Content Include="Objects\sfc_nacha_p.sql" />
+    <Content Include="Objects\sfc_reenvio_de_movimiento_p.sql" />
+    <Content Include="Objects\nss_ponerencola_cedulados.sql" />
+    <Content Include="Objects\sfs_solicitudes_exceden_tiempo.sql" />
+    <Content Include="Objects\sfs_elegibles_v.sql" />
+    <Content Include="Objects\sre_baja_trabajadores_p.sql" />
+    <Content Include="Objects\sre_ciudadano_body_pkg.sql" />
+    <Content Include="Objects\sfc_ir13_body_pkg.sql" />
+    <Content Include="Objects\sfs_elegibles_update_trg.sql" />
+    <Content Include="Objects\sre_ciudadano_spec_pkg.sql" />
+    <Content Include="Objects\sre_estadisticas_body_pkg.sql" />
+    <Content Include="Objects\sre_estadisticas_spec_pkg.sql" />
+    <Content Include="Objects\dgii_empleadores_general_mv.sql" />
+    <Content Include="Objects\sre_genera_factura_p.sql" />
+    <Compile Include="Migrations\201701171043_create_procedure_sre_genera_factura_p.cs" />
+    <Compile Include="Migrations\201701230501_sre_actualizar_dgi_maestro_p.cs" />
+    <Compile Include="Migrations\201701111120_alter_column_table_sre_empleadores_t.cs" />
+    <Compile Include="Migrations\201701201058_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201702060600_insert_into_seg_error_t.cs" />
+    <Compile Include="Migrations\201702061026_nss_actualizar_ciudadano.cs" />
+    <Compile Include="Migrations\201702061027_nss_insertar_ciudadano.cs" />
+    <Compile Include="Migrations\201702061028_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201702020155_create_index_rnc_periodo_liquidacion_dgii_isr_status_local_t.cs" />
+    <Compile Include="Migrations\201702020509_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201702020635_create_procedure_dgii_isr_status_prc.cs" />
+    <Compile Include="Migrations\201701270147_create_sre_procesar_cedula_rechazadas.cs" />
+    <Compile Include="Migrations\201701240844_seg_usuarios_pkg.cs" />
+    <Compile Include="Migrations\201701270259_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201702130228_nss_validar_sol_menores_nac.cs" />
+    <Compile Include="Migrations\201702150248_create_materialized_view_dgii_empleadores_general_mv.cs" />
+    <Compile Include="Migrations\201702150255_create_sre_actualizar_dgi_maestro_p.cs" />
+    <Compile Include="Migrations\201702140959_update_seg_usuario_t.cs" />
+    <Compile Include="Migrations\201702141258_seg_usuarios_pkg.cs" />
+    <Compile Include="Migrations\201702171254_create_package_cer_certificaciones_pkg.cs" />
+    <Compile Include="Migrations\201702230945_create_package_sre_estadisticas_pkg.cs" />
+    <Compile Include="Migrations\201702231100_update_table_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201703030406_sfc_detalle_pagos_aclaraciones.cs" />
+    <Compile Include="Migrations\201703030417_sfc_reenvio_de_movimiento_p.cs" />
+    <Compile Include="Migrations\201703030419_sfc_nacha_p.cs" />
+    <Content Include="Objects\rpn_cartera_pensionados_mv.sql" />
+    <Compile Include="Migrations\201702280144_insert_into_ars_actualizacion_actas_t.cs" />
+    <Compile Include="Migrations\201702281130_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201703010512_create_procedure_rpn_proc_cartera_pensionados.cs" />
+    <Compile Include="Migrations\201703021019_create_materialized_view_rpn_cartera_pensionados_mv.cs" />
+    <Compile Include="Migrations\201703020111_nss_get_evaluacion_detalle.cs" />
+    <Compile Include="Migrations\201703161022_alter_table_ars_cartera_senasa_con_error_t.cs" />
+    <Compile Include="Migrations\201703161147_ars_cartera_senasa_pkg.cs" />
+    <Compile Include="Migrations\201703241128_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201703200136_nss_validaciones_pkg.cs" />
+    <Compile Include="Migrations\201703200139_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201703200150_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201703090933_nss_get_evaluacion_detalle.cs" />
+    <Compile Include="Migrations\201703131145_nss_get_evaluacion_visual.cs" />
+    <Compile Include="Migrations\201703151007_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201703200219_resumen_general_solicitudes_pendientes_eval_visual.cs" />
+    <Compile Include="Migrations\201703210156_resumen_solicitudes_diarias_asignacion_nss.cs" />
+    <Compile Include="Migrations\201703240410_seg_usuarios_pkg.cs" />
+    <Compile Include="Migrations\201703291219_create_package_sre_procesar_rt_pkg.cs" />
+    <Compile Include="Migrations\201703291230_create_package_sfc_ir13_pkg.cs" />
+    <Compile Include="Migrations\201703291233_create_package_sre_load_movimiento_pkg.cs" />
+    <Compile Include="Migrations\201704040449_insert_into_seg_error_t.cs" />
+    <Compile Include="Migrations\201704040502_sre_novedades_pkg.cs" />
+    <Compile Include="Migrations\201703310856_seg_usuarios_pkg.cs" />
+    <Compile Include="Migrations\201704051114_insert_into_seg_seccion_t.cs" />
+    <Content Include="Objects\bc_manejoarchivoxml_body_pkg.sql" />
+    <Compile Include="Migrations\201704211203_create_package_bc_manejoarchivoxml_pkg.cs" />
+    <Compile Include="Migrations\201706121454_ars_cobertura_fono_senasa_p.cs" />
+    <Compile Include="Migrations\201706121522_ars_validaciones_pkg.cs" />
+    <Compile Include="Migrations\201704201107_update_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201704200449_wss_servicios_pkg.cs" />
+    <Compile Include="Migrations\201704201007_nss_get_solicitud.cs" />
+    <Compile Include="Migrations\201704211832_nss_call_actualizar_ciudadano.cs" />
+    <Compile Include="Migrations\201705091542_alter_constraint_maternidad_nro_pago.cs" />
+    <Compile Include="Migrations\201705091540_alter_constraint_maternidad_via.cs" />
+    <Compile Include="Migrations\201705091515_alter_constraint_maternidad_status_dispersion.cs" />
+    <Compile Include="Migrations\201705171705_alter_table_sisalril_sfs_subs_maternidad_t.cs" />
+    <Compile Include="Migrations\201705121446_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201705121448_nss_validar_sol_menores_nac.cs" />
+    <Compile Include="Migrations\201705121450_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201705021526_sre_ciudadano_pkg.cs" />
+    <Compile Include="Migrations\201705041029_insert_into_sfc_procesos_t.cs" />
+    <Compile Include="Migrations\201705041113_create_nss_cambiar_estatus_solicitud.cs" />
+    <Compile Include="Migrations\201705021752_nss_actualizar_ciudadano.cs" />
+    <Compile Include="Migrations\201705021753_nss_insertar_ciudadano.cs" />
+    <Compile Include="Migrations\201705021754_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201705021755_nss_validar_sol_extranjeros.cs" />
+    <Compile Include="Migrations\201705021756_nss_validar_sol_menores_ext.cs" />
+    <Compile Include="Migrations\201705021757_nss_validar_sol_menores_nac.cs" />
+    <Compile Include="Migrations\201705021758_nss_validar_solicitud_nui.cs" />
+    <Compile Include="Migrations\201704241620_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201705171109_sre_load_movimiento_pkg.cs" />
+    <Compile Include="Migrations\201705171338_sre_procesar_rd_pkg.cs" />
+    <Compile Include="Migrations\201705221646_seg_roles_pkg.cs" />
+    <Compile Include="Migrations\201705241029_insert_into_seg_error_t.cs" />
+    <Compile Include="Migrations\201725051148_cer_certificaciones_pkg.cs" />
+    <Compile Include="Migrations\201705161126_update_seg_error_t.cs" />
+    <Compile Include="Migrations\201705221019_sre_empleadores_pkg.cs" />
+    <Compile Include="Migrations\201705161049_create_table_sre_historico_documentos_t.cs" />
+    <Compile Include="Migrations\201705161525_create_asignar_nss_trg.cs" />
+    <Compile Include="Migrations\201705161527_create_materialized_view_sre_historico_documentos_mv.cs" />
+    <Compile Include="Migrations\201705151212_drop_nss_validar_solicitud_nui_2.cs" />
+    <Compile Include="Migrations\201705181705_create_table_nss_det_solicitud_en_proceso_t.cs" />
+    <Compile Include="Migrations\201705181758_nss_actualizar_solicitud.cs" />
+    <Compile Include="Migrations\201705181753_nss_insertar_ciudadano.cs" />
+    <Compile Include="Migrations\201705181755_nss_actualizar_ciudadano.cs" />
+    <Compile Include="Migrations\201705181832_nss_validar_sol_cedulados.cs" />
+    <Compile Include="Migrations\201705180934_seg_usuarios_pkg.cs" />
+    <Compile Include="Migrations\201705180950_insert_into_seg_error_t.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Objects\asignar_nss_trg.sql" />
+    <Content Include="Objects\dgii_isr_status_local_prc.sql" />
+    <Content Include="Objects\dva_manejo_body_pkg.sql" />
+    <Content Include="Objects\dva_manejo_spec_pkg.sql" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Objects\ars_cartera_senasa_body_pkg.sql" />
+    <Content Include="Objects\ars_cartera_senasa_spec_pkg.sql" />
+    <Content Include="Objects\bitacora.sql" />
+    <Content Include="Objects\cer_certificaciones_body_pkg.sql" />
+    <Content Include="Objects\cer_certificaciones_spec_pkg.sql" />
+    <Content Include="Objects\create_suir_r_sol_asig_nss_menores_mv.sql" />
+    <Content Include="Objects\drop_suir_r_sol_asig_nss_menores_mv.sql" />
+    <Content Include="Objects\nss_actualizar_ciudadano.sql" />
+    <Content Include="Objects\nss_actualizar_solicitud.sql" />
+    <Content Include="Objects\nss_cargar_sol_cedulados.sql" />
+    <Content Include="Objects\nss_get_ciudadano.sql" />
+    <Content Include="Objects\nss_get_evaluacion_det.sql" />
+    <Content Include="Objects\nss_get_evaluacion_visual.sql" />
+    <Content Include="Objects\nss_get_solicitud.sql" />
+    <Content Include="Objects\nss_get_solicitud_rnc.sql" />
+    <Content Include="Objects\nss_insertar_ciudadano.sql" />
+    <Content Include="Objects\nss_cargar_solicitudes_menores.sql" />
+    <Content Include="Objects\nss_consultar_afiliacion_sfs.sql" />
+    <Content Include="Objects\detalle_bitacora.sql" />
+    <Content Include="Objects\InsertarMensajeInbox.sql" />
+    <Content Include="Objects\next_sequence.sql" />
+    <Content Include="Objects\nss_insertar_evaluacion_visual.sql" />
+    <Content Include="Objects\nss_insert_det_solicitudes.sql" />
+    <Content Include="Objects\nss_insert_solicitudes.sql" />
+    <Content Include="Objects\nss_motivo_rechazo.sql" />
+    <Content Include="Objects\nss_parsear_ced.sql" />
+    <Content Include="Objects\nss_parsear_nui.sql" />
+    <Content Include="Objects\nss_ponerencola.sql" />
+    <Content Include="Objects\nss_validaciones_body_pkg.sql" />
+    <Content Include="Objects\nss_validaciones_spec_pkg.sql" />
+    <Content Include="Objects\nss_validar_solicitud_nui.sql" />
+    <Content Include="Objects\nss_validar_solicitud_nui_2.sql" />
+    <Content Include="Objects\nss_validar_sol_cedulados.sql" />
+    <Content Include="Objects\nss_validar_sol_menores_ext.sql" />
+    <Content Include="Objects\nss_webservice_jce_ced.sql" />
+    <Content Include="Objects\nss_webservice_jce_nui.sql" />
+    <Content Include="Objects\reenvio_movimientos.sql" />
+    <Content Include="Objects\refrescar_vista.sql" />
+    <Content Include="Objects\registrar_mensaje.sql" />
+    <Content Include="Objects\nss_validar_sol_extranjeros.sql" />
+    <Content Include="Objects\nss_validar_sol_menores_nac.sql" />
+    <Content Include="Objects\nss_validar_solicitud.sql" />
+    <Content Include="Objects\resumen_general_solicitudes_asignacion_nss_pendientes_eval_visual.sql" />
+    <Content Include="Objects\resumen_solicitudes_diarias_asignacion_nss.sql" />
+    <Content Include="Objects\seg_usuarios_body_pkg.sql" />
+    <Content Include="Objects\seg_usuarios_pkg.sql" />
+    <Content Include="Objects\sel_solicitudes_spec_pkg.sql" />
+    <Content Include="Objects\sfc_genera_fac_liq_ordinaria_f.sql" />
+    <Content Include="Objects\sfc_rec_int_liq_inf_p.sql" />
+    <Content Include="Objects\sre_actualizar_dgi_maestro_p.sql" />
+    <Content Include="Objects\sfc_rec_int_ord_liq_isr_p.sql" />
+    <Content Include="Objects\sre_empleadores_espec_pkg.sql" />
+    <Content Include="Objects\sre_empleadores_body_pkg.sql" />
+    <Content Include="Objects\sre_novedades_fallecidos_body_pkg.sql" />
+    <Content Include="Objects\sre_novedades_fallecidos_spec_pkg.sql" />
+    <Content Include="Objects\sub_sfs_dispersion_spec_pkg.sql" />
+    <Content Include="Objects\sub_sfs_dispersion_body_pkg.sql" />
+    <Content Include="Objects\sre_procesar_rd_spec_pkg.sql" />
+    <Content Include="Objects\sre_load_movimiento_pkg.sql" />
+    <Content Include="Objects\sre_load_movimiento_spec_pkg.sql" />
+    <Content Include="Objects\sre_procesar_rd_spec_pkg.sql" />
+    <Content Include="Objects\sre_nominas_body_pkg.sql" />
+    <Content Include="Objects\sre_nominas_spec_pkg.sql" />
+    <Content Include="Objects\sre_novedades_body_pkg.sql" />
+    <Content Include="Objects\sre_novedades_pkg.sql" />
+    <Content Include="Objects\sre_procesar_cedula_rechazadas.sql" />
+    <Content Include="Objects\sre_procesar_rd_body_pkg.sql" />
+    <Content Include="Objects\sre_procesar_rt_body_pkg.sql" />
+    <Content Include="Objects\srp_body_pkg.sql" />
+    <Content Include="Objects\srp_procesos_body_pkg.sql" />
+    <Content Include="Objects\srp_procesos_spec_pkg.sql" />
+    <Content Include="Objects\srp_spec_pkg.sql" />
+    <Content Include="Objects\sub_sfs_dispersion_body_pkg.sql" />
+    <Content Include="Objects\sub_sfs_dispersion_spec_pkg.sql" />
+    <Content Include="Objects\sub_sfs_novedades_body_pkg.sql" />
+    <Content Include="Objects\sub_sfs_novedades_spec_pkg.sql" />
+    <Content Include="Objects\sub_sfs_subsidios_body_pkg.sql" />
+    <Content Include="Objects\sub_sfs_subsidios_spec_pkg.sql" />
+    <Content Include="Objects\tr_nomina_t.sql" />
+    <Content Include="Objects\update_id_nss_det_solicitudes_t.sql" />
+    <Content Include="Objects\sel_solicitudes_body_pkg.sql" />
+    <Content Include="Objects\vista_unipago_sfc_det_dependiente_factura_mv.sql" />
+    <Content Include="Objects\vista_unipago_sfc_det_facturas_mv.sql" />
+    <Content Include="Objects\vista_unipago_sfc_det_ajustes_mv.sql" />
+    <Content Include="Objects\wss_servicios_body_pkg.sql" />
+    <Content Include="Objects\wss_servicios_pkg.sql" />
+    <Content Include="Scripts\ejecutar\migrate.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SuirPlusEF\SuirPlusEF.csproj">
+      <Project>{7fd1d3a8-f249-475a-bad3-d7ad6e78d660}</Project>
+      <Name>SuirPlusEF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

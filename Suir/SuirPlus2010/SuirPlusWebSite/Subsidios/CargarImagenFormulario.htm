@@ -1,0 +1,87 @@
+﻿<script type="text/javascript">
+    $(function () {
+
+
+        if (Util.GetQueryStringByName("m") == "r") {
+            $("#lblnormal").hide();
+            $("#lblreconsideracion").show();
+        }
+        else {
+            $("#lblnormal").show();
+            $("#lblreconsideracion").hide();
+        }
+
+        $("#nrosolimagen").val($("#nrosolicitud").val());
+        $("#finalizar").button();
+        $("#msgimg").html("");
+
+        $("#finalizar").click(function () {
+            Exito("El registro se completó exitosamente");
+        });
+
+        $('.upload').fileUploadUI({
+            uploadTable: $('.upload_files'),
+            downloadTable: $('.download_files'),
+            buildUploadRow: function (files, index) {
+
+                var file = files[index];
+                return $('<tr><td>' + file.name + '<\/td>' +
+                '<td class="file_upload_progress"><div><\/div><\/td>' +
+                '<td class="file_upload_cancel">' +
+                '<div class="ui-state-default ui-corner-all ui-state-hover" title="Cancel">' +
+                '<span class="ui-icon ui-icon-cancel">Cancel<\/span>' +
+                '<\/div><\/td><\/tr>');
+            },
+            buildDownloadRow: function (file) {
+                return $(
+                        '<tr><td>' + file.name + '<\/td><\/tr>'
+                );
+            },
+            onComplete: function (event, files, index, xhr, handler) {
+                var msg = handler.response.d;
+                if (msg != "Exito") {
+                    $("#msgimg").html(msg);
+                } else {
+                    Exito("El registro se completó exitosamente");
+                }
+            },
+            onAbort: function (event, files, index, xhr, handler) {
+                handler.removeNode(handler.uploadRow);
+            }
+        });
+    });
+</script>
+<br />
+<label class="subHeader" id="lblnormal" style="font-size: 14px">
+    El registro de la novedad se ha realizado, para completar puede proceder a subir
+    el archivo
+    <br />
+    u oprima finalizar para enviarlo mas tarde a través de la consulta de subsidios o por fax a la SISALRIL más adelante
+
+</label>
+<label class="subHeader" id="lblreconsideracion" style="font-size: 14px">
+    Estimado Empleador si usted realiza una "Reconsideración" por error en el formulario, debe Remitir el NUEVO
+Formulario de Solicitud de Subsidio,<br />
+    "CORREGIDO" a la Sisalril vía su  Fax Server 809-565-6629 ó al correo 
+electrónico: subsidios@sisalril.gob.do.
+
+</label>
+
+<br />
+<br />
+<input id="finalizar" type="button" value="Finalizar" style="text-align: center; color: #444444; font-weight: bold; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; width: 200px; height: 30px; line-height: 30px; background: #DCEAF2; border: 1px solid #7DBEFF;" />
+<br />
+<br />
+<form class="upload" action="../Services/CargarImagenFormulario.ashx" method="post"
+    enctype="multipart/form-data">
+    <input type="hidden" name="nrosolimagen" id="nrosolimagen" />
+    <input type="file" name="file" />
+    <button>
+        Upload</button>
+    <div style="cursor: pointer">
+        Cargar Archivos
+    </div>
+</form>
+<table class="upload_files" />
+<table class="download_files" style="visibility: hidden;" />
+<span id="msgimg" style="font-size: 24px" class="error"></span>

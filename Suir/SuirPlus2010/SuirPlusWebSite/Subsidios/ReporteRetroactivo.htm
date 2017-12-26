@@ -1,0 +1,1125 @@
+﻿<script type="text/javascript">
+    var hash;
+    var nroformulario;
+    var flagMedico;
+    var flagPSS;
+
+    $(function () {
+
+        flagMedico = true;
+        flagPSS = true;
+
+        $("#tabs").tabs();
+        $(".button").button();
+        $(".fecha").datepicker();
+        $(".fecha").live('change', Util.EvitarPaste);
+
+        $(".registropatronalretroactivo").val($("#registropatronalregistro").val());
+
+        $("#nrosolicitudretroactivo").val($("#nrosolicitud").val());
+        $(".usuarioretroactivo").val($("#usuarioregistro").val());
+        $(".nssmadreretroactivo").val($("#nss").html());
+
+        $("#direccionmedico").val("");
+        $("#direccionpss").val("");
+
+        NumeroFormulario();
+
+        $(".telefonoretroactivo").mask("(999)-999-9999");
+
+        $("#cantidadlactante").change(CantidadLactantes);
+        $("#registrarlicenciaretroactiva").click(RegistrarRetroactiva);
+        $("#imprimirformulario").click(ImprimirFormulario);
+
+        CantidadLactantes();
+
+        $("#fechalicencia").change(AsginarValores);
+
+        // Obtener el listado de las PSS'S // 
+        getPssList();
+    });
+
+
+    //Registro----------------------------------------------------------
+    //Validaciones Registro-----------------------------------------
+    function FallaValidacionesEmbarazo() {
+        var msgRetroactivo = $("#msgRetroactivo");
+        var parto = $("#fechaestimadaparto").datepicker("getDate");
+        var diagnostico = $("#fechadiagnostico").datepicker("getDate");
+        var hoy = new Date();
+
+        var telefono = $.trim($("#telefono").val());
+        var celular = $.trim($("#celular").val());
+
+        var telefonotutor = $.trim($("#telefonotutor").val());
+        var emailtutor = $.trim($("#emailtutor").val());
+
+        if ($("#fechadiagnostico").val() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("La fecha de diagnóstico de embarazo es requerida...");
+            $("#fechadiagnostico").val("");
+            $("#fechadiagnostico").focus();
+            return true;
+        }
+        else if ($("#fechaestimadaparto").val() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("La fecha de parto es requerida...");
+            $("#fechaestimadaparto").val("");
+            return true;
+        }
+        else if ((telefono == "") && (celular == "")) {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("Debe de digitar el teléfono o el celular de la afiliada...");
+            $("#telefono").focus();
+            return true;
+        }
+        else if ($("#nombretutor").html() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("Los datos de tutor son requeridos...");
+            return true;
+        }
+        else if ((telefonotutor == "") && (emailtutor == "")) {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("Debe de digitar el telefono o el correo del tutor...");
+            $("#telefonotutor").focus();
+            return true;
+        }
+        else if (diagnostico > hoy) {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("La fecha de diagnóstico de embarazo no debe ser futura...");
+            $("#fechadiagnostico").focus();
+            return true;
+        }
+        else if (parto < diagnostico) {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("La fecha estimada de parto no debe ser menor que la fecha de diagnóstico de embarazo...");
+            $("#fechaestimadaparto").focus();
+            return true;
+        }
+        else if (!IsValidEmail($.trim($("#email").val()))) {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("El correo de la afiliada es inválido...");
+            $("#email").focus();
+            return true;
+        }
+        else if (!IsValidEmail($.trim($("#emailtutor").val()))) {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("El correo del tutor es inválido...");
+            $("#emailtutor").focus();
+            return true;
+        }
+        return false;
+    }
+    function FallaValidacionesMedicoPSS() {
+
+        var msgRetroactivo = $("#msgRetroactivo");
+
+        if ($("#cedulamedico").val() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("La cédula del médico es requerida...");
+            $("#cedulamedico").focus();
+            return true;
+        }
+        else if ($("#direccionmedico").val() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("La dirección del consultorio del médico es requerida...");
+            $("#direccionmedico").focus();
+            return true;
+        }
+        else if ($("#telefonomedico").val() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("El teléfono del consultorio del médico es requerido...");
+            $("#telefonomedico").focus();
+
+            flagMedico = true;
+            return true;
+        }
+        else if (flagMedico) {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("Debe ejecutar la búsqueda del médico");
+            $("#cedulamedico").val("");
+            $("#cedulamedico").focus();
+            return true;
+        }
+        else if ($("#buscarpss").val() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("El nombre de la PSS es requerido...");
+            $("#buscarpss").focus();
+            flagPSS = true;
+            return true;
+        }
+        else if (flagPSS) {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("Debe ejecutar la búsqueda de la PSS");
+            $("#buscarpss").val("");
+            $("#buscarpss").focus();
+            return true;
+        }
+        else if ($("#direccionpss").val() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("La dirección de la PSS es requerida...");
+            $("#direccionpss").focus();
+            return true;
+        }
+        else if ($("#telefonopss").val() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("El teléfono de la PSS es requerido...");
+            $("#telefonopss").focus();
+            return true;
+        }
+        return false;
+    }
+    function FallaValidacionesLicencia() {
+        var msgRetroactivo = $("#msgRetroactivo");
+        var fechalicencia = $("#fechalicencia").datepicker("getDate");
+        var hoy = new Date();
+
+        if ($("#fechalicencia").val() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("La fecha de licencia es requerida...");
+            $("#fechalicencia").focus();
+            return true;
+        }
+        else if ($("#fechadiagnosticolicencia").val() == "") {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("La fecha de diagnóstico de la licencia es requerida...");
+            $("#fechadiagnosticolicencia").focus();
+            return true;
+        }
+        else if (fechalicencia > hoy) {
+            msgRetroactivo.addClass("error");
+            msgRetroactivo.html("La fecha de licencia introducida no debe ser futura...");
+            return true;
+        }
+        return false;
+    }
+    function FallaValidacionesNovedadesCierre() {
+
+        if ($("#modo").val() == "r") {
+            /*Reasignar los valores del embarazo a los hidden-inputs, posiblemente cambiados por el usuario
+            para submitir la reconsideracion*/
+            AsginarValores();
+        } else {
+            var msgRetroactivo = $("#msgRetroactivo");
+            var fechanacimiento = $("#fechanacimiento").datepicker("getDate");
+            var fechaperdida = $("#fechaperdida").datepicker("getDate");
+            var fechadefuncion = $("#fechadefuncion").datepicker("getDate");
+            var hoy = new Date();
+
+            if (fechanacimiento == null && fechaperdida == null && fechadefuncion == null) {
+                msgRetroactivo.addClass("error");
+                msgRetroactivo.html("Debe de hacer un reporte de nacimiento o un reporte de pérdida o un reporte de muerte madre para hacer el registro de embarazo retroactivo.");
+                return true;
+            }
+            else if (!(fechanacimiento == null)) {
+                if (fechanacimiento > hoy) {
+                    msgRetroactivo.addClass("error");
+                    msgRetroactivo.html("La fecha de nacimiento no puede ser futura.");
+                    $("#fechanacimiento").focus();
+                    return true;
+                }
+                else if (DatosObligatoriosVacios()) {
+                    msgRetroactivo.addClass("error");
+                    msgRetroactivo.html("Debe completar los datos obligatorios de los lactantes (Nombre, Primer Apellido)");
+                    return true;
+                }
+            }
+            else if (!(fechanacimiento == null) && !(fechaperdida == null)) {
+                msgRetroactivo.addClass("error");
+                msgRetroactivo.html("El reporte de Pérdida de Embarazo y Nacimiento no se pueden hacer simultaneamente");
+                return true;
+            }
+            else if (!(fechadefuncion == null)) {
+                if (!(fechaperdida == null) && fechadefuncion < fechaperdida) {
+                    msgRetroactivo.addClass("error");
+                    msgRetroactivo.html("La fecha de Defunción no debe ser menor que la fecha de Pérdida");
+                    return true;
+                }
+                else if (!(fechanacimiento == null) && fechadefuncion < fechanacimiento) {
+                    msgRetroactivo.addClass("error");
+                    msgRetroactivo.html("La fecha de Defunción no debe ser menor que la fecha de Pérdida");
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+    //EO-Validaciones Registro--------------------------------------
+
+    function RegistrarRetroactiva() {
+        AsginarValores();
+        $("#registrarlicenciaretroactiva").attr("disabled", true);
+        $("#msgRetroactivo").html("");
+
+        if (FallaValidacionesEmbarazo()) {
+            //no aplica para el registro
+            $("#registrarlicenciaretroactiva").attr('disabled', false);
+        }
+        else if (FallaValidacionesMedicoPSS()) {
+            //no aplica para el registro
+            $("#registrarlicenciaretroactiva").attr('disabled', false);
+        }
+        else if (FallaValidacionesLicencia()) {
+            //no aplica para el registro
+            $("#registrarlicenciaretroactiva").attr('disabled', false);
+        }
+        else if (FallaValidacionesNovedadesCierre()) {
+            //no aplica para el registro
+            $("#registrarlicenciaretroactiva").attr('disabled', false);
+        }
+        else {
+            try {
+                var Url = loc + "/RegistrarEmbarazoRetroactivo";
+                var data = $('#formretroactivo').serialize();
+
+                $.get(Url, data, resultadoRetroactiva);
+            }
+            catch (e) {
+                $("#msgRetroactivo").addClass("error");
+                $("#msgRetroactivo").html(e);
+                //$("#registrarlicenciaretroactiva").attr('disabled', false);
+            }
+        }
+    }
+    function resultadoRetroactiva(xmlinfo) {
+        var mixml = $(xmlinfo);
+        try {
+            var result = mixml.find('string').text()
+            if (result.split("|")[0] == "OK") {
+
+                /*Si la novedad de cierre se trata de un nacimiento, se redirecciona
+                a la pantalla de carga de imagen opcional*/
+                //if ($("#fechanacimiento").val() == "") {
+
+
+
+                //    Exito("El reporte retroactivo se ejecutó exitosamente");
+                //} else {
+                    $("#nrosolicitud").val(result.split("|")[1]);
+                    $("#formretroactivo").html("");
+                    buscarFormulario('CargarImagenFormulario.htm');
+
+                    //Limpiando el Menu
+                    $("#ToDoList").html("");
+                //}
+            } else {
+                $("#msgRetroactivo").addClass("error");
+                $("#msgRetroactivo").html(result.split("|")[0]);
+                $("#registrarlicenciaretroactiva").attr('disabled', false);
+            }
+        }
+        catch (e) {
+            $("#msgRetroactivo").addClass("error");
+            $("#msgRetroactivo").html(e);
+            $("#registrarlicenciaretroactiva").attr('disabled', false);
+        }
+    }
+    function CancelarRetroactiva() {
+        $("#registrarembarazo").show();
+        $("#cancelarembarazo").show();
+        $("#mensaje").html("");
+        $("#mifieldset").html("");
+        $("#fechaestimadaparto").val("");
+        $("#registrarlicenciaretroactiva").attr('disabled', false);
+    }
+    function AsginarValores() {
+        /*Aqui capturamos los valores de RE en variables locales para la llamada
+        al webservice con serialize()*/
+        $("#nrosolicitudretroactivo").val();
+        $(".diagnosticoretroactiva").val($("#fechadiagnostico").val());
+        $(".partoretroactivo").val($("#fechaestimadaparto").val());
+        $(".nsstutorretroactivo").val($("#nsstutorlabel").html());
+        $(".telefonomadreretroactivo").val($("#telefono").val());
+        $("#celularmadreretroactivo").val($("#celular").val());
+        $(".emailmadreretroactivo").val($("#email").val());
+        $("#telefonotutorretroactivo").val($("#telefonotutor").val());
+        $(".emailtutorretroactivo").val($("#emailtutor").val());
+    }
+    //EO-Registro-------------------------------------------------------
+
+
+    //Formulario--------------------------------------------------------
+    function NumeroFormulario() {
+
+        var Url = loc + "/ObtenerNumeroFormulario";
+        var data = '{ nss: "' + $("#nss").html() + '", registropatronal: "' + $("#registropatronalregistro").val() + '", cedula: "' + $("#nodocumento").val() + '" }';
+
+        Util.llamarWS(Url, data, recibirNumeroFormulario, ajaxFailed);
+    }
+    function recibirNumeroFormulario(nro) {
+
+        nroformulario = nro.d.nroformulario;
+        hash = nro.d.hash;
+
+        // ImprimirFormulario();
+    }
+    function ImprimirFormulario() {
+
+        var page = 'FormularioLicencia.aspx?nss=' + $("#nss").html() + '&cedula=' + $("#nodocumento").html()
+                        + '&nombre=' + $("#nombre").html() + '&hash=' + hash;
+
+        window.open(page, "", "width=840px,height=5000px").print();
+    }
+    //EO-Formulario-----------------------------------------------------
+
+
+    //Lactantes---------------------------------------------------------
+    function LimpiarFila(i) {
+        $("#nombres" + i).val("");
+        $("#papellido" + i).val("");
+        $("#texto").html("")
+        $("#nombres" + i).val("");
+        $("#papellido" + i).val("");
+        $("#sapellido" + i).val("");
+        $("#sexo" + i).val("");
+        $("#nui" + i).val("");
+        $("#nombres" + i).attr("disabled", false);
+        $("#papellido" + i).attr("disabled", false);
+        $("#sapellido" + i).attr("disabled", false);
+        $("#sexo" + i).attr("disabled", false);
+        $("#nui" + i).attr("disabled", false);
+    }
+    function agregarFila(i) {
+
+        var sb = "";
+
+        sb += "<tr class=\"fila\" >"
+        sb += "<td>"
+        sb += "<input type=\"text\" maxlength=\"9\" onkeypress=\"return numbersonly(this,event);\" onchange=\"BuscarLactante(this," + i + ");\"name=\"nsslactante" + i + "\"id=\"nsslactante" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"DatosObligatoriosVacios();\" name=\"nombreslactante" + i + "\" id=\"nombres" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"Apellidos(this);\" name=\"papellidolactante" + i + "\" id=\"papellido" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"Apellidos(this);\" name=\"sapellidolactante" + i + "\" id=\"sapellido" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"nuiDuplicado(this," + i + ");\" name=\"nuilactante" + i + "\" id=\"nui" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<select name=\"sexolactante" + i + "\" id=\"sexo" + i + "\"><option value=\"F\" >Femenino</option><option  value=\"M\" >Masculino</option></select>"
+        sb += "</td>"
+        sb += "</tr>"
+
+        $("#lactantes").append(sb);
+
+    }
+    function CantidadLactantes() {
+
+        // Limpiar
+        $(".fila").remove();
+        try {
+            for (var i = 0; i < $("#cantidadlactante").val(); i++) {
+
+                // Agregar
+                agregarFila(i + 1);
+            }
+        } catch (e) {
+            alert(e);
+        }
+    }
+    function BuscarLactante(lactante, id) {
+
+        if (lactante.value) {
+            if (nssDuplicado(lactante, id)) {
+                return;
+            }
+
+            var Url = loc + "/getLactante";
+            var data = '{ nsslactante: "' + lactante.value + '", idTextBox: "' + id + '" }';
+
+            Util.llamarWS(Url, data, function (info) {
+
+                try {
+                    if (typeof info.d == "string") {
+                        LimpiarFila(id);
+                        $("#msgRetroactivo").addClass("error");
+                        $("#msgRetroactivo").html("");
+                        $("#msgRetroactivo").html(info.d);
+                    }
+                    else {
+                        $("#msgRetroactivo").html("");
+                        $("#nombres" + id).val(info.d.nombres);
+                        $("#papellido" + id).val(info.d.primerapellido);
+                        $("#sapellido" + id).val(info.d.segundoapellido);
+                        $("#sexo" + id).val(info.d.sexo);
+                        $("#nui" + id).val(info.d.nodocumento);
+                        $("#nombres" + id).attr("disabled", true);
+                        $("#papellido" + id).attr("disabled", true);
+                        $("#sapellido" + id).attr("disabled", true);
+                        $("#sexo" + id).attr("disabled", true);
+                        $("#nui" + id).attr("disabled", true);
+                    }
+                }
+                catch (e) {
+                    alert(e);
+                }
+                //Verificar si ya se llenaron todos los datos para habilitar el boton de insertar
+                DatosObligatoriosVacios();
+            },
+            ajaxFailed);
+        }
+        else {
+            LimpiarFila(id);
+        }
+    }
+    function DatosObligatoriosVacios() {
+
+        for (var i = 1; i <= $("#cantidadlactante").val(); i++) {
+            if (($("#nombres" + i).val() == "") || ($("#papellido" + i).val() == "")) {
+                return true;
+            }
+        }
+        return false;
+    }
+    function Apellidos(id) {
+
+        var i = id.id.toString().replace("papellido", "").replace("sapellido", "");
+
+        if (id.id == "papellido" + i) {
+            $("input[id ^= 'papellido']").val($("#papellido" + i).val());
+        }
+        if (id.id == "sapellido" + i) {
+            $("input[id ^= 'sapellido']").val($("#sapellido" + i).val());
+        }
+
+        //Verificar si ya se llenaron todos los datos para habilitar el boton de insertar
+        DatosObligatoriosVacios();
+    }
+    function nuiDuplicado(lactante, id) {
+
+        if (lactante.value) {
+            for (var i = 1; i <= $("#cantidadlactante").val(); i++) {
+                if (lactante.value != "") {
+                    if ((lactante.value == $("#nui" + i).val()) && id != i) {
+                        LimpiarFila(id);
+                        return true;
+                    }
+                }
+            }
+            //Verificar si ya se llenaron todos los datos para habilitar el boton de insertar
+            DatosObligatoriosVacios();
+        }
+    }
+    function nssDuplicado(lactante, id) {
+
+        if (lactante.value) {
+
+            for (var i = 1; i <= $("#cantidadlactante").val(); i++) {
+                if (lactante.value != "") {
+
+                    if ((lactante.value == $("#nss" + i).val()) && id != i) {
+                        $("#nss" + id).val("");
+                        LimpiarFila(id);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    //EO-Lactantes-----------------------------------------------------
+
+
+    //Medico-----------------------------------------------------------
+    function BuscarMedico() {
+
+        $("#mensajeerrormedico").html("");
+        try {
+            if (!$.trim($("#cedulamedico").val()) == "") {
+                if ($("#cedulamedico").val().length == 11) {
+                    var Url = loc + "/getDetalleMedico";
+                    var data = '{ cedulamedico: "' + $("#cedulamedico").val() + '" }';
+
+                    Util.llamarWS(Url, data, recibirResultadoMedico, ajaxFailed);
+                }
+                else {
+                    $("#mensajeerrormedico").addClass("error");
+                    $("#mensajeerrormedico").html("Cedula incompleta favor de completar...");
+                    $("#cedulamedico").val("");
+                    $("#cedulamedico").focus();
+
+                    flagMedico = true;
+                    LimpiarDatosMedicos();
+                }
+            }
+            else {
+                $("#mensajeerrormedico").addClass("error");
+                $("#mensajeerrormedico").html("Debe de digitar la cédula que desea buscar...");
+                $("#cedulamedico").val("");
+                $("#cedulamedico").focus();
+
+                flagMedico = true;
+                LimpiarDatosMedicos();
+            }
+
+        } catch (e) {
+            alert('Cedula incompleta favor de completar...');
+            $("#cedulamedico").val("");
+            $("#cedulamedico").focus();
+            flagMedico = true;
+        }
+    }
+    function recibirResultadoMedico(infomedico) {
+        try {
+            if (typeof infomedico.d == "string") {
+                $("#mensajeerrormedico").addClass("error");
+                $("#mensajeerrormedico").html(infomedico.d);
+                $("#cedulamedico").val("");
+                $("#cedulamedico").focus();
+                LimpiarDatosMedicos();
+
+                flagMedico = true;
+            }
+            else {
+                $("#medicoexequatur").val(infomedico.d.nromedico);
+                $("#mediconombre").val(infomedico.d.mediconombre);
+                $("#direccionmedico").val(infomedico.d.direcciomedico);
+                flagMedico = false;
+                if (!isNaN(infomedico.d.telefonomedico)) {
+                    $("#telefonomedico").val(infomedico.d.telefonomedico);
+                }
+                if (!isNaN(infomedico.d.celularmedico)) {
+                    $("#celularmedico").val(infomedico.d.celularmedico);
+                }
+            }
+
+        } catch (e) {
+            $("#mensajeerrormedico").addClass("error");
+            $("#mensajeerrormedico").html(e);
+            flagMedico = true;
+        }
+
+    }
+    function LimpiarDatosMedicos() {
+        $(".textboxmedico").val("");
+    }
+    //EO-Medico--------------------------------------------------------
+
+
+    //PSS-----------------------------------------------------
+    function getPssList() {
+        try {
+            $("#buscarpss").autocomplete({
+                source: function (request, response) {
+                    $.debounce(250,
+                $.ajax({
+                    type: "POST",
+                    url: loc + "/getPssList",
+                    cache: false,
+                    contentType: "application/json; charset=utf-8",
+                    data: '{ pssNombre: "' + request.term + '" }',
+                    dataType: "json",
+                    success: function (data) {
+                        response($.map(data.d, function (item) {
+                            return {
+                                value: item
+                            }
+                        }))
+                    },
+                    error: function () {
+                        $("#mensajeerrorpss").html("Ha ocurrido un error en la busqueda de la PSS, favor revisar el nombre e intentar de nuevo");
+                    },
+                    minLength: 5
+                }));
+                },
+                minLength: 3
+            });
+        } catch (e) {
+            $("#mensajeerrorpss").html("Ha ocurrido un error en la busqueda de la PSS, favor revisar el nombre e intentar de nuevo");
+            console.log(e);
+        }
+
+    }
+    function BuscarPss() {
+        try {
+            if (!$.trim($("#buscarpss").val()) == "") {
+                var Url = loc + "/getDetallePss";
+                var data = '{ PssNombre: "' + $("#buscarpss").val() + '" }';
+
+                Util.llamarWS(Url, data, recibirResultadoPss, ajaxFailed);
+                $("#mensajeerrorpss").html("");
+
+                flagPSS = false;
+            }
+            else {
+                $("#mensajeerrorpss").html("Debe de digitar la PSS que desea buscar...");
+                $("#mensajeerrorpss").addClass("error");
+                $("#buscarpss").val("");
+                $("#buscarpss").focus();
+
+                flagPSS = true;
+                LimpiarDatosPss();
+            }
+        }
+        catch (e) {
+            $("#mensajeerrorpss").html(e);
+            $("#mensajeerrorpss").addClass("error");
+            flagPSS = true;
+        }
+    }
+    function recibirResultadoPss(infoPss) {
+        var rncpss;
+        try {
+            if (typeof infoPss.d == "string") {
+                $("#mensajeerrorpss").addClass("error");
+                $("#mensajeerrorpss").html(infoPss.d);
+                $("#buscarpss").val("");
+                $("#buscarpss").focus();
+                LimpiarDatosPss();
+            }
+            else {
+                $("#nombrepss").val(infoPss.d.nombrepss);
+                $("#direccionpss").val(infoPss.d.direccionpss);
+                if (!isNaN(infoPss.d.telefonopss)) {
+                    $("#telefonopss").val(infoPss.d.telefonopss);
+                }
+                $("#rncpss").val(infoPss.d.rncpss);
+                $("#numeropss").val(infoPss.d.numeropss);
+            }
+        }
+        catch (e) {
+            $("#mensajeerrorpss").addClass("error");
+            $("#mensajeerrorpss").html(e);
+        }
+    }
+    function LimpiarDatosPss() {
+        $(".textboxpss").val("");
+    }
+    //EO-PSS--------------------------------------------------
+
+</script>
+<style>
+    .Columna
+    {
+        width: 100px;
+    }
+    .Titulo
+    {
+        font-size: 14px;
+        font-weight: bold;
+        color: #016BA5;
+        font-family: Arial;
+        margin-right: 60px;
+    }
+    .Titulo2
+    {
+        font-size: 14px;
+        font-weight: bold;
+        color: #016BA5;
+        font-family: Arial;
+        margin-left: 60px;
+    }
+    .searchBox
+    {
+        width: 80%;
+        border: 2px solid #E4EDF9;
+        background-image: url('../images/zoom.png');
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-left: 20px;
+        font-size: 12pt;
+        font-weight: bold;
+        display: inline;
+    }
+    #tabs
+    {
+        width: 667px;
+    }
+    .style2
+    {
+    }
+    .style3
+    {
+        width: 330px;
+    }
+    .style4
+    {
+        width: 167px;
+    }
+    .style5
+    {
+        width: 160px;
+    }
+    .style6
+    {
+        width: 33px;
+    }
+    .style7
+    {
+        width: 130px;
+    }
+</style>
+<form id="formretroactivo">
+<fieldset style="width: 680px; height: auto;">
+    <input type="hidden" class="diagnosticoretroactiva" name="fechadiagnosticoretroactiva"
+        id="fechadiagnosticoretroactiva" value="" />
+    <input type="hidden" class="nrosolicitudretroactivo" name="nrosolicitudretroactivo"
+        id="nrosolicitudretroactivo" value="" />
+    <input type="hidden" class="partoretroactivo" name="fechaestimadapartoretroactivo"
+        id="fechaestimadapartoretroactivo" value="" />
+    <input type="hidden" name="registropatronalretroactivo" id="registropatronalretroactivo"
+        value="" class="registropatronalretroactivo" />
+    <input type="hidden" name="usuarioregistroretroactivo" id="usuarioretroactivo" class="usuarioretroactivo" />
+    <input type="hidden" name="telefonomadreretroactivo" id="telefonomadreretroactivo"
+        class="telefonomadreretroactivo" />
+    <input type="hidden" name="celularmadreretroactivo" id="celularmadreretroactivo"
+        value="" class="celularmadreretroactivo, telefono" />
+    <input type="hidden" name="emailmadreretroactivo" id="emailmadreretroactivo" value=""
+        class="emailmadreretroactivo" />
+    <input type="hidden" name="nssmadre" id="nssmadreretroactivo" class="nssmadreretroactivo"
+        value="" />
+    <input type="hidden" name="nroformulario" id="nroformulariopostnatal" />
+    <input type="hidden" name="embarazoretroactivo" id="embarazoretroactivo" value="SI" />
+    <input type="hidden" class="nsstutorretroactivo" name="nsstutorretroactivo" id="nsstutorretroactivo"
+        value="" />
+    <input type="hidden" name="telefonotutorretroactivo" value="" id="telefonotutorretroactivo"
+        class="telefonotutorretroactivo, telefono" />
+    <input type="hidden" name="emailtutorretroactivo" value="" id="emailtutorretroactivo"
+        class="emailtutorretroactivo" />
+    <input type="hidden" name="modo" id="modo" class="modo" value="n" />
+    <legend class="header" id="tituloRetroactiva" style="font-size: 14px; font-weight: normal;">
+        Reporte Retroactivo</legend>
+    <br />
+    <span class="Titulo">Datos del Médico</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="Titulo2">Datos De La PSS (Clínica, Hospital)</span><br />
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0" style="width: 744px">
+        <tr>
+            <td align="left" valign="top" class="style3">
+                <span>Cédula Del Médico: (*)</span>
+                <input type="text" name="cedulamedico" id="cedulamedico" value="" maxlength="11"
+                    onkeypress="return numbersonly(this,event);" />&nbsp; <a href="#" onclick="BuscarMedico();">
+                        <img src="../images/zoom.png" alt="Buscar" />
+                    </a>
+                <br />
+                <span id="mensajeerrormedico"></span>
+                <br />
+            </td>
+            <td class="style6">
+            </td>
+            <td align="left" valign="top">
+                <span>Nombre de la PSS (Clínica, Hospital): (*)</span>
+                <input type="text" name="buscarpss" id="buscarpss" />&nbsp; <a href="#" onclick="BuscarPss();">
+                    <img src="../images/zoom.png" alt="Buscar" />
+                </a>
+                <br />
+                <span id="mensajeerrorpss"></span>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" class="style3">
+                <table class="td-content" style="width: 320px;">
+                    <tr>
+                        <td class="style5">
+                            <br />
+                            <span>Exequatur:</span>
+                        </td>
+                        <td class="Columna">
+                            <br />
+                            <input type="text" name="medicoexequatur" id="medicoexequatur" class="textboxmedico"
+                                value="" style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style5">
+                            <span>Nombre:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="mediconombre" id="mediconombre" class="textboxmedico" value=""
+                                style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style5">
+                            <span>Dirección Consultorio:</span> (*)
+                        </td>
+                        <td>
+                            <textarea id="direccionmedico" name="direccionmedico" rows="2" cols="15" class="input textboxmedico"
+                                style="width: 135px">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style5">
+                            <span>Teléfono Consultorio:</span> (*)
+                        </td>
+                        <td>
+                            <input type="text" name="telefonomedico" id="telefonomedico" class="telefonoretroactivo textmedico"
+                                style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style5">
+                            <span>Celular:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="celularmedico" id="celularmedico" class="telefonoretroactivo textboxmedico"
+                                style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style5">
+                            <span>Correo Electrónico:</span>
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <input type="text" name="correomedico" id="correomedico" value="" class="textboxmedico"
+                                style="width: 135px" />
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td class="style6">
+            </td>
+            <td valign="top">
+                <table class="td-content" style="width: 330px; vertical-align: top;">
+                    <tr>
+                        <td class="style7">
+                            <br />
+                            Número PSS: (*)
+                        </td>
+                        <td>
+                            <br />
+                            <input type="text" name="numeropss" class="textboxpss" id="numeropss" style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style7">
+                            Nombre:
+                        </td>
+                        <td>
+                            <input type="text" name="nombrepss" class="textboxpss" id="nombrepss" style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style7">
+                            RNC:
+                        </td>
+                        <td>
+                            <input type="text" name="rncpss" class="textboxpss" id="rncpss" style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style7">
+                            Dirección: (*)
+                        </td>
+                        <td>
+                            <textarea id="direccionpss" name="direccionpss" rows="2" cols="15" class="input textboxpss"
+                                style="width: 135px">
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style7">
+                            Teléfono: (*)
+                        </td>
+                        <td>
+                            <input type="text" name="telefonopss" id="telefonopss" class="telefonoretroactivo textpss"
+                                style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style7">
+                            <span>Correo Electrónico:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="correopss" value="" id="correopss" class="textboxpss" style="width: 135px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <br />
+                <span class="Titulo">Datos de la Licencia</span>
+                <br />
+                <br />
+                <table class="td-content" style="width: 422px;">
+                    <tr>
+                        <td class="style4">
+                            <br />
+                            <span>Fecha de licencia:</span> (*)
+                        </td>
+                        <td>
+                            <br />
+                            <input type="text" class="fecha" name="fechalicencia" id="fechalicencia" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style4">
+                            <span>Fecha de&nbsp; Diagnóstico:</span> (*)
+                        </td>
+                        <td>
+                            <input type="text" class="fecha" name="fechadiagnosticolicencia" id="fechadiagnosticolicencia" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style4">
+                            <span>Diagnóstico:</span> (*)
+                        </td>
+                        <td>
+                            <textarea id="diagnostico" name="diagnostico" rows="4" class="input" style="width: 204px;
+                                height: 54px;"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style4">
+                            <span>Síntomas:</span>
+                        </td>
+                        <td>
+                            <textarea id="sintomas" name="sintomas" rows="4" class="input" style="width: 204px;
+                                height: 54px;" cols="20"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style4">
+                            <span>Procedimientos:</span>
+                        </td>
+                        <td>
+                            <textarea id="procedimientos" name="procedimientos" rows="4" class="input" style="width: 204px;
+                                height: 54px;" cols="20"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="style4">
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <table class="noRecon">
+        <tr>
+            <td align="left" class="style2" colspan="2">
+                <span class="Titulo2">
+                    <br />
+                    Para completar el registro de la licencia, debe imprimir y llenar el formulario</span>
+                <input type="button" name="imprimirformulario" class="button" id="imprimirformulario"
+                    value="Imprimir" />
+                <br />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <div id="tabs" class="noRecon">
+        <ul>
+            <li><a href="#tabs-1">Reporte Nacimiento</a></li>
+            <li><a href="#tabs-2">Perdida Embarazo</a></li>
+            <li><a href="#tabs-3">Muerte Madre</a></li>
+        </ul>
+        <div id="tabs-1">
+            <br />
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <span>Fecha de Nacimiento</span><br />
+                        <input type="text" class="fecha" name="fechanacimiento" id="fechanacimiento" value="" />
+                    </td>
+                    <td>
+                        <span>Cantidada de Lactantes</span>
+                        <br />
+                        <select id="cantidadlactante" name="cantidadlactante">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table border="0" cellpadding="0" cellspacing="0" id="lactantes">
+                <tr>
+                    <td>
+                        NSS (opcional)
+                    </td>
+                    <td>
+                        Nombre(s)
+                    </td>
+                    <td>
+                        Primer apellido
+                    </td>
+                    <td>
+                        Segundo Apellido
+                    </td>
+                    <td>
+                        NUI (opcional)
+                    </td>
+                    <td>
+                        Sexo
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+        <div id="tabs-2">
+            <br />
+            <table style="width: 300px;">
+                <tr>
+                    <td style="width: 99px;">
+                        <br />
+                        <span>Fecha de perdida:</span>
+                        <br />
+                        <br />
+                    </td>
+                    <td>
+                        <br />
+                        <input type="text" id="fechaperdida" name="fechaperdida" class="fecha" />
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="tabs-3">
+            <br />
+            <table style="width: 300px;">
+                <tr>
+                    <td style="width: 99px;">
+                        <br />
+                        <span>Fecha de defunción:</span>
+                        <br />
+                        <br />
+                    </td>
+                    <td>
+                        <br />
+                        <input type="text" id="fechadefuncion" name="fechadefuncion" class="fecha" />
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br />
+    <br />
+    <input type="button" name="Insertar" id="registrarlicenciaretroactiva" class="button"
+        value="Registrar" />
+    <input type="button" name="cancelarlicenciaretroactiva" class="button" id="cancelarlicencia"
+        value="Cancelar" onclick="CancelarRetroactiva();" />
+    <br />
+    <br />
+    <span id="msgRetroactivo"></span>
+</fieldset>
+</form>

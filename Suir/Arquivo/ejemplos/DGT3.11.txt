@@ -1,0 +1,8 @@
+<<<<<<< HEAD
+ET3  401502607022014
+DNI C00113918122                  JRIewQdsAAa                                                                                                                           F0000000042978.8830092011005416ADMINISTRADORAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0110201422102014000001000001001  1                                                                                                                                                   
+=======
+ET3  401010062012012
+DNI C00118179209                                                                                                                                                        M0000000005611.0001012012001234mecanico electrico                                                                                                                                    0101201316012013001234000123                                                                                                                                                         
+>>>>>>> TFS Changeset 4308
+S000003

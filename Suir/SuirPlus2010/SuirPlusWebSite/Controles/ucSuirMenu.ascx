@@ -1,0 +1,2 @@
+<%@ Control Language="VB" AutoEventWireup="false" CodeFile="ucSuirMenu.ascx.vb" Inherits="Controles_ucSuirMenu" %>
+<script language="JavaScript" type="text/javascript" src="<%=Application("Main_Menu")%>"></script>

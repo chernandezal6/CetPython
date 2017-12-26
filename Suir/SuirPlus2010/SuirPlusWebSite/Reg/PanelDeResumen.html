@@ -1,0 +1,58 @@
+﻿<head>
+    <script type="text/javascript">
+        VerificarResumen();
+        function VerificarResumen() {
+            //Como saber si está logeado o no?
+            if (document.getElementById('hdResumen').getAttribute("value") != "paso5") {
+                Redireccionar("LoginPage.aspx");
+            }
+        }
+
+        var Ruta = "http://" + location.host + "/Reg/";
+
+        //Gestionar Links
+        function Redireccionar(extension) {
+            window.location.href = Ruta + "/" + extension;
+        }
+    </script>
+    <link href="../css/Resumen.css" rel="stylesheet" />
+</head>
+<form>
+    <div id="PanelResumen">
+        <div class="tabla-plus">
+            <div class="Header2">
+                <div class="Encabezados">Empleador Registrado</div>
+                <p class="letra" style="font-size: 12px;">El empleador <span style="color: red" id="Nombre"></span> fue registrado satisfactoriamente.</p>
+            </div>
+        </div>
+        <div class="tabla-plus">
+            <div class="Header2">
+                <div class="Encabezados">Información del Empleador</div>
+                <p class="letra">RNC ó Cedula: <span style="color: blue" id="NO"></span></p>
+                <p class="letra">Razón Social: <span style="color: blue" id="RS"></span></p>
+                <p class="letra">Nombre Comercial: <span style="color: blue" id="NC"></span></p>
+                <p class="letra">Correo: <span style="color: blue" id="CorreoE"></span></p>
+            </div>
+        </div>
+        <div class="tabla-plus">
+            <div class="Header2">
+                <div class="Encabezados">Información del Representante</div>
+                <p class="letra">Nombre: <span style="color: blue" id="RNombre"></span></p>
+                <p class="letra">Telefono: <span style="color: blue" id="TELR"></span></p>
+            </div>
+        </div>
+    </div>
+    <div class="MarcoFinal" >
+        <div class="MensajeFinal" >
+            <p style="color:blue; font-size: 14px;">
+                Instrucciones:
+                <br/>
+                1. Si desea que está solicitud sea revisada de manera formal pulse: "Someter"
+                para ser evaluada por un representante. Una vez terminada la revisión se le enviará
+                un correo electroníco con la confirmación del registro de la empresa.
+                <br/>
+                2. Si desea cambiar alguna información de la solicitud pulse: "Editar".
+            </p>
+        </div>        
+    </div>
+</form>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SuirPlus.Empresas.SubsidiosSFS.Tutor">
+    <Position X="9" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IBQECBBHAgAAAAAAAEgAIABIQCAABAACAEAFACBAREA=</HashCode>
+      <FileName>Empresas\SubsidiosSFS\Tutor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SuirPlus.FrameWork.Objetos">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQEAAAAAAAIAAAAAAAAAAAACAAIAAAAEA=</HashCode>
+      <FileName>FrameWork\abstractObjetos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SuirPlus.Empresas.SubsidiosSFS.Lactante">
+    <Position X="7.5" Y="2.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>FAQgCABEAACAACgAgEIoKoJCQSgCAAkAAEAYAhQAcEg=</HashCode>
+      <FileName>Empresas\SubsidiosSFS\Lactante.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SuirPlus.Empresas.CuentaBancaria">
+    <Position X="5" Y="2.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIAAAACQAAAAAAACAAgAIABIEAAAQACAAAAAoAAAEGA=</HashCode>
+      <FileName>Empresas\SubsidiosSFS\CuentaBancaria.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SuirPlus.Empresas.SubsidiosSFS.Maternidad">
+    <Position X="2.75" Y="0.75" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>NDxhFEBGggEgZJpBIEIEYwBEUCBBACFWBEAqFzAuZlM=</HashCode>
+      <FileName>Empresas\SubsidiosSFS\Maternidad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,269 @@
+﻿<%@ Master Language="VB" CodeFile="SuirPlusOficinaVirtual.master.vb" Inherits="SuirPlusOficinaVirtual" %>
+
+<!DOCTYPE html>
+
+<html style="background: none;">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="css/StyleVirtualOffice.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
+
+    <script src="../css/wizard/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script src="../Script/bootstrap/bootstrap.js"></script>
+    <script type="text/javascript">
+        jQuery.browser = {};
+        (function () {
+            jQuery.browser.msie = false;
+            jQuery.browser.version = 0;
+            if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+                jQuery.browser.msie = true;
+                jQuery.browser.version = RegExp.$1;
+            }
+        })();
+    </script>
+    <script type="text/javascript">
+        function redireccionar(MenuItem) {
+            debugger;
+            var Ruta = "http://" + location.host + "/Oficina_Virtual/";
+
+            if (MenuItem.textContent.trim() == "Inicio") {
+                window.location.href = Ruta + "OficinaVirtual.aspx";
+            }
+
+            switch (MenuItem.textContent) {
+                case 'Composición Núcleo Familiar':
+                    window.location.href = Ruta + "ConsNuecloFamiliarSolo.aspx";
+                    break;
+                case 'Consulta Ciudadano':
+                    window.location.href = Ruta + "ConsCiudadano.aspx";
+                    break;
+                case 'Cambiar Contraseña':
+                    window.location.href = Ruta + "CambiarContraseñaOFV.aspx";
+                    break;
+                case 'Actualizar Email':
+                    window.location.href = Ruta + "ActualizarEmailOFV.aspx";
+                    break;
+                case 'Inicio':
+                    window.location.href = Ruta + "BienvenidaOFV.aspx";
+                    break;
+                case 'Afiliación a ARS':
+                    window.location.href = Ruta + "ConsAfiliacionARS.aspx";
+                    break;
+                case 'Empleadores Reportados':
+                    window.location.href = Ruta + "ConsEmpReportados.aspx";
+                    break;
+                case 'Afiliación AFP':
+                    window.location.href = Ruta + "ConsAfiliacionAFP.aspx";
+                    break;
+                case 'Dispersión ARS':
+                    window.location.href = Ruta + "ConsDispercionARS.aspx";
+                    break;
+                case 'Certificación de Aportes':
+                    window.location.href = Ruta + "ConsCertificaciones.aspx";
+                    break;
+                case 'Generar Certificación de Aportes':
+                    $("#myModal").modal('show');
+                    break;
+            }
+        }
+    </script>
+
+    <style>
+        body, html {
+            /*min-height:4700px;*/
+            height: 100%;
+        }
+
+        #Cerrar {
+            width: 50px;
+            height: 20px;
+            font-size: 8pt;
+            margin-top: 5px;
+            padding-top: 1px;
+        }
+
+        .UsuarioLog {
+            font-family: Tahoma, Verdana, Arial;
+            font-size: 12px;
+            color: black;
+        }
+
+        .btnSalir {
+            font: normal 9pt Tahoma, Verdana, Arial;
+            background-color: rgb(224, 224, 224);
+            text-align: center;
+            padding: 3px;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-weight: bold;
+            border: 1px solid black;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        #divDegradado {
+            border-width: 0px;
+            float: right;
+            position: absolute;
+            margin-left: 275px;
+        }
+
+        #imgDegradado {
+            height: 160px;
+        }
+
+        .divImagen {
+            z-index: 1001;
+            height: 125px;
+            width: 275px;
+            padding-top: 35px;
+            background-color: white;
+        }
+
+        .UsuarioLog:hover {
+            border: 1px solid #ADADAD;
+            background-color: #E0E0E0;
+            background-image: linear-gradient(top, rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%);
+            background-color: azure;
+        }
+
+        .LoginBlock {
+            color: white;
+            font: bold 10pt Tahoma, Verdana, Arial;
+        }
+
+        .Titulos {
+            width:auto;
+            margin: 0;
+            color: #616161;
+        }
+
+        .letras {
+            font: bold 11pt Tahoma, Verdana, Arial;
+        }
+
+        .letrasTexto {
+            font: normal 11pt Tahoma, Verdana, Arial;
+        }
+
+        #navegation {
+            color: #FFFFFF;
+            padding-left: 10px;
+            /*background: url(images/barramenu-bg.jpg) #63AD22 repeat-x;*/
+            margin-bottom: 1px;
+            height: 23px;
+            margin-bottom: -5px;
+        }
+
+        .NavMenu {
+            top: 62px;
+            left: 400px;
+            z-index: 51000;
+            margin-left: 80px;
+        }
+
+        .DivLogBlock {
+            float: right;
+            margin-top: 10px;
+            margin-right: 50px;
+        }
+    </style>
+
+    <title>Oficina Virtual - TSS</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <link href="css/jquery-ui-1.8.11.custom.css" rel="stylesheet" type="text/css" />
+    <link href="css/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+
+    <%--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>--%>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+    <script> window.jQuery.ui || document.write('<script src="../Script/jquery-ui-1.8.11.custom.min.js">\x3C/script>')</script>
+
+    <script src="../Script/jquery.json-1.3.min.js" type="text/javascript"></script>
+    <script src="../Script/Util.js" type="text/javascript"></script>
+    <script src="../Script/json2.js" type="text/javascript"></script>
+    <script src="../Script/Script%20Oficina%20V/MenuMasterPage.js" type="text/javascript"></script>
+    <script src="../Script/Script%20Oficina%20V/CargarConsMulti.js" type="text/javascript"></script>
+    <script src="../Script/grid.locale-es.js" type="text/javascript"></script>
+    <script src="../Script/jquery.jqGrid.min.js" type="text/javascript"></script>
+
+    <%--<script type="text/javascript">
+        var j2 = $.noConflict(true);
+    </script>--%>
+</head>
+<body style="background: gainsboro;">
+    <form id="form1" runat="server" enctype="multipart/form-data">
+        <asp:HiddenField ID="NoDocumento" Value="" runat="server" />
+        <asp:HiddenField ID="HiddenFirma" Value="" runat="server" />
+
+        <asp:ScriptManager EnableScriptGlobalization="true" EnableScriptLocalization="true"
+            ID="ScriptManager1" runat="server" ScriptMode="Release">
+        </asp:ScriptManager>
+
+
+        <div id="mjs-main" class="mjs-holder">
+
+            <!--Probando Nuevo Logo Master Page-->
+            <div id="TopPage" style="height: 160px; min-height: 160px;">
+                <div class="jumbotron" style="background-image: url('../images/Fonde Azul.PNG'); background-repeat: round; background-size: 1800px;">
+                    <div style="float: left; margin-left: 20px">
+                        <img src="../images/logo-tss.png" alt="TSS" style="height: 100px;" />
+                    </div>
+                    <div style="margin-left: 20px; color: #FFF;">
+                        <h1 style="margin: auto; padding: 0;">Oficina Virtual                            
+                        </h1>
+                        <span>Tesorería de la Seguridad Social</span>
+                    </div>
+                    <div id="divCerrarSesion" visible="false" runat="server" style="text-align: right">
+
+                        <asp:Label ID="lblBienvenido" Text="Bienvenido/a" Font-Bold="True" runat="server" Visible="False" ForeColor="White"></asp:Label>
+                        &nbsp;
+                        <asp:LinkButton Text="Cerrar Sesión" Font-Underline="true" Font-Size="12px" Font-Bold="true" ForeColor="White" ID="lnkSignOut" runat="server" Visible="false" />
+                        <img id="imgso" src="../images/so.jpg" height="20px" width="20px" />
+                    </div>
+                </div>
+            </div>
+            <!--Fin Nuevo Logo Master Page-->
+
+            <!--Probando Nuevo NavBar-->
+
+            <nav id="navMenu" class="navbar navbar-default" style="background:url(images/barramenu-bg.jpg) #63AD22 repeat-x;">
+               
+            </nav>
+
+            <!--Fin Nuevo NavBar-->
+
+
+            <div id="contenido" style="background-color: white;">
+                <asp:Label ID="lblError" CssClass="error" Visible="false" runat="server"></asp:Label>
+                <br />
+                <br />
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <br />
+                <br />
+            </div>
+
+            <div id="footer" style="margin-top: 0; background-image: url('../images/Fonde Azul.PNG'); background-repeat: round; background-size: 1800px;">
+                <b>© 2002-2013 Tesorería de la Seguridad Social. Derechos Reservados.</b>
+                <br />
+                Ave. Tiradentes # 33, Tel: (809) 567-5049<br />
+                <a href="http://www.tss.gov.do/terminos_uso_insert.htm">Términos de Uso</a> | <a
+                    href="http://www.tss.gov.do/politica_uso_insert.htm">Políticas </a>| <a href="http://www.tss.gov.do/faq_insert.htm">Preguntas Frecuentes</a>
+                <br />
+                <asp:Label ID="lblUsuarios" runat="server"></asp:Label>
+                &nbsp;|
+        <asp:Label ID="lblServer" runat="server"></asp:Label>
+
+
+            </div>
+        </div>
+    </form>
+</body>
+</html>

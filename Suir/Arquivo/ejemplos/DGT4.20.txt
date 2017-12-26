@@ -1,0 +1,7 @@
+ET4  401010062022012
+<<<<<<< HEAD
+DNC C00108485558              Rommel Daniel                                     Santos                                  Capellan                                        M0000000031000.0001012013        000337Visitador A Medicos                                                                                                                                                   000001000073  1Este empleado tiene comision                                                                                                                          
+=======
+DNS C00108485558              Rommel Daniel                                     Santos                                  Capellan                                        M0000000031000.000808201108082012000337Visitador A Medicos                                                                                                                                                   000001000073  1Este empleado tiene comision                                                                                                                          
+>>>>>>> TFS Changeset 3491
+S000003

@@ -1,0 +1,342 @@
+﻿<script language="javascript" type="text/javascript">
+
+    $(function myfunction() {
+
+        $(".fecha").datepicker($.datepicker.regional['es']);
+        $(".fecha").live('change', Util.EvitarPaste);
+        $(".button").button();
+
+        $("#cantidadlactante").change(function () {
+            CantidadLactantes();
+        });
+        $("#insertar").click(RegistrarNacimiento);
+
+        CantidadLactantes();
+        //$("#insertar").attr("disabled", true);
+        $(".nssMadre").val($("#nss").html());
+
+        $("#registropatronalregistrolactancia").val($("#registropatronalregistro").val());
+        $("#nrosolicitudmaternidad").val($("#nrosolicitud").val());
+        $("#usuarioregistrolactancia").val($("#usuarioregistro").val());
+
+    });
+
+    //Registro--------------------------------------
+    function RegistrarNacimiento() {
+
+        var fechanacimiento = $("#fechanacimiento").datepicker("getDate");
+        var hoy = new Date();
+
+        if (fechanacimiento == "") {
+            alert('La fecha de nacimiento es obligatoria');
+            $("#fechanacimiento").focus();
+            return;
+        }
+        if (fechanacimiento > hoy) {
+            $("#msgNacimiento").addClass("error");
+            $("#msgNacimiento").html("La fecha de nacimiento no puede ser futura.");
+            $("#fechanacimiento").focus();
+            return;
+        }
+
+        try {
+            var Url = loc + "/ReporteNacimiento";
+            var data = $('#formReporteLactante').serialize();
+
+            $("#insertar").attr('disabled', true);
+            $.get(Url, data, resultadoRegistro);
+        }
+        catch (e) {
+            $("#msgNacimiento").addClass("error");
+            $("#msgNacimiento").html(e);
+            $("#insertar").attr('disabled', false);
+        }
+
+    }
+    function resultadoRegistro(xmlinfo) {
+        var mixml = $(xmlinfo);
+
+        try {
+            var result = mixml.find('string').text();
+
+            if (result != 'OK') {
+                $("#msgNacimiento").addClass("error");
+                $("#msgNacimiento").html(result);
+                $("#insertar").attr('disabled', false);
+            }
+            else {
+                $("#formReporteLactante").html("");
+                buscarFormulario('CargarImagenFormulario.htm');
+
+                //Limpiando el Menu
+                $("#ToDoList").html("");
+            }
+        }
+        catch (e) {
+            $("#msgNacimiento").addClass("error");
+            $("#msgNacimiento").html(e);
+            $("#insertar").attr('disabled', false);
+        }
+    }
+    //EO-Registro-----------------------------------
+
+
+    //Validaciones----------------------------------
+    function ValidarNum(v) {
+        try {
+            v.value = v.value.replace(/([^0-9].*)/g, "");
+            return true;
+        } catch (e) {
+            alert(e);
+        }
+    }
+    function nuiDuplicado(lactante, id) {
+
+        if (lactante.value) {
+            for (var i = 1; i <= $("#cantidadlactante").val(); i++) {
+                if (lactante.value != "") {
+                    if ((lactante.value == $("#nui" + i).val()) && id != i) {
+                        LimpiarFila(id);
+                        return true;
+                    }
+                }
+            }
+            //Verificar si ya se llenaron todos los datos para habilitar el boton de insertar
+            DatosObligatoriosVacios();
+        }
+    }
+    function nssDuplicado(lactante, id) {
+
+        if (lactante.value) {
+
+            for (var i = 1; i <= $("#cantidadlactante").val(); i++) {
+                if (lactante.value != "") {
+
+                    if ((lactante.value == $("#nss" + i).val()) && id != i) {
+                        $("#nss" + id).val("");
+                        LimpiarFila(id);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    function DatosObligatoriosVacios() {
+
+        for (var i = 1; i <= $("#cantidadlactante").val(); i++) {
+            if (($("#nombres" + i).val() == "") || ($("#papellido" + i).val() == "")) {
+                return;
+            }
+        }
+        $("#insertar").attr("disabled", false);
+
+    }
+    //EO-Validaciones-------------------------------
+
+
+    //Lactantes-------------------------------------
+    function BuscarLactante(lactante, id) {
+
+        if (lactante.value) {
+
+            if (nssDuplicado(lactante, id)) {
+                return;
+            }
+
+            var Url = loc + "/getLactante";
+            var data = '{ nsslactante: "' + lactante.value + '", idTextBox: "' + id + '" }';
+
+            Util.llamarWS(Url, data, function (info) {
+
+                try {
+                    if (typeof info.d == "string") {
+                        LimpiarFila(id);
+                        $("#msgNacimiento").addClass("error");
+                        $("#msgNacimiento").html("");
+                        $("#msgNacimiento").html(info.d);
+                    }
+                    else {
+                        $("#msgNacimiento").html("");
+                        $("#nombres" + id).val(info.d.nombres);
+                        $("#papellido" + id).val(info.d.primerapellido);
+                        $("#sapellido" + id).val(info.d.segundoapellido);
+                        $("#sexo" + id).val(info.d.sexo);
+                        $("#nui" + id).val(info.d.nodocumento);
+                        $("#nombres" + id).attr("disabled", true);
+                        $("#papellido" + id).attr("disabled", true);
+                        $("#sapellido" + id).attr("disabled", true);
+                        $("#sexo" + id).attr("disabled", true);
+                        $("#nui" + id).attr("disabled", true);
+                    }
+                }
+                catch (e) {
+                    alert(e);
+                }
+                //Verificar si ya se llenaron todos los datos para habilitar el boton de insertar
+                DatosObligatoriosVacios();
+            },
+            ajaxFailed);
+        }
+        else {
+            LimpiarFila(id);
+        }
+    }
+    function CancelarLactante() {
+        $("#cantidadlactante").val("1");
+        $("#fechanacimiento").val("");
+        $("#msgNacimiento").html("");
+        CantidadLactantes();
+        $("#insertar").attr("disabled", true);
+
+    }
+    function LimpiarFila(i) {
+        $("#nombres" + i).val("");
+        $("#papellido" + i).val("");
+        $("#msgNacimiento").html("")
+        $("#nombres" + i).val("");
+        $("#papellido" + i).val("");
+        $("#sapellido" + i).val("");
+        $("#sexo" + i).val("");
+        $("#nui" + i).val("");
+        $("#nombres" + i).attr("disabled", false);
+        $("#papellido" + i).attr("disabled", false);
+        $("#sapellido" + i).attr("disabled", false);
+        $("#sexo" + i).attr("disabled", false);
+        $("#nui" + i).attr("disabled", false);
+    }
+    function agregarFila(i) {
+
+        // Config //
+        var sb = "";
+
+        sb += "<tr class=\"fila\" >"
+        sb += "<td>"
+        sb += "<input type=\"text\" maxlength=\"9\" onkeypress=\"return numbersonly(this,event);\" onchange=\"BuscarLactante(this," + i + ");\"name=\"nss" + i + "\"id=\"nss" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"DatosObligatoriosVacios();\" name=\"nombres" + i + "\" id=\"nombres" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"Apellidos(this);\" name=\"papellido" + i + "\" id=\"papellido" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"Apellidos(this);\" name=\"sapellido" + i + "\" id=\"sapellido" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<input type=\"text\" onchange=\"nuiDuplicado(this," + i + ");\" name=\"nui" + i + "\" id=\"nui" + i + "\" />"
+        sb += "</td>"
+        sb += "<td>"
+        sb += "<select name=\"sexo" + i + "\" id=\"sexo" + i + "\"><option value=\"F\" >Femenino</option><option  value=\"M\" >Masculino</option></select>"
+        sb += "</td>"
+        sb += "</tr>"
+
+        // Agregar//
+        $("#lactantes").append(sb);
+
+    }
+    //EO-Lactantes----------------------------------
+
+
+    //Funciones-------------------------------------
+    function CantidadLactantes(funcion) {
+        // Limpiar
+        $(".fila").remove();
+        try {
+            for (var i = 0; i < $("#cantidadlactante").val(); i++) {
+
+                // Agregar
+                agregarFila(i + 1);
+            }
+
+            /*Esta funcion se ejecuta cuando se trata de una reconsideracion
+              para serializar las llamadas a los metodos y controlar llamadas asincronas */
+            console.log(typeof funcion);
+            if (typeof funcion == 'function') {
+                funcion();
+            }
+        } catch (e) {
+            alert(e);
+        }
+    }
+    function Apellidos(id) {
+
+        var i = id.id.toString().replace("papellido", "").replace("sapellido", "");
+
+        if (id.id == "papellido" + i) {
+            $("input[id ^= 'papellido']").val($("#papellido" + i).val());
+        }
+        if (id.id == "sapellido" + i) {
+            $("input[id ^= 'sapellido']").val($("#sapellido" + i).val());
+        }
+
+        //Verificar si ya se llenaron todos los datos para habilitar el boton de insertar
+        DatosObligatoriosVacios();
+
+    }
+    //EO-Funciones----------------------------------
+
+</script>
+<form name="formReporteLactante" id="formReporteLactante">
+<input type="hidden" name="nssmadre" id="nssmadre" class="nssMadre"/>
+<input type="hidden" name="registropatronalregistrolactancia" id="registropatronalregistrolactancia" value="" />
+<input type="hidden" name="usuarioregistrolactancia" id="usuarioregistrolactancia" value="" />
+<input type="hidden" name="nrosolicitudnacimiento" id="nrosolicitudnacimiento"/>
+<input type="hidden" name="nrosolicitudmaternidad" id="nrosolicitudmaternidad"/>
+<input type="hidden" name="modo" id="modo" class="modo" value="n" />
+<fieldset style="width: 700px; height:auto">
+    <legend class="header" style="font-size: 14px; font-weight: normal;">Reporte de Nacimiento</legend>
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>
+                <span>Fecha de Nacimiento</span><br />
+                <input type="text" class="fecha" name="fechanacimiento" id="fechanacimiento" value="" />
+            </td>
+            <td>
+                <span>Cantidada de Lactantes</span>
+                <br />
+                <select id="cantidadlactante" name="cantidadlactante">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0" id="lactantes">
+        <tr>
+            <td>
+                NSS (opcional)
+            </td>
+            <td>
+                Nombre(s)
+            </td>
+            <td>
+                Primer apellido
+            </td>
+            <td>
+                Segundo Apellido
+            </td>
+            <td>
+                NUI (opcional)
+            </td>
+            <td>
+                Sexo
+            </td>
+        </tr>
+    </table>
+    <br />
+    <input type="button" name="insertar" class="button" id="insertar" value="Registrar" />
+    <input type="button" name="cancelarnacimiento" id="cancelar" class="button" onclick="CancelarLactante();"
+        value="Cancelar" />
+    <br />
+    <br />
+    <span id="msgNacimiento"></span>
+    <br />
+</fieldset>
+</form>

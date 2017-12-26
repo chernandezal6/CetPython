@@ -1,0 +1,473 @@
+﻿<script language="javascript" type="text/javascript">
+
+    $(function () {
+
+        $(".fecha").datepicker($.datepicker.regional['es']);
+        $(".telefono").mask("(999)-999-9999");
+        $(".button").button();
+
+        $("#buscartutor").click(BuscarTutor)
+        $("#registrarembarazo").click(RegistroDeEmbarazo)
+        $("#cancelarembarazo").click(CancelarEmbarazo);
+        $("#nacimiento").html("");
+
+        $(".nssMadre").val($("#nss").html());
+
+        $("#registropatronalregistroembarazo").val($("#registropatronalregistro").val());
+        $("#usuarioregistroembarazo").val($("#usuarioregistro").val());
+
+        var cedTutor = $('#cedulatutor');
+
+        cedTutor.keydown(KDCedulaTutor);
+        cedTutor.keyup(Util.SoloNumeros);
+
+        $("#LupaTutor").click(BuscarTutor);
+
+        var fd = $("#fechadiagnostico");
+        var fe = $("#fechaestimadaparto");
+
+        fd.datepicker({
+            numberOfMonths: 3,
+            defaultDate: "-8w"
+        });
+        fe.datepicker({
+            numberOfMonths: 3
+        });
+
+        fe.keypress(Util.SoloFecha);
+        fe.change(Util.EvitarPaste);
+
+        fe.change(FechaPartoRetroactiva);
+
+        fd.keypress(Util.SoloFecha);
+        fd.change(Util.EvitarPaste);
+
+    });
+
+    function KDCedulaTutor(e) {
+        Util.StopSubmit(e, false);
+    }
+
+    //Tutor-----------------------------------------
+    function BuscarTutor() {
+
+        LimpiarTutor();
+        $("#mensaje").html("");
+        try {
+            if ($("#cedulatutor").val().length == 11) {
+                var Url = loc + "/ConsultaTutor";
+                var data = '{ cedula: "' + $("#cedulatutor").val() + '" }';
+
+                Util.llamarWS(Url, data, recibirResultadoRE, ajaxFailed);
+            }
+            else {
+                $("#MsgErrorTutor").addClass('error');
+                $("#MsgErrorTutor").html("Cédula incorrecta...");
+                $("#MsgErrorTutor").show();
+                $("#cedulatutor").val("");
+                $("#cedulatutor").focus();
+            }
+        } catch (e) {
+            $("#MsgErrorTutor").addClass('error');
+            $("#MsgErrorTutor").html(e);
+            $("#MsgErrorTutor").show();
+            $("#buscartutor").attr("disabled", false);
+            $("#cedulatutor").attr("disabled", false);
+        }
+    }
+    function recibirResultadoRE(info) {
+        try {
+            if (typeof info.d == "string") {
+                $("#buscartutor").attr("disabled", false);
+
+                var rrcedTutor = $("#cedulatutor");
+
+                rrcedTutor.attr("disabled", false);
+                rrcedTutor.val("");
+                rrcedTutor.focus();
+
+                var msgErrorTutor = $("#MsgErrorTutor");
+
+                msgErrorTutor.html("Cédula incorrecta");
+                msgErrorTutor.addClass("error");
+                msgErrorTutor.show();
+            }
+            else {
+                var msgErrorTutor = $("#MsgErrorTutor");
+
+                msgErrorTutor.html("");
+                msgErrorTutor.hide();
+
+                $(".BusquedaTutor").show();
+                $("#nsstutorlabel").html(info.d.nss);
+                $("#sexotutor").html(info.d.sexo);
+                $("#nombretutor").html(info.d.nombres);
+                $("#nodocumentotutor").html(info.d.cedula);
+                $("#fechanacimientotutor").html(info.d.fechanacimiento);
+                $(".nssTutorClass").val($("#nsstutorlabel").html());
+            }
+        }
+        catch (e) {
+            alert(e);
+        }
+    }
+    function LimpiarTutor() {
+        $("#nsstutorlabel").html("");
+        $("#sexotutor").html("");
+        $("#nombretutor").html("");
+        $("#nodocumentotutor").html("");
+        $("#fechanacimientotutor").html("");
+        $("#telefonotutor").val("");
+        $("#emailtutor").val("");
+
+        $("#MsgErrorTutor").html("");
+    }
+    //EO-Tutor--------------------------------------
+
+    //Licencia--------------------------------------
+    function FechaPartoRetroactiva() {
+
+        try {
+            var fechaparto = $("#fechaestimadaparto").datepicker("getDate");
+            var hoy = new Date();
+
+            if (fechaparto < hoy) {
+                $.get("ReporteRetroactivo.htm", function (data) {
+                    $("#mifieldset").html("");
+                    $("#mifieldset").append(data);
+                });
+
+                $("#registrarembarazo").hide();
+                $("#cancelarembarazo").hide();
+
+                $("#mensaje").html("");
+
+            }
+            else if (fechaparto >= hoy) {
+                $("#registrarembarazo").show();
+                $("#cancelarembarazo").show();
+                $("#mensaje").html("");
+                $("#mifieldset").html("");
+            }
+
+        } catch (e) {
+            alert(e);
+        }
+
+    }
+    //EO-Licencia-----------------------------------
+
+    //Registro Embarazo-----------------------------
+    function FallaValidaciones() {
+        var parto = $("#fechaestimadaparto").datepicker("getDate");
+        var diagnostico = $("#fechadiagnostico").datepicker("getDate");
+        var hoy = new Date();
+
+        var telefono = $.trim($("#telefono").val());
+        var celular = $.trim($("#celular").val());
+
+        var telefonotutor = $.trim($("#telefonotutor").val());
+        var emailtutor = $.trim($("#emailtutor").val());
+
+        if ($("#fechadiagnostico").val() == "") {
+            $("#mensaje").addClass("error");
+            $("#mensaje").html("La fecha de diagnóstico es requerida...");
+            $("#fechadiagnostico").val("");
+            $("#fechadiagnostico").focus();
+            return true;
+        }
+        else if ($("#fechaestimadaparto").val() == "") {
+            $("#mensaje").addClass("error");
+            $("#mensaje").html("La fecha de parto es requerida...");
+            $("#fechaestimadaparto").val("");
+            $("#fechaestimadaparto").focus();
+            return true;
+        }
+        else if (diagnostico > hoy) {
+            $("#mensaje").addClass("error");
+            $("#mensaje").html("La fecha de diagnóstico no debe ser futura...");
+            $("#fechadiagnostico").val("");
+            $("#fechadiagnostico").focus();
+            return true;
+        }
+        else if (parto < diagnostico) {
+            $("#mensaje").addClass("error");
+            $("#mensaje").html("La fecha estimada de parto no puede ser menor que la fecha de diagnóstico...");
+            $("#fechaestimadaparto").focus();
+            return true;
+        }
+        else if ((telefono == "") && (celular == "")) {
+            $("#mensaje").addClass("error");
+            $("#mensaje").html("Debe de digitar el teléfono o el celular de la afiliada...");
+            $("#telefono").val("");
+            $("#telefono").focus();
+            return true;
+        }
+        else if ($("#nombretutor").html() == "") {
+            $("#mensaje").addClass("error");
+            $("#mensaje").html("Los datos de Tutor son requeridos...");
+            return true;
+        }
+        else if ((telefonotutor == "") && (emailtutor == "")) {
+            $("#mensaje").addClass("error");
+            $("#mensaje").html("Debe de digitar el telefono o el correo del tutor...");
+            $("#telefonotutor").focus();
+            return true;
+        }
+        else if (!IsValidEmail($.trim($("#email").val()))) {
+            $("#mensaje").addClass("error");
+            $("#mensaje").html("El correo inválido...");
+            $("#email").focus();
+            $("#email").val("");
+            return true;
+        }
+        else if (!IsValidEmail($.trim($("#emailtutor").val()))) {
+            $("#mensaje").addClass("error");
+            $("#mensaje").html("El correo del tutor es inválido...");
+            $("#emailtutor").focus();
+            $("#emailtutor").val("");
+            return true;
+        }
+        return false;
+    }
+    function RegistroDeEmbarazo() {
+
+        $("#mensaje").html("");
+        $("#registrarembarazo").attr("disabled", true);
+
+        if (FallaValidaciones()) {
+            //no aplica para el registro
+            $("#registrarembarazo").attr('disabled', false);
+        }
+        else {
+            try {
+                var Url = loc + "/RegistrarEmbarazo";
+                var data = $.toJSON($('#formRegistroEmbarazo').serializeObject());
+
+                Util.llamarWS(Url, data, resultadoRegistro, ajaxFailed);
+            }
+            catch (e) {
+                $("#mensaje").addClass("error");
+                $("#mensaje").html(e);
+                $("#registrarembarazo").attr('disabled', false);
+            }
+        }
+    }
+    function resultadoRegistro(infoRegistro) {
+        try {
+            if (infoRegistro.d != 'OK') {
+                $("#mensaje").addClass("error");
+                $("#mensaje").html(infoRegistro.d);
+                $("#registrarembarazo").attr('disabled', false);
+            }
+            else {
+                Exito("El Reporte de Embarazo se hizo sastifactoriamente...");
+            }
+        }
+        catch (e) {
+            alert(e);
+            $("#registrarembarazo").attr('disabled', false);
+        }
+    }
+    function CancelarEmbarazo() {
+        LimpiarTutor();
+        $("#cedulatutor").val("");
+
+        $("#fechadiagnostico").val("");
+        $("#fechaestimadaparto").val("");
+        $("#telefono").val("");
+        $("#celular").val("");
+        $("#email").val("");
+
+        $("#mensaje").html("");
+        $("#registrarembarazo").attr('disabled', false);
+    }
+    //EO-Registro Embarazo--------------------------
+
+</script>
+<style type="text/css">
+    .Columna
+    {
+        width: 100px;
+    }
+    .Titulo
+    {
+        font-size: 14px;
+        font-weight: bold;
+        color: #016BA5;
+        font-family: Arial;
+    }
+    .searchBox
+    {
+        width: 80%;
+        border: 2px solid #E4EDF9;
+        background-image: url('../images/zoom.png');
+        background-repeat: no-repeat;
+        background-position: left center;
+        padding-left: 20px;
+        font-size: 12pt;
+        font-weight: bold;
+        display: inline;
+    }
+</style>
+<form id="formRegistroEmbarazo">
+<input type="hidden" name="nss" id="nssRegistro" class="nssMadre" />
+<input type="hidden" name="nsstutor" id="nsstutor" class="nssTutorClass" />
+<input type="hidden" name="registropatronalregistroembarazo" id="registropatronalregistroembarazo"
+    value="" />
+<input type="hidden" name="usuarioregistroembarazo" id="usuarioregistroembarazo"
+    value="" />
+<fieldset style="width: 680px; height: auto;">
+    <legend class="header" style="font-size: 14px; font-weight: normal;">Registro de Embarazo</legend>
+    <br />
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td align="left" valign="top">
+                <span class="Titulo">Datos Generales</span>
+                <br />
+                <br />
+            </td>
+            <td style="width: 50px;">
+            </td>
+            <td align="left" valign="top">
+                <span class="Titulo">Cédula del tutor:</span>&nbsp;
+                <input type="text" name="cedulatutor" id="cedulatutor" value="" maxlength="11" />&nbsp;
+                <a href="#" id="LupaTutor">
+                    <img src="../images/zoom.png" alt="Buscar" />
+                </a>
+                <div id="MsgErrorTutor">
+                </div>
+                <br />
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <table class="td-content" style="width: 300px;">
+                    <tr>
+                        <td class="Columna">
+                            <br />
+                            <span>Fecha de diagnóstico:</span>
+                        </td>
+                        <td class="Columna">
+                            <br />
+                            <input type="text" name="fechadiagnostico" id="fechadiagnostico" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Fecha estimada parto:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="fechaestimadaparto" id="fechaestimadaparto" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Teléfono:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="telefonomadre" id="telefono" value="" class="telefono" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Celular:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="celularmadre" id="celular" value="" class="telefono" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Correo Electrónico:</span>
+                            <br />
+                            <br />
+                        </td>
+                        <td>
+                            <input type="text" name="emailmadre" id="email" value="" />
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 50px;">
+            </td>
+            <td valign="top">
+                <table class="BusquedaTutor td-content" style="width: 330px; vertical-align: top;">
+                    <tr>
+                        <td>
+                            <br />
+                            Nombre:
+                        </td>
+                        <td class="edit-field">
+                            <br />
+                            <span id="nombretutor"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Cédula:
+                        </td>
+                        <td class="edit-field">
+                            <span id="nodocumentotutor"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            NSS:
+                        </td>
+                        <td class="edit-field">
+                            <span id="nsstutorlabel"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Sexo:
+                        </td>
+                        <td class="edit-field">
+                            <span id="sexotutor"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Fecha de Nacimiento:
+                        </td>
+                        <td class="edit-field">
+                            <span id="fechanacimientotutor"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Telefono:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="telefonotutor" value=" " id="telefonotutor" class="telefono" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Correo Electrónico:</span>
+                        </td>
+                        <td>
+                            <input type="text" name="emailtutor" value="" id="emailtutor" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <input type="button" name="name" value="Registrar " id="registrarembarazo" class="button btnRE" />
+    <input type="button" name="name" value="Limpiar" id="cancelarembarazo" class="button btnRE" />
+    <br />
+    <br />
+    <label id="mensaje">
+    </label>
+    <br />
+</fieldset>
+<br />
+<div id="mifieldset">
+</div>
+</form>

@@ -1,0 +1,107 @@
+﻿@model IEnumerable<SuirPlusEF.Models.Bitacora>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DashBoard Procesos</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <strong>   Procesos en Ejecución</strong>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Inicio
+        </th>
+        <th>
+            Tiempo en Ejecución
+        </th>
+        <th>
+            Ejecutado Por
+        </th>
+
+        <th></th>
+    </tr>
+
+    @*@foreach (var item in Model)
+        {*@
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.IdProceso }) |
+                @Html.ActionLink("Details", "Details", new { id=item.IdProceso }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IdProceso })*@
+        </td>
+    </tr>
+    @*}*@
+
+</table>
+
+<br />
+<br />
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <strong>Procesos Ejecutados Recientemente</strong>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Inicio
+        </th>
+        <th>
+            Fin
+        </th>
+        <th>
+            Duración
+        </th>
+        <th>
+            Resultado
+        </th>
+        <th>
+            Ejecutado Por
+        </th>
+
+        <th></th>
+    </tr>
+
+    @*@foreach (var item in Model)
+        {*@
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.IdProceso }) |
+                @Html.ActionLink("Details", "Details", new { id=item.IdProceso }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.IdProceso })*@
+        </td>
+    </tr>
+    @*}*@
+
+</table>

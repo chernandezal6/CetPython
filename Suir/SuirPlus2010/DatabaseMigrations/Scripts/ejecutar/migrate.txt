@@ -1,0 +1,1 @@
+"../../../packages/FluentMigrator.1.6.1/tools/Migrate.exe"  /conn "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=172.16.4.132)(PORT = 49181)))(CONNECT_DATA=(SERVER=DEDICATED)(INSTANCE_NAME = xe)(SERVICE_NAME=xe)));User Id=suirplus;Password=sp1010;" /provider OracleManaged /assembly "../../bin/Debug/DatabaseMigrations.dll" /verbose=true --task migrate

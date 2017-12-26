@@ -1,0 +1,1096 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 12.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="12.0">
+ <Targets>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Code.dll">
+   <Modules>
+    <Module Name="app_code.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="AcuerdoPago" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'AcuerdoPago'.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AcuerdoPago+CuotasDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'AcuerdoPago.CuotasDataTable'.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="AcuerdoPago+CuotasOrganizadasDataTable" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+           <Issue Certainty="60" Level="Error">Add an implementation of GetObjectData to type 'AcuerdoPago.CuotasOrganizadasDataTable'.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="MDT" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#getContactoLocalidad(System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="394">'MDT.getContactoLocalidad(String, String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getLocalidad(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="96">'MDT.getLocalidad(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getLocalidades(System.String,System.Int32,System.Int32,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="57">'MDT.getLocalidades(String, Integer, Integer, String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getMunicipios(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="310">'MDT.getMunicipios(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getNacionalidades()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="256">'MDT.getNacionalidades()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getProvincias()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="280">'MDT.getProvincias()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getPuestos(System.String,System.Int32,System.Int32,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="24">'MDT.getPuestos(String, Integer, Integer, String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getTurno(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="110">'MDT.getTurno(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getTurnos(System.String,System.Int32,System.Int32,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="124">'MDT.getTurnos(String, Integer, Integer, String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#listadoPeriodos()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="594">'MDT.listadoPeriodos()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ListarActividad()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="210">'MDT.ListarActividad()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ListarLocalidades(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="164">'MDT.ListarLocalidades(Integer)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#listarParqueZonaFranca()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="233">'MDT.listarParqueZonaFranca()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ListarTurnos(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="187">'MDT.ListarTurnos(Integer)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#pagaMDT(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="MDT.vb" Line="617">'MDT.pagaMDT(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ModuloSeguridad" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#listarUsuarios(System.String,System.Int32,System.Int32,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="ModuloSeguridad.vb" Line="20">'ModuloSeguridad.listarUsuarios(String, Integer, Integer, String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="RegEmpresa" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#ActualizarHistoricoPasos(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="479">'RegEmpresa.ActualizarHistoricoPasos(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CargarArchivo(System.Int32,System.Int32,System.IO.Stream)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="836">'RegEmpresa.CargarArchivo(Integer, Integer, Stream)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CargarArchivos(System.Int32,System.Int32,System.IO.Stream,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="881">'RegEmpresa.CargarArchivos(Integer, Integer, Stream, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CargarComentario(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="410">'RegEmpresa.CargarComentario(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CargarStatus(System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="857">'RegEmpresa.CargarStatus(String, String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GenerarCodigo(System.Int32,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="221">'RegEmpresa.GenerarCodigo(Integer, String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getActividad()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="598">'RegEmpresa.getActividad()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getCantidadDeDoc(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="1036">'RegEmpresa.getCantidadDeDoc(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetEditDoc(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="1316">'RegEmpresa.GetEditDoc(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getEmpleadorDatos(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="301">'RegEmpresa.getEmpleadorDatos(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetHistoricoPasos(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="372">'RegEmpresa.GetHistoricoPasos(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetHistoricoSolicitud(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="443">'RegEmpresa.GetHistoricoSolicitud(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getInfoEmpresa(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="73">'RegEmpresa.getInfoEmpresa(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getInfoEmpresaEdit(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="112">'RegEmpresa.getInfoEmpresaEdit(Integer)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getMunicipios(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="534">'RegEmpresa.getMunicipios(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetNombreUsuario(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="1094">'RegEmpresa.GetNombreUsuario(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getParqueZonaFranca()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="662">'RegEmpresa.getParqueZonaFranca()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getProvincias()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="500">'RegEmpresa.getProvincias()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getResumenEmp(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="335">'RegEmpresa.getResumenEmp(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getSectorEconomico()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="630">'RegEmpresa.getSectorEconomico()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getSectoresSalariales()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="566">'RegEmpresa.getSectoresSalariales()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getSolEnProceso(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="1005">'RegEmpresa.getSolEnProceso(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InsertarEmpleador()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="694">'RegEmpresa.InsertarEmpleador()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ListarEmpresas()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="22">'RegEmpresa.ListarEmpresas()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#MostrarRequisitos(System.String,System.Int32,System.Int32,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="182">'RegEmpresa.MostrarRequisitos(String, Integer, Integer, String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#MostrarRequisitosLista()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="150">'RegEmpresa.MostrarRequisitosLista()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ValidarCodigoSolicitud(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="52">'RegEmpresa.ValidarCodigoSolicitud(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ValidarEmpleador(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="278">'RegEmpresa.ValidarEmpleador(String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ValidarRepresentante(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="RegEmpresa.vb" Line="815">'RegEmpresa.ValidarRepresentante(String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Subsidios" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#DetalleCuentaBanco(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="Subsidios.vb" Line="122">'Subsidios.DetalleCuentaBanco(String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DetalleEntidadRecaudadora(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="Subsidios.vb" Line="84">'Subsidios.DetalleEntidadRecaudadora(String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ObtenerNovedadesToDoList(System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="Subsidios.vb" Line="525">'Subsidios.ObtenerNovedadesToDoList(String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RegistrarEmbarazo(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="Subsidios.vb" Line="477">'Subsidios.RegistrarEmbarazo(String, String, String, String, String, String, String, String, String, String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#RegistroLicenciaPreNatal()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\App_Code" File="Subsidios.vb" Line="538">'Subsidios.RegistroLicenciaPreNatal()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_3hiw22ok.dll">
+   <Modules>
+    <Module Name="app_web_3hiw22ok.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="sys_segRecuperarClass" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#RecuperarClass(System.String,System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\sys" File="segRecuperarClass.aspx.vb" Line="52">'sys_segRecuperarClass.RecuperarClass(String, String, String, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_ahlkzzaz.dll">
+   <Modules>
+    <Module Name="app_web_ahlkzzaz.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Externos_HistoricoSalariosAFP" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#BindHistoricoSalarios(System.String,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Externos" File="HistoricoSalariosAFP.aspx.vb" Line="357">'Externos_HistoricoSalariosAFP.BindHistoricoSalarios(String, Integer, Integer)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#BindInfoGeneral(System.Int32)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Externos" File="HistoricoSalariosAFP.aspx.vb" Line="332">'Externos_HistoricoSalariosAFP.BindInfoGeneral(Integer)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#BindResultadoConsulta(System.Int32,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Externos" File="HistoricoSalariosAFP.aspx.vb" Line="264">'Externos_HistoricoSalariosAFP.BindResultadoConsulta(Integer, Integer, Integer)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#InsertarHistorico(System.String,System.Int32,System.Int32,System.Int32,System.String,System.Byte)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Externos" File="HistoricoSalariosAFP.aspx.vb" Line="250">'Externos_HistoricoSalariosAFP.InsertarHistorico(String, Integer, Integer, Integer, String, Byte)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_alcewxgg.dll">
+   <Modules>
+    <Module Name="app_web_alcewxgg.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Mantenimientos_CrearPasaportes" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#UploadDocumentacion(System.Web.UI.WebControls.FileUpload,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Mantenimientos" File="CrearPasaportes.aspx.vb" Line="242">'Mantenimientos_CrearPasaportes.UploadDocumentacion(FileUpload, Integer)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_bbzadcfu.dll">
+   <Modules>
+    <Module Name="app_web_bbzadcfu.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Mantenimientos_RegistroCiudadanoTitular" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#RegistrarCiudadano()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Mantenimientos" File="RegistroCiudadanoTitular.aspx.vb" Line="40">'Mantenimientos_RegistroCiudadanoTitular.RegistrarCiudadano()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_d3h55nfc.dll">
+   <Modules>
+    <Module Name="app_web_d3h55nfc.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Consultas_consJCE" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#validarDocumento()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Consultas" File="consJCE.aspx.vb" Line="417">'Consultas_consJCE.validarDocumento()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_dpzyvw2x.dll">
+   <Modules>
+    <Module Name="app_web_dpzyvw2x.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Cobro_GestionCobros" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#bindGestionCobros()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Cobro" File="GestionCobros.aspx.vb" Line="81">'Cobro_GestionCobros.bindGestionCobros()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_gobhljei.dll">
+   <Modules>
+    <Module Name="app_web_gobhljei.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Censo_censoEmpleador" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnActualizar_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Censo" File="censoEmpleador.aspx.vb" Line="232">'Censo_censoEmpleador.btnActualizar_Click(Object, EventArgs)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_j2q4wb5p.dll">
+   <Modules>
+    <Module Name="app_web_j2q4wb5p.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Consultas_ConsultaDependientesAdicionales" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#BindBuscarDependienteAdicional()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Consultas" File="consDependientesAdicionales.aspx.vb" Line="70">'Consultas_ConsultaDependientesAdicionales.BindBuscarDependienteAdicional()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#BindDependienteAdicional()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Consultas" File="consDependientesAdicionales.aspx.vb" Line="49">'Consultas_ConsultaDependientesAdicionales.BindDependienteAdicional()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_kqjazuzj.dll">
+   <Modules>
+    <Module Name="app_web_kqjazuzj.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Controles_Legal_ucAcuerdoPagoLeyFacilidades" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#LlenarGrid()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Controles\Legal" File="ucAcuerdoPagoLeyFacilidades.ascx.vb" Line="138">'Controles_Legal_ucAcuerdoPagoLeyFacilidades.LlenarGrid()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_kqjbckqv.dll">
+   <Modules>
+    <Module Name="app_web_kqjbckqv.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Controles_Legal_ucAcuerdoPagoLeyFacilidades" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#LlenarGrid()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Controles\Legal" File="adpucAcuerdoPago.ascx.vb" Line="147">'Controles_Legal_ucAcuerdoPagoLeyFacilidades.LlenarGrid()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Controles_ucAcuerdoPagoEmbajadas" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#LlenarGrid()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Controles\Legal" File="ucAcuerdoPagoEmbajadas.ascx.vb" Line="149">'Controles_ucAcuerdoPagoEmbajadas.LlenarGrid()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_ldev4xq5.dll">
+   <Modules>
+    <Module Name="app_web_ldev4xq5.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Controles_ucNovedadesPendientesaCambiar" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CargarNovedadesPendientes()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Controles" File="ucNovedadesPendientesaCambiar.ascx.vb" Line="46">'Controles_ucNovedadesPendientesaCambiar.CargarNovedadesPendientes()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_md2mhqsk.dll">
+   <Modules>
+    <Module Name="app_web_md2mhqsk.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="adpSolicitarAcuerdoPago" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#LlenarInfoAcuerdo()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Legal" File="adpConfirmarDatosAcuerdoDePago.aspx.vb" Line="17">'adpSolicitarAcuerdoPago.LlenarInfoAcuerdo()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Legal_consAcuerdoPago" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CargarAcuerdo(System.String,System.String,System.String,System.String,System.Int32,System.Int32)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Legal" File="consAcuerdoPago.aspx.vb" Line="122">'Legal_consAcuerdoPago.CargarAcuerdo(String, String, String, String, Integer, Integer)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Legal_SiguimientoAcuerdosPagos" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#gvSeguimientoAcuerdosPago_RowCommand(System.Object,System.Web.UI.WebControls.GridViewCommandEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Legal" File="SeguimientoAcuerdosPagos.aspx.vb" Line="41">'Legal_SiguimientoAcuerdosPagos.gvSeguimientoAcuerdosPago_RowCommand(Object, GridViewCommandEventArgs)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_n0qhen0e.dll">
+   <Modules>
+    <Module Name="app_web_n0qhen0e.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="MDT_consPlanillasMDT" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#BindDetCarteraMDT(System.Int32,System.String,System.Int32)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\MDT" File="consPlanillasMDT.aspx.vb" Line="76">'MDT_consPlanillasMDT.BindDetCarteraMDT(Integer, String, Integer)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_nkqxr1zi.dll">
+   <Modules>
+    <Module Name="app_web_nkqxr1zi.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Empleador_empRecuperarClassCuestionario" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btnAceptarEmail_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Empleador" File="empRecuperarClassCuestionario.aspx.vb" Line="119">'Empleador_empRecuperarClassCuestionario.btnAceptarEmail_Click(Object, EventArgs)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_pqnoqmkf.dll">
+   <Modules>
+    <Module Name="app_web_pqnoqmkf.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Controles_UCArchivosDetalle" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#cargaInicial()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Controles" File="UCArchivosDetalle.ascx.vb" Line="114">'Controles_UCArchivosDetalle.cargaInicial()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Controles_ucNovedadesPendientes" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CargarNovedadesPendientes()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Controles" File="ucNovedadesPendientes.ascx.vb" Line="47">'Controles_ucNovedadesPendientes.CargarNovedadesPendientes()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_q2qjztn1.dll">
+   <Modules>
+    <Module Name="app_web_q2qjztn1.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Reg_RegEditarArchivos" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#UploadDocumentacion(System.Web.UI.HtmlControls.HtmlInputFile,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Reg" File="RegEditarArchivos.aspx.vb" Line="39">'Reg_RegEditarArchivos.UploadDocumentacion(HtmlInputFile, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Reg_RegUploadImage" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#UploadDocumentacion(System.Web.UI.HtmlControls.HtmlInputFile,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Reg" File="RegUploadImage.aspx.vb" Line="48">'Reg_RegUploadImage.UploadDocumentacion(HtmlInputFile, String)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_rmy5ofw5.dll">
+   <Modules>
+    <Module Name="app_web_rmy5ofw5.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Controles_UC_DatePicker" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#dateValue" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Accessors>
+            <Accessor Name="#get_dateValue()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+             <Messages>
+              <Message TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="Breaking">
+               <Issue Name="PropertyGetter" Certainty="90" Level="Warning" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Controles" File="UC_DatePicker.ascx.vb" Line="54">'Controles_UC_DatePicker.dateValue.Get()' creates an exception of type 'Exception', an exception type that should not be raised in a property. If this exception instance might be raised, use a different exception type, convert this property into a method, or change this property's logic so that it no longer raises an exception.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_rnwbekn5.dll">
+   <Modules>
+    <Module Name="app_web_rnwbekn5.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Consultas_consDependientesAdicionalesPagos" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#BindDetalleCarteraDispersion()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Consultas" File="consDependientesAdicionalesPagos.aspx.vb" Line="160">'Consultas_consDependientesAdicionalesPagos.BindDetalleCarteraDispersion()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#BindDetalleNotificacion()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Consultas" File="consDependientesAdicionalesPagos.aspx.vb" Line="124">'Consultas_consDependientesAdicionalesPagos.BindDetalleNotificacion()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_vlwg0vyi.dll">
+   <Modules>
+    <Module Name="app_web_vlwg0vyi.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="EstadisticasGenerales" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CargarDS()" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\DSH" File="EstadisticasGenerales.aspx.vb" Line="23">'EstadisticasGenerales.CargarDS()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_yb50dgis.dll">
+   <Modules>
+    <Module Name="app_web_yb50dgis.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Consultas_consEmpleador" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#dtRepresentante_ItemCommand(System.Object,System.Web.UI.WebControls.DataListCommandEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Consultas" File="consEmpleador.aspx.vb" Line="827">'Consultas_consEmpleador.dtRepresentante_ItemCommand(Object, DataListCommandEventArgs)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_yocxue31.dll">
+   <Modules>
+    <Module Name="app_web_yocxue31.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Oficios_crearOficios" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#UploadDocumentacion(System.Web.UI.WebControls.FileUpload)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Oficios" File="crearOficios.aspx.vb" Line="997">'Oficios_crearOficios.UploadDocumentacion(FileUpload)' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\hminaya\AppData\Local\Temp\tmp7A58.tmp.cadir\bin\App_Web_zvi4a1si.dll">
+   <Modules>
+    <Module Name="app_web_zvi4a1si.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="Seguridad_segUsuarios" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#llenarDataGridUsuarios()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200" Status="Active" Created="2016-01-26 18:42:19Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="C:\Suir\SuirPlus2010\SuirPlusWebSite\Seguridad" File="segUsuarios.aspx.vb" Line="27">'Seguridad_segUsuarios.llenarDataGridUsuarios()' rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="DoNotRaiseExceptionsInUnexpectedLocations" Category="Microsoft.Design" CheckId="CA1065">
+   <Name>Do not raise exceptions in unexpected locations</Name>
+   <Description>Do not explicitly raise exceptions from unexpected locations. There are some methods, such as Equals and GetHashCode, which users do not expect to raise exceptions. Therefore calls to these methods are not commonly wrapped in try catch blocks.</Description>
+   <Resolution Name="PropertyGetter">{0} creates an exception of type {1}, an exception type that should not be raised in a property. If this exception instance might be raised, use a different exception type, convert this property into a method, or change this property's logic so that it no longer raises an exception.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb386039.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error, Warning</MessageLevel>
+   <File Name="designrules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="ImplementISerializableCorrectly" Category="Microsoft.Usage" CheckId="CA2240">
+   <Name>Implement ISerializable correctly</Name>
+   <Description>If a type is assignable to ISerializable, it should implement GetObjectData. For unsealed types, the GetObjectData method should be callable and overridable by derived types.</Description>
+   <Resolution Name="Default">Add an implementation of GetObjectData to type {0}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182342.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="60">Error</MessageLevel>
+   <File Name="usagerules.dll" Version="12.0.0.0" />
+  </Rule>
+  <Rule TypeName="RethrowToPreserveStackDetails" Category="Microsoft.Usage" CheckId="CA2200">
+   <Name>Rethrow to preserve stack details</Name>
+   <Description>Use the IL rethrow instruction to preserve original stack details when re-raising a caught exception.</Description>
+   <Resolution Name="Default">{0} rethrows a caught exception and specifies it explicitly as an argument. Use 'throw' without an argument instead, in order to preserve the stack location where the exception was initially raised.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182363.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="usagerules.dll" Version="12.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+ <Exceptions>
+  <Exception Keyword="CA0001" Kind="AssemblyLoad">
+   <Type>Microsoft.FxCop.Common.AssemblyLoadException</Type>
+   <ExceptionMessage>Could not find type 'System.Web.UI.WebControls.LinqDataSource' in assembly 'System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'.</ExceptionMessage>
+   <StackTrace>   at Microsoft.FxCop.Engines.Phoenix.LoadAndResolutionHandler.HandleFailureToFindTypeDefinitionByName(ModuleUnit unit, UInt32 typeRefToken, String name)
+   at Phx.Metadata.LoaderImplementation.FindSymbolAndAssignToken(Symbol symbol)
+   at Phx.Metadata.MetadataLoader.LoadAssemblyDefinition(AssemblyUnit unit)
+   at Microsoft.FxCop.Engines.Phoenix.AssemblyLoader.ProcessWorklist(MetadataLoader metadataLoader, Boolean ignoreErrors)
+   at Microsoft.FxCop.Engines.Phoenix.AssemblyLoader.LoadAssembly(String filePath)
+   at Microsoft.FxCop.Engines.Phoenix.PhoenixAnalysisEngine.AnalyzeInternal()
+   at Microsoft.FxCop.Engines.Phoenix.PhoenixAnalysisEngine.Analyze()
+   at Microsoft.FxCop.Common.EngineManager.Analyze(Project project, Boolean verboseOutput)</StackTrace>
+  </Exception>
+  <Exception Keyword="CA0001" Kind="Engine">
+   <Type>Microsoft.FxCop.Sdk.InvalidMetadataException</Type>
+   <ExceptionMessage>The following error was encountered while reading module 'App_Web_2dcizkiu': Could not resolve type reference: [System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]System.Web.UI.WebControls.LinqDataSource.</ExceptionMessage>
+   <StackTrace>   at Microsoft.FxCop.Sdk.Reader.HandleError(ModuleNode mod, String errorMessage)
+   at Microsoft.FxCop.Sdk.Reader.GetDummyTypeNode(Identifier namesp, Identifier name, ModuleNode declaringModule, TypeNode declaringType, Boolean expectStruct)
+   at Microsoft.FxCop.Sdk.Reader.GetTypeFromRef(Int32 i, Boolean expectStruct)
+   at Microsoft.FxCop.Sdk.Reader.DecodeAndGetTypeDefOrRefOrSpec(Int32 codedIndex)
+   at Microsoft.FxCop.Sdk.Reader.ParseTypeSignature(MemoryCursor sigReader, Boolean&amp; pinned, Boolean&amp; isTypeArgument)
+   at Microsoft.FxCop.Sdk.Reader.GetFieldFromDef(Int32 i, TypeNode declaringType)
+   at Microsoft.FxCop.Sdk.Reader.AddFieldsToType(TypeNode type, FieldRow[] fieldDefs, FieldPtrRow[] fieldPtrs, Int32 start, Int32 end)
+   at Microsoft.FxCop.Sdk.Reader.GetTypeMembers(TypeNode type, Object handle)
+   at Microsoft.FxCop.Sdk.TypeNode.get_Members()
+   at Microsoft.FxCop.Engines.Introspection.BaseVisitor.VisitType(TypeNode type, TargetType target)
+   at Microsoft.FxCop.Engines.Introspection.LoadVisitor.VisitType(TypeNode type, TargetType target)
+   at Microsoft.FxCop.Engines.Introspection.BaseVisitor.VisitTypes(TypeNodeCollection types, TargetNamespaceDictionary targets)
+   at Microsoft.FxCop.Engines.Introspection.LoadVisitor.VisitModule(ModuleNode module, TargetModule target)
+   at Microsoft.FxCop.Engines.Introspection.BaseVisitor.VisitAssembly(AssemblyNode assembly, TargetFile target)
+   at Microsoft.FxCop.Engines.Introspection.LoadVisitor.VisitAssembly(AssemblyNode assembly, TargetFile target)
+   at Microsoft.FxCop.Engines.Introspection.LoadVisitor.Load(TargetFile target, Boolean buildTree, Boolean queueItems, AssemblyNode loadedAssembly)
+   at Microsoft.FxCop.Engines.Introspection.LoadVisitor.LoadAssemblies(Queue queue, ExceptionCollection exceptions)</StackTrace>
+  </Exception>
+ </Exceptions>
+</FxCopReport>

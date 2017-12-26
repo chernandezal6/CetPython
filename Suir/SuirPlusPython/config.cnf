@@ -1,0 +1,3 @@
+#pasamos la conection string encriptado a la base de datos 
+[db]
+oConnString = 'c3VpcnBsdXMvc3AxMDEwQDE3Mi4xNi40LjEzMjo0OTE4MS94ZQ=='

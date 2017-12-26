@@ -1,0 +1,15 @@
+﻿DECLARE
+  v_count pls_integer;
+BEGIN  
+ -- Buscar objeto y evitar que la migracion de error
+ SELECT COUNT(*)
+  INTO v_count
+  FROM ALL_OBJECTS 
+ WHERE OBJECT_NAME = 'NSS_VALIDAR_SOLICITUD_NUI_2'
+   AND OBJECT_TYPE = 'PROCEDURE'
+   AND OWNER       = 'SUIRPLUS';
+
+ IF v_count > 0 THEN
+   EXECUTE IMMEDIATE 'DROP PROCEDURE SUIRPLUS.NSS_VALIDAR_SOLICITUD_NUI_2';
+ END IF;
+END;

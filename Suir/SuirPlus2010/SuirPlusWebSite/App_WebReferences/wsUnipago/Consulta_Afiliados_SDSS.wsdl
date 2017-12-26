@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://serviciosweb.com.do/consafiws/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://serviciosweb.com.do/consafiws/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://serviciosweb.com.do/consafiws/">
+      <s:element name="ConsultarAfiliacionSDSSporNSS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nss" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionSDSSporNSSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarAfiliacionSDSSporNSSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionSDSSporCedula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionSDSSporCedulaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarAfiliacionSDSSporCedulaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionSFSporNSS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nss" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionSFSporNSSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarAfiliacionSFSporNSSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionSFSporCedula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionSFSporCedulaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarAfiliacionSFSporCedulaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionAFPporNSS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nss" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionAFPporNSSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarAfiliacionAFPporNSSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionAFPporCedula">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cedula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarAfiliacionAFPporCedulaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarAfiliacionAFPporCedulaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCantidadConsultasporUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fechainicial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fechafinal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCantidadConsultasporUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerCantidadConsultasporUsuarioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCantidadConsultasporEntidad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fechainicial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fechafinal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCantidadConsultasporEntidadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerCantidadConsultasporEntidadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarAfiliacionSDSSporNSSSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionSDSSporNSS" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionSDSSporNSSSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionSDSSporNSSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionSDSSporCedulaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionSDSSporCedula" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionSDSSporCedulaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionSDSSporCedulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionSFSporNSSSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionSFSporNSS" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionSFSporNSSSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionSFSporNSSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionSFSporCedulaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionSFSporCedula" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionSFSporCedulaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionSFSporCedulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionAFPporNSSSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionAFPporNSS" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionAFPporNSSSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionAFPporNSSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionAFPporCedulaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionAFPporCedula" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarAfiliacionAFPporCedulaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarAfiliacionAFPporCedulaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCantidadConsultasporUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCantidadConsultasporUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCantidadConsultasporUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCantidadConsultasporUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCantidadConsultasporEntidadSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCantidadConsultasporEntidad" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCantidadConsultasporEntidadSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCantidadConsultasporEntidadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Consulta_Afiliados_SDSSSoap">
+    <wsdl:operation name="ConsultarAfiliacionSDSSporNSS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta la Afiliación de un Ciudadano al Sistema Dominicano de Seguridad Social utilizando su NSS</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarAfiliacionSDSSporNSSSoapIn" />
+      <wsdl:output message="tns:ConsultarAfiliacionSDSSporNSSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionSDSSporCedula">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta la Afiliación de un Ciudadano al Sistema Dominicano de Seguridad Social utilizando su Cédula</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarAfiliacionSDSSporCedulaSoapIn" />
+      <wsdl:output message="tns:ConsultarAfiliacionSDSSporCedulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionSFSporNSS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta la Afiliación de un Ciudadano al Seguro Familiar de Salud utilizando su NSS</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarAfiliacionSFSporNSSSoapIn" />
+      <wsdl:output message="tns:ConsultarAfiliacionSFSporNSSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionSFSporCedula">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta la Afiliación de un Ciudadano al Seguro Familiar de Salud utilizando su Cédula</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarAfiliacionSFSporCedulaSoapIn" />
+      <wsdl:output message="tns:ConsultarAfiliacionSFSporCedulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionAFPporNSS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta la Afiliación de un Ciudadano al Seguro de Pensiones dentro del Sistema Dominicano de Seguridad Social utilizando su NSS</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarAfiliacionAFPporNSSSoapIn" />
+      <wsdl:output message="tns:ConsultarAfiliacionAFPporNSSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionAFPporCedula">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta la Afiliación de un Ciudadano al Seguro de Pensiones dentro del Sistema Dominicano de Seguridad Social utilizando su Cédula</wsdl:documentation>
+      <wsdl:input message="tns:ConsultarAfiliacionAFPporCedulaSoapIn" />
+      <wsdl:output message="tns:ConsultarAfiliacionAFPporCedulaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCantidadConsultasporUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la cantidad de consultas de afiliación realizadas por un usuario en un rango de  fechas especificado. Incluye tanto las consultas satisfactorias como las fallidas.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerCantidadConsultasporUsuarioSoapIn" />
+      <wsdl:output message="tns:ObtenerCantidadConsultasporUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCantidadConsultasporEntidad">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la cantidad de consultas de afiliación realizadas por todos los usuarios de la entidad a la que pertenece el usuario especificado, en un rango de  fechas determinado. Incluye tanto las consultas satisfactorias como las fallidas.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerCantidadConsultasporEntidadSoapIn" />
+      <wsdl:output message="tns:ObtenerCantidadConsultasporEntidadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Consulta_Afiliados_SDSSSoap" type="tns:Consulta_Afiliados_SDSSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarAfiliacionSDSSporNSS">
+      <soap:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionSDSSporNSS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionSDSSporCedula">
+      <soap:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionSDSSporCedula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionSFSporNSS">
+      <soap:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionSFSporNSS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionSFSporCedula">
+      <soap:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionSFSporCedula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionAFPporNSS">
+      <soap:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionAFPporNSS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionAFPporCedula">
+      <soap:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionAFPporCedula" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCantidadConsultasporUsuario">
+      <soap:operation soapAction="https://serviciosweb.com.do/consafiws/ObtenerCantidadConsultasporUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCantidadConsultasporEntidad">
+      <soap:operation soapAction="https://serviciosweb.com.do/consafiws/ObtenerCantidadConsultasporEntidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Consulta_Afiliados_SDSSSoap12" type="tns:Consulta_Afiliados_SDSSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarAfiliacionSDSSporNSS">
+      <soap12:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionSDSSporNSS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionSDSSporCedula">
+      <soap12:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionSDSSporCedula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionSFSporNSS">
+      <soap12:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionSFSporNSS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionSFSporCedula">
+      <soap12:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionSFSporCedula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionAFPporNSS">
+      <soap12:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionAFPporNSS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAfiliacionAFPporCedula">
+      <soap12:operation soapAction="https://serviciosweb.com.do/consafiws/ConsultarAfiliacionAFPporCedula" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCantidadConsultasporUsuario">
+      <soap12:operation soapAction="https://serviciosweb.com.do/consafiws/ObtenerCantidadConsultasporUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCantidadConsultasporEntidad">
+      <soap12:operation soapAction="https://serviciosweb.com.do/consafiws/ObtenerCantidadConsultasporEntidad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Consulta_Afiliados_SDSS">
+    <wsdl:port name="Consulta_Afiliados_SDSSSoap" binding="tns:Consulta_Afiliados_SDSSSoap">
+      <soap:address location="https://www.serviciosweb.com.do/consafiws/Consulta_Afiliados_SDSS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Consulta_Afiliados_SDSSSoap12" binding="tns:Consulta_Afiliados_SDSSSoap12">
+      <soap12:address location="https://www.serviciosweb.com.do/consafiws/Consulta_Afiliados_SDSS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

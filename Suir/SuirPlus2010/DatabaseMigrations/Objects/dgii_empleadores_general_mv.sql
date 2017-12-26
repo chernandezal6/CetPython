@@ -1,0 +1,28 @@
+﻿create materialized view suirplus.dgii_empleadores_general_mv
+REFRESH FORCE ON DEMAND
+ AS
+select DRG_RNC_CEDULA,
+       DRG_NOMBRE_RAZON_SOCIAL,
+       DRG_TIPO_PERSONA,
+       DRG_NOMBRE_COMERCIAL,
+       DRG_TELEFONO,
+       DRG_FAX,
+       DRG_COD_UNIDAD,
+       DRG_ADMINISTRACION_LOCAL,
+       DRG_TAE_COD_ACTIVIDAD,
+       DRG_ACTIVIDAD_ECONOMICA,
+       DRG_DIRECCION,
+       DRG_NUMERO,
+       DRG_NUM_APTO_OFIC,
+       DRG_REFERENCIA,
+       DRG_URBANIZACION,
+       DRG_CIUDAD,
+       FEC_NAC_CONST,
+       FEC_INI_ACT,
+       FEC_INI_OBLIGACIONES,
+       ESTATUS,
+       RGE_TMU_COD_MUNICIPIO,
+       FECHA_ACT
+from DGIITSS_RUC_GENERAL_D_2@dgii_dbl 
+where not (DRG_TAE_COD_ACTIVIDAD in ('659930','701081','712909','930991','950004','990002','990003','990004','990005','990007') and DRG_TIPO_PERSONA = 'Persona Fisica')
+   and regexp_like(DRG_RNC_CEDULA,'^(\d{9}|\d{11})$')

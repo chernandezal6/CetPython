@@ -1,0 +1,30 @@
+EBO  130010501082012
+DC00109283291              Teolinda                                          Agramonte                               De Tejeda                               F        0000000022940.62
+DC05300292413              Esmeralda                                         Quezada                                 Reyes                                   F        0000000003243.13
+DC09400069515              Jose Octavio                                      Estevez                                 Garcia                                  M        0000000034410.41
+DC09400184082              Candido                                           Gomez                                   De La Rosa                              M        0000000022416.07
+DC04100157579              Jenny De Los Angeles                              Gonzalez                                Tejeda                                  F        0000000113796.95
+DC07200086655              Francisco Alberto                                 Moya                                    Franco                                  M        0000000083654.92
+DC05300344784              Paul Amin                                         Piña                                    Baez                                    M        0000000037841.73
+DC07300077943              Beatriz                                           Placencio                               Valerio                                 F        0000000007472.03
+DC07300078164              Adriano                                           Rodriguez                               Tejada                                  M        0000000009500.00
+DC00112505995              Anyelo Benedicto                                  Rodriguez                               Valerio                                 M        0000000151070.08
+DC10100096097              Pedro Luis                                        Rodriguez                               Valerio                                 M        0000000142252.71
+DC03104941103              Robison                                           Segura                                  Piña                                    M        0000000007417.61
+DC09400123411              Carmen Rosa                                       Sosa                                    Sosa                                    F        0000000004165.70
+DC04100065889              Senaida Belisa                                    Tejada                                                                          F        0000000007472.03
+DC03400448951              Delmin Rafael                                     Vargas                                  Vargas                                  M        0000000112475.52
+DC05401167050              Maria Inmaculada                                  Lopez                                   De la Cruz                              F        0000000028962.79
+DC03104969369              Carolina                                          Maldonado                               Vasquez                                 F        0000000007312.91
+DC00500308598              Reynaldo                                          De Jesus                                Acosta                                  F        0000000013659.90
+DC05300418612              Julio Cesar                                       Santo                                   Anazagatis                              M        0000000015161.44
+DC22300726639              Mairel                                            Fiallo                                  Rosario                                 F        0000000006910.55
+DC08200227513              Domingo                                           Andujar                                 Aquino                                  M        0000000003148.74
+DC09400135001              Hilario                                           Cruz                                                                            M        0000000007495.83
+DC09400212727              Yocaty Alexandra                                  Martinez                                Luciano                                 F        0000000001066.67
+DC09400181328              Jorge Eleuterio                                   Paulino                                 Parra                                   M        0000000020772.14
+DC03103316158              Vanessa Magdalena                                 Diaz                                    Rosario                                 F        0000000019298.13
+DC07300160715              Cesar Ambiorix                                    Liberato                                Mercedes                                M        0000000064618.75
+DC04701575658              Jose Luis                                         Concepcion                              Rosario                                 M        0000000027767.78
+DC09400202116              Jose Miguel                                       Almonte                                 Toribio                                 M        0000000018149.65
+S000030

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AcuerdoPago" targetNamespace="http://tempuri.org/AcuerdoPago.xsd" xmlns:mstns="http://tempuri.org/AcuerdoPago.xsd" xmlns="http://tempuri.org/AcuerdoPago.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="AcuerdoPago" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="AcuerdoPago" msprop:Generator_DataSetName="AcuerdoPago">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Cuotas" msprop:Generator_UserTableName="Cuotas" msprop:Generator_RowDeletedName="CuotasRowDeleted" msprop:Generator_RowChangedName="CuotasRowChanged" msprop:Generator_RowClassName="CuotasRow" msprop:Generator_RowChangingName="CuotasRowChanging" msprop:Generator_RowEvArgName="CuotasRowChangeEvent" msprop:Generator_RowEvHandlerName="CuotasRowChangeEventHandler" msprop:Generator_TableClassName="CuotasDataTable" msprop:Generator_TableVarName="tableCuotas" msprop:Generator_RowDeletingName="CuotasRowDeleting" msprop:Generator_TablePropName="Cuotas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cuota" msprop:Generator_UserColumnName="Cuota" msprop:Generator_ColumnPropNameInRow="Cuota" msprop:Generator_ColumnVarNameInTable="columnCuota" msprop:Generator_ColumnPropNameInTable="CuotaColumn" type="xs:short" minOccurs="0" />
+              <xs:element name="Referencia" msprop:Generator_UserColumnName="Referencia" msprop:Generator_ColumnPropNameInRow="Referencia" msprop:Generator_ColumnVarNameInTable="columnReferencia" msprop:Generator_ColumnPropNameInTable="ReferenciaColumn" type="xs:string" />
+              <xs:element name="Nomina" msprop:Generator_UserColumnName="Nomina" msprop:Generator_ColumnPropNameInRow="Nomina" msprop:Generator_ColumnVarNameInTable="columnNomina" msprop:Generator_ColumnPropNameInTable="NominaColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Periodo" msprop:Generator_UserColumnName="Periodo" msprop:Generator_ColumnPropNameInRow="Periodo" msprop:Generator_ColumnVarNameInTable="columnPeriodo" msprop:Generator_ColumnPropNameInTable="PeriodoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="FechaLimite" msprop:Generator_UserColumnName="FechaLimite" msprop:Generator_ColumnPropNameInRow="FechaLimite" msprop:Generator_ColumnVarNameInTable="columnFechaLimite" msprop:Generator_ColumnPropNameInTable="FechaLimiteColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CuotasOrganizadas" msprop:Generator_UserTableName="CuotasOrganizadas" msprop:Generator_RowDeletedName="CuotasOrganizadasRowDeleted" msprop:Generator_RowChangedName="CuotasOrganizadasRowChanged" msprop:Generator_RowClassName="CuotasOrganizadasRow" msprop:Generator_RowChangingName="CuotasOrganizadasRowChanging" msprop:Generator_RowEvArgName="CuotasOrganizadasRowChangeEvent" msprop:Generator_RowEvHandlerName="CuotasOrganizadasRowChangeEventHandler" msprop:Generator_TableClassName="CuotasOrganizadasDataTable" msprop:Generator_TableVarName="tableCuotasOrganizadas" msprop:Generator_RowDeletingName="CuotasOrganizadasRowDeleting" msprop:Generator_TablePropName="CuotasOrganizadas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cuota" msprop:Generator_UserColumnName="Cuota" msprop:Generator_ColumnVarNameInTable="columnCuota" msprop:Generator_ColumnPropNameInRow="Cuota" msprop:Generator_ColumnPropNameInTable="CuotaColumn" type="xs:short" minOccurs="0" />
+              <xs:element name="Referencias" msprop:Generator_UserColumnName="Referencias" msprop:Generator_ColumnVarNameInTable="columnReferencias" msprop:Generator_ColumnPropNameInRow="Referencias" msprop:Generator_ColumnPropNameInTable="ReferenciasColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Monto" msprop:Generator_UserColumnName="Monto" msprop:Generator_ColumnVarNameInTable="columnMonto" msprop:Generator_ColumnPropNameInRow="Monto" msprop:Generator_ColumnPropNameInTable="MontoColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="FechaLimite" msprop:Generator_UserColumnName="FechaLimite" msprop:Generator_ColumnPropNameInRow="FechaLimite" msprop:Generator_ColumnVarNameInTable="columnFechaLimite" msprop:Generator_ColumnPropNameInTable="FechaLimiteColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Cuotas" />
+      <xs:field xpath="mstns:Referencia" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

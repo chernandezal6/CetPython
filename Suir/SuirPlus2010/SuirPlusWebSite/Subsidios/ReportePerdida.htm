@@ -1,0 +1,122 @@
+﻿<script language="javascript" type="text/javascript">
+    $(function () {
+
+        $(".fecha").datepicker($.datepicker.regional['es']);
+        $(".button").button();
+        $(".fecha").live('change', Util.EvitarPaste);
+
+        $("#cancelarPerdida").click(LimpiarPerdida);
+        $("#registrarPerdida").click(RegistrarPerdida);
+
+        $("#nrosolicitudperdida").val($("#nrosolicitud").val());
+    });
+
+    function LimpiarPerdida() {
+        $("#txtfechaperdida").val("");
+        $("#mensajePerdida").html("");
+    }
+    function RegistrarPerdida() {
+
+        $("#registrarPerdida").attr("disabled", true);
+        $("#mensajePerdida").html("");
+
+        var fechaperdida = $("#txtfechaperdida").datepicker("getDate");
+        var hoy = new Date();
+
+        if ($("#txtfechaperdida").val() == "") {
+            $("#mensajePerdida").addClass("error");
+            $("#mensajePerdida").html("La fecha de pérdida es requerida...");
+            $("#mensajePerdida").val("");
+            $("#mensajePerdida").focus();
+
+            $("#registrarPerdida").attr('disabled', false);
+        }
+        else if (fechaperdida > hoy) {
+            $("#mensajePerdida").addClass("error");
+            $("#mensajePerdida").html("La fecha de pérdida introducida no debe ser futura...");
+
+            $("#registrarPerdida").attr('disabled', false);
+        }
+        else {
+            try {
+                var Url = loc + "/RegistrarPedidaEmbarazo";
+                var data = '{ registropatronal: "' 
+                        + $("#registropatronalregistro").val()
+                        + '", fechaperdida : "' + $("#txtfechaperdida").val()
+                        + '", usuarioperdida: "' + $("#usuarioregistro").val()
+                        + '", nrosolicitudperdida: "' + $("#nrosolicitudperdida").val()
+                        + '" }';
+                Util.llamarWS(Url, data, resultadoPerdida, ajaxFailed);
+            }
+            catch (e) {
+                $("#mensajePerdida").addClass("error");
+                $("#mensajePerdida").html(e);
+                $("#registrarPerdida").attr('disabled', false);
+            }
+        }
+    }
+    function resultadoPerdida(infoPerdida) {
+        try {
+            if (infoPerdida.d != 'OK') {
+
+                $("#mensajePerdida").addClass("error");
+                $("#mensajePerdida").html(infoPerdida.d);
+                $("#registrarPerdida").attr('disabled', false);
+
+            }
+            else {
+                Exito("El reporte de pérdida de embarazo se hizo sastifactoriamente...");
+            }
+        }
+        catch (e) {
+            $("#mensajePerdida").addClass("error");
+            $("#mensajePerdida").html(e);
+            $("#registrarPerdida").attr('disabled', false);
+        }
+    }
+</script>
+<style type="text/css">
+    .legendStyle
+    {
+        font-size: 14px;
+        font-weight: normal;
+    }
+</style>
+<form id="formRegistroPerdida">
+<input type="hidden" name="nrosolicitudperdida" id="nrosolicitudperdida"/>
+<fieldset style="width: 380px; height: 150px;">
+    <legend class="header legendStyle">Registro de Pérdida de Embarazo</legend>
+    <br />
+    <table class="td-content" style="width: 300px;">
+        <tr>
+            <td style="width: 99px;">
+                <br />
+                <span>Fecha de perdida:</span>
+                <br />
+                <br />
+            </td>
+            <td>
+                <br />
+                <input type="text" id="txtfechaperdida" class="fecha" onkeypress="return false;" />
+                <br />
+                <br />
+            </td>
+        </tr>
+    </table>
+    <br />
+    <input type="button" name="registrarperdida" value="Registrar" id="registrarPerdida"
+        class="button" />
+    <input type="button" name="cancelarperdida" value="Cancelar" id="cancelarPerdida"
+        class="button" />
+    <br />
+    <br />
+    <label id="mensajePerdida">
+    </label>
+    <br />
+</fieldset>
+<br />
+<br />
+<br />
+<br />
+<br />
+</form>

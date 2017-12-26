@@ -1,0 +1,27 @@
+ERD  130118914
+D001C05300319091IDC05300053997Juan Emilio                                       Abreu                                   Ovallles                                
+D001C05300319091IDC05300053880Minerva Antonia                                   Abreu                                   Diaz                                    
+D001C02800675635IDC02800000289Andres                                            Berroa                                                                          
+D001C02601141209IDC02600148353Marianela                                         Emilio                                                                          
+D001C22400171637IDC00101634954Ramona Isabel                                     Lora                                    Rosado                                  
+D001C05401074595IDC05400305073Dominga Zeneida                                   Gomez                                   Valerio                                 
+D001C00107092264IDC00107197253Dulce Maria                                       Roque                                   Bueno                                   
+D001C00111192233IDC00109433706Rita Dellanira                                    Matos                                   Moquete                                 
+D001C00111192233IDC00105542849Manuel Emilio                                     Valenzuela                              Garcia                                  
+D001C03103480988IDC03101687303Maria Mercedes                                    Medina                                  Gutierrez                               
+D001C02400143869IDC02400006553Cecilia                                           Mella                                   Torres de Rodriguez                     
+D001C00116950544IDC01200558805Damaris Elizabeth                                 Alonzo                                  Matos                                   
+D001C07600177898IDC07600085950Pastora                                           Reyes                                   Mesa                                    
+D001C00104613245IDC00108311929Mariana  Catalina                                 Roa                                     De laRosa                               
+D001C00112972013IDC00100148279Daniel                                            Morillo                                                                         
+D001C01800653253IDC01800126706Nelson                                            Padilla                                 Moreta                                  
+D001C01800653253IDC01800094656Mayra Wandelina                                   Matos                                   Medina                                  
+D001C00112851928IDC00102872801Neftali Eladio                                    Polanco                                 Guzman                                  
+D001C40221157478IDC00103439071Natividad                                         Hernandez                                                                       
+D001C03103104463IDC03100601669Ana Mercedes                                      Paulino                                 Acosta                                  
+D001C03104303007IDC09200017581Julia Del Carmen                                  Rodirguez                               Hernandez                               
+D001C00117697268IDC00107137200Mireya                                            Del Rosario                                                                     
+D001C00107143182IDC08200098690Osacar                                            Solano                                                                          
+D001C00107143182IDC08200093881Lucia                                             Romero                                  Araujo                                  
+D001C00114434053IDC00108593419Saturnio                                          Lorenzo                                                                         
+S000027

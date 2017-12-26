@@ -1,0 +1,21 @@
+﻿@model SuirPlusEF.Models.Usuario
+
+@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Iniciar Sesion</h2>
+
+<div class="container">
+
+    <form class="form-signin">
+        @*<h2 class="form-signin-heading">Please sign in</h2>*@
+        <label for="txtUsuario" class="sr-only"></label>
+        <input type="text" id="txtUsuario" class="form-control" placeholder="Introduzca su nombre de usuario" required autofocus>
+        <label for="txtPassword" class="sr-only"></label>
+        <input type="password" id="txtPassword" class="form-control" placeholder="Introduzca su class" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 94%;">Aceptar</button>
+    </form>
+
+</div>
