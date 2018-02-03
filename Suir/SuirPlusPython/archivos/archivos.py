@@ -18,7 +18,6 @@ import datetime
 import re
 import funciones
 import cx_Oracle
-import linecache
 
 def procesar(archivo, id_envio, tipo, usuario_carga):
 	# agregamos este codigo para desencriptar nombre base de datos
