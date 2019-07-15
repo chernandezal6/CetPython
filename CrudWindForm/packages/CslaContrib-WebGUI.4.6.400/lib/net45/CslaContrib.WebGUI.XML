@@ -1,0 +1,1489 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CslaContrib.WebGUI</name>
+    </assembly>
+    <members>
+        <member name="T:CslaContrib.WebGUI.BindingSourceExtensions">
+            <summary>
+            Helper class to manually do correct Bind and Unbind.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceExtensions.Unbind(Gizmox.WebGUI.Forms.BindingSource,System.Boolean,System.Boolean)">
+            <summary>
+            Unbind the binding source and the Data object.
+            Use this Method to safely disconnect the data object from a BindingSource before saving data.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="cancel">if set to <c>true</c> then call CancelEdit else call EndEdit.</param>
+            <param name="isRoot">if set to <c>true</c> this BindingSource contains the Root object. Set to <c>false</c> for nested BindingSources</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceExtensions.Rebind(Gizmox.WebGUI.Forms.BindingSource,System.Object)">
+            <summary>
+            Rebind the binding source and business object.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="data">The data object.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceExtensions.Rebind(Gizmox.WebGUI.Forms.BindingSource,System.Object,System.Boolean)">
+            <summary>
+            Rebind the binding source and business object.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="data">The data object.</param>
+            <param name="metadataChanged">if set to <c>true</c> then metadata (type) was changed.</param>
+        </member>
+        <member name="T:CslaContrib.WebGUI.BindingSourceHelper">
+            <summary>
+            Helper methods for dealing with BindingSource
+            objects and data binding.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceHelper.InitializeBindingSourceTree(System.ComponentModel.IContainer,Gizmox.WebGUI.Forms.BindingSource)">
+            <summary>
+            Sets up BindingSourceNode objects for all
+            BindingSource objects related to the provided
+            root source.
+            </summary>
+            <param name="container">
+            Container for the components.
+            </param>
+            <param name="rootSource">
+            Root BindingSource object.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="T:CslaContrib.WebGUI.BindingSourceNode">
+            <summary>
+            Maintains a reference to a BindingSource object
+            on the form.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceNode.#ctor(Gizmox.WebGUI.Forms.BindingSource)">
+            <summary>
+            Creates an instance of the object.
+            </summary>
+            <param name="source">
+            BindingSource object to be mananaged.
+            </param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceNode.Bind(System.Object)">
+            <summary>
+            Binds a business object to the BindingSource.
+            </summary>
+            <param name="objectToBind">
+            Business object.
+            </param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceNode.Apply">
+            <summary>
+            Applies changes to the business object.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceNode.Cancel(System.Object)">
+            <summary>
+            Cancels changes to the business object.
+            </summary>
+            <param name="businessObject"></param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceNode.Close">
+            <summary>
+            Disconnects from the BindingSource object.
+            </summary>
+        </member>
+        <member name="T:CslaContrib.WebGUI.BindingSourceRefresh">
+            <summary>
+            BindingSourceRefresh contains functionality for refreshing the data bound to controls on Host as well as a mechinism for catching data
+            binding errors that occur in Host.
+            </summary>
+            <remarks>WebGUI extender control that resolves the
+            data refresh issue with data bound detail controls
+            as discussed in Chapter 5.</remarks>
+        </member>
+        <member name="E:CslaContrib.WebGUI.BindingSourceRefresh.BindingError">
+            <summary>
+            BindingError event is raised when a data binding error occurs due to a exception.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.#ctor">
+            <summary>
+            Constructor creates a new BindingSourceRefresh component then initialises all the different sub components.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Constructor creates a new BindingSourceRefresh component, adds the component to the container supplied before initialising all the different sub components.
+            </summary>
+            <param name="container">The container the component is to be added to.</param>
+        </member>
+        <member name="F:CslaContrib.WebGUI.BindingSourceRefresh.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.CanExtend(System.Object)">
+            <summary>
+            CanExtend() returns true if extendee is a binding source.
+            </summary>
+            <param name="extendee">The control to be extended.</param>
+            <returns>True if the control is a binding source, else false.</returns>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.GetReadValuesOnChange(Gizmox.WebGUI.Forms.BindingSource)">
+            <summary>
+            GetReadValuesOnChange() gets the value of the custom ReadValuesOnChange extender property added to extended controls.
+            property added to extended controls.
+            </summary>
+            <param name="source">Control being extended.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.SetReadValuesOnChange(Gizmox.WebGUI.Forms.BindingSource,System.Boolean)">
+            <summary>
+            SetReadValuesOnChange() sets the value of the custom ReadValuesOnChange extender
+            property added to extended controls.
+            </summary>
+            <param name="source">Control being extended.</param>
+            <param name="value">New value of property.</param>
+            <remarks></remarks>
+        </member>
+        <member name="P:CslaContrib.WebGUI.BindingSourceRefresh.Host">
+            <summary>
+            Not in use - kept for backward  compatibility
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.BindingSourceRefresh.RefreshOnException">
+            <summary>
+            Forces the binding to re-read after an exception is thrown when changing the binding value
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.RegisterControlEvents(Gizmox.WebGUI.Forms.ICurrencyManagerProvider,System.Boolean)">
+            <summary>
+            RegisterControlEvents() registers all the relevant events for the container control supplied and also to all child controls
+            in the oontainer control.
+            </summary>
+            <param name="container">The control (including child controls) to have the refresh events registered.</param>
+            <param name="register">True to register the events, false to unregister them.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.RegisterBindingEvents(Gizmox.WebGUI.Forms.BindingsCollection,System.Boolean)">
+            <summary>
+            Registers the control events.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="register">if set to <c>true</c> [register].</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.RegisterBindingEvent(Gizmox.WebGUI.Forms.Binding,System.Boolean)">
+            <summary>
+            Registers the binding event.
+            </summary>
+            <param name="register">if set to <c>true</c> [register].</param>
+            <param name="binding">The binding.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.Bindings_CollectionChanging(System.Object,System.ComponentModel.CollectionChangeEventArgs)">
+             <summary>
+             Handles the CollectionChanging event of the Bindings control.
+            
+             Remove event hooks for element or entire list depending on CollectionChangeAction.
+             </summary>
+             <param name="sender">The source of the event.</param>
+             <param name="e">The <see cref="T:System.ComponentModel.CollectionChangeEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.Bindings_CollectionChanged(System.Object,System.ComponentModel.CollectionChangeEventArgs)">
+            <summary>
+            Handles the CollectionChanged event of the Bindings control.
+               
+            Add event hooks for element or entire list depending on CollectionChangeAction.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.CollectionChangeEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.Control_BindingComplete(System.Object,Gizmox.WebGUI.Forms.BindingCompleteEventArgs)">
+            <summary>
+            Control_BindingComplete() is a event driven routine triggered when one of the control's bindings has been completed.
+            Control_BindingComplete() simply validates the result where if the result was a exception then the BindingError
+            event is raised, else if the binding was a successful data source update and we are to re-read the value on changed then
+            the binding value is reread into the control.
+            </summary>
+            <param name="sender">The object that triggered the event.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.System#ComponentModel#ISupportInitialize#BeginInit">
+            <summary>
+            BeginInit() is called when the component is starting to be initialised. BeginInit() simply sets the initialisation flag to true.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingSourceRefresh.System#ComponentModel#ISupportInitialize#EndInit">
+            <summary>
+            EndInit() is called when the component has finished being initialised.  EndInt() sets the initialise flag to false then runs
+            through registering all the different events that the component needs to hook into in Host.
+            </summary>
+        </member>
+        <member name="T:CslaContrib.WebGUI.BindingErrorEventHandler">
+            <summary>
+            BindingErrorEventHandler delegates is the event handling definition for handling data binding errors that occurred due to exceptions.
+            </summary>
+            <param name="sender">The object that triggered the event.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="T:CslaContrib.WebGUI.BindingErrorEventArgs">
+            <summary>
+            BindingErrorEventArgs defines the event arguments for reporting a data binding error due to a exception.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.BindingErrorEventArgs.Exception">
+            <summary>
+            Exception gets the exception that caused the binding error.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.BindingErrorEventArgs.Binding">
+            <summary>
+            Binding gets the binding that caused the exception.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.BindingErrorEventArgs.#ctor(Gizmox.WebGUI.Forms.Binding,System.Exception)">
+            <summary>
+            Constructor creates a new BindingErrorEventArgs object instance using the information specified.
+            </summary>
+            <param name="binding">The binding that caused th exception.</param>
+            <param name="exception">The exception that caused the error.</param>
+        </member>
+        <member name="T:CslaContrib.WebGUI.CslaActionCancelEventArgs">
+            <summary>
+            Event args providing information about
+            a canceled action.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionCancelEventArgs.#ctor(System.Boolean,System.String)">
+            <summary>
+            Creates an instance of the object.
+            </summary>
+            <param name="cancel">
+            Indicates whether a cancel should occur.
+            </param>
+            <param name="commandName">
+            Name of the command.
+            </param>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionCancelEventArgs.CommandName">
+            <summary>
+            Gets the name of the command.
+            </summary>
+        </member>
+        <member name="T:CslaContrib.WebGUI.CslaActionEventArgs">
+            <summary>
+            Event args for an action.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionEventArgs.#ctor(System.String)">
+            <summary>
+            Creates an instance of the object.
+            </summary>
+            <param name="commandName">
+            Name of the command.
+            </param>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionEventArgs.CommandName">
+            <summary>
+            Gets the name of the command.
+            </summary>
+        </member>
+        <member name="T:CslaContrib.WebGUI.CslaActionExtender">
+            <summary>
+            Extender control providing automation around
+            data binding to CSLA .NET business objects.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Creates an instance of the type.
+            </summary>
+            <param name="container">Container for the component.</param>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtender.DataSource">
+            <summary>
+            Gets or sets a reference to the data source object.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtender.AutoShowBrokenRules">
+            <summary>
+            Gets or sets a value indicating whether to automatically
+            show broken rules.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtender.WarnIfCloseOnDirty">
+            <summary>
+            Gets or sets a value indicating whether to warn the
+            user on close when the object is dirty.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtender.DirtyWarningMessage">
+            <summary>
+            Gets or sets the message shown to the user
+            in a close on dirty warning.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtender.WarnOnCancel">
+            <summary>
+            Gets or sets a value indicating whether to warn
+            the user on cancel.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtender.WarnOnCancelMessage">
+            <summary>
+            Gets or sets the message shown to the user
+            in a warn on cancel.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtender.ObjectIsValidMessage">
+            <summary>
+            Gets or sets the message shown to the user when a button with a 
+            Validate ActionType is pressed when the object is valid.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.GetActionType(Gizmox.WebGUI.Forms.Control)">
+            <summary>
+            Gets the action type.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.SetActionType(Gizmox.WebGUI.Forms.Control,CslaContrib.WebGUI.CslaFormAction)">
+            <summary>
+            Sets the action type.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.GetPostSaveAction(Gizmox.WebGUI.Forms.Control)">
+            <summary>
+            Gets the post save action.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.SetPostSaveAction(Gizmox.WebGUI.Forms.Control,CslaContrib.WebGUI.PostSaveActionType)">
+            <summary>
+            Sets the post save action.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.GetRebindAfterSave(Gizmox.WebGUI.Forms.Control)">
+            <summary>
+            Gets the rebind after save value.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.SetRebindAfterSave(Gizmox.WebGUI.Forms.Control,System.Boolean)">
+            <summary>
+            Sets the rebind after save value.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.GetDisableWhenClean(Gizmox.WebGUI.Forms.Control)">
+            <summary>
+            Gets the disable when clean value.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.SetDisableWhenClean(Gizmox.WebGUI.Forms.Control,System.Boolean)">
+            <summary>
+            Sets the disable when clean value.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.GetDisableWhenUseless(Gizmox.WebGUI.Forms.Control)">
+            <summary>
+            Gets the disable when useless value.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.SetDisableWhenUseless(Gizmox.WebGUI.Forms.Control,System.Boolean)">
+            <summary>
+            Sets the disable when useless value.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.GetCommandName(Gizmox.WebGUI.Forms.Control)">
+            <summary>
+            Gets the command name value.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.SetCommandName(Gizmox.WebGUI.Forms.Control,System.String)">
+            <summary>
+            Sets the command name value.
+            </summary>
+            <param name="ctl">Reference to Control.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtender.Clicking">
+            <summary>
+            Event indicating the user is clicking on the Control.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtender.Clicked">
+            <summary>
+            Event indicating the user clicked on the Control.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtender.ErrorEncountered">
+            <summary>
+            Event indicating an error was encountered.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtender.SetForNew">
+            <summary>
+            Event indicating the object is set for new.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtender.BusinessObjectInvalid">
+            <summary>
+            Event indicating the business object is in an invalid state.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtender.HasBrokenRules">
+            <summary>
+            Event indicating the business object has broken rules.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtender.ObjectSaving">
+            <summary>
+            Event indicating that the object is saving.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtender.ObjectSaved">
+            <summary>
+            Event indicating that the object has been saved.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.OnClicking(CslaContrib.WebGUI.CslaActionCancelEventArgs)">
+            <summary>
+            Raises the Clicking event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.OnClicked(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the Clicked event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.OnErrorEncountered(CslaContrib.WebGUI.ErrorEncounteredEventArgs)">
+            <summary>
+            Raises the ErrorEncountered event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.OnSetForNew(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the SetForNew event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.OnBusinessObjectInvalid(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the BusinessObjectInvalid event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.OnHasBrokenRules(CslaContrib.WebGUI.HasBrokenRulesEventArgs)">
+            <summary>
+            Raises the HasBrokenRules event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.OnObjectSaving(CslaContrib.WebGUI.CslaActionCancelEventArgs)">
+            <summary>
+            Raises the ObjectSaving event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.OnObjectSaved(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the ObjectSaved event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.ResetActionBehaviors(Csla.Core.ISavable)">
+            <summary>
+            Resets all action behaviors.
+            </summary>
+            <param name="objectToBind">Target object.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtender.OnClick(System.Object,System.EventArgs)">
+            <summary>
+            Method invoked when the target control is clicked.
+            </summary>
+            <param name="sender">Object originating action.</param>
+            <param name="e">Arguments.</param>
+        </member>
+        <member name="T:CslaContrib.WebGUI.CslaActionExtenderToolBar">
+            <summary>
+            Extender control (for ToolBarButton only) providing automation around
+            data binding to CSLA .NET business objects.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Creates an instance of the type.
+            </summary>
+            <param name="container">Container for the component.</param>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolBar.DataSource">
+            <summary>
+            Gets or sets a reference to the data source object.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolBar.AutoShowBrokenRules">
+            <summary>
+            Gets or sets a value indicating whether to automatically
+            show broken rules.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolBar.WarnIfCloseOnDirty">
+            <summary>
+            Gets or sets a value indicating whether to warn the
+            user on close when the object is dirty.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolBar.DirtyWarningMessage">
+            <summary>
+            Gets or sets the message shown to the user
+            in a close on dirty warning.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolBar.WarnOnCancel">
+            <summary>
+            Gets or sets a value indicating whether to warn
+            the user on cancel.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolBar.WarnOnCancelMessage">
+            <summary>
+            Gets or sets the message shown to the user
+            in a warn on cancel.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolBar.ObjectIsValidMessage">
+            <summary>
+            Gets or sets the message shown to the user when a button with a 
+            Validate ActionType is pressed when the object is valid.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.GetActionType(Gizmox.WebGUI.Forms.ToolBarButton)">
+            <summary>
+            Gets the action type.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.SetActionType(Gizmox.WebGUI.Forms.ToolBarButton,CslaContrib.WebGUI.CslaFormAction)">
+            <summary>
+            Sets the action type.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.GetPostSaveAction(Gizmox.WebGUI.Forms.ToolBarButton)">
+            <summary>
+            Gets the post save action.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.SetPostSaveAction(Gizmox.WebGUI.Forms.ToolBarButton,CslaContrib.WebGUI.PostSaveActionType)">
+            <summary>
+            Sets the post save action.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.GetRebindAfterSave(Gizmox.WebGUI.Forms.ToolBarButton)">
+            <summary>
+            Gets the rebind after save value.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.SetRebindAfterSave(Gizmox.WebGUI.Forms.ToolBarButton,System.Boolean)">
+            <summary>
+            Sets the rebind after save value.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.GetDisableWhenClean(Gizmox.WebGUI.Forms.ToolBarButton)">
+            <summary>
+            Gets the disable when clean value.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.SetDisableWhenClean(Gizmox.WebGUI.Forms.ToolBarButton,System.Boolean)">
+            <summary>
+            Sets the disable when clean value.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.GetDisableWhenUseless(Gizmox.WebGUI.Forms.ToolBarButton)">
+            <summary>
+            Gets the disable when useless value.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.SetDisableWhenUseless(Gizmox.WebGUI.Forms.ToolBarButton,System.Boolean)">
+            <summary>
+            Sets the disable when useless value.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.GetCommandName(Gizmox.WebGUI.Forms.ToolBarButton)">
+            <summary>
+            Gets the command name value.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.SetCommandName(Gizmox.WebGUI.Forms.ToolBarButton,System.String)">
+            <summary>
+            Sets the command name value.
+            </summary>
+            <param name="ctl">Reference to ToolBarButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolBar.Clicking">
+            <summary>
+            Event indicating the user is clicking on the ToolBarButton.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolBar.Clicked">
+            <summary>
+            Event indicating the user clicked on the ToolBarButton.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolBar.ErrorEncountered">
+            <summary>
+            Event indicating an error was encountered.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolBar.SetForNew">
+            <summary>
+            Event indicating the object is set for new.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolBar.BusinessObjectInvalid">
+            <summary>
+            Event indicating the business object is in an invalid state.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolBar.HasBrokenRules">
+            <summary>
+            Event indicating the business object has broken rules.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolBar.ObjectSaving">
+            <summary>
+            Event indicating that the object is saving.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolBar.ObjectSaved">
+            <summary>
+            Event indicating that the object has been saved.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.OnClicking(CslaContrib.WebGUI.CslaActionCancelEventArgs)">
+            <summary>
+            Raises the Clicking event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.OnClicked(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the Clicked event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.OnErrorEncountered(CslaContrib.WebGUI.ErrorEncounteredEventArgs)">
+            <summary>
+            Raises the ErrorEncountered event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.OnSetForNew(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the SetForNew event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.OnBusinessObjectInvalid(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the BusinessObjectInvalid event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.OnHasBrokenRules(CslaContrib.WebGUI.HasBrokenRulesEventArgs)">
+            <summary>
+            Raises the HasBrokenRules event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.OnObjectSaving(CslaContrib.WebGUI.CslaActionCancelEventArgs)">
+            <summary>
+            Raises the ObjectSaving event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.OnObjectSaved(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the ObjectSaved event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.ResetActionBehaviors(Csla.Core.ISavable)">
+            <summary>
+            Resets all action behaviors.
+            </summary>
+            <param name="objectToBind">Target object.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolBar.OnClick(System.Object,System.EventArgs)">
+            <summary>
+            Method invoked when the target control is clicked.
+            </summary>
+            <param name="sender">Object originating action.</param>
+            <param name="e">Arguments.</param>
+        </member>
+        <member name="T:CslaContrib.WebGUI.CslaActionExtenderToolStrip">
+            <summary>
+            Extender control (for ToolStripButton only) providing automation around
+            data binding to CSLA .NET business objects.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Creates an instance of the type.
+            </summary>
+            <param name="container">Container for the component.</param>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolStrip.DataSource">
+            <summary>
+            Gets or sets a reference to the data source object.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolStrip.AutoShowBrokenRules">
+            <summary>
+            Gets or sets a value indicating whether to automatically
+            show broken rules.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolStrip.WarnIfCloseOnDirty">
+            <summary>
+            Gets or sets a value indicating whether to warn the
+            user on close when the object is dirty.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolStrip.DirtyWarningMessage">
+            <summary>
+            Gets or sets the message shown to the user
+            in a close on dirty warning.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolStrip.WarnOnCancel">
+            <summary>
+            Gets or sets a value indicating whether to warn
+            the user on cancel.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolStrip.WarnOnCancelMessage">
+            <summary>
+            Gets or sets the message shown to the user
+            in a warn on cancel.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.CslaActionExtenderToolStrip.ObjectIsValidMessage">
+            <summary>
+            Gets or sets the message shown to the user when a button with a 
+            Validate ActionType is pressed when the object is valid.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.GetActionType(Gizmox.WebGUI.Forms.ToolStripButton)">
+            <summary>
+            Gets the action type.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.SetActionType(Gizmox.WebGUI.Forms.ToolStripButton,CslaContrib.WebGUI.CslaFormAction)">
+            <summary>
+            Sets the action type.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.GetPostSaveAction(Gizmox.WebGUI.Forms.ToolStripButton)">
+            <summary>
+            Gets the post save action.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.SetPostSaveAction(Gizmox.WebGUI.Forms.ToolStripButton,CslaContrib.WebGUI.PostSaveActionType)">
+            <summary>
+            Sets the post save action.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.GetRebindAfterSave(Gizmox.WebGUI.Forms.ToolStripButton)">
+            <summary>
+            Gets the rebind after save value.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.SetRebindAfterSave(Gizmox.WebGUI.Forms.ToolStripButton,System.Boolean)">
+            <summary>
+            Sets the rebind after save value.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.GetDisableWhenClean(Gizmox.WebGUI.Forms.ToolStripButton)">
+            <summary>
+            Gets the disable when clean value.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.SetDisableWhenClean(Gizmox.WebGUI.Forms.ToolStripButton,System.Boolean)">
+            <summary>
+            Sets the disable when clean value.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.GetDisableWhenUseless(Gizmox.WebGUI.Forms.ToolStripButton)">
+            <summary>
+            Gets the disable when useless value.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.SetDisableWhenUseless(Gizmox.WebGUI.Forms.ToolStripButton,System.Boolean)">
+            <summary>
+            Sets the disable when useless value.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.GetCommandName(Gizmox.WebGUI.Forms.ToolStripButton)">
+            <summary>
+            Gets the command name value.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.SetCommandName(Gizmox.WebGUI.Forms.ToolStripButton,System.String)">
+            <summary>
+            Sets the command name value.
+            </summary>
+            <param name="ctl">Reference to ToolStripButton.</param>
+            <param name="value">Value for property.</param>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolStrip.Clicking">
+            <summary>
+            Event indicating the user is clicking on the ToolStripButton.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolStrip.Clicked">
+            <summary>
+            Event indicating the user clicked on the ToolStripButton.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolStrip.ErrorEncountered">
+            <summary>
+            Event indicating an error was encountered.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolStrip.SetForNew">
+            <summary>
+            Event indicating the object is set for new.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolStrip.BusinessObjectInvalid">
+            <summary>
+            Event indicating the business object is in an invalid state.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolStrip.HasBrokenRules">
+            <summary>
+            Event indicating the business object has broken rules.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolStrip.ObjectSaving">
+            <summary>
+            Event indicating that the object is saving.
+            </summary>
+        </member>
+        <member name="E:CslaContrib.WebGUI.CslaActionExtenderToolStrip.ObjectSaved">
+            <summary>
+            Event indicating that the object has been saved.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.OnClicking(CslaContrib.WebGUI.CslaActionCancelEventArgs)">
+            <summary>
+            Raises the Clicking event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.OnClicked(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the Clicked event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.OnErrorEncountered(CslaContrib.WebGUI.ErrorEncounteredEventArgs)">
+            <summary>
+            Raises the ErrorEncountered event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.OnSetForNew(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the SetForNew event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.OnBusinessObjectInvalid(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the BusinessObjectInvalid event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.OnHasBrokenRules(CslaContrib.WebGUI.HasBrokenRulesEventArgs)">
+            <summary>
+            Raises the HasBrokenRules event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.OnObjectSaving(CslaContrib.WebGUI.CslaActionCancelEventArgs)">
+            <summary>
+            Raises the ObjectSaving event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.OnObjectSaved(CslaContrib.WebGUI.CslaActionEventArgs)">
+            <summary>
+            Raises the ObjectSaved event.
+            </summary>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.ResetActionBehaviors(Csla.Core.ISavable)">
+            <summary>
+            Resets all action behaviors.
+            </summary>
+            <param name="objectToBind">Target object.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.CslaActionExtenderToolStrip.OnClick(System.Object,System.EventArgs)">
+            <summary>
+            Method invoked when the target control is clicked.
+            </summary>
+            <param name="sender">Object originating action.</param>
+            <param name="e">Arguments.</param>
+        </member>
+        <member name="T:CslaContrib.WebGUI.CslaFormAction">
+            <summary>
+            The possible form actions.
+            </summary>
+        </member>
+        <member name="F:CslaContrib.WebGUI.CslaFormAction.None">
+            <summary>
+            No action.
+            </summary>
+        </member>
+        <member name="F:CslaContrib.WebGUI.CslaFormAction.Save">
+            <summary>
+            Perform a save.
+            </summary>
+        </member>
+        <member name="F:CslaContrib.WebGUI.CslaFormAction.Cancel">
+            <summary>
+            Undo changes.
+            </summary>
+        </member>
+        <member name="F:CslaContrib.WebGUI.CslaFormAction.Close">
+            <summary>
+            Close the form.
+            </summary>
+        </member>
+        <member name="F:CslaContrib.WebGUI.CslaFormAction.Validate">
+            <summary>
+            Display a message box with any broken rules
+            </summary>
+        </member>
+        <member name="T:CslaContrib.WebGUI.PostSaveActionType">
+            <summary>
+            The possible actions for post save.
+            </summary>
+        </member>
+        <member name="F:CslaContrib.WebGUI.PostSaveActionType.None">
+            <summary>
+            No action.
+            </summary>
+        </member>
+        <member name="F:CslaContrib.WebGUI.PostSaveActionType.AndClose">
+            <summary>
+            Also close the form.
+            </summary>
+        </member>
+        <member name="F:CslaContrib.WebGUI.PostSaveActionType.AndNew">
+            <summary>
+            Also create a new object.
+            </summary>
+        </member>
+        <member name="T:CslaContrib.WebGUI.ErrorEncounteredEventArgs">
+            <summary>
+            Event args indicating an error.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorEncounteredEventArgs.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates an instance of the object.
+            </summary>
+            <param name="commandName">
+            Name of the command.
+            </param>
+            <param name="ex">
+            Reference to the exception.
+            </param>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorEncounteredEventArgs.Ex">
+            <summary>
+            Gets a reference to the exception object.
+            </summary>
+        </member>
+        <member name="T:CslaContrib.WebGUI.ErrorProvider">
+            <summary>
+            Provides a user interface for indicating that a control on a form has an error associated with it.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CslaContrib.WebGUI.ErrorProvider"/> class and 
+            initializes the default settings for <see cref="P:Gizmox.WebGUI.Forms.ErrorProvider.BlinkRate"/>, 
+            <see cref="P:Gizmox.WebGUI.Forms.ErrorProvider.BlinkStyle"/>, and the 
+            <see cref="P:Gizmox.WebGUI.Forms.ErrorProvider.Icon"/>.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorProvider.#ctor(Gizmox.WebGUI.Forms.ContainerControl)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CslaContrib.WebGUI.ErrorProvider"/> class attached to a container.
+            </summary>
+            <param name="parentControl">The container of the control to monitor for errors.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorProvider.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CslaContrib.WebGUI.ErrorProvider"/> class attached 
+            to an <see cref="T:System.ComponentModel.IContainer"/> implementation.
+            </summary>
+            <param name="container">The <see cref="T:System.ComponentModel.IContainer"/> to monitor for errors.</param>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorProvider.DataSource">
+            <summary>
+            Gets or sets the data source that the <see cref="T:CslaContrib.WebGUI.ErrorProvider"/> monitors.
+            </summary>
+            <returns>A data source based on the <see cref="T:System.Collections.IList"/> interface to be monitored for errors.
+            Typically, this is a <see cref="T:System.Data.DataSet"/> to be monitored for errors.</returns>
+              
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorProvider.DataMember">
+            <summary>
+            Gets or sets the list within a data source to monitor.
+            </summary>
+            <returns>The string that represents a list within the data source specified by the
+            <see cref="P:CslaContrib.WebGUI.ErrorProvider.DataSource"/> to be monitored.
+            Typically, this will be a <see cref="T:System.Data.DataTable"/>.</returns>
+              
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorProvider.System#ComponentModel#ISupportInitialize#BeginInit">
+            <summary>
+            Signals the object that initialization is starting.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorProvider.System#ComponentModel#ISupportInitialize#EndInit">
+            <summary>
+            Signals the object that initialization is complete.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorProvider.UpdateBinding">
+            <summary>
+            Provides a method to update the bindings of the <see cref="P:CslaContrib.WebGUI.ErrorProvider.DataSource"/>, 
+            <see cref="P:CslaContrib.WebGUI.ErrorProvider.DataMember"/>, and the error text.
+            </summary>
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="T:CslaContrib.WebGUI.ErrorWarnInfoProvider">
+            <summary>
+            WebGUI extender control that automatically
+            displays error, warning, or information icons and
+            text for the form controls based on the
+            BrokenRulesCollection of a CSLA .NET business object.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.#cctor">
+            <summary>
+            Initializes the <see cref="T:CslaContrib.WebGUI.ErrorWarnInfoProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CslaContrib.WebGUI.ErrorWarnInfoProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Creates an instance of the object.
+            </summary>
+            <param name="container">The container of the control.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:System.ComponentModel.Component"></see> and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.System#ComponentModel#IExtenderProvider#CanExtend(System.Object)">
+            <summary>
+            Gets a value indicating whether the extender control
+            can extend the specified control.
+            </summary>
+            <param name="extendee">The control to be extended.</param>
+            <remarks>
+            Any control implementing either a ReadOnly property or
+            Enabled property can be extended.
+            </remarks>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.BlinkRate">
+            <summary>
+            Gets or sets the rate at which the error icon flashes.
+            </summary>
+            <value>The rate, in milliseconds, at which the error icon should flash. The default is 250 milliseconds.</value>
+            <exception cref="T:System.ArgumentOutOfRangeException">The value is less than zero. </exception>
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.BlinkRateInformation">
+            <summary>
+            Gets or sets the rate at which the information icon flashes.
+            </summary>
+            <value>The rate, in milliseconds, at which the information icon should flash. The default is 250 milliseconds.</value>
+            <exception cref="T:System.ArgumentOutOfRangeException">The value is less than zero. </exception> 
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.BlinkRateWarning">
+            <summary>
+            Gets or sets the rate at which the warning icon flashes.
+            </summary>
+            <value>The rate, in milliseconds, at which the warning icon should flash.
+            The default is 250 milliseconds.</value>
+            <exception cref="T:System.ArgumentOutOfRangeException">The value is less than zero. </exception>
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.BlinkStyle">
+            <summary>
+            Gets or sets a value indicating when the error icon flashes.
+            </summary>
+            <value>One of the <see cref="T:Gizmox.WebGUI.Forms.ErrorBlinkStyle"/> values.
+            The default is <see cref="F:Gizmox.WebGUI.Forms.ErrorBlinkStyle.BlinkIfDifferentError"/>.</value>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The assigned value is not one of the <see cref="T:Gizmox.WebGUI.Forms.ErrorBlinkStyle"/> values. </exception>
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.BlinkStyleInformation">
+            <summary>
+            Gets or sets a value indicating when the information icon flashes.
+            </summary>
+            <value>One of the <see cref="T:Gizmox.WebGUI.Forms.ErrorBlinkStyle"/> values.
+            The default is <see cref="F:Gizmox.WebGUI.Forms.ErrorBlinkStyle.BlinkIfDifferentError"/>.</value>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The assigned value is not one of the <see cref="T:Gizmox.WebGUI.Forms.ErrorBlinkStyle"/> values. </exception>
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.BlinkStyleWarning">
+            <summary>
+            Gets or sets a value indicating when the warning icon flashes.
+            </summary>
+            <value>One of the <see cref="T:Gizmox.WebGUI.Forms.ErrorBlinkStyle"/> values. The default is <see cref="F:Gizmox.WebGUI.Forms.ErrorBlinkStyle.BlinkIfDifferentError"/>.</value>
+            <exception cref="T:System.ComponentModel.InvalidEnumArgumentException">The assigned value is not one of the <see cref="T:Gizmox.WebGUI.Forms.ErrorBlinkStyle"/> values. </exception>
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.DataSource">
+            <summary>
+            Gets or sets the data source that the <see cref="T:Gizmox.WebGUI.Forms.ErrorProvider"></see> monitors.
+            </summary>
+            <value></value>
+            <value>A data source based on the <see cref="T:System.Collections.IList"></see> interface to be monitored for errors. Typically, this is a <see cref="T:System.Data.DataSet"></see> to be monitored for errors.</value>
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.IconInformation">
+            <summary>
+            Gets or sets the icon information.
+            </summary>
+            <value>The icon information.</value>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.IconWarning">
+            <summary>
+            Gets or sets the icon warning.
+            </summary>
+            <value>The icon warning.</value>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.IconError">
+            <summary>
+            Gets or sets the error icon.
+            </summary>
+            <value>The error icon.</value>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.ShowInformation">
+            <summary>
+            Gets or sets a value indicating whether broken rules with severity information should be visible.
+            </summary>
+            <value><c>true</c> if information is visible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:CslaContrib.WebGUI.ErrorWarnInfoProvider.ShowWarning">
+            <summary>
+            Gets or sets a value indicating whether broken rules with severity Warning should be visible.
+            </summary>
+            <value><c>true</c> if Warning is visible; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.GetInformation(Gizmox.WebGUI.Forms.Control)">
+            <summary>
+            Returns the current information description string for the specified control.
+            </summary>
+            <param name="control">The item to get the error description string for.</param>
+            <returns>The information description string for the specified control.</returns>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.GetWarning(Gizmox.WebGUI.Forms.Control)">
+            <summary>
+            Returns the current warning description string for the specified control.
+            </summary>
+            <param name="control">The item to get the error description string for.</param>
+            <returns>The warning description string for the specified control.</returns>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.ProcessControl(Gizmox.WebGUI.Forms.Control)">
+            <summary>
+            Processes the control.
+            </summary>
+            <param name="control">The control.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.SetInformation(Gizmox.WebGUI.Forms.Control,System.String)">
+            <summary>
+            Sets the information description string for the specified control.
+            </summary>
+            <param name="control">The control to set the information description string for.</param>
+            <param name="value">The information description string, or null or System.String.Empty to remove the information description.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.SetWarning(Gizmox.WebGUI.Forms.Control,System.String)">
+            <summary>
+            Sets the warning description string for the specified control.
+            </summary>
+            <param name="control">The control to set the warning description string for.</param>
+            <param name="value">The warning description string, or null or System.String.Empty to remove the warning description.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ErrorWarnInfoProvider.UpdateBinding">
+            <summary>
+            Provides a method to update the bindings of the <see cref="P:Gizmox.WebGUI.Forms.ErrorProvider.DataSource"></see>, <see cref="P:Gizmox.WebGUI.Forms.ErrorProvider.DataMember"></see>, and the error text.
+            </summary>
+            <PermissionSet><IPermission class="System.Security.Permissions.EnvironmentPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.FileIOPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/><IPermission class="System.Security.Permissions.SecurityPermission, mscorlib, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Flags="UnmanagedCode, ControlEvidence"/><IPermission class="System.Diagnostics.PerformanceCounterPermission, System, Version=2.0.3600.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" version="1" Unrestricted="true"/></PermissionSet>
+        </member>
+        <member name="T:CslaContrib.WebGUI.HasBrokenRulesEventArgs">
+            <summary>
+            Event args object containing information about a
+            broken rule.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.HasBrokenRulesEventArgs.#ctor(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of the object.
+            </summary>
+            <param name="commandName">
+            Name of the command.
+            </param>
+            <param name="hasErrors">
+            Indicates whether error severity exists.
+            </param>
+            <param name="hasWarnings">
+            Indicates whether warning severity exists.
+            </param>
+            <param name="hasInformation">
+            Indicates whether information severity exists.
+            </param>
+            <param name="autoShowBrokenRules">
+            Indicates whether to automatically show broken rules.
+            </param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.HasBrokenRulesEventArgs.#ctor(System.Boolean,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Creates a new instance of the object.
+            </summary>
+            <param name="cancel">
+            Indicates whether to cancel.
+            </param>
+            <param name="commandName">
+            Name of the command.
+            </param>
+            <param name="hasErrors">
+            Indicates whether error severity exists.
+            </param>
+            <param name="hasWarnings">
+            Indicates whether warning severity exists.
+            </param>
+            <param name="hasInformation">
+            Indicates whether information severity exists.
+            </param>
+            <param name="autoShowBrokenRules">
+            Indicates whether to automatically show broken rules.
+            </param>
+        </member>
+        <member name="P:CslaContrib.WebGUI.HasBrokenRulesEventArgs.HasErrors">
+            <summary>
+            Gets a value indicating whether
+            an error severity rule exists.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.HasBrokenRulesEventArgs.HasWarning">
+            <summary>
+            Gets a value indicating whether
+            a warning severity rule exists.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.HasBrokenRulesEventArgs.HasInformation">
+            <summary>
+            Gets a value indicating whether
+            an information severity rule exists.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.HasBrokenRulesEventArgs.AutoShowBrokenRules">
+            <summary>
+            Gets a value indicating whether
+            to show broken rules.
+            </summary>
+        </member>
+        <member name="T:CslaContrib.WebGUI.HostPropertyAttribute">
+            <summary>
+            HostPropertyAttribute is used on components to 
+            indicate the property on the component that is to be used as the 
+            parent container control in conjunction with HostComponentDesigner.
+            </summary>
+        </member>
+        <member name="P:CslaContrib.WebGUI.HostPropertyAttribute.HostPropertyName">
+            <summary>
+            HostPropertyName gets the host property name.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.HostPropertyAttribute.#ctor(System.String)">
+            <summary>
+            Constructor creates a new HostPropertyAttribute object instance using the information supplied.
+            </summary>
+            <param name="hostPropertyName">The name of the host property.</param>
+        </member>
+        <member name="T:CslaContrib.WebGUI.ObjectSaveException">
+            <summary>
+            Exception indicating a failure during an object
+            save operation.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ObjectSaveException.#ctor">
+            <summary>
+            Creates an instance of the object.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ObjectSaveException.#ctor(System.String)">
+            <summary>
+            Creates an instance of the object.
+            </summary>
+            <param name="message">
+            Exception message text.
+            </param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ObjectSaveException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates an instance of the object.
+            </summary>
+            <param name="message">
+            Exception message text.
+            </param>
+            <param name="innerException">
+            Reference to an inner exception.
+            </param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ObjectSaveException.#ctor(System.Exception)">
+            <summary>
+            Creates an instance of the object.
+            </summary>
+            <param name="innerException">
+            Reference to an inner exception.
+            </param>
+        </member>
+        <member name="T:CslaContrib.WebGUI.ReadWriteAuthorization">
+            <summary>
+            WebGUI extender control that automatically
+            enables and disables detail form controls based
+            on the authorization settings from a CSLA .NET 
+            business object.
+            </summary>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ReadWriteAuthorization.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Creates an instance of the object.
+            </summary>
+            <param name="container">The container of the control.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ReadWriteAuthorization.CanExtend(System.Object)">
+            <summary>
+            Gets a value indicating whether the extender control
+            can extend the specified control.
+            </summary>
+            <param name="extendee">The control to be extended.</param>
+            <remarks>
+            Any control implementing either a ReadOnly property or
+            Enabled property can be extended.
+            </remarks>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ReadWriteAuthorization.GetApplyAuthorization(Gizmox.WebGUI.Forms.Control)">
+            <summary>
+            Gets the custom ApplyAuthorization extender
+            property added to extended controls.
+            </summary>
+            <param name="source">Control being extended.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ReadWriteAuthorization.SetApplyAuthorization(Gizmox.WebGUI.Forms.Control,System.Boolean)">
+            <summary>
+            Sets the custom ApplyAuthorization extender
+            property added to extended controls.
+            </summary>
+            <param name="source">Control being extended.</param>
+            <param name="value">New value of property.</param>
+        </member>
+        <member name="M:CslaContrib.WebGUI.ReadWriteAuthorization.ResetControlAuthorization">
+            <summary>
+            Causes the ReadWriteAuthorization control
+            to apply authorization rules from the business
+            object to all extended controls on the form.
+            </summary>
+            <remarks>
+            Call this method to refresh the display of detail
+            controls on the form any time the authorization
+            rules may have changed. Examples include: after
+            a user logs in or out, and after an object has
+            been updated, inserted, deleted or retrieved
+            from the database.
+            </remarks>
+        </member>
+    </members>
+</doc>

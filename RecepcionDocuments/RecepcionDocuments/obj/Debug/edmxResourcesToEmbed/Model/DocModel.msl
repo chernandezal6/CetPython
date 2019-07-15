@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DocRecepcionModelStoreContainer" CdmEntityContainer="DocRecepcionEntities">
+    <EntitySetMapping Name="Login">
+      <EntityTypeMapping TypeName="DocRecepcionModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="Fecha_ult_act" ColumnName="Fecha_ult_act" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecepcionDoc">
+      <EntityTypeMapping TypeName="DocRecepcionModel.RecepcionDoc">
+        <MappingFragment StoreEntitySet="RecepcionDoc">
+          <ScalarProperty Name="Fecha_registro" ColumnName="Fecha_registro" />
+          <ScalarProperty Name="Entregado_por" ColumnName="Entregado_por" />
+          <ScalarProperty Name="Recibido_por" ColumnName="Recibido_por" />
+          <ScalarProperty Name="DocPath" ColumnName="DocPath" />
+          <ScalarProperty Name="RealNameMemo" ColumnName="RealNameMemo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="No_memo" ColumnName="No_memo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

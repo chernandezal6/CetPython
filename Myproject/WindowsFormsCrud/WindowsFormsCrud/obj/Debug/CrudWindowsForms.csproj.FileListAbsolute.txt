@@ -1,0 +1,16 @@
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\bin\Debug\CrudWindowsForms.exe.config
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\bin\Debug\CrudWindowsForms.exe
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\bin\Debug\CrudWindowsForms.pdb
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\bin\Debug\EntityFramework.dll
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\bin\Debug\EntityFramework.xml
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.csprojAssemblyReference.cache
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\WindowsFormsCrud.Form1.resources
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.Formulario.frm_Datos.resources
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.Properties.Resources.resources
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.csproj.GenerateResource.cache
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.csproj.CoreCompileInputs.cache
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.csproj.CopyComplete
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.exe
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.pdb

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CrudModelStoreContainer" CdmEntityContainer="CrudEntities3">
+    <EntitySetMapping Name="accesos">
+      <EntityTypeMapping TypeName="CrudModel.accesos">
+        <MappingFragment StoreEntitySet="accesos">
+          <ScalarProperty Name="acceso_id" ColumnName="acceso_id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="acceso_nivel" ColumnName="acceso_nivel" />
+          <ScalarProperty Name="acceso_total" ColumnName="acceso_total" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="usuario_ult_act" ColumnName="usuario_ult_act" />
+          <ScalarProperty Name="fecha_ult_Act" ColumnName="fecha_ult_Act" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="crudtable">
+      <EntityTypeMapping TypeName="CrudModel.crudtable">
+        <MappingFragment StoreEntitySet="crudtable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departamentos">
+      <EntityTypeMapping TypeName="CrudModel.departamentos">
+        <MappingFragment StoreEntitySet="departamentos">
+          <ScalarProperty Name="depart_id" ColumnName="depart_id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="fecha_ult_Act" ColumnName="fecha_ult_Act" />
+          <ScalarProperty Name="Usuario_ult_act" ColumnName="Usuario_ult_act" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="login">
+      <EntityTypeMapping TypeName="CrudModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="login_id" ColumnName="login_id" />
+          <ScalarProperty Name="usr_name" ColumnName="usr_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="confirpass" ColumnName="confirpass" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fecha_ult_act" ColumnName="fecha_ult_act" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permiso">
+      <EntityTypeMapping TypeName="CrudModel.permiso">
+        <MappingFragment StoreEntitySet="permiso">
+          <ScalarProperty Name="permiso_id" ColumnName="permiso_id" />
+          <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="acceso" ColumnName="acceso" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="fecha_ult_act" ColumnName="fecha_ult_act" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personas">
+      <EntityTypeMapping TypeName="CrudModel.personas">
+        <MappingFragment StoreEntitySet="personas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="Fecha_registro" ColumnName="Fecha_registro" />
+          <ScalarProperty Name="Fecha_ult_act" ColumnName="Fecha_ult_act" />
+          <ScalarProperty Name="Usuario_ult_act" ColumnName="Usuario_ult_act" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="CrudModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+          <ScalarProperty Name="rol_desc" ColumnName="rol_desc" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="fecha_ult_act" ColumnName="fecha_ult_act" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="table">
+      <EntityTypeMapping TypeName="CrudModel.table">
+        <MappingFragment StoreEntitySet="table">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipovisita">
+      <EntityTypeMapping TypeName="CrudModel.tipovisita">
+        <MappingFragment StoreEntitySet="tipovisita">
+          <ScalarProperty Name="tipo_vis_id" ColumnName="tipo_vis_id" />
+          <ScalarProperty Name="descripcion_tipo" ColumnName="descripcion_tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserM">
+      <EntityTypeMapping TypeName="CrudModel.UserM">
+        <MappingFragment StoreEntitySet="UserM">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="primer_nombre" ColumnName="primer_nombre" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailVerification" ColumnName="EmailVerification" />
+          <ScalarProperty Name="ActivetionCode" ColumnName="ActivetionCode" />
+          <ScalarProperty Name="OTP" ColumnName="OTP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="CrudModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="old_pass" ColumnName="old_pass" />
+          <ScalarProperty Name="new_pass" ColumnName="new_pass" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="fecha_ult_act" ColumnName="fecha_ult_act" />
+          <ScalarProperty Name="Confirmar_pass" ColumnName="Confirmar_pass" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="visitas">
+      <EntityTypeMapping TypeName="CrudModel.visitas">
+        <MappingFragment StoreEntitySet="visitas">
+          <ScalarProperty Name="id_visitas" ColumnName="id_visitas" />
+          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="barcode" ColumnName="barcode" />
+          <ScalarProperty Name="depart_id" ColumnName="depart_id" />
+          <ScalarProperty Name="encargado_id" ColumnName="encargado_id" />
+          <ScalarProperty Name="acceso_id" ColumnName="acceso_id" />
+          <ScalarProperty Name="tipo_vis_id" ColumnName="tipo_vis_id" />
+          <ScalarProperty Name="hora_entrada" ColumnName="hora_entrada" />
+          <ScalarProperty Name="hora_salida" ColumnName="hora_salida" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+          <ScalarProperty Name="fecha_ult_act" ColumnName="fecha_ult_act" />
+          <ScalarProperty Name="usuario_ult_act" ColumnName="usuario_ult_act" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CrudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="accesos">
+    <Key>
+      <PropertyRef Name="acceso_id" />
+    </Key>
+    <Property Name="acceso_id" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="acceso_nivel" Type="int" Nullable="false" />
+    <Property Name="acceso_total" Type="int" Nullable="false" />
+    <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
+    <Property Name="usuario_ult_act" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_ult_Act" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="crudtable">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fecha_nac" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="departamentos">
+    <Key>
+      <PropertyRef Name="depart_id" />
+    </Key>
+    <Property Name="depart_id" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="fecha_registro" Type="datetime" Nullable="false" />
+    <Property Name="fecha_ult_Act" Type="datetime" Nullable="false" />
+    <Property Name="Usuario_ult_act" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="login_id" />
+    </Key>
+    <Property Name="login_id" Type="int" Nullable="false" />
+    <Property Name="usr_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="confirpass" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="fecha_ult_act" Type="datetime" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="permiso">
+    <Key>
+      <PropertyRef Name="rol_id" />
+      <PropertyRef Name="usuario_id" />
+    </Key>
+    <Property Name="permiso_id" Type="int" Nullable="false" />
+    <Property Name="rol_id" Type="int" Nullable="false" />
+    <Property Name="usuario_id" Type="int" Nullable="false" />
+    <Property Name="acceso" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha_ingreso" Type="datetime" />
+    <Property Name="fecha_ult_act" Type="datetime" />
+  </EntityType>
+  <EntityType Name="personas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="identificacion" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="13" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="foto" Type="image" />
+    <Property Name="Fecha_registro" Type="smalldatetime" />
+    <Property Name="Fecha_ult_act" Type="smalldatetime" Nullable="false" />
+    <Property Name="Usuario_ult_act" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="rol_id" />
+    </Key>
+    <Property Name="rol_id" Type="int" Nullable="false" />
+    <Property Name="rol_desc" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha_ingreso" Type="datetime" />
+    <Property Name="fecha_ult_act" Type="datetime" />
+    <Property Name="role" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="table">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="correo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="fecha_nac" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipovisita">
+    <Key>
+      <PropertyRef Name="tipo_vis_id" />
+    </Key>
+    <Property Name="tipo_vis_id" Type="int" Nullable="false" />
+    <Property Name="descripcion_tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserM">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="primer_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="EmailVerification" Type="bit" />
+    <Property Name="ActivetionCode" Type="uniqueidentifier" />
+    <Property Name="OTP" Type="nvarchar" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="usuario_id" />
+    </Key>
+    <Property Name="usuario_id" Type="int" Nullable="false" />
+    <Property Name="usuario" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="old_pass" Type="nvarchar" MaxLength="50" />
+    <Property Name="new_pass" Type="nvarchar" MaxLength="50" />
+    <Property Name="fecha_ingreso" Type="datetime" />
+    <Property Name="fecha_ult_act" Type="datetime" />
+    <Property Name="Confirmar_pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="visitas">
+    <Key>
+      <PropertyRef Name="id_visitas" />
+    </Key>
+    <Property Name="id_visitas" Type="int" Nullable="false" />
+    <Property Name="identificacion" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="barcode" Type="int" Nullable="false" />
+    <Property Name="depart_id" Type="int" Nullable="false" />
+    <Property Name="encargado_id" Type="int" Nullable="false" />
+    <Property Name="acceso_id" Type="int" Nullable="false" />
+    <Property Name="tipo_vis_id" Type="int" Nullable="false" />
+    <Property Name="hora_entrada" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="hora_salida" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="comentario" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
+    <Property Name="fecha_ult_act" Type="datetime" Nullable="false" />
+    <Property Name="usuario_ult_act" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__permiso__rol_id__0F975522">
+    <End Role="roles" Type="Self.roles" Multiplicity="1" />
+    <End Role="permiso" Type="Self.permiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="rol_id" />
+      </Principal>
+      <Dependent Role="permiso">
+        <PropertyRef Name="rol_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__permiso__usuario__0EA330E9">
+    <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+    <End Role="permiso" Type="Self.permiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="usuario_id" />
+      </Principal>
+      <Dependent Role="permiso">
+        <PropertyRef Name="usuario_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CrudModelStoreContainer">
+    <EntitySet Name="accesos" EntityType="Self.accesos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="crudtable" EntityType="Self.crudtable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="permiso" EntityType="Self.permiso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="personas" EntityType="Self.personas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="table" EntityType="Self.table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipovisita" EntityType="Self.tipovisita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserM" EntityType="Self.UserM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="visitas" EntityType="Self.visitas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__permiso__rol_id__0F975522" Association="Self.FK__permiso__rol_id__0F975522">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="permiso" EntitySet="permiso" />
+    </AssociationSet>
+    <AssociationSet Name="FK__permiso__usuario__0EA330E9" Association="Self.FK__permiso__usuario__0EA330E9">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="permiso" EntitySet="permiso" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,7 @@
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\CrudWindForm\obj\Debug\CrudWindForm.Form1.resources
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\CrudWindForm\obj\Debug\CrudWindForm.Presentacion.frmAgenda.resources
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\CrudWindForm\obj\Debug\CrudWindForm.Presentacion.FrmCrud.resources
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\CrudWindForm\obj\Debug\CrudWindForm.frmLogin.resources
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\CrudWindForm\obj\Debug\CrudWindForm.Properties.Resources.resources
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\CrudWindForm\obj\Debug\CrudWindForm.csproj.GenerateResource.cache
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\CrudWindForm\obj\Debug\CrudWindForm.csproj.CoreCompileInputs.cache

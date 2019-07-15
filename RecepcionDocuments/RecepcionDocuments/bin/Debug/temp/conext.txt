@@ -1,0 +1,4 @@
+USUARIO:           USRRPTSVR
+CONTRASEÑA: 37sUwDSoRzTwp1ujD37y
+
+Servidor: 172.20.2.31/sfpa0708

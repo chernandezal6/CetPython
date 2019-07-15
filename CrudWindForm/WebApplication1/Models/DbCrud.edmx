@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CrudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accesos">
+          <Key>
+            <PropertyRef Name="acceso_id" />
+          </Key>
+          <Property Name="acceso_id" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="acceso_nivel" Type="int" Nullable="false" />
+          <Property Name="acceso_total" Type="int" Nullable="false" />
+          <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
+          <Property Name="usuario_ult_act" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_ult_Act" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="crudtable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_nac" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="departamentos">
+          <Key>
+            <PropertyRef Name="depart_id" />
+          </Key>
+          <Property Name="depart_id" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="fecha_registro" Type="datetime" Nullable="false" />
+          <Property Name="fecha_ult_Act" Type="datetime" Nullable="false" />
+          <Property Name="Usuario_ult_act" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="login_id" />
+          </Key>
+          <Property Name="login_id" Type="int" Nullable="false" />
+          <Property Name="usr_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="confirpass" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="fecha_ult_act" Type="datetime" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="permiso">
+          <Key>
+            <PropertyRef Name="rol_id" />
+            <PropertyRef Name="usuario_id" />
+          </Key>
+          <Property Name="permiso_id" Type="int" Nullable="false" />
+          <Property Name="rol_id" Type="int" Nullable="false" />
+          <Property Name="usuario_id" Type="int" Nullable="false" />
+          <Property Name="acceso" Type="nvarchar" MaxLength="50" />
+          <Property Name="fecha_ingreso" Type="datetime" />
+          <Property Name="fecha_ult_act" Type="datetime" />
+        </EntityType>
+        <EntityType Name="personas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="identificacion" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="foto" Type="image" />
+          <Property Name="Fecha_registro" Type="smalldatetime" />
+          <Property Name="Fecha_ult_act" Type="smalldatetime" Nullable="false" />
+          <Property Name="Usuario_ult_act" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="rol_id" />
+          </Key>
+          <Property Name="rol_id" Type="int" Nullable="false" />
+          <Property Name="rol_desc" Type="nvarchar" MaxLength="50" />
+          <Property Name="fecha_ingreso" Type="datetime" />
+          <Property Name="fecha_ult_act" Type="datetime" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="correo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="fecha_nac" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipovisita">
+          <Key>
+            <PropertyRef Name="tipo_vis_id" />
+          </Key>
+          <Property Name="tipo_vis_id" Type="int" Nullable="false" />
+          <Property Name="descripcion_tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserM">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="primer_nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="EmailVerification" Type="bit" />
+          <Property Name="ActivetionCode" Type="uniqueidentifier" />
+          <Property Name="OTP" Type="nvarchar" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="usuario_id" />
+          </Key>
+          <Property Name="usuario_id" Type="int" Nullable="false" />
+          <Property Name="usuario" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="old_pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="new_pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="fecha_ingreso" Type="datetime" />
+          <Property Name="fecha_ult_act" Type="datetime" />
+          <Property Name="Confirmar_pass" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="visitas">
+          <Key>
+            <PropertyRef Name="id_visitas" />
+          </Key>
+          <Property Name="id_visitas" Type="int" Nullable="false" />
+          <Property Name="identificacion" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="barcode" Type="int" Nullable="false" />
+          <Property Name="depart_id" Type="int" Nullable="false" />
+          <Property Name="encargado_id" Type="int" Nullable="false" />
+          <Property Name="acceso_id" Type="int" Nullable="false" />
+          <Property Name="tipo_vis_id" Type="int" Nullable="false" />
+          <Property Name="hora_entrada" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="hora_salida" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="comentario" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
+          <Property Name="fecha_ult_act" Type="datetime" Nullable="false" />
+          <Property Name="usuario_ult_act" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__permiso__rol_id__0F975522">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="permiso" Type="Self.permiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="rol_id" />
+            </Principal>
+            <Dependent Role="permiso">
+              <PropertyRef Name="rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__permiso__usuario__0EA330E9">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="permiso" Type="Self.permiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="usuario_id" />
+            </Principal>
+            <Dependent Role="permiso">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CrudModelStoreContainer">
+          <EntitySet Name="accesos" EntityType="Self.accesos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="crudtable" EntityType="Self.crudtable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="departamentos" EntityType="Self.departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="permiso" EntityType="Self.permiso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personas" EntityType="Self.personas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="table" EntityType="Self.table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipovisita" EntityType="Self.tipovisita" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserM" EntityType="Self.UserM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="visitas" EntityType="Self.visitas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__permiso__rol_id__0F975522" Association="Self.FK__permiso__rol_id__0F975522">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="permiso" EntitySet="permiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__permiso__usuario__0EA330E9" Association="Self.FK__permiso__usuario__0EA330E9">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="permiso" EntitySet="permiso" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CrudModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="accesos">
+          <Key>
+            <PropertyRef Name="acceso_id" />
+          </Key>
+          <Property Name="acceso_id" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="acceso_nivel" Type="Int32" Nullable="false" />
+          <Property Name="acceso_total" Type="Int32" Nullable="false" />
+          <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_ult_act" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha_ult_Act" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="crudtable">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha_nac" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="departamentos">
+          <Key>
+            <PropertyRef Name="depart_id" />
+          </Key>
+          <Property Name="depart_id" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha_registro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_ult_Act" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Usuario_ult_act" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="login_id" />
+          </Key>
+          <Property Name="login_id" Type="Int32" Nullable="false" />
+          <Property Name="usr_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="confirpass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_ult_act" Type="DateTime" Precision="3" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="permiso">
+          <Key>
+            <PropertyRef Name="rol_id" />
+            <PropertyRef Name="usuario_id" />
+          </Key>
+          <Property Name="permiso_id" Type="Int32" Nullable="false" />
+          <Property Name="rol_id" Type="Int32" Nullable="false" />
+          <Property Name="usuario_id" Type="Int32" Nullable="false" />
+          <Property Name="acceso" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_ingreso" Type="DateTime" Precision="3" />
+          <Property Name="fecha_ult_act" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="roles" Relationship="Self.FK__permiso__rol_id__0F975522" FromRole="permiso" ToRole="roles" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK__permiso__usuario__0EA330E9" FromRole="permiso" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="personas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="identificacion" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Fecha_registro" Type="DateTime" Precision="0" />
+          <Property Name="Fecha_ult_act" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Usuario_ult_act" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="rol_id" />
+          </Key>
+          <Property Name="rol_id" Type="Int32" Nullable="false" />
+          <Property Name="rol_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_ingreso" Type="DateTime" Precision="3" />
+          <Property Name="fecha_ult_act" Type="DateTime" Precision="3" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="permiso" Relationship="Self.FK__permiso__rol_id__0F975522" FromRole="roles" ToRole="permiso" />
+        </EntityType>
+        <EntityType Name="table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha_nac" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tipovisita">
+          <Key>
+            <PropertyRef Name="tipo_vis_id" />
+          </Key>
+          <Property Name="tipo_vis_id" Type="Int32" Nullable="false" />
+          <Property Name="descripcion_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserM">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="primer_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailVerification" Type="Boolean" />
+          <Property Name="ActivetionCode" Type="Guid" />
+          <Property Name="OTP" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="usuario_id" />
+          </Key>
+          <Property Name="usuario_id" Type="Int32" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="old_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="new_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_ingreso" Type="DateTime" Precision="3" />
+          <Property Name="fecha_ult_act" Type="DateTime" Precision="3" />
+          <Property Name="Confirmar_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="permiso" Relationship="Self.FK__permiso__usuario__0EA330E9" FromRole="usuarios" ToRole="permiso" />
+        </EntityType>
+        <EntityType Name="visitas">
+          <Key>
+            <PropertyRef Name="id_visitas" />
+          </Key>
+          <Property Name="id_visitas" Type="Int32" Nullable="false" />
+          <Property Name="identificacion" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="barcode" Type="Int32" Nullable="false" />
+          <Property Name="depart_id" Type="Int32" Nullable="false" />
+          <Property Name="encargado_id" Type="Int32" Nullable="false" />
+          <Property Name="acceso_id" Type="Int32" Nullable="false" />
+          <Property Name="tipo_vis_id" Type="Int32" Nullable="false" />
+          <Property Name="hora_entrada" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="hora_salida" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comentario" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_ult_act" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="usuario_ult_act" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__permiso__rol_id__0F975522">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="permiso" Type="Self.permiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="rol_id" />
+            </Principal>
+            <Dependent Role="permiso">
+              <PropertyRef Name="rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__permiso__usuario__0EA330E9">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="permiso" Type="Self.permiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="usuario_id" />
+            </Principal>
+            <Dependent Role="permiso">
+              <PropertyRef Name="usuario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CrudEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accesos" EntityType="Self.accesos" />
+          <EntitySet Name="crudtable" EntityType="Self.crudtable" />
+          <EntitySet Name="departamentos" EntityType="Self.departamentos" />
+          <EntitySet Name="login" EntityType="Self.login" />
+          <EntitySet Name="permiso" EntityType="Self.permiso" />
+          <EntitySet Name="personas" EntityType="Self.personas" />
+          <EntitySet Name="roles" EntityType="Self.roles" />
+          <EntitySet Name="table" EntityType="Self.table" />
+          <EntitySet Name="tipovisita" EntityType="Self.tipovisita" />
+          <EntitySet Name="UserM" EntityType="Self.UserM" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+          <EntitySet Name="visitas" EntityType="Self.visitas" />
+          <AssociationSet Name="FK__permiso__rol_id__0F975522" Association="Self.FK__permiso__rol_id__0F975522">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="permiso" EntitySet="permiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__permiso__usuario__0EA330E9" Association="Self.FK__permiso__usuario__0EA330E9">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="permiso" EntitySet="permiso" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CrudModelStoreContainer" CdmEntityContainer="CrudEntities3">
+          <EntitySetMapping Name="accesos">
+            <EntityTypeMapping TypeName="CrudModel.accesos">
+              <MappingFragment StoreEntitySet="accesos">
+                <ScalarProperty Name="acceso_id" ColumnName="acceso_id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="acceso_nivel" ColumnName="acceso_nivel" />
+                <ScalarProperty Name="acceso_total" ColumnName="acceso_total" />
+                <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+                <ScalarProperty Name="usuario_ult_act" ColumnName="usuario_ult_act" />
+                <ScalarProperty Name="fecha_ult_Act" ColumnName="fecha_ult_Act" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="crudtable">
+            <EntityTypeMapping TypeName="CrudModel.crudtable">
+              <MappingFragment StoreEntitySet="crudtable">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departamentos">
+            <EntityTypeMapping TypeName="CrudModel.departamentos">
+              <MappingFragment StoreEntitySet="departamentos">
+                <ScalarProperty Name="depart_id" ColumnName="depart_id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="fecha_ult_Act" ColumnName="fecha_ult_Act" />
+                <ScalarProperty Name="Usuario_ult_act" ColumnName="Usuario_ult_act" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="login">
+            <EntityTypeMapping TypeName="CrudModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="login_id" ColumnName="login_id" />
+                <ScalarProperty Name="usr_name" ColumnName="usr_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="confirpass" ColumnName="confirpass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fecha_ult_act" ColumnName="fecha_ult_act" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="permiso">
+            <EntityTypeMapping TypeName="CrudModel.permiso">
+              <MappingFragment StoreEntitySet="permiso">
+                <ScalarProperty Name="permiso_id" ColumnName="permiso_id" />
+                <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+                <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+                <ScalarProperty Name="acceso" ColumnName="acceso" />
+                <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+                <ScalarProperty Name="fecha_ult_act" ColumnName="fecha_ult_act" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personas">
+            <EntityTypeMapping TypeName="CrudModel.personas">
+              <MappingFragment StoreEntitySet="personas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="Fecha_registro" ColumnName="Fecha_registro" />
+                <ScalarProperty Name="Fecha_ult_act" ColumnName="Fecha_ult_act" />
+                <ScalarProperty Name="Usuario_ult_act" ColumnName="Usuario_ult_act" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="CrudModel.roles">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="rol_id" ColumnName="rol_id" />
+                <ScalarProperty Name="rol_desc" ColumnName="rol_desc" />
+                <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+                <ScalarProperty Name="fecha_ult_act" ColumnName="fecha_ult_act" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="table">
+            <EntityTypeMapping TypeName="CrudModel.table">
+              <MappingFragment StoreEntitySet="table">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="fecha_nac" ColumnName="fecha_nac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipovisita">
+            <EntityTypeMapping TypeName="CrudModel.tipovisita">
+              <MappingFragment StoreEntitySet="tipovisita">
+                <ScalarProperty Name="tipo_vis_id" ColumnName="tipo_vis_id" />
+                <ScalarProperty Name="descripcion_tipo" ColumnName="descripcion_tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserM">
+            <EntityTypeMapping TypeName="CrudModel.UserM">
+              <MappingFragment StoreEntitySet="UserM">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="primer_nombre" ColumnName="primer_nombre" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailVerification" ColumnName="EmailVerification" />
+                <ScalarProperty Name="ActivetionCode" ColumnName="ActivetionCode" />
+                <ScalarProperty Name="OTP" ColumnName="OTP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="CrudModel.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="usuario_id" ColumnName="usuario_id" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="old_pass" ColumnName="old_pass" />
+                <ScalarProperty Name="new_pass" ColumnName="new_pass" />
+                <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+                <ScalarProperty Name="fecha_ult_act" ColumnName="fecha_ult_act" />
+                <ScalarProperty Name="Confirmar_pass" ColumnName="Confirmar_pass" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="visitas">
+            <EntityTypeMapping TypeName="CrudModel.visitas">
+              <MappingFragment StoreEntitySet="visitas">
+                <ScalarProperty Name="id_visitas" ColumnName="id_visitas" />
+                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+                <ScalarProperty Name="barcode" ColumnName="barcode" />
+                <ScalarProperty Name="depart_id" ColumnName="depart_id" />
+                <ScalarProperty Name="encargado_id" ColumnName="encargado_id" />
+                <ScalarProperty Name="acceso_id" ColumnName="acceso_id" />
+                <ScalarProperty Name="tipo_vis_id" ColumnName="tipo_vis_id" />
+                <ScalarProperty Name="hora_entrada" ColumnName="hora_entrada" />
+                <ScalarProperty Name="hora_salida" ColumnName="hora_salida" />
+                <ScalarProperty Name="comentario" ColumnName="comentario" />
+                <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+                <ScalarProperty Name="fecha_ult_act" ColumnName="fecha_ult_act" />
+                <ScalarProperty Name="usuario_ult_act" ColumnName="usuario_ult_act" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

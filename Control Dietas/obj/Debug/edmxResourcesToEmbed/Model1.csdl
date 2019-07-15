@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DireccionCalidadModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DireccionCalidadEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="status_dietas" EntityType="DireccionCalidadModel.status_dietas" />
+    <EntitySet Name="dietas" EntityType="DireccionCalidadModel.dietas" />
+    <EntitySet Name="empleados" EntityType="DireccionCalidadModel.empleados" />
+    <EntitySet Name="asignacion_max" EntityType="DireccionCalidadModel.asignacion_max" />
+    <EntitySet Name="Categoria" EntityType="DireccionCalidadModel.Categoria" />
+    <AssociationSet Name="fk_categorias" Association="DireccionCalidadModel.fk_categorias">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="empleados" EntitySet="empleados" />
+    </AssociationSet>
+    <EntitySet Name="GetDietasNoPagadas2" EntityType="DireccionCalidadModel.GetDietasNoPagadas2" />
+    <FunctionImport Name="get_dieta" ReturnType="Collection(DireccionCalidadModel.get_dieta_Result2)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="status_dietas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_dieta" Type="Int32" />
+    <Property Name="DCA" Type="Boolean" />
+    <Property Name="Fecha_Salida_DCA" Type="DateTime" Precision="3" />
+    <Property Name="Transporte" Type="Boolean" />
+    <Property Name="Fecha_Salida_Transporte" Type="DateTime" Precision="3" />
+    <Property Name="RRHH" Type="Boolean" />
+    <Property Name="Fecha_Salida_RRHH" Type="DateTime" Precision="3" />
+    <Property Name="Auditoria" Type="Boolean" />
+    <Property Name="Fecha_Salida_Auditoria" Type="DateTime" Precision="3" />
+    <Property Name="Financiero" Type="Boolean" />
+    <Property Name="Fecha_Salida_Financiero" Type="DateTime" Precision="3" />
+    <Property Name="Nomina" Type="Boolean" />
+    <Property Name="Fecha_Salida_Nomina" Type="DateTime" Precision="3" />
+    <Property Name="Pagada" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="dietas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoraFecha_Partida" Type="DateTime" Precision="3" />
+    <Property Name="HoraFecha_Retorno" Type="DateTime" Precision="3" />
+    <Property Name="Desayuno" Type="Boolean" />
+    <Property Name="Almuerzo" Type="Boolean" />
+    <Property Name="Cena" Type="Boolean" />
+    <Property Name="Alojamiento" Type="Boolean" />
+    <Property Name="Provincia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CartaRuta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Memo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Actividad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="get_dieta_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="HoraFecha_Partida" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Desayuno" Nullable="true" />
+    <Property Type="DateTime" Name="HoraFecha_Retorno" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Almuerzo" Nullable="true" />
+    <Property Type="Boolean" Name="Cena" Nullable="true" />
+    <Property Type="Boolean" Name="Alojamiento" Nullable="true" />
+    <Property Type="String" Name="Provincia" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Codigo" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="CartaRuta" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Memo" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="DCA" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_DCA" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_Salida_Transporte" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Transporte" Nullable="true" />
+    <Property Type="Boolean" Name="RRHH" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_RRHH" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Auditoria" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_Auditoria" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Financiero" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_Financiero" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Nomina" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_Nomina" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Pagada" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="empleados">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CODIGO" Type="Int32" />
+    <Property Name="NOMBRES" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDOS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CARGO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TEL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORIAID" Type="Int32" />
+    <Property Name="CEDULA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Categoria" Relationship="DireccionCalidadModel.fk_categorias" FromRole="empleados" ToRole="Categoria" />
+    <Property Name="DIRECCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OTRA_DIRECCION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CELULAR" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CELULAR_OTRO" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="SUELDO_MENSUAL" Type="Single" />
+  </EntityType>
+  <ComplexType Name="get_dieta_Result1">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="HoraFecha_Partida" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Desayuno" Nullable="true" />
+    <Property Type="DateTime" Name="HoraFecha_Retorno" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Almuerzo" Nullable="true" />
+    <Property Type="Boolean" Name="Cena" Nullable="true" />
+    <Property Type="Boolean" Name="Alojamiento" Nullable="true" />
+    <Property Type="String" Name="Provincia" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Codigo" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="CartaRuta" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Memo" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="DCA" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_DCA" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_Salida_Transporte" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Transporte" Nullable="true" />
+    <Property Type="Boolean" Name="RRHH" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_RRHH" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Auditoria" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_Auditoria" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Financiero" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_Financiero" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Nomina" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_Nomina" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Pagada" Nullable="true" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="511" />
+    <Property Type="Single" Name="ASIGACION_MAX" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="asignacion_max">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EMP_COD" Type="Int32" />
+    <Property Name="ASIGACION_MAX" Type="Single" />
+    <Property Name="DESAYUNO" Type="Single" />
+    <Property Name="ALMUERZO" Type="Single" />
+    <Property Name="CENA" Type="Single" />
+    <Property Name="ALOJAMIENTO" Type="Single" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Categoria1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AsignacionMax" Type="Double" />
+    <Property Name="Desayuno" Type="Double" />
+    <Property Name="Almuerzo" Type="Double" />
+    <Property Name="Cena" Type="Double" />
+    <Property Name="Alojamiento" Type="Double" />
+    <NavigationProperty Name="empleados" Relationship="DireccionCalidadModel.fk_categorias" FromRole="Categoria" ToRole="empleados" />
+  </EntityType>
+  <Association Name="fk_categorias">
+    <End Type="DireccionCalidadModel.Categoria" Role="Categoria" Multiplicity="0..1" />
+    <End Type="DireccionCalidadModel.empleados" Role="empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="empleados">
+        <PropertyRef Name="CATEGORIAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="GetDietasNoPagadas2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CartaRuta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Memo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DCA" Type="Boolean" />
+    <Property Name="Transporte" Type="Boolean" />
+    <Property Name="RRHH" Type="Boolean" />
+    <Property Name="Auditoria" Type="Boolean" />
+    <Property Name="Financiero" Type="Boolean" />
+    <Property Name="Nomina" Type="Boolean" />
+    <Property Name="Pagada" Type="Boolean" />
+    <Property Name="Provincia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Codigo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="get_dieta_Result2">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="DateTime" Name="HoraFecha_Partida" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Desayuno" Nullable="true" />
+    <Property Type="DateTime" Name="HoraFecha_Retorno" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Almuerzo" Nullable="true" />
+    <Property Type="Boolean" Name="Cena" Nullable="true" />
+    <Property Type="Boolean" Name="Alojamiento" Nullable="true" />
+    <Property Type="String" Name="Provincia" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Codigo" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="CartaRuta" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Memo" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="DCA" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_DCA" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="Fecha_Salida_Transporte" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Transporte" Nullable="true" />
+    <Property Type="Boolean" Name="RRHH" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_RRHH" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Auditoria" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_Auditoria" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Financiero" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_Financiero" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Nomina" Nullable="true" />
+    <Property Type="DateTime" Name="Fecha_Salida_Nomina" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="Pagada" Nullable="true" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="511" />
+    <Property Type="Single" Name="ASIGACION_MAX" Nullable="true" />
+    <Property Type="String" Name="Actividad" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+</Schema>

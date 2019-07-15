@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DireccionCalidadModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="asignacion_max">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="EMP_COD" Type="int" />
+    <Property Name="ASIGACION_MAX" Type="real" />
+    <Property Name="DESAYUNO" Type="real" />
+    <Property Name="ALMUERZO" Type="real" />
+    <Property Name="CENA" Type="real" />
+    <Property Name="ALOJAMIENTO" Type="real" />
+  </EntityType>
+  <EntityType Name="dietas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoraFecha_Partida" Type="datetime" />
+    <Property Name="HoraFecha_Retorno" Type="datetime" />
+    <Property Name="Desayuno" Type="bit" />
+    <Property Name="Almuerzo" Type="bit" />
+    <Property Name="Cena" Type="bit" />
+    <Property Name="Alojamiento" Type="bit" />
+    <Property Name="Provincia" Type="varchar" MaxLength="255" />
+    <Property Name="Nombre" Type="varchar" MaxLength="255" />
+    <Property Name="Codigo" Type="varchar" MaxLength="255" />
+    <Property Name="CartaRuta" Type="varchar" MaxLength="255" />
+    <Property Name="Memo" Type="varchar" MaxLength="255" />
+    <Property Name="Actividad" Type="text" />
+  </EntityType>
+  <EntityType Name="status_dietas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_dieta" Type="int" />
+    <Property Name="DCA" Type="bit" />
+    <Property Name="Fecha_Salida_DCA" Type="datetime" />
+    <Property Name="Transporte" Type="bit" />
+    <Property Name="Fecha_Salida_Transporte" Type="datetime" />
+    <Property Name="RRHH" Type="bit" />
+    <Property Name="Fecha_Salida_RRHH" Type="datetime" />
+    <Property Name="Auditoria" Type="bit" />
+    <Property Name="Fecha_Salida_Auditoria" Type="datetime" />
+    <Property Name="Financiero" Type="bit" />
+    <Property Name="Fecha_Salida Financiero" Type="datetime" />
+    <Property Name="Nomina" Type="bit" />
+    <Property Name="Fecha_Salida_Nomina" Type="datetime" />
+    <Property Name="Pagada" Type="bit" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Categoria" Type="varchar" MaxLength="255" />
+    <Property Name="AsignacionMax" Type="float" />
+    <Property Name="Desayuno" Type="float" />
+    <Property Name="Almuerzo" Type="float" />
+    <Property Name="Cena" Type="float" />
+    <Property Name="Alojamiento" Type="float" />
+  </EntityType>
+  <EntityType Name="empleados">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CODIGO" Type="int" />
+    <Property Name="NOMBRES" Type="varchar" MaxLength="255" />
+    <Property Name="APELLIDOS" Type="varchar" MaxLength="255" />
+    <Property Name="CARGO" Type="varchar" MaxLength="255" />
+    <Property Name="TEL" Type="varchar" MaxLength="255" />
+    <Property Name="CATEGORIAID" Type="int" />
+    <Property Name="CEDULA" Type="varchar" MaxLength="255" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="255" />
+    <Property Name="OTRA_DIRECCION" Type="varchar" MaxLength="255" />
+    <Property Name="TELEFONO" Type="varchar" MaxLength="255" />
+    <Property Name="CELULAR" Type="varchar" MaxLength="255" />
+    <Property Name="CELULAR_OTRO" Type="varchar" MaxLength="255" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="255" />
+    <Property Name="SUELDO_MENSUAL" Type="real" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DireccionCalidad.ControlDietas.GetDietasNoPagadas2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GetDietasNoPagadas2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="255" />
+    <Property Name="CartaRuta" Type="varchar" MaxLength="255" />
+    <Property Name="Memo" Type="varchar" MaxLength="255" />
+    <Property Name="DCA" Type="bit" />
+    <Property Name="Transporte" Type="bit" />
+    <Property Name="RRHH" Type="bit" />
+    <Property Name="Auditoria" Type="bit" />
+    <Property Name="Financiero" Type="bit" />
+    <Property Name="Nomina" Type="bit" />
+    <Property Name="Pagada" Type="bit" />
+    <Property Name="Provincia" Type="varchar" MaxLength="255" />
+    <Property Name="Codigo" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="fk_categorias">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="0..1" />
+    <End Role="empleados" Type="Self.empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="empleados">
+        <PropertyRef Name="CATEGORIAID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="get_dieta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ControlDietas">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="DireccionCalidadModelStoreContainer">
+    <EntitySet Name="asignacion_max" EntityType="Self.asignacion_max" Schema="ControlDietas" store:Type="Tables" />
+    <EntitySet Name="dietas" EntityType="Self.dietas" Schema="ControlDietas" store:Type="Tables" />
+    <EntitySet Name="status_dietas" EntityType="Self.status_dietas" Schema="ControlDietas" store:Type="Tables" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="ControlEmpleados" store:Type="Tables" />
+    <EntitySet Name="empleados" EntityType="Self.empleados" Schema="ControlEmpleados" store:Type="Tables" />
+    <EntitySet Name="GetDietasNoPagadas2" EntityType="Self.GetDietasNoPagadas2" store:Type="Views" store:Schema="ControlDietas">
+      <DefiningQuery>SELECT 
+    [GetDietasNoPagadas2].[ID] AS [ID], 
+    [GetDietasNoPagadas2].[Nombre] AS [Nombre], 
+    [GetDietasNoPagadas2].[CartaRuta] AS [CartaRuta], 
+    [GetDietasNoPagadas2].[Memo] AS [Memo], 
+    [GetDietasNoPagadas2].[DCA] AS [DCA], 
+    [GetDietasNoPagadas2].[Transporte] AS [Transporte], 
+    [GetDietasNoPagadas2].[RRHH] AS [RRHH], 
+    [GetDietasNoPagadas2].[Auditoria] AS [Auditoria], 
+    [GetDietasNoPagadas2].[Financiero] AS [Financiero], 
+    [GetDietasNoPagadas2].[Nomina] AS [Nomina], 
+    [GetDietasNoPagadas2].[Pagada] AS [Pagada], 
+    [GetDietasNoPagadas2].[Provincia] AS [Provincia], 
+    [GetDietasNoPagadas2].[Codigo] AS [Codigo]
+    FROM [ControlDietas].[GetDietasNoPagadas2] AS [GetDietasNoPagadas2]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_categorias" Association="Self.fk_categorias">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="empleados" EntitySet="empleados" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

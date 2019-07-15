@@ -1,0 +1,8 @@
+C:\Users\cethy.hernandez\source\repos\Myproject\WinCrudSolution\WinCrud\bin\Debug\WinCrud.exe.config
+C:\Users\cethy.hernandez\source\repos\Myproject\WinCrudSolution\WinCrud\bin\Debug\WinCrud.exe
+C:\Users\cethy.hernandez\source\repos\Myproject\WinCrudSolution\WinCrud\bin\Debug\WinCrud.pdb
+C:\Users\cethy.hernandez\source\repos\Myproject\WinCrudSolution\WinCrud\obj\Debug\WinCrud.Properties.Resources.resources
+C:\Users\cethy.hernandez\source\repos\Myproject\WinCrudSolution\WinCrud\obj\Debug\WinCrud.csproj.GenerateResource.cache
+C:\Users\cethy.hernandez\source\repos\Myproject\WinCrudSolution\WinCrud\obj\Debug\WinCrud.csproj.CoreCompileInputs.cache
+C:\Users\cethy.hernandez\source\repos\Myproject\WinCrudSolution\WinCrud\obj\Debug\WinCrud.exe
+C:\Users\cethy.hernandez\source\repos\Myproject\WinCrudSolution\WinCrud\obj\Debug\WinCrud.pdb

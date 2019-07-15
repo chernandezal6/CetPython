@@ -1,0 +1,8 @@
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\Entidad\bin\Debug\Entidad.exe.config
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\Entidad\bin\Debug\Entidad.exe
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\Entidad\bin\Debug\Entidad.pdb
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\Entidad\obj\Debug\Entidad.Properties.Resources.resources
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\Entidad\obj\Debug\Entidad.csproj.GenerateResource.cache
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\Entidad\obj\Debug\Entidad.exe
+C:\Users\cethy.hernandez\source\repos\CrudWindForm\Entidad\obj\Debug\Entidad.pdb

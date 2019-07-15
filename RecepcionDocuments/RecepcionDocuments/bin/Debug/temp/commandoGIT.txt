@@ -1,0 +1,16 @@
+## git common 
+## (vcs) version control system
+git init
+git add <file>
+git status
+git commit
+git push
+git pull
+git clone
+git checkout -- : para revertir los cambios de los archivos
+git diff : muestra la diferencia entre cambios realizado a los archivos.
+git log : muestra las distintas versiones o cambios de los archivos.
+.gitignore :es un archivo que creamos para agruegarle los archivos o carpetas que no queremos en nuestro proyecto.
+git brach: nos muestra los branch que tenemos disponibles.
+ 
+comando pwd: para ver en que ruta de neustro sistemas esta posicionado el terminal

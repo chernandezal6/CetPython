@@ -1,0 +1,41 @@
+﻿body {
+}
+
+.Table{
+    width:800px;
+}
+.Encabezado{
+    height:50px;
+    text-align:center;
+    background-color:#0094ff;
+    color:#ffffff;
+    font-size:large;
+}
+.Menu{
+    height:300px;
+    width:200px;
+    background-color:aqua;
+    font-size:medium;
+    text-align:center;
+    color:#ffffff;
+}
+.Submenu{
+
+}
+.Menu li a:hover Submenu{
+
+}
+.Contenido{
+    width:600px;
+    text-align:center;
+    color:#034c81;
+    font-size:medium;
+}
+.Pie{
+    height:40px;
+    text-align:center;
+    margin-top:0px;
+    background-color:blue;
+    color:#ffffff;
+    font-size:large;
+}

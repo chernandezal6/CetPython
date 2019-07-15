@@ -1,0 +1,4 @@
+C:\Users\cethy.hernandez\source\repos\Myproject\Mycrud\obj\Debug\Mycrud.Form1.resources
+C:\Users\cethy.hernandez\source\repos\Myproject\Mycrud\obj\Debug\Mycrud.Properties.Resources.resources
+C:\Users\cethy.hernandez\source\repos\Myproject\Mycrud\obj\Debug\Mycrud.csproj.GenerateResource.cache
+C:\Users\cethy.hernandez\source\repos\Myproject\Mycrud\obj\Debug\Mycrud.csproj.CoreCompileInputs.cache

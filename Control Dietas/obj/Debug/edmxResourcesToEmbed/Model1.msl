@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DireccionCalidadModelStoreContainer" CdmEntityContainer="DireccionCalidadEntities">
+    <EntitySetMapping Name="status_dietas">
+      <EntityTypeMapping TypeName="DireccionCalidadModel.status_dietas">
+        <MappingFragment StoreEntitySet="status_dietas">
+          <ScalarProperty Name="Pagada" ColumnName="Pagada" />
+          <ScalarProperty Name="Fecha_Salida_Nomina" ColumnName="Fecha_Salida_Nomina" />
+          <ScalarProperty Name="Nomina" ColumnName="Nomina" />
+          <ScalarProperty Name="Fecha_Salida_Financiero" ColumnName="Fecha_Salida Financiero" />
+          <ScalarProperty Name="Financiero" ColumnName="Financiero" />
+          <ScalarProperty Name="Fecha_Salida_Auditoria" ColumnName="Fecha_Salida_Auditoria" />
+          <ScalarProperty Name="Auditoria" ColumnName="Auditoria" />
+          <ScalarProperty Name="Fecha_Salida_RRHH" ColumnName="Fecha_Salida_RRHH" />
+          <ScalarProperty Name="RRHH" ColumnName="RRHH" />
+          <ScalarProperty Name="Fecha_Salida_Transporte" ColumnName="Fecha_Salida_Transporte" />
+          <ScalarProperty Name="Transporte" ColumnName="Transporte" />
+          <ScalarProperty Name="Fecha_Salida_DCA" ColumnName="Fecha_Salida_DCA" />
+          <ScalarProperty Name="DCA" ColumnName="DCA" />
+          <ScalarProperty Name="ID_dieta" ColumnName="ID_dieta" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dietas">
+      <EntityTypeMapping TypeName="DireccionCalidadModel.dietas">
+        <MappingFragment StoreEntitySet="dietas">
+          <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="CartaRuta" ColumnName="CartaRuta" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Alojamiento" ColumnName="Alojamiento" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="Almuerzo" ColumnName="Almuerzo" />
+          <ScalarProperty Name="Desayuno" ColumnName="Desayuno" />
+          <ScalarProperty Name="HoraFecha_Retorno" ColumnName="HoraFecha_Retorno" />
+          <ScalarProperty Name="HoraFecha_Partida" ColumnName="HoraFecha_Partida" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empleados">
+      <EntityTypeMapping TypeName="DireccionCalidadModel.empleados">
+        <MappingFragment StoreEntitySet="empleados">
+          <ScalarProperty Name="SUELDO_MENSUAL" ColumnName="SUELDO_MENSUAL" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="CELULAR_OTRO" ColumnName="CELULAR_OTRO" />
+          <ScalarProperty Name="CELULAR" ColumnName="CELULAR" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="OTRA_DIRECCION" ColumnName="OTRA_DIRECCION" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+          <ScalarProperty Name="CATEGORIAID" ColumnName="CATEGORIAID" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="CARGO" ColumnName="CARGO" />
+          <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+          <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="asignacion_max">
+      <EntityTypeMapping TypeName="DireccionCalidadModel.asignacion_max">
+        <MappingFragment StoreEntitySet="asignacion_max">
+          <ScalarProperty Name="ALOJAMIENTO" ColumnName="ALOJAMIENTO" />
+          <ScalarProperty Name="CENA" ColumnName="CENA" />
+          <ScalarProperty Name="ALMUERZO" ColumnName="ALMUERZO" />
+          <ScalarProperty Name="DESAYUNO" ColumnName="DESAYUNO" />
+          <ScalarProperty Name="ASIGACION_MAX" ColumnName="ASIGACION_MAX" />
+          <ScalarProperty Name="EMP_COD" ColumnName="EMP_COD" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categoria">
+      <EntityTypeMapping TypeName="DireccionCalidadModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="Alojamiento" ColumnName="Alojamiento" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="Almuerzo" ColumnName="Almuerzo" />
+          <ScalarProperty Name="Desayuno" ColumnName="Desayuno" />
+          <ScalarProperty Name="AsignacionMax" ColumnName="AsignacionMax" />
+          <ScalarProperty Name="Categoria1" ColumnName="Categoria" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GetDietasNoPagadas2">
+      <EntityTypeMapping TypeName="DireccionCalidadModel.GetDietasNoPagadas2">
+        <MappingFragment StoreEntitySet="GetDietasNoPagadas2">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Pagada" ColumnName="Pagada" />
+          <ScalarProperty Name="Nomina" ColumnName="Nomina" />
+          <ScalarProperty Name="Financiero" ColumnName="Financiero" />
+          <ScalarProperty Name="Auditoria" ColumnName="Auditoria" />
+          <ScalarProperty Name="RRHH" ColumnName="RRHH" />
+          <ScalarProperty Name="Transporte" ColumnName="Transporte" />
+          <ScalarProperty Name="DCA" ColumnName="DCA" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="CartaRuta" ColumnName="CartaRuta" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="get_dieta" FunctionName="DireccionCalidadModel.Store.get_dieta">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DireccionCalidadModel.get_dieta_Result2">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HoraFecha_Partida" ColumnName="HoraFecha_Partida" />
+          <ScalarProperty Name="Desayuno" ColumnName="Desayuno" />
+          <ScalarProperty Name="HoraFecha_Retorno" ColumnName="HoraFecha_Retorno" />
+          <ScalarProperty Name="Almuerzo" ColumnName="Almuerzo" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="Alojamiento" ColumnName="Alojamiento" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="CartaRuta" ColumnName="CartaRuta" />
+          <ScalarProperty Name="Memo" ColumnName="Memo" />
+          <ScalarProperty Name="DCA" ColumnName="DCA" />
+          <ScalarProperty Name="Fecha_Salida_DCA" ColumnName="Fecha_Salida_DCA" />
+          <ScalarProperty Name="Fecha_Salida_Transporte" ColumnName="Fecha_Salida_Transporte" />
+          <ScalarProperty Name="Transporte" ColumnName="Transporte" />
+          <ScalarProperty Name="RRHH" ColumnName="RRHH" />
+          <ScalarProperty Name="Fecha_Salida_RRHH" ColumnName="Fecha_Salida_RRHH" />
+          <ScalarProperty Name="Auditoria" ColumnName="Auditoria" />
+          <ScalarProperty Name="Fecha_Salida_Auditoria" ColumnName="Fecha_Salida_Auditoria" />
+          <ScalarProperty Name="Financiero" ColumnName="Financiero" />
+          <ScalarProperty Name="Fecha_Salida_Financiero" ColumnName="Fecha_Salida Financiero" />
+          <ScalarProperty Name="Nomina" ColumnName="Nomina" />
+          <ScalarProperty Name="Fecha_Salida_Nomina" ColumnName="Fecha_Salida_Nomina" />
+          <ScalarProperty Name="Pagada" ColumnName="Pagada" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ASIGACION_MAX" ColumnName="ASIGACION_MAX" />
+          <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

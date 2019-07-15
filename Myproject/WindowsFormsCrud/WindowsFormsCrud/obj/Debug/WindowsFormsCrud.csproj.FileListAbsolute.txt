@@ -1,0 +1,6 @@
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\WindowsFormsCrud.Form1.resources
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.Formulario.frm_Datos.resources
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.Properties.Resources.resources
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\WindowsFormsCrud.csproj.GenerateResource.cache
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\WindowsFormsCrud.csproj.CoreCompileInputs.cache
+C:\Users\cethy.hernandez\source\repos\Myproject\WindowsFormsCrud\WindowsFormsCrud\obj\Debug\CrudWindowsForms.Form1.resources

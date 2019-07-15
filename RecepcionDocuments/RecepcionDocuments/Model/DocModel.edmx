@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DocRecepcionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="Roleid" Type="int" />
+          <Property Name="Fecha_ult_act" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RecepcionDoc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="No_memo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="RealNameMemo" Type="nvarchar" MaxLength="100" />
+          <Property Name="DocPath" Type="varbinary(max)" />
+          <Property Name="Recibido_por" Type="nvarchar" MaxLength="50" />
+          <Property Name="Entregado_por" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fecha_registro" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="DocRecepcionModelStoreContainer">
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecepcionDoc" EntityType="Self.RecepcionDoc" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DocRecepcionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DocRecepcionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Login" EntityType="DocRecepcionModel.Login" />
+          <EntitySet Name="RecepcionDoc" EntityType="DocRecepcionModel.RecepcionDoc" />
+        </EntityContainer>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Roleid" Type="Int32" />
+          <Property Name="Fecha_ult_act" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="RecepcionDoc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="No_memo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RealNameMemo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DocPath" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Recibido_por" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Entregado_por" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_registro" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DocRecepcionModelStoreContainer" CdmEntityContainer="DocRecepcionEntities">
+          <EntitySetMapping Name="Login">
+            <EntityTypeMapping TypeName="DocRecepcionModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Fecha_ult_act" ColumnName="Fecha_ult_act" />
+                <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecepcionDoc">
+            <EntityTypeMapping TypeName="DocRecepcionModel.RecepcionDoc">
+              <MappingFragment StoreEntitySet="RecepcionDoc">
+                <ScalarProperty Name="Fecha_registro" ColumnName="Fecha_registro" />
+                <ScalarProperty Name="Entregado_por" ColumnName="Entregado_por" />
+                <ScalarProperty Name="Recibido_por" ColumnName="Recibido_por" />
+                <ScalarProperty Name="DocPath" ColumnName="DocPath" />
+                <ScalarProperty Name="RealNameMemo" ColumnName="RealNameMemo" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="No_memo" ColumnName="No_memo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

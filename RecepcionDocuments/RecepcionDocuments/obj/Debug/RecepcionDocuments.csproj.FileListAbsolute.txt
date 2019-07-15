@@ -1,0 +1,16 @@
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\bin\Debug\RecepcionDocuments.exe.config
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\bin\Debug\RecepcionDocuments.exe
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\bin\Debug\RecepcionDocuments.pdb
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\bin\Debug\EntityFramework.dll
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\bin\Debug\EntityFramework.xml
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\obj\Debug\RecepcionDocuments.Form1.resources
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\obj\Debug\RecepcionDocuments.Properties.Resources.resources
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\obj\Debug\RecepcionDocuments.Security.Login.resources
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\obj\Debug\RecepcionDocuments.csproj.GenerateResource.cache
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\obj\Debug\RecepcionDocuments.csproj.CoreCompileInputs.cache
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\obj\Debug\RecepcionDocuments.csproj.CopyComplete
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\obj\Debug\RecepcionDocuments.exe
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\obj\Debug\RecepcionDocuments.pdb
+C:\Users\cethy.hernandez\source\repos\RecepcionDocuments\RecepcionDocuments\obj\Debug\RecepcionDocuments.csprojAssemblyReference.cache
